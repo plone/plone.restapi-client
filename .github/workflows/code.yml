@@ -1,0 +1,31 @@
+name: Code analysis checks
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - name: Main checkout
+        uses: actions/checkout@v3
+
+      # node setup
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
+      # node install
+      - name: Install dependencies
+        run: yarn
+
+      # ESlint
+      - name: ESlint
+        run: yarn lint
+
+      # Prettier
+      - name: Prettier
+        run: yarn prettier
