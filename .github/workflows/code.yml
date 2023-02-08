@@ -1,7 +1,7 @@
 name: Code analysis checks
 on: [push]
 jobs:
-  build:
+  codeanalysis:
     runs-on: ubuntu-latest
     strategy:
       matrix:
