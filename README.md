@@ -1,4 +1,4 @@
-# @plone/client (core) add-on
+# @plone/client
 
 This package is an agnostic client written in TypeScript and built on the top of [@tanstack/query](https://tanstack.com/query) to query Plone 6 backend.
 
