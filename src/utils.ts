@@ -28,3 +28,23 @@ export const addHeadersFactory = (orig) => {
     });
   };
 };
+
+export const expandersToQueryString = (expanders) => {
+  // expanders = [
+  //   {
+  //     name: 'navigation',
+  //     querystring: {
+  //       depth: 3
+  //     }
+  //   }
+  // ]
+  let exp = [],
+    expQS = {};
+  if (expanders) {
+    expanders.forEach((element) => {
+      exp.push(element.name);
+      expQS = { ...expQS, ...element.querystring };
+    });
+  }
+  return [exp, expQS];
+};
