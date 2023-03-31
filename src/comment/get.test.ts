@@ -19,12 +19,12 @@ beforeAll(async () => {
       title: 'My Page',
     };
 
-    // const { result } = renderHook(
-    //   () => useQuery(createContentQuery({ path, data })),
-    //   {
-    //     wrapper: createWrapper(),
-    //   },
-    // );
+    const { result } = renderHook(
+      () => useQuery(createContentQuery({ path, data })),
+      {
+        wrapper: createWrapper(),
+      },
+    );
   });
   
   
