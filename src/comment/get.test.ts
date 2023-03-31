@@ -16,7 +16,7 @@ beforeAll(async () => {
     const path = '/';
     const data = {
       '@type': 'Document',
-      title: 'My Page',
+      title: 'Not My Page',
     };
 
     const { result } = renderHook(
@@ -38,14 +38,14 @@ beforeAll(async () => {
 
   describe('[GET] Comment', () => {
     test('Hook - Successful', async () => {
-      const path = '/front-page/@comments/';
+      const path = '/not-my-page/@comments/';
       const { result } = renderHook(() => useQuery(getCommentsQuery({ path })), {
         wrapper: createWrapper(),
       });
   
       await waitFor(() => expect(result.current.isSuccess).toBe(true));
   
-      expect(result.current.data?.["@id"]).toBe('http://localhost:55001/plone/front-page/@comments/');
+      expect(result.current.data?.["@id"]).toBe('http://localhost:55001/plone/not-my-page/@comments/');
     });
   
     test('Hook - Failure', async () => {
