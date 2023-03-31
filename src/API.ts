@@ -27,7 +27,7 @@ function getBackendURL(path: string) {
 
   const adjustedPath = path[0] !== '/' ? `/${path}` : path;
 
-  return `${apiPath}${APISUFIX}${adjustedPath}`;
+  return `${apiPath}${adjustedPath}`;
 }
 
 export async function handleRequest(
