@@ -2,6 +2,7 @@ import superagent from 'superagent';
 import Cookies from 'universal-cookie';
 import { addHeadersFactory } from './utils';
 import type request from 'superagent';
+import ploneClient from './client';
 
 const methods = ['get', 'post', 'put', 'patch', 'delete'];
 
@@ -14,12 +15,7 @@ export type ApiRequestParams = {
 };
 
 function getBackendURL(path: string) {
-  const apiPath =
-    // process.env.API_PATH ||
-    // process.env.RAZZLE_API_PATH ||
-    // (window && window.env.API_PATH) ||
-    // (window && window.env.RAZZLE_API_PATH) ||
-    'http://localhost:55001/plone' || 'http://localhost:8080/Plone';
+  const apiPath = ploneClient.config.apiURL;
 
   const APISUFIX = '/++api++';
 

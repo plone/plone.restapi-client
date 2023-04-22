@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { renderHook, waitFor } from '@testing-library/react';
-import { createWrapper, testServer } from '../testUtils';
+import { createWrapper } from '../testUtils';
 import { getContent } from './get';
 import { createContent } from './add';
 import { deleteContentQuery } from './delete';

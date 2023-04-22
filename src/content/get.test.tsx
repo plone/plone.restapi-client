@@ -1,7 +1,13 @@
 import { renderHook, waitFor } from '@testing-library/react';
-import { createWrapper, testServer } from '../testUtils';
+import { createWrapper } from '../testUtils';
 import { getContentQuery } from './get';
 import { useQuery } from '@tanstack/react-query';
+import { beforeAll } from 'vitest';
+import ploneClient from '../client';
+
+beforeAll(() => {
+  ploneClient.config.apiURL = 'http://localhost:55001/plone';
+});
 
 describe('[GET] Content', () => {
   test('Hook - Successful', async () => {
