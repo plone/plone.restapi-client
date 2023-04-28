@@ -1048,8 +1048,8 @@ __metadata:
     eslint-plugin-react: 7.32.2
     jsdom: ^21.1.1
     prettier: 2.8.7
-    react: 18.2.0
-    react-dom: 18.2.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
     release-it: 15.10.1
     superagent: 8.0.9
     typescript: 5.0.4
@@ -1058,6 +1058,12 @@ __metadata:
     vite-plugin-dts: ^2.2.0
     vitest: 0.30.0
     wait-on: ^7.0.1
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -6566,7 +6572,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:18.2.0":
+"react-dom@npm:^18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:
@@ -6606,7 +6612,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:18.2.0":
+"react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:
