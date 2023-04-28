@@ -1,18 +1,19 @@
-import { renderHook, waitFor } from '@testing-library/react';
+import { act, renderHook, waitFor } from '@testing-library/react';
 import { createWrapper } from '../testUtils';
-import { createContentQuery } from './add';
-import { login } from '../login/post';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import Cookies from 'universal-cookie';
 import { setup, teardown } from '../resetFixture';
 import { beforeAll, beforeEach } from 'vitest';
 import { expect, test } from 'vitest';
+import PloneClient from '../client';
+import { Content } from '../interfaces/content';
 
-beforeAll(async () => {
-  const cookies = new Cookies();
-  const { token } = await login('admin', 'secret');
-  cookies.set('auth_token', token);
+const cli = PloneClient.initialize({
+  apiPath: 'http://localhost:55001/plone',
 });
+
+const { login, createContentQuery } = cli;
+await login({ username: 'admin', password: 'secret' });
 
 beforeEach(async () => {
   await setup();
@@ -25,17 +26,21 @@ afterEach(async () => {
 describe('[POST] Content', () => {
   test('Hook - Successful', async () => {
     const path = '/';
-    const data = {
+    const data: Content = {
       '@type': 'Document',
       title: 'My Page',
     };
 
     const { result } = renderHook(
-      () => useQuery(createContentQuery({ path, data })),
+      () => useMutation(createContentQuery({ path })),
       {
         wrapper: createWrapper(),
       },
     );
+
+    act(() => {
+      result.current.mutate({ ...data });
+    });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
@@ -48,17 +53,21 @@ describe('[POST] Content', () => {
 
   test('Hook - Successful - setup/tearingDown setup', async () => {
     const path = '/';
-    const data = {
+    const data: Content = {
       '@type': 'Document',
       title: 'My Page',
     };
 
     const { result } = renderHook(
-      () => useQuery(createContentQuery({ path, data })),
+      () => useMutation(createContentQuery({ path })),
       {
         wrapper: createWrapper(),
       },
     );
+
+    act(() => {
+      result.current.mutate({ ...data });
+    });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
@@ -71,16 +80,20 @@ describe('[POST] Content', () => {
 
   test('Hook - Failure', async () => {
     const path = '/blah';
-    const data = {
+    const data: Content = {
       '@type': 'Document',
       title: 'My Page',
     };
     const { result } = renderHook(
-      () => useQuery(createContentQuery({ path, data })),
+      () => useMutation(createContentQuery({ path })),
       {
         wrapper: createWrapper(),
       },
     );
+
+    act(() => {
+      result.current.mutate({ ...data });
+    });
 
     await waitFor(() => expect(result.current.isError).toBe(true));
 
