@@ -1,6 +1,7 @@
 import { getContentQuery as _getContentQuery } from './content/get';
 import { loginQuery as _loginQuery, login as _login } from './login/post';
 import { createContentQuery as _createContentQuery } from './content/add';
+import { updateContentQuery as _updateContentQuery } from './content/update';
 import type { ContentArgs } from './content/get';
 import type { MutateContentArgs } from './content/add';
 import type { LoginArgs } from './login/post';
@@ -42,5 +43,11 @@ export default class PloneClient {
     mutateContentArgs: Omit<MutateContentArgs, 'config'>,
   ) => {
     return _createContentQuery({ ...mutateContentArgs, config: this.config });
+  };
+
+  updateContentQuery = (
+    mutateContentArgs: Omit<MutateContentArgs, 'config'>,
+  ) => {
+    return _updateContentQuery({ ...mutateContentArgs, config: this.config });
   };
 }

@@ -1,9 +1,8 @@
 import { act, renderHook, waitFor } from '@testing-library/react';
 import { createWrapper } from '../testUtils';
 import { useMutation } from '@tanstack/react-query';
-import Cookies from 'universal-cookie';
 import { setup, teardown } from '../resetFixture';
-import { beforeAll, beforeEach } from 'vitest';
+import { beforeEach } from 'vitest';
 import { expect, test } from 'vitest';
 import PloneClient from '../client';
 import { Content } from '../interfaces/content';
