@@ -1,21 +1,19 @@
 import * as React from 'react';
-import { renderHook, waitFor } from '@testing-library/react';
+import { act, renderHook, waitFor } from '@testing-library/react';
 import { createWrapper } from '../testUtils';
-import { getContent } from './get';
 import { createContent } from './add';
-import { deleteContentQuery } from './delete';
-import { login } from '../login/post';
-import { useQuery } from '@tanstack/react-query';
-import Cookies from 'universal-cookie';
+import { useMutation } from '@tanstack/react-query';
 import { setup, teardown } from '../resetFixture';
-import { beforeAll, beforeEach } from 'vitest';
+import { beforeEach } from 'vitest';
 import { expect, test } from 'vitest';
+import PloneClient from '../client';
 
-beforeAll(async () => {
-  const cookies = new Cookies();
-  const { token } = await login('admin', 'secret');
-  cookies.set('auth_token', token);
+const cli = PloneClient.initialize({
+  apiPath: 'http://localhost:55001/plone',
 });
+
+const { login, deleteContentQuery } = cli;
+await login({ username: 'admin', password: 'secret' });
 
 beforeEach(async () => {
   await setup();
@@ -32,16 +30,17 @@ describe('[DELETE] Content', () => {
       '@type': 'Document',
       title: 'My Page',
     };
-    await createContent({ path, data });
+    await createContent({ path, data, config: cli.config });
 
     const pagePath = '/my-page';
 
-    const { result } = renderHook(
-      () => useQuery(deleteContentQuery({ path: pagePath })),
-      {
-        wrapper: createWrapper(),
-      },
-    );
+    const { result } = renderHook(() => useMutation(deleteContentQuery()), {
+      wrapper: createWrapper(),
+    });
+
+    act(() => {
+      result.current.mutate({ path: pagePath });
+    });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
   });
@@ -49,12 +48,13 @@ describe('[DELETE] Content', () => {
   test('Hook - Failure', async () => {
     const path = '/blah';
 
-    const { result } = renderHook(
-      () => useQuery(deleteContentQuery({ path })),
-      {
-        wrapper: createWrapper(),
-      },
-    );
+    const { result } = renderHook(() => useMutation(deleteContentQuery()), {
+      wrapper: createWrapper(),
+    });
+
+    act(() => {
+      result.current.mutate({ path });
+    });
 
     await waitFor(() => expect(result.current.isError).toBe(true));
   });
