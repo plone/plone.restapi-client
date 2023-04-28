@@ -38,15 +38,12 @@ describe('[PATCH] Content', () => {
     };
     const pagePath = '/my-page';
 
-    const { result } = renderHook(
-      () => useMutation(updateContentQuery({ path: pagePath })),
-      {
-        wrapper: createWrapper(),
-      },
-    );
+    const { result } = renderHook(() => useMutation(updateContentQuery()), {
+      wrapper: createWrapper(),
+    });
 
     act(() => {
-      result.current.mutate({ ...dataPatch });
+      result.current.mutate({ path: pagePath, data: dataPatch });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
@@ -64,15 +61,12 @@ describe('[PATCH] Content', () => {
       '@type': 'Document',
       title: 'My Page',
     };
-    const { result } = renderHook(
-      () => useMutation(updateContentQuery({ path })),
-      {
-        wrapper: createWrapper(),
-      },
-    );
+    const { result } = renderHook(() => useMutation(updateContentQuery()), {
+      wrapper: createWrapper(),
+    });
 
     act(() => {
-      result.current.mutate({ ...data });
+      result.current.mutate({ path, data });
     });
 
     await waitFor(() => expect(result.current.isError).toBe(true));

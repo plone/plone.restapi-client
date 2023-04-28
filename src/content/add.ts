@@ -4,14 +4,14 @@ import { PloneClientConfig } from '../client';
 
 export type MutateContentArgs = {
   path: string;
-  config: PloneClientConfig;
+  data: Content;
 };
 
 export const createContent = async ({
   path,
   data,
   config,
-}: MutateContentArgs & { data: Content }): Promise<Content> => {
+}: MutateContentArgs & { config: PloneClientConfig }): Promise<Content> => {
   const options: ApiRequestParams = {
     data,
     config,
@@ -20,9 +20,11 @@ export const createContent = async ({
 };
 
 export const createContentQuery = ({
-  path,
   config,
-}: Omit<MutateContentArgs, 'data'>) => ({
-  mutationKey: [path, 'post', 'content'],
-  mutationFn: async (data: Content) => createContent({ path, data, config }),
+}: {
+  config: PloneClientConfig;
+}) => ({
+  mutationKey: ['post', 'content'],
+  mutationFn: async ({ path, data }: MutateContentArgs) =>
+    createContent({ path, data, config }),
 });

@@ -30,15 +30,12 @@ describe('[POST] Content', () => {
       title: 'My Page',
     };
 
-    const { result } = renderHook(
-      () => useMutation(createContentQuery({ path })),
-      {
-        wrapper: createWrapper(),
-      },
-    );
+    const { result } = renderHook(() => useMutation(createContentQuery()), {
+      wrapper: createWrapper(),
+    });
 
     act(() => {
-      result.current.mutate({ ...data });
+      result.current.mutate({ path, data });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
@@ -57,15 +54,12 @@ describe('[POST] Content', () => {
       title: 'My Page',
     };
 
-    const { result } = renderHook(
-      () => useMutation(createContentQuery({ path })),
-      {
-        wrapper: createWrapper(),
-      },
-    );
+    const { result } = renderHook(() => useMutation(createContentQuery()), {
+      wrapper: createWrapper(),
+    });
 
     act(() => {
-      result.current.mutate({ ...data });
+      result.current.mutate({ path, data });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
@@ -83,15 +77,12 @@ describe('[POST] Content', () => {
       '@type': 'Document',
       title: 'My Page',
     };
-    const { result } = renderHook(
-      () => useMutation(createContentQuery({ path })),
-      {
-        wrapper: createWrapper(),
-      },
-    );
+    const { result } = renderHook(() => useMutation(createContentQuery()), {
+      wrapper: createWrapper(),
+    });
 
     act(() => {
-      result.current.mutate({ ...data });
+      result.current.mutate({ path, data });
     });
 
     await waitFor(() => expect(result.current.isError).toBe(true));

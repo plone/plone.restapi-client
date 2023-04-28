@@ -40,21 +40,15 @@ export default class PloneClient {
     return _getContentQuery({ ...contentArgs, config: this.config });
   };
 
-  createContentQuery = (
-    mutateContentArgs: Omit<MutateContentArgs, 'config'>,
-  ) => {
-    return _createContentQuery({ ...mutateContentArgs, config: this.config });
+  createContentQuery = () => {
+    return _createContentQuery({ config: this.config });
   };
 
-  updateContentQuery = (
-    mutateContentArgs: Omit<MutateContentArgs, 'config'>,
-  ) => {
-    return _updateContentQuery({ ...mutateContentArgs, config: this.config });
+  updateContentQuery = () => {
+    return _updateContentQuery({ config: this.config });
   };
 
-  deleteContentQuery = (
-    mutateContentArgs: Omit<MutateContentArgs, 'config'>,
-  ) => {
-    return _deleteContentQuery({ ...mutateContentArgs, config: this.config });
+  deleteContentQuery = () => {
+    return _deleteContentQuery({ config: this.config });
   };
 }

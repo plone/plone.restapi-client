@@ -1,18 +1,28 @@
 import { Content } from '../interfaces/content';
 import { handleRequest, ApiRequestParams } from '../API';
-import type { MutateContentArgs } from './add';
+import { PloneClientConfig } from '../client';
+
+export type MutateNoDataContentArgs = {
+  path: string;
+};
 
 export const deleteContent = async ({
   path,
   config,
-}: MutateContentArgs): Promise<Content> => {
+}: MutateNoDataContentArgs & {
+  config: PloneClientConfig;
+}): Promise<Content> => {
   const options: ApiRequestParams = {
     config,
   };
   return handleRequest('delete', path, options);
 };
 
-export const deleteContentQuery = ({ config }: MutateContentArgs) => ({
+export const deleteContentQuery = ({
+  config,
+}: {
+  config: PloneClientConfig;
+}) => ({
   mutationKey: ['delete', 'content'],
   mutationFn: async ({ path }: { path: string }) =>
     deleteContent({ path, config }),
