@@ -2,10 +2,12 @@ import superagent from 'superagent';
 import Cookies from 'universal-cookie';
 import { addHeadersFactory } from './utils';
 import type request from 'superagent';
+import type { PloneClientConfig } from './client';
 
 const methods = ['get', 'post', 'put', 'patch', 'delete'];
 
 export type ApiRequestParams = {
+  config: PloneClientConfig;
   params?: any;
   data?: any;
   type?: any;
@@ -13,14 +15,7 @@ export type ApiRequestParams = {
   checkUrl?: boolean;
 };
 
-function getBackendURL(path: string) {
-  const apiPath =
-    // process.env.API_PATH ||
-    // process.env.RAZZLE_API_PATH ||
-    // (window && window.env.API_PATH) ||
-    // (window && window.env.RAZZLE_API_PATH) ||
-    'http://localhost:55001/plone' || 'http://localhost:8080/Plone';
-
+function getBackendURL(apiPath: string, path: string) {
   const APISUFIX = '/++api++';
 
   if (path.startsWith('http://') || path.startsWith('https://')) return path;
@@ -33,7 +28,7 @@ function getBackendURL(path: string) {
 export async function handleRequest(
   method: string,
   path: string,
-  options?: ApiRequestParams,
+  options: ApiRequestParams,
 ): Promise<any> {
   const fetcher = new API();
   const response = await fetcher[method](path, options);
@@ -47,7 +42,7 @@ export async function handleRequest(
 export default class API {
   [m: string]: (
     path: string,
-    options?: ApiRequestParams,
+    options: ApiRequestParams,
   ) => Promise<request.Response>;
 
   constructor(req?: Request) {
@@ -57,33 +52,34 @@ export default class API {
       this[method] = async (
         path,
         {
+          config,
           params,
           data,
           type,
           headers = {},
           checkUrl = false,
-        }: ApiRequestParams = {},
+        }: ApiRequestParams,
       ) => {
         let request: request.SuperAgentRequest;
 
         // @ts-ignore
-        request = superagent[method](getBackendURL(path));
+        request = superagent[method](getBackendURL(config.apiPath, path));
 
         if (params) {
           request.query(params);
         }
+        // let authToken;
+        // if (req) {
+        //   // @ts-ignore
+        //   // We are in SSR
+        //   authToken = req.universalCookies.get('auth_token');
+        //   request.use(addHeadersFactory(req));
+        // } else {
+        //   authToken = cookies.get('auth_token');
+        // }
 
-        let authToken;
-        if (req) {
-          // @ts-ignore
-          // We are in SSR
-          authToken = req.universalCookies.get('auth_token');
-          request.use(addHeadersFactory(req));
-        } else {
-          authToken = cookies.get('auth_token');
-        }
-        if (authToken) {
-          request.set('Authorization', `Bearer ${authToken}`);
+        if (config.token) {
+          request.set('Authorization', `Bearer ${config.token}`);
         }
 
         request.set('Accept', 'application/json');

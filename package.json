@@ -47,9 +47,10 @@
   "scripts": {
     "build": "vite build",
     "test": "vitest --no-threads",
+    "check-ts": "tsc --project tsconfig.json",
     "coverage": "vitest run --coverage --no-threads",
-    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet",
-    "lint:fix": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet",
+    "lint:fix": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
     "prettier": "prettier --check 'src/**/*.{js,jsx,ts,tsx}'",
     "prettier:fix": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
     "dry-release": "release-it --dry-run",
@@ -76,6 +77,8 @@
     "eslint-plugin-react": "7.32.2",
     "jsdom": "^21.1.1",
     "prettier": "2.8.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "release-it": "15.10.1",
     "typescript": "5.0.4",
     "vite": "4.2.1",
@@ -85,10 +88,17 @@
   },
   "dependencies": {
     "@tanstack/react-query": "4.29.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
     "superagent": "8.0.9",
     "universal-cookie": "^4.0.4"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react-dom": {
+      "optional": true
+    }
   },
   "packageManager": "yarn@3.2.3"
 }

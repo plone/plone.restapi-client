@@ -2,8 +2,6 @@ import { render } from '@testing-library/react';
 import * as React from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-export const testServer = 'http://localhost:55001/plone';
-
 const createTestQueryClient = () =>
   new QueryClient({
     defaultOptions: {

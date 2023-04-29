@@ -1,11 +1,13 @@
 import { Content } from '../interfaces/content';
 import { handleRequest, ApiRequestParams } from '../API';
+import { PloneClientConfig } from '../client';
 
-type ContentArgs = {
+export type ContentArgs = {
   path: string;
   version?: string;
   page?: number;
   fullObjects?: boolean;
+  config: PloneClientConfig;
 };
 
 export const getContent = async ({
@@ -13,8 +15,10 @@ export const getContent = async ({
   version,
   page,
   fullObjects,
+  config,
 }: ContentArgs): Promise<Content> => {
   const options: ApiRequestParams = {
+    config,
     params: {
       ...(version && { version }),
       ...(fullObjects && { fullobjects: fullObjects }),
@@ -31,7 +35,8 @@ export const getContentQuery = ({
   version,
   page,
   fullObjects,
+  config,
 }: ContentArgs) => ({
   queryKey: [path, 'get', 'content'],
-  queryFn: async () => getContent({ path, version, page, fullObjects }),
+  queryFn: async () => getContent({ path, version, page, fullObjects, config }),
 });

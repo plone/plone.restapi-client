@@ -1,7 +1,8 @@
 import { Content } from '../interfaces/content';
 import { handleRequest, ApiRequestParams } from '../API';
+import { PloneClientConfig } from '../client';
 
-type ContentArgs = {
+export type MutateContentArgs = {
   path: string;
   data: Content;
 };
@@ -9,14 +10,21 @@ type ContentArgs = {
 export const createContent = async ({
   path,
   data,
-}: ContentArgs): Promise<Content> => {
+  config,
+}: MutateContentArgs & { config: PloneClientConfig }): Promise<Content> => {
   const options: ApiRequestParams = {
     data,
+    config,
   };
   return handleRequest('post', path, options);
 };
 
-export const createContentQuery = ({ path, data }: ContentArgs) => ({
-  queryKey: [path, 'post', 'content'],
-  queryFn: async () => createContent({ path, data }),
+export const createContentQuery = ({
+  config,
+}: {
+  config: PloneClientConfig;
+}) => ({
+  mutationKey: ['post', 'content'],
+  mutationFn: async ({ path, data }: MutateContentArgs) =>
+    createContent({ path, data, config }),
 });
