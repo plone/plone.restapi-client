@@ -1,0 +1,15 @@
+-c constraints.txt
+
+Sphinx
+jsx-lexer
+lesscpy
+linkify-it-py
+myst-parser
+sphinx-autobuild
+sphinx-book-theme
+sphinx-copybutton
+sphinx-design
+sphinx-sitemap
+sphinx-togglebutton
+sphinxcontrib-spelling
+sphinxext-opengraph
