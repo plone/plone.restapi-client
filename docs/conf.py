@@ -62,7 +62,6 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_design",
     "sphinx_sitemap",
-    "sphinxcontrib.spelling",
     "sphinxext.opengraph",
 ]
 
@@ -90,50 +89,50 @@ pygments_style = "sphinx"
 # Options for the linkcheck builder
 # Ignore localhost
 linkcheck_ignore = [
-    r"http://localhost",
-    r"http://127.0.0.1",
-    r"http://example.com",
-    r"https://github.com/plone/training/issues/new/choose",  # requires auth
-    r"https://www.linode.com",  # linkcheck makes a HEAD request, which is 403
-    r"https://www.virtualbox.org",  # times out often
-    r"https://docs.github.com/en/get-started/.*",  # GitHub docs require auth
-    r"https://github.com/plone/mockup/blob/master/mockup/.jshintrc",  # TODO: remove when javascript/development-process.md is updated. See https://github.com/plone/training/issues/611
-    r"https://www.chef.io/products/chef-infra/",  # Site works but creates SSLError
-    r"https://plonedemo.kitconcept.com",  # Did Not Connect: Potential Security Issue
-    r"https://www.packtpub.com/.*",  # test say 500 Server Error but manually they work
-    r"https://www.dipf.de/.*",  # a timeout from time to time
-    r"https?://plone-conference.localhost.*",
-    # ### Start of list of anchored links
-    # Prior to each PloneConf, uncomment these lines to verify that the links work,
-    # although the anchor cannot be found.
-    # GitHub rewrites anchors with JavaScript.
-    # See https://github.com/plone/training/issues/598#issuecomment-1105168109
-    "https://github.com/collective/awesome-volto#addons",
-    "https://github.com/collective/collective.easyform#collectivez3cformnorobots-support",
-    "https://github.com/collective/collective.easyform#recaptcha-support",
-    "https://github.com/collective/collective.recipe.solrinstance/blob/master/README.rst#multi-core-solr",
-    "https://github.com/nvm-sh/nvm#install-script",
-    "https://github.com/plone/plone.app.contentlisting/#methods-of-contentlistingobjects",
-    "https://github.com/plone/plone.app.contenttypes#changing-the-base-class-for-existing-objects",
-    "https://github.com/plone/plone.recipe.zope2instance#advanced-logging-options-for-wsgi",
-    "https://github.com/repoze/repoze.catalog/blob/master/docs/usage.rst#query-objects",
-    "https://plone.github.io/mockup/dev/#pattern/autotoc",
-    "https://plone.github.io/mockup/dev/#pattern/modal",
-    "https://plone.github.io/mockup/dev/#pattern/moment",
-    "https://github.com/collective/collective.exportimport#faq-tips-and-tricks",
-    "https://github.com/plone/plone.app.contenttypes/tree/2.2.x#migration",
-    "https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Keywords",
-    "https://solr.apache.org/guide/8_2/updatehandlers-in-solrconfig.html#UpdateHandlersinSolrConfig-commitWithin",
-    "https://www.npmjs.com/package/axios#example",
-    "https://github.com/plone/plone.restapi/blob/afde2a940d2518e061eb3fe30093093af55e3a50/src/plone/restapi/services/content/configure.zcml#L15-L20",
-    "https://github.com/plone/plone.rest#cors",
-    "https://github.com/plone/plone.docker#for-basic-usage",
-    "https://github.com/nodejs/release#release-schedule",
+    # r"http://localhost",
+    # r"http://127.0.0.1",
+    # r"http://example.com",
+    # r"https://github.com/plone/training/issues/new/choose",  # requires auth
+    # r"https://www.linode.com",  # linkcheck makes a HEAD request, which is 403
+    # r"https://www.virtualbox.org",  # times out often
+    # r"https://docs.github.com/en/get-started/.*",  # GitHub docs require auth
+    # r"https://github.com/plone/mockup/blob/master/mockup/.jshintrc",  # TODO: remove when javascript/development-process.md is updated. See https://github.com/plone/training/issues/611
+    # r"https://www.chef.io/products/chef-infra/",  # Site works but creates SSLError
+    # r"https://plonedemo.kitconcept.com",  # Did Not Connect: Potential Security Issue
+    # r"https://www.packtpub.com/.*",  # test say 500 Server Error but manually they work
+    # r"https://www.dipf.de/.*",  # a timeout from time to time
+    # r"https?://plone-conference.localhost.*",
+    # # ### Start of list of anchored links
+    # # Prior to each PloneConf, uncomment these lines to verify that the links work,
+    # # although the anchor cannot be found.
+    # # GitHub rewrites anchors with JavaScript.
+    # # See https://github.com/plone/training/issues/598#issuecomment-1105168109
+    # "https://github.com/collective/awesome-volto#addons",
+    # "https://github.com/collective/collective.easyform#collectivez3cformnorobots-support",
+    # "https://github.com/collective/collective.easyform#recaptcha-support",
+    # "https://github.com/collective/collective.recipe.solrinstance/blob/master/README.rst#multi-core-solr",
+    # "https://github.com/nvm-sh/nvm#install-script",
+    # "https://github.com/plone/plone.app.contentlisting/#methods-of-contentlistingobjects",
+    # "https://github.com/plone/plone.app.contenttypes#changing-the-base-class-for-existing-objects",
+    # "https://github.com/plone/plone.recipe.zope2instance#advanced-logging-options-for-wsgi",
+    # "https://github.com/repoze/repoze.catalog/blob/master/docs/usage.rst#query-objects",
+    # "https://plone.github.io/mockup/dev/#pattern/autotoc",
+    # "https://plone.github.io/mockup/dev/#pattern/modal",
+    # "https://plone.github.io/mockup/dev/#pattern/moment",
+    # "https://github.com/collective/collective.exportimport#faq-tips-and-tricks",
+    # "https://github.com/plone/plone.app.contenttypes/tree/2.2.x#migration",
+    # "https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Keywords",
+    # "https://solr.apache.org/guide/8_2/updatehandlers-in-solrconfig.html#UpdateHandlersinSolrConfig-commitWithin",
+    # "https://www.npmjs.com/package/axios#example",
+    # "https://github.com/plone/plone.restapi/blob/afde2a940d2518e061eb3fe30093093af55e3a50/src/plone/restapi/services/content/configure.zcml#L15-L20",
+    # "https://github.com/plone/plone.rest#cors",
+    # "https://github.com/plone/plone.docker#for-basic-usage",
+    # "https://github.com/nodejs/release#release-schedule",
     # ### End of list of anchored links
 ]
 linkcheck_allowed_redirects = {
     # All HTTP redirections from the source URI to the canonical URI will be treated as "working".
-    r"https://chrome\.google\.com/webstore/detail/.*": r"https://consent\.google\.com/.*",
+    # r"https://chrome\.google\.com/webstore/detail/.*": r"https://consent\.google\.com/.*",
 }
 linkcheck_anchors = True
 linkcheck_timeout = 10
@@ -175,7 +174,7 @@ html_extra_path = [
 ]
 
 # Used by sphinx_sitemap to generate a sitemap
-html_baseurl = "https://training.plone.org"
+html_baseurl = "https://6.docs.plone.org"
 sitemap_url_scheme = "{link}"
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -217,7 +216,7 @@ intersphinx_mapping = {
 
 # -- GraphViz configuration ----------------------------------
 
-graphviz_output_format = "svg"
+# graphviz_output_format = "svg"
 
 
 # -- OpenGraph configuration ----------------------------------
@@ -243,17 +242,17 @@ todo_include_todos = True  # Uncomment to show todos.
 # An extension that allows replacements for code blocks that
 # are not supported in `rst_epilog` or other substitutions.
 # https://stackoverflow.com/a/56328457/2214933
-def source_replace(app, docname, source):
-    result = source[0]
-    for key in app.config.source_replacements:
-        result = result.replace(key, app.config.source_replacements[key])
-    source[0] = result
+# def source_replace(app, docname, source):
+#     result = source[0]
+#     for key in app.config.source_replacements:
+#         result = result.replace(key, app.config.source_replacements[key])
+#     source[0] = result
 
 
-# Dict of replacements.
-source_replacements = {
-    "{PLONE_BACKEND_VERSION}": "6.0.4",
-}
+# # Dict of replacements.
+# source_replacements = {
+#     "{PLONE_BACKEND_VERSION}": "6.0.4",
+# }
 
 
 def setup(app):

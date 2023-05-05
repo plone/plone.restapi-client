@@ -27,6 +27,7 @@ PAPEROPT_letter = -D latex_paper_size=letter
 ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 ## the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
+VALEFILES       := $(shell find -L $(DOCS_DIR) -type d \( -path $(DOCS_DIR)/plone.restapi/lib/* -o  -path $(DOCS_DIR)"/plone.restapi/performance/*" \) -prune -false -o -type f -name "*.md" -print)
 
 .PHONY: all
 all: build
@@ -116,3 +117,10 @@ html_meta:
 
 .PHONY: docs-test
 docs-test: clean linkcheckbroken spellcheck  ## Run linkcheckbroken, spellcheck
+
+.PHONY: vale
+vale: bin/python  ## Run Vale style, grammar, and spell checks
+	vale sync
+	vale --no-wrap $(VALEFILES)
+	@echo
+	@echo "Vale is finished; look for any errors in the above output."

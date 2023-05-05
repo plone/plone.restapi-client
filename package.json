@@ -1,6 +1,6 @@
 {
   "name": "@plone/client",
-  "description": "JavaScript Plone RESTAPI client - JS framework agnostic library based on TanStack Query",
+  "description": "JavaScript Plone REST API client - JS framework agnostic library based on TanStack Query",
   "maintainers": [
     {
       "name": "Plone Foundation",

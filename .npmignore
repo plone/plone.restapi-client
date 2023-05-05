@@ -20,6 +20,5 @@ include/
 lib/
 lib64/
 local/
-share/python-wheels
 share
 pyvenv.cfg

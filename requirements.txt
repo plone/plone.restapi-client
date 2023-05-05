@@ -2,8 +2,6 @@
 
 Sphinx
 jsx-lexer
-lesscpy
-linkify-it-py
 myst-parser
 sphinx-autobuild
 sphinx-book-theme
