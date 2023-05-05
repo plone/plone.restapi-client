@@ -17,7 +17,7 @@ from datetime import datetime
 
 # -- Project information -----------------------------------------------------
 
-project = "Plone RESTAPI JavaScript Client"
+project = "Plone REST API JavaScript Client"
 copyright = """The text and illustrations in this website are licensed
  by the Plone Foundation under a Creative Commons Attribution 4.0
  International license"""
@@ -185,7 +185,7 @@ html_static_path = ["_static"]
 
 html_theme_options = {
     "logo": {
-        "text": "Plone RESTAPI JavaScript Client",
+        "text": "Plone REST API JavaScript Client",
     },
     "path_to_docs": "docs",
     "repository_branch": "main",
@@ -225,7 +225,7 @@ graphviz_output_format = "svg"
 ogp_site_url = "https://6.docs.plone.org/"
 ogp_description_length = 200
 ogp_image = "https://6.docs.plone.org/_static/Plone_logo_square.png"
-ogp_site_name = "Plone RESTAPI JavaScript Client"
+ogp_site_name = "Plone REST API JavaScript Client"
 ogp_type = "website"
 ogp_custom_meta_tags = [
     '<meta property="og:locale" content="en_US" />',

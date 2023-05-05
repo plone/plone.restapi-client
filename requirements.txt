@@ -11,5 +11,4 @@ sphinx-copybutton
 sphinx-design
 sphinx-sitemap
 sphinx-togglebutton
-sphinxcontrib-spelling
 sphinxext-opengraph
