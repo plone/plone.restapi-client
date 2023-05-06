@@ -1,5 +1,5 @@
-node
-nodejs
-javscript
 js
 Javascript
+javscript
+node
+nodejs
