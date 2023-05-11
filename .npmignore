@@ -11,3 +11,14 @@ node_modules/
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# docs
+_build/
+bin/
+build/
+include/
+lib/
+lib64/
+local/
+share
+pyvenv.cfg
