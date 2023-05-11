@@ -231,8 +231,3 @@ copybutton_prompt_is_regexp = True
 
 # -- sphinx.ext.todo -----------------------
 todo_include_todos = True  # Uncomment to show todos.
-
-
-def setup(app):
-    app.add_config_value("source_replacements", {}, True)
-    app.connect("source-read", source_replace)
