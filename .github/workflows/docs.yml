@@ -30,7 +30,7 @@ jobs:
         run: pip install virtualenv
 
       - name: pip install requirements
-        run: pip install -r requirements-docs.txt
+        run: pip install -r requirements.txt
 
       - name: Check for broken links
         run: make docs-linkcheckbroken
