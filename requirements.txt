@@ -2,6 +2,7 @@
 
 Sphinx
 jsx-lexer
+linkify-it-py
 myst-parser
 sphinx-autobuild
 sphinx-book-theme
