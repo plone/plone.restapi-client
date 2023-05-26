@@ -1,0 +1,49 @@
+name: Documentation
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'docs/**'
+  # Build pull requests
+  pull_request:
+    paths:
+      - 'docs/**'
+
+jobs:
+  docs:
+    name: Documentation
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.10']
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+
+      - name: Create Python virtual environment
+        run: pip install virtualenv
+
+      - name: pip install requirements
+        run: pip install -r requirements-docs.txt
+
+      - name: Check for broken links
+        run: make docs-linkcheckbroken
+
+      - name: Build HTML documentation
+        run: make docs-html
+
+      - uses: errata-ai/vale-action@reviewdog
+        with:
+          # debug: true
+          files: all
+        env:
+          # Required, set by GitHub actions automatically:
+          # https://docs.github.com/en/actions/security-guides/automatic-token-authentication#about-the-github_token-secret
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+                 
