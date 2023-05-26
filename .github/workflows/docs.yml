@@ -33,10 +33,10 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Check for broken links
-        run: make docs-linkcheckbroken
+        run: make linkcheckbroken
 
       - name: Build HTML documentation
-        run: make docs-html
+        run: make html
 
       - uses: errata-ai/vale-action@reviewdog
         with:
