@@ -1,13 +1,13 @@
 import {
   loginQuery as _loginQuery,
   login as _login,
-} from './rest-api/login/post';
-import type { LoginArgs } from './rest-api/login/post';
+} from './restapi/login/post';
+import type { LoginArgs } from './restapi/login/post';
 
-import { getContentQuery as _getContentQuery } from './rest-api/content/get';
-import { createContentMutation as _createContentMutation } from './rest-api/content/add';
-import { updateContentMutation as _updateContentMutation } from './rest-api/content/update';
-import { deleteContentMutation as _deleteContentMutation } from './rest-api/content/delete';
+import { getContentQuery as _getContentQuery } from './restapi/content/get';
+import { createContentMutation as _createContentMutation } from './restapi/content/add';
+import { updateContentMutation as _updateContentMutation } from './restapi/content/update';
+import { deleteContentMutation as _deleteContentMutation } from './restapi/content/delete';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';

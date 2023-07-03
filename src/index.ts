@@ -1,8 +1,8 @@
-import { getContentQuery } from './rest-api/content/get';
-import { createContentMutation } from './rest-api/content/add';
-import { updateContentMutation } from './rest-api/content/update';
-import { deleteContentMutation } from './rest-api/content/delete';
-import { loginQuery } from './rest-api/login/post';
+import { getContentQuery } from './restapi/content/get';
+import { createContentMutation } from './restapi/content/add';
+import { updateContentMutation } from './restapi/content/update';
+import { deleteContentMutation } from './restapi/content/delete';
+import { loginQuery } from './restapi/login/post';
 
 export {
   createContentMutation as createContentQuery,

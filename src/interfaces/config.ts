@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 /*
   PloneClientConfigSchema must remain in a separate file to avoid circular dependency
-  between client.ts and rest-api/login/post.ts that breaks zod.
+  between client.ts and restapi/login/post.ts that breaks zod.
 
   Related issue: https://github.com/colinhacks/zod/issues/1193
 */
