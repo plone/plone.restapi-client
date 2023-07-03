@@ -5,9 +5,9 @@ import { deleteContentMutation } from './restapi/content/delete';
 import { loginQuery } from './restapi/login/post';
 
 export {
-  createContentMutation as createContentQuery,
+  createContentMutation as createContentMutation,
   getContentQuery,
-  updateContentMutation as updateContentQuery,
+  updateContentMutation as updateContentMutation,
   loginQuery,
-  deleteContentMutation as deleteContentQuery,
+  deleteContentMutation as deleteContentMutation,
 };

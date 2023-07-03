@@ -4,7 +4,6 @@ import {
   PloneClientConfig,
   PloneClientConfigSchema,
 } from '../../interfaces/config';
-import { UpdateContentArgs } from './update';
 
 export const deleteContentArgsSchema = z.object({
   path: z.string(),
@@ -16,7 +15,7 @@ type DeleteContentArgs = z.infer<typeof deleteContentArgsSchema>;
 export const deleteContent = async ({
   path,
   config,
-}: DeleteContentArgs): Promise<UpdateContentArgs> => {
+}: DeleteContentArgs): Promise<undefined> => {
   const validatedArgs = deleteContentArgsSchema.parse({
     path,
     config,
