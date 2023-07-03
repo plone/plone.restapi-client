@@ -11,7 +11,7 @@ const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
 
-const { login, deleteContentMutation: deleteContentQuery } = cli;
+const { login, deleteContentMutation } = cli;
 await login({ username: 'admin', password: 'secret' });
 
 beforeEach(async () => {
@@ -33,7 +33,7 @@ describe('[DELETE] Content', () => {
 
     const pagePath = '/my-page';
 
-    const { result } = renderHook(() => useMutation(deleteContentQuery()), {
+    const { result } = renderHook(() => useMutation(deleteContentMutation()), {
       wrapper: createWrapper(),
     });
 
@@ -47,7 +47,7 @@ describe('[DELETE] Content', () => {
   test('Hook - Failure', async () => {
     const path = '/blah';
 
-    const { result } = renderHook(() => useMutation(deleteContentQuery()), {
+    const { result } = renderHook(() => useMutation(deleteContentMutation()), {
       wrapper: createWrapper(),
     });
 

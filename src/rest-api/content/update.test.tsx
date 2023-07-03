@@ -12,7 +12,7 @@ const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
 
-const { login, updateContentMutation: updateContentQuery } = cli;
+const { login, updateContentMutation } = cli;
 await login({ username: 'admin', password: 'secret' });
 
 beforeEach(async () => {
@@ -37,7 +37,7 @@ describe('[PATCH] Content', () => {
     };
     const pagePath = '/my-page';
 
-    const { result } = renderHook(() => useMutation(updateContentQuery()), {
+    const { result } = renderHook(() => useMutation(updateContentMutation()), {
       wrapper: createWrapper(),
     });
 
@@ -60,7 +60,7 @@ describe('[PATCH] Content', () => {
       '@type': 'Document',
       title: 'My Page',
     };
-    const { result } = renderHook(() => useMutation(updateContentQuery()), {
+    const { result } = renderHook(() => useMutation(updateContentMutation()), {
       wrapper: createWrapper(),
     });
 
