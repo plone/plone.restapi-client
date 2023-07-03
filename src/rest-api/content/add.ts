@@ -38,7 +38,7 @@ export const createContent = async ({
   return handleRequest('post', validatedArgs.path, options);
 };
 
-export const createContentQuery = ({
+export const createContentMutation = ({
   config,
 }: {
   config: PloneClientConfig;

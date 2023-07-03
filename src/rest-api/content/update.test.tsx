@@ -12,7 +12,7 @@ const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
 
-const { login, updateContentQuery } = cli;
+const { login, updateContentMutation: updateContentQuery } = cli;
 await login({ username: 'admin', password: 'secret' });
 
 beforeEach(async () => {

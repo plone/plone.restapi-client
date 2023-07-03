@@ -11,7 +11,7 @@ const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
 
-const { login, deleteContentQuery } = cli;
+const { login, deleteContentMutation: deleteContentQuery } = cli;
 await login({ username: 'admin', password: 'secret' });
 
 beforeEach(async () => {

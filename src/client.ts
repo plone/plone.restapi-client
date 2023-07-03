@@ -1,5 +1,3 @@
-import { z } from 'zod';
-
 import {
   loginQuery as _loginQuery,
   login as _login,
@@ -7,9 +5,9 @@ import {
 import type { LoginArgs } from './rest-api/login/post';
 
 import { getContentQuery as _getContentQuery } from './rest-api/content/get';
-import { createContentQuery as _createContentQuery } from './rest-api/content/add';
-import { updateContentQuery as _updateContentQuery } from './rest-api/content/update';
-import { deleteContentQuery as _deleteContentQuery } from './rest-api/content/delete';
+import { createContentMutation as _createContentMutation } from './rest-api/content/add';
+import { updateContentMutation as _updateContentMutation } from './rest-api/content/update';
+import { deleteContentMutation as _deleteContentMutation } from './rest-api/content/delete';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
@@ -37,6 +35,13 @@ export default class PloneClient {
   getConfig = () => {
     return this.config;
   };
+  /*
+    Conventionally, get<Entity>Query naming scheme should be used for
+    objects that are supposed to be used with `useQuery` by the user.
+
+    Similarily, create<Entity>Mutation naming scheme would be used for
+    objects that are supposed to be used with `useMutation` by the user.
+  */
 
   /*
     Initialization queries
@@ -47,7 +52,16 @@ export default class PloneClient {
     Content queries
   */
   getContentQuery = queryWithConfig(_getContentQuery, this.getConfig);
-  createContentQuery = mutationWithConfig(_createContentQuery, this.getConfig);
-  updateContentQuery = mutationWithConfig(_updateContentQuery, this.getConfig);
-  deleteContentQuery = mutationWithConfig(_deleteContentQuery, this.getConfig);
+  createContentMutation = mutationWithConfig(
+    _createContentMutation,
+    this.getConfig,
+  );
+  updateContentMutation = mutationWithConfig(
+    _updateContentMutation,
+    this.getConfig,
+  );
+  deleteContentMutation = mutationWithConfig(
+    _deleteContentMutation,
+    this.getConfig,
+  );
 }

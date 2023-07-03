@@ -1,4 +1,4 @@
-import { PloneClientConfig } from '../client';
+import { PloneClientConfig } from '../interfaces/config';
 
 /*
   configGetter is required instead of using the config directly to make sure

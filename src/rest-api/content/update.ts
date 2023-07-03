@@ -32,7 +32,7 @@ export const updateContent = async ({
   return handleRequest('patch', path, options);
 };
 
-export const updateContentQuery = ({
+export const updateContentMutation = ({
   config,
 }: {
   config: PloneClientConfig;

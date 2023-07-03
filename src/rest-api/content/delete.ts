@@ -23,7 +23,7 @@ export const deleteContent = async ({
   return handleRequest('delete', path, options);
 };
 
-export const deleteContentQuery = ({
+export const deleteContentMutation = ({
   config,
 }: {
   config: PloneClientConfig;

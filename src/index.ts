@@ -1,13 +1,13 @@
 import { getContentQuery } from './rest-api/content/get';
-import { createContentQuery } from './rest-api/content/add';
-import { updateContentQuery } from './rest-api/content/update';
-import { deleteContentQuery } from './rest-api/content/delete';
+import { createContentMutation } from './rest-api/content/add';
+import { updateContentMutation } from './rest-api/content/update';
+import { deleteContentMutation } from './rest-api/content/delete';
 import { loginQuery } from './rest-api/login/post';
 
 export {
-  createContentQuery,
+  createContentMutation as createContentQuery,
   getContentQuery,
-  updateContentQuery,
+  updateContentMutation as updateContentQuery,
   loginQuery,
-  deleteContentQuery,
+  deleteContentMutation as deleteContentQuery,
 };
