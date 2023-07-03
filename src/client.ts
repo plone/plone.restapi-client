@@ -5,11 +5,14 @@ import { updateContentQuery as _updateContentQuery } from './content/update';
 import { deleteContentQuery as _deleteContentQuery } from './content/delete';
 import type { LoginArgs } from './login/post';
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
+import { z } from 'zod';
 
-export type PloneClientConfig = {
-  apiPath: string;
-  token?: string;
-};
+export const PloneClientConfigSchema = z.object({
+  apiPath: z.string(),
+  token: z.string().optional(),
+});
+
+export type PloneClientConfig = z.infer<typeof PloneClientConfigSchema>;
 
 const PLONECLIENT_DEFAULT_CONFIG = { apiPath: 'http://localhost:8080/Plone' };
 
