@@ -1,6 +1,9 @@
 import { handleRequest, ApiRequestParams } from '../../API';
 import { z } from 'zod';
-import { PloneClientConfig, PloneClientConfigSchema } from '../../client';
+import {
+  PloneClientConfig,
+  PloneClientConfigSchema,
+} from '../../interfaces/config';
 import { UpdateContentArgs } from './update';
 
 export const deleteContentArgsSchema = z.object({

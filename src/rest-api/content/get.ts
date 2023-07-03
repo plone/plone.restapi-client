@@ -1,5 +1,5 @@
 import { handleRequest, ApiRequestParams } from '../../API';
-import { PloneClientConfig } from '../../client';
+import { PloneClientConfig } from '../../interfaces/config';
 import { GetContentResponse } from '../../interfaces/content/get';
 import { z } from 'zod';
 

@@ -12,18 +12,12 @@ import { updateContentQuery as _updateContentQuery } from './rest-api/content/up
 import { deleteContentQuery as _deleteContentQuery } from './rest-api/content/delete';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
-
-export const PloneClientConfigSchema = z.object({
-  apiPath: z.string(),
-  token: z.string().optional(),
-});
-
-export type PloneClientConfig = z.infer<typeof PloneClientConfigSchema>;
+import { PloneClientConfig } from './interfaces/config';
 
 const PLONECLIENT_DEFAULT_CONFIG = { apiPath: 'http://localhost:8080/Plone' };
 
 export default class PloneClient {
-  public config: PloneClientConfig = { apiPath: '/' };
+  public config: PloneClientConfig = PLONECLIENT_DEFAULT_CONFIG;
 
   static initialize = (
     config: PloneClientConfig,
@@ -40,13 +34,20 @@ export default class PloneClient {
     return token;
   };
 
-  loginQuery = queryWithConfig(_loginQuery, this.config);
+  getConfig = () => {
+    return this.config;
+  };
+
+  /*
+    Initialization queries
+  */
+  loginQuery = queryWithConfig(_loginQuery, this.getConfig);
 
   /*
     Content queries
   */
-  getContentQuery = queryWithConfig(_getContentQuery, this.config);
-  createContentQuery = mutationWithConfig(_createContentQuery, this.config);
-  updateContentQuery = mutationWithConfig(_updateContentQuery, this.config);
-  deleteContentQuery = mutationWithConfig(_deleteContentQuery, this.config);
+  getContentQuery = queryWithConfig(_getContentQuery, this.getConfig);
+  createContentQuery = mutationWithConfig(_createContentQuery, this.getConfig);
+  updateContentQuery = mutationWithConfig(_updateContentQuery, this.getConfig);
+  deleteContentQuery = mutationWithConfig(_deleteContentQuery, this.getConfig);
 }

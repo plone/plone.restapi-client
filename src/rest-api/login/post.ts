@@ -1,7 +1,7 @@
 import { Login } from '../../interfaces/login';
 import { handleRequest, ApiRequestParams } from '../../API';
-import { PloneClientConfig, PloneClientConfigSchema } from '../../client';
 import { z } from 'zod';
+import { PloneClientConfigSchema } from '../../interfaces/config';
 
 export const loginArgsSchema = z.object({
   username: z.string(),

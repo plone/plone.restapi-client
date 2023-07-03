@@ -1,6 +1,9 @@
 import { z } from 'zod';
 import { ApiRequestParams, handleRequest } from '../../API';
-import { PloneClientConfig, PloneClientConfigSchema } from '../../client';
+import {
+  PloneClientConfig,
+  PloneClientConfigSchema,
+} from '../../interfaces/config';
 import { AddContentResponse } from '../../interfaces/content/add';
 
 export const createContentDataSchema = z.object({
