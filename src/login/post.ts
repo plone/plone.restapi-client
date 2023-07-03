@@ -8,7 +8,7 @@ export type LoginArgs = {
   config: PloneClientConfig;
 };
 
-export const login = async ({
+export const login = ({
   username,
   password,
   config,
@@ -22,5 +22,5 @@ export const login = async ({
 
 export const loginQuery = ({ username, password, config }: LoginArgs) => ({
   queryKey: [username, 'login'],
-  queryFn: async () => login({ username, password, config }),
+  queryFn: () => login({ username, password, config }),
 });

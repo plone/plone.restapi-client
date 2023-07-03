@@ -3,9 +3,8 @@ import { loginQuery as _loginQuery, login as _login } from './login/post';
 import { createContentQuery as _createContentQuery } from './content/add';
 import { updateContentQuery as _updateContentQuery } from './content/update';
 import { deleteContentQuery as _deleteContentQuery } from './content/delete';
-import type { ContentArgs } from './content/get';
-import type { MutateContentArgs } from './content/add';
 import type { LoginArgs } from './login/post';
+import { mutationWithConfig, queryWithConfig } from './utils/misc';
 
 export type PloneClientConfig = {
   apiPath: string;
@@ -15,7 +14,7 @@ export type PloneClientConfig = {
 const PLONECLIENT_DEFAULT_CONFIG = { apiPath: 'http://localhost:8080/Plone' };
 
 export default class PloneClient {
-  public config: PloneClientConfig;
+  public config: PloneClientConfig = { apiPath: '/' };
 
   static initialize = (
     config: PloneClientConfig,
@@ -32,23 +31,13 @@ export default class PloneClient {
     return token;
   };
 
-  loginQuery = (loginArgs: Omit<LoginArgs, 'config'>) => {
-    return _loginQuery({ ...loginArgs, config: this.config });
-  };
+  loginQuery = queryWithConfig(_loginQuery, this.config);
 
-  getContentQuery = (contentArgs: Omit<ContentArgs, 'config'>) => {
-    return _getContentQuery({ ...contentArgs, config: this.config });
-  };
-
-  createContentQuery = () => {
-    return _createContentQuery({ config: this.config });
-  };
-
-  updateContentQuery = () => {
-    return _updateContentQuery({ config: this.config });
-  };
-
-  deleteContentQuery = () => {
-    return _deleteContentQuery({ config: this.config });
-  };
+  /*
+    Content queries
+  */
+  getContentQuery = queryWithConfig(_getContentQuery, this.config);
+  createContentQuery = mutationWithConfig(_createContentQuery, this.config);
+  updateContentQuery = mutationWithConfig(_updateContentQuery, this.config);
+  deleteContentQuery = mutationWithConfig(_deleteContentQuery, this.config);
 }
