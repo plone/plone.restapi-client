@@ -26,6 +26,6 @@ export const deleteContentQuery = ({
   config: PloneClientConfig;
 }) => ({
   mutationKey: ['delete', 'content'],
-  mutationFn: async ({ path }: Omit<DeleteContentArgs, 'config'>) =>
+  mutationFn: ({ path }: Omit<DeleteContentArgs, 'config'>) =>
     deleteContent({ path, config }),
 });

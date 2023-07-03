@@ -35,6 +35,6 @@ export const updateContentQuery = ({
   config: PloneClientConfig;
 }) => ({
   mutationKey: ['patch', 'content'],
-  mutationFn: async ({ path, data }: Omit<UpdateContentArgs, 'config'>) =>
+  mutationFn: ({ path, data }: Omit<UpdateContentArgs, 'config'>) =>
     updateContent({ path, data, config }),
 });

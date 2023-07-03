@@ -1,8 +1,8 @@
-import { createContentQuery } from './content/add';
-import { getContentQuery } from './content/get';
-import { updateContentQuery } from './content/update';
-import { deleteContentQuery } from './content/delete';
-import { loginQuery } from './login/post';
+import { getContentQuery } from './rest-api/content/get';
+import { createContentQuery } from './rest-api/content/add';
+import { updateContentQuery } from './rest-api/content/update';
+import { deleteContentQuery } from './rest-api/content/delete';
+import { loginQuery } from './rest-api/login/post';
 
 export {
   createContentQuery,

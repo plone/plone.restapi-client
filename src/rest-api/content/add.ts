@@ -41,6 +41,6 @@ export const createContentQuery = ({
   config: PloneClientConfig;
 }) => ({
   mutationKey: ['post', 'content'],
-  mutationFn: async ({ path, data }: Omit<CreateContentArgs, 'config'>) =>
+  mutationFn: ({ path, data }: Omit<CreateContentArgs, 'config'>) =>
     createContent({ path, data, config }),
 });

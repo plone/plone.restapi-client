@@ -1,11 +1,17 @@
-import { getContentQuery as _getContentQuery } from './content/get';
-import { loginQuery as _loginQuery, login as _login } from './login/post';
-import { createContentQuery as _createContentQuery } from './content/add';
-import { updateContentQuery as _updateContentQuery } from './content/update';
-import { deleteContentQuery as _deleteContentQuery } from './content/delete';
-import type { LoginArgs } from './login/post';
-import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { z } from 'zod';
+
+import {
+  loginQuery as _loginQuery,
+  login as _login,
+} from './rest-api/login/post';
+import type { LoginArgs } from './rest-api/login/post';
+
+import { getContentQuery as _getContentQuery } from './rest-api/content/get';
+import { createContentQuery as _createContentQuery } from './rest-api/content/add';
+import { updateContentQuery as _updateContentQuery } from './rest-api/content/update';
+import { deleteContentQuery as _deleteContentQuery } from './rest-api/content/delete';
+
+import { mutationWithConfig, queryWithConfig } from './utils/misc';
 
 export const PloneClientConfigSchema = z.object({
   apiPath: z.string(),

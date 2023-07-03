@@ -14,7 +14,7 @@ export type ContentArgs = z.infer<typeof getContentArgsSchema> & {
   config: PloneClientConfig;
 };
 
-const getContent = async ({
+export const getContent = async ({
   path,
   version,
   page,
@@ -56,5 +56,5 @@ export const getContentQuery = ({
   config,
 }: ContentArgs) => ({
   queryKey: [path, 'get', 'content'],
-  queryFn: async () => getContent({ path, version, page, fullObjects, config }),
+  queryFn: () => getContent({ path, version, page, fullObjects, config }),
 });
