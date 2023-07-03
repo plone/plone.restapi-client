@@ -17,10 +17,15 @@ export const deleteContent = async ({
   path,
   config,
 }: DeleteContentArgs): Promise<UpdateContentArgs> => {
-  const options: ApiRequestParams = {
+  const validatedArgs = deleteContentArgsSchema.parse({
+    path,
     config,
+  });
+
+  const options: ApiRequestParams = {
+    config: validatedArgs.config,
   };
-  return handleRequest('delete', path, options);
+  return handleRequest('delete', validatedArgs.path, options);
 };
 
 export const deleteContentMutation = ({

@@ -25,11 +25,17 @@ export const updateContent = async ({
   data,
   config,
 }: UpdateContentArgs): Promise<UpdateContentResponse> => {
-  const options: ApiRequestParams = {
+  const validatedArgs = updateContentArgsSchema.parse({
+    path,
     data,
     config,
+  });
+
+  const options: ApiRequestParams = {
+    data: validatedArgs.data,
+    config: validatedArgs.config,
   };
-  return handleRequest('patch', path, options);
+  return handleRequest('patch', validatedArgs.path, options);
 };
 
 export const updateContentMutation = ({
