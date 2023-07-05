@@ -4,13 +4,10 @@ import {
   PloneClientConfig,
   PloneClientConfigSchema,
 } from '../../interfaces/config';
-import { AddContentResponse } from '../../interfaces/content/add';
-
-export const createContentDataSchema = z.object({
-  '@id': z.string().optional(),
-  '@type': z.string().optional(),
-  title: z.string(),
-});
+import {
+  createContentDataSchema,
+  CreateContentResponse,
+} from '../../interfaces/content/add';
 
 export const createContentArgsSchema = z.object({
   path: z.string(),
@@ -24,7 +21,7 @@ export const createContent = async ({
   path,
   data,
   config,
-}: CreateContentArgs): Promise<AddContentResponse> => {
+}: CreateContentArgs): Promise<CreateContentResponse> => {
   const validatedArgs = createContentArgsSchema.parse({
     path,
     data,

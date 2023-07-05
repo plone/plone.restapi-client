@@ -1,6 +1,42 @@
-import { Block, Components } from './common';
+import { z } from 'zod';
+import {
+  Components,
+  Item,
+  PreviewImage,
+  RelatedItem,
+  RelatedItemPayloadSchema,
+} from './common';
 
-export interface AddContentResponse {
+export const createContentDataSchema = z.object({
+  '@id': z.string().optional(),
+  '@static_behaviors': z.unknown().optional(),
+  '@type': z.string(),
+  allow_discussion: z.boolean().optional(),
+  blocks: z.unknown().optional(),
+  blocks_layout: z.array(z.string()).optional(),
+  contributors: z.array(z.string()).optional(),
+  creators: z.array(z.string()).optional(),
+  description: z.string().optional(),
+  effective: z.string().nullable().optional(),
+  exclude_from_nav: z.boolean().optional(),
+  expires: z.string().nullable().optional(),
+  id: z.string().optional(),
+  language: z.string().optional(),
+  preview_caption: z.string().optional(),
+  preview_image: z
+    .object({
+      'content-type': z.string(),
+      data: z.string(),
+      encoding: z.string(),
+      filename: z.string(),
+    })
+    .optional(),
+  relatedItems: z.array(RelatedItemPayloadSchema).optional(),
+  rights: z.string().nullable().optional(),
+  title: z.string(),
+});
+
+export interface CreateContentResponse {
   '@components': {
     [key in Components]: {
       '@id': string;
@@ -10,7 +46,7 @@ export interface AddContentResponse {
   '@type': string;
   UID: string;
   allow_discussion: boolean;
-  blocks: Block[];
+  blocks: unknown;
   blocks_layout: {
     [k in string]: {
       items: string[];
@@ -19,14 +55,17 @@ export interface AddContentResponse {
   contributors: string[];
   creators: string[];
   description: string;
-  effective: string;
+  effective: string | null;
   exclude_from_nav: boolean;
-  expires: string;
+  expires: string | null;
   id: string;
   is_folderish: boolean;
-  items: [];
+  items: Item[];
   items_total: number;
-  language: string;
+  language: {
+    title: string;
+    token: string;
+  };
   layout: string;
   lock: {
     locked: boolean;
@@ -45,29 +84,20 @@ export interface AddContentResponse {
     description: string;
     title: string;
   };
-  preview_caption: string;
-  preview_image: File;
+  preview_caption: string | null;
+  preview_image: PreviewImage;
   previous_item: {
     '@id': string;
     '@type': string;
     description: string;
     title: string;
   };
-  relatedItems: unknown;
-  review_state: string;
+  relatedItems: RelatedItem[];
+  review_state: string | null;
   rights: string;
   subjects: [];
   title: string;
   version: string;
-  working_copy: {
-    '@id': string;
-    created: string;
-    creator_name: string;
-    creator_url: string;
-    title: string;
-  };
-  working_copy_of: {
-    '@id': string;
-    title: string;
-  };
+  working_copy: unknown;
+  working_copy_of: unknown;
 }
