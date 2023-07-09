@@ -17,7 +17,6 @@ describe('[GET] Content', () => {
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
-    // console.dir(result.current.error, { depth: null });
     expect(result.current.data?.title).toBe('Welcome to Plone 6!');
   });
 
@@ -29,7 +28,6 @@ describe('[GET] Content', () => {
 
     await waitFor(() => expect(result.current.isError).toBe(true));
 
-    // console.dir(result.current.error, { depth: null });
     // @ts-ignore
     expect(result.current.error.status).toBe(404);
     expect(result.current.error).toBeDefined();

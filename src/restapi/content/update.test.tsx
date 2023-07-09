@@ -49,7 +49,6 @@ describe('[PATCH] Content', () => {
 
     const page = await getContent({ path: pagePath, config: cli.config });
 
-    // console.dir(page, { depth: null });
     expect(page?.['@id']).toBe('http://localhost:55001/plone/my-page');
     expect(page?.title).toBe('My Page updated');
   });
@@ -70,7 +69,6 @@ describe('[PATCH] Content', () => {
 
     await waitFor(() => expect(result.current.isError).toBe(true));
 
-    // console.dir(result.current.error, { depth: null });
     // @ts-ignore
     expect(result.current.error.status).toBe(404);
     expect(result.current.error).toBeDefined();

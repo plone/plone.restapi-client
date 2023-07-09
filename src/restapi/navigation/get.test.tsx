@@ -20,7 +20,6 @@ describe('[GET] Content', () => {
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
-    // console.dir(result.current.error, { depth: null });
     expect(result.current.data?.['@id']).toBe(
       'http://localhost:55001/plone/@navigation',
     );
@@ -37,7 +36,6 @@ describe('[GET] Content', () => {
 
     await waitFor(() => expect(result.current.isError).toBe(true));
 
-    // console.dir(result.current.error, { depth: null });
     // @ts-ignore
     expect(result.current.error.status).toBe(404);
     expect(result.current.error).toBeDefined();
