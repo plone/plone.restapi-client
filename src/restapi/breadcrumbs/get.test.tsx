@@ -8,7 +8,7 @@ const cli = ploneClient.initialize({
 });
 const { getBreadcrumbsQuery } = cli;
 
-describe('[GET] Content', () => {
+describe('[GET] Breadcrumbs', () => {
   test('Hook - Successful', async () => {
     const path = '/';
     const { result } = renderHook(

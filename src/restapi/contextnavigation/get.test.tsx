@@ -8,7 +8,7 @@ const cli = ploneClient.initialize({
 });
 const { getContextNavigationQuery } = cli;
 
-describe('[GET] Content', () => {
+describe('[GET] ContextNavigation', () => {
   test('Hook - Successful', async () => {
     const path = '/';
     const { result } = renderHook(
