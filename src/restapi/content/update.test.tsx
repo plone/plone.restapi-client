@@ -1,19 +1,18 @@
-import * as React from 'react';
 import { act, renderHook, waitFor } from '@testing-library/react';
-import { createWrapper } from '../testUtils';
-import { getContent } from './get';
+import { createWrapper } from '../../testUtils';
 import { createContent } from './add';
 import { useMutation } from '@tanstack/react-query';
-import { setup, teardown } from '../resetFixture';
+import { setup, teardown } from '../../resetFixture';
 import { beforeEach } from 'vitest';
 import { expect, test } from 'vitest';
-import PloneClient from '../client';
+import PloneClient from '../../client';
+import { getContent } from './get';
 
 const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
 
-const { login, updateContentQuery } = cli;
+const { login, updateContentMutation } = cli;
 await login({ username: 'admin', password: 'secret' });
 
 beforeEach(async () => {
@@ -38,7 +37,7 @@ describe('[PATCH] Content', () => {
     };
     const pagePath = '/my-page';
 
-    const { result } = renderHook(() => useMutation(updateContentQuery()), {
+    const { result } = renderHook(() => useMutation(updateContentMutation()), {
       wrapper: createWrapper(),
     });
 
@@ -61,7 +60,7 @@ describe('[PATCH] Content', () => {
       '@type': 'Document',
       title: 'My Page',
     };
-    const { result } = renderHook(() => useMutation(updateContentQuery()), {
+    const { result } = renderHook(() => useMutation(updateContentMutation()), {
       wrapper: createWrapper(),
     });
 

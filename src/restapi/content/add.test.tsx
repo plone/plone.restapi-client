@@ -1,17 +1,17 @@
 import { act, renderHook, waitFor } from '@testing-library/react';
-import { createWrapper } from '../testUtils';
+import { createWrapper } from '../../testUtils';
 import { useMutation } from '@tanstack/react-query';
-import { setup, teardown } from '../resetFixture';
+import { setup, teardown } from '../../resetFixture';
 import { beforeEach } from 'vitest';
 import { expect, test } from 'vitest';
-import PloneClient from '../client';
-import { Content } from '../interfaces/content';
+import PloneClient from '../../client';
+import { CreateContentArgs } from './add';
 
 const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
 
-const { login, createContentQuery } = cli;
+const { login, createContentMutation } = cli;
 await login({ username: 'admin', password: 'secret' });
 
 beforeEach(async () => {
@@ -25,12 +25,12 @@ afterEach(async () => {
 describe('[POST] Content', () => {
   test('Hook - Successful', async () => {
     const path = '/';
-    const data: Content = {
+    const data: CreateContentArgs['data'] = {
       '@type': 'Document',
       title: 'My Page',
     };
 
-    const { result } = renderHook(() => useMutation(createContentQuery()), {
+    const { result } = renderHook(() => useMutation(createContentMutation()), {
       wrapper: createWrapper(),
     });
 
@@ -49,12 +49,12 @@ describe('[POST] Content', () => {
 
   test('Hook - Successful - setup/tearingDown setup', async () => {
     const path = '/';
-    const data: Content = {
+    const data: CreateContentArgs['data'] = {
       '@type': 'Document',
       title: 'My Page',
     };
 
-    const { result } = renderHook(() => useMutation(createContentQuery()), {
+    const { result } = renderHook(() => useMutation(createContentMutation()), {
       wrapper: createWrapper(),
     });
 
@@ -73,11 +73,11 @@ describe('[POST] Content', () => {
 
   test('Hook - Failure', async () => {
     const path = '/blah';
-    const data: Content = {
+    const data: CreateContentArgs['data'] = {
       '@type': 'Document',
       title: 'My Page',
     };
-    const { result } = renderHook(() => useMutation(createContentQuery()), {
+    const { result } = renderHook(() => useMutation(createContentMutation()), {
       wrapper: createWrapper(),
     });
 

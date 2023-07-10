@@ -89,7 +89,8 @@
   "dependencies": {
     "@tanstack/react-query": "4.29.1",
     "superagent": "8.0.9",
-    "universal-cookie": "^4.0.4"
+    "universal-cookie": "^4.0.4",
+    "zod": "^3.21.4"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",

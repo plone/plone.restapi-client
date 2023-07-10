@@ -1,8 +1,7 @@
 import superagent from 'superagent';
 import Cookies from 'universal-cookie';
-import { addHeadersFactory } from './utils';
 import type request from 'superagent';
-import type { PloneClientConfig } from './client';
+import { PloneClientConfig } from './interfaces/config';
 
 const methods = ['get', 'post', 'put', 'patch', 'delete'];
 

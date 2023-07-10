@@ -1,13 +1,13 @@
-import { createContentQuery } from './content/add';
-import { getContentQuery } from './content/get';
-import { updateContentQuery } from './content/update';
-import { deleteContentQuery } from './content/delete';
-import { loginQuery } from './login/post';
+import { getContentQuery } from './restapi/content/get';
+import { createContentMutation } from './restapi/content/add';
+import { updateContentMutation } from './restapi/content/update';
+import { deleteContentMutation } from './restapi/content/delete';
+import { loginQuery } from './restapi/login/post';
 
 export {
-  createContentQuery,
+  createContentMutation,
   getContentQuery,
-  updateContentQuery,
+  updateContentMutation,
   loginQuery,
-  deleteContentQuery,
+  deleteContentMutation,
 };

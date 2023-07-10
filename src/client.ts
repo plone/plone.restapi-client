@@ -1,21 +1,21 @@
-import { getContentQuery as _getContentQuery } from './content/get';
-import { loginQuery as _loginQuery, login as _login } from './login/post';
-import { createContentQuery as _createContentQuery } from './content/add';
-import { updateContentQuery as _updateContentQuery } from './content/update';
-import { deleteContentQuery as _deleteContentQuery } from './content/delete';
-import type { ContentArgs } from './content/get';
-import type { MutateContentArgs } from './content/add';
-import type { LoginArgs } from './login/post';
+import {
+  loginQuery as _loginQuery,
+  login as _login,
+} from './restapi/login/post';
+import type { LoginArgs } from './restapi/login/post';
 
-export type PloneClientConfig = {
-  apiPath: string;
-  token?: string;
-};
+import { getContentQuery as _getContentQuery } from './restapi/content/get';
+import { createContentMutation as _createContentMutation } from './restapi/content/add';
+import { updateContentMutation as _updateContentMutation } from './restapi/content/update';
+import { deleteContentMutation as _deleteContentMutation } from './restapi/content/delete';
+
+import { mutationWithConfig, queryWithConfig } from './utils/misc';
+import { PloneClientConfig } from './interfaces/config';
 
 const PLONECLIENT_DEFAULT_CONFIG = { apiPath: 'http://localhost:8080/Plone' };
 
 export default class PloneClient {
-  public config: PloneClientConfig;
+  public config: PloneClientConfig = PLONECLIENT_DEFAULT_CONFIG;
 
   static initialize = (
     config: PloneClientConfig,
@@ -32,23 +32,36 @@ export default class PloneClient {
     return token;
   };
 
-  loginQuery = (loginArgs: Omit<LoginArgs, 'config'>) => {
-    return _loginQuery({ ...loginArgs, config: this.config });
+  getConfig = () => {
+    return this.config;
   };
+  /*
+    Conventionally, get<Entity>Query naming scheme should be used for
+    objects that are supposed to be used with `useQuery` by the user.
 
-  getContentQuery = (contentArgs: Omit<ContentArgs, 'config'>) => {
-    return _getContentQuery({ ...contentArgs, config: this.config });
-  };
+    Similarily, create<Entity>Mutation naming scheme would be used for
+    objects that are supposed to be used with `useMutation` by the user.
+  */
 
-  createContentQuery = () => {
-    return _createContentQuery({ config: this.config });
-  };
+  /*
+    Initialization queries
+  */
+  loginQuery = queryWithConfig(_loginQuery, this.getConfig);
 
-  updateContentQuery = () => {
-    return _updateContentQuery({ config: this.config });
-  };
-
-  deleteContentQuery = () => {
-    return _deleteContentQuery({ config: this.config });
-  };
+  /*
+    Content queries
+  */
+  getContentQuery = queryWithConfig(_getContentQuery, this.getConfig);
+  createContentMutation = mutationWithConfig(
+    _createContentMutation,
+    this.getConfig,
+  );
+  updateContentMutation = mutationWithConfig(
+    _updateContentMutation,
+    this.getConfig,
+  );
+  deleteContentMutation = mutationWithConfig(
+    _deleteContentMutation,
+    this.getConfig,
+  );
 }
