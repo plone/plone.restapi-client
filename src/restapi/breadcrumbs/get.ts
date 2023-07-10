@@ -1,6 +1,6 @@
 import { handleRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
-import { BreadCrumbsResponse } from '../../interfaces/breadcrumbs';
+import { BreadcrumbsResponse } from '../../interfaces/breadcrumbs';
 import { z } from 'zod';
 
 const getBreadcrumbsSchema = z.object({
@@ -14,7 +14,7 @@ export type BreadcrumbsArgs = z.infer<typeof getBreadcrumbsSchema> & {
 export const getBreadcrumbs = async ({
   path,
   config,
-}: BreadcrumbsArgs): Promise<BreadCrumbsResponse> => {
+}: BreadcrumbsArgs): Promise<BreadcrumbsResponse> => {
   const validatedArgs = getBreadcrumbsSchema.parse({
     path,
   });

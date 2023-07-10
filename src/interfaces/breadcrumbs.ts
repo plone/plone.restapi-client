@@ -3,7 +3,7 @@ interface Item {
   title: string;
 }
 
-export interface BreadCrumbsResponse {
+export interface BreadcrumbsResponse {
   '@id': string;
   items: Item;
   root: string;

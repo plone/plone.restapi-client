@@ -11,6 +11,13 @@ import { deleteContentMutation as _deleteContentMutation } from './restapi/conte
 import { getBreadcrumbsQuery as _getBreadcrumbsQuery } from './restapi/breadcrumbs/get';
 import { getNavigationQuery as _getNavigationQuery } from './restapi/navigation/get';
 import { getContextNavigationQuery as _getContextNavigationQuery } from './restapi/contextnavigation/get';
+import { getActionsQuery as _getActionsQuery } from './restapi/actions/get';
+import { getAliasesQuery as _getAliasesQuery } from './restapi/aliases/get';
+import { createAliasesMutation as _createAliasesMutation } from './restapi/aliases/add';
+import { deleteAliasesMutation as _deleteAliasesMutation } from './restapi/aliases/delete';
+import { getAliasesRootQuery as _getAliasesRootQuery } from './restapi/aliases/get_root';
+import { createAliasesRootMutation as _createAliasesRootMutation } from './restapi/aliases/add_root';
+import { deleteAliasesRootMutation as _deleteAliasesRootMutation } from './restapi/aliases/delete_root';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
@@ -77,11 +84,39 @@ export default class PloneClient {
     Navigation queries
   */
   getNavigationQuery = queryWithConfig(_getNavigationQuery, this.getConfig);
+
   /*
     ContextNavigation queries
   */
   getContextNavigationQuery = queryWithConfig(
     _getContextNavigationQuery,
+    this.getConfig,
+  );
+
+  /*
+    Actions queries
+  */
+  getActionsQuery = queryWithConfig(_getActionsQuery, this.getConfig);
+
+  /*
+    Aliases queries
+  */
+  getAliasesQuery = queryWithConfig(_getAliasesQuery, this.getConfig);
+  createAliasesMutation = mutationWithConfig(
+    _createAliasesMutation,
+    this.getConfig,
+  );
+  deleteAliasesMutation = mutationWithConfig(
+    _deleteAliasesMutation,
+    this.getConfig,
+  );
+  getAliasesRootQuery = queryWithConfig(_getAliasesRootQuery, this.getConfig);
+  createAliasesRootMutation = mutationWithConfig(
+    _createAliasesRootMutation,
+    this.getConfig,
+  );
+  deleteAliasesRootMutation = mutationWithConfig(
+    _deleteAliasesRootMutation,
     this.getConfig,
   );
 }
