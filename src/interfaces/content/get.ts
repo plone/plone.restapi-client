@@ -1,4 +1,4 @@
-import { Components } from './common';
+import { Components, Item, RelatedItem } from './common';
 
 export interface GetContentResponse {
   '@components': {
@@ -21,20 +21,12 @@ export interface GetContentResponse {
   contributors: string[];
   creators: string[];
   description: string;
-  effective: string;
+  effective: string | null;
   exclude_from_nav: boolean;
-  expires: string;
+  expires: string | null;
   id: string;
   is_folderish: boolean;
-  items: Array<{
-    '@id': string;
-    '@type': string;
-    description: string;
-    image_field: null;
-    image_scales: null;
-    review_state: string;
-    title: string;
-  }>;
+  items: Item[];
   items_total: number;
   language: {
     title: string;
@@ -45,10 +37,10 @@ export interface GetContentResponse {
     stealable: boolean;
   };
   parent: {};
-  relatedItems: [];
-  review_state: string;
+  relatedItems: RelatedItem[];
+  review_state: string | null;
   rights: string;
   subjects: [];
-  table_of_contents: boolean;
+  table_of_contents: boolean | null;
   title: string;
 }
