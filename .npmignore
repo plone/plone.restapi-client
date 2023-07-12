@@ -2,6 +2,9 @@ news
 towncrier.toml
 .changelog.draft
 node_modules/
+.vscode
+.github
+coverage
 
 # yarn 3
 .pnp.*
@@ -22,3 +25,4 @@ lib64/
 local/
 share
 pyvenv.cfg
+styles

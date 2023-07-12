@@ -7,3 +7,10 @@
 -->
 
 <!-- towncrier release notes start -->
+
+## 1.0.0-alpha.0 (2023-07-12)
+
+### Feature
+
+- Refactor some parts, folder reorder, content CRUD API @hemant-hc [#13](https://github.com/plone/plone.restapi-client/pull/13)
+- Improve content CRUD Types @hemant-hc [#14](https://github.com/plone/plone.restapi-client/pull/14)
