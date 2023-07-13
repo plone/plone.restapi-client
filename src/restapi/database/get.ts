@@ -1,5 +1,6 @@
 import { handleRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
+import { DatabaseResponse } from '../../interfaces/database';
 
 export type DatabaseRootArgs = {
   config: PloneClientConfig;
@@ -7,7 +8,7 @@ export type DatabaseRootArgs = {
 
 export const getDatabaseRoot = async ({
   config,
-}: DatabaseRootArgs): Promise<undefined> => {
+}: DatabaseRootArgs): Promise<DatabaseResponse> => {
   const options: ApiRequestParams = {
     config,
     params: {},
