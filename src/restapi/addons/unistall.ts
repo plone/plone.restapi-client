@@ -24,13 +24,13 @@ export const getAddonsUninstall = async ({
   };
   const addonsUninstallPath = `@addons/${validatedArgs.path}/uninstall`;
 
-  return handleRequest('get', addonsUninstallPath, options);
+  return handleRequest('post', addonsUninstallPath, options);
 };
 
 export const getAddonsUninstallQuery = ({
   path,
   config,
 }: AddonsUninstallArgs) => ({
-  queryKey: [path, 'get', 'addonsUninstall'],
+  queryKey: [path, 'post', 'addonsUninstall'],
   queryFn: () => getAddonsUninstall({ path, config }),
 });
