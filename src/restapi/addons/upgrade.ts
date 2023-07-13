@@ -24,10 +24,10 @@ export const getAddonsUpgrade = async ({
   };
   const addonsUpgradePath = `@addons/${validatedArgs.path}/upgrade`;
 
-  return handleRequest('get', addonsUpgradePath, options);
+  return handleRequest('post', addonsUpgradePath, options);
 };
 
 export const getAddonsUpgradeQuery = ({ path, config }: AddonsUpgradeArgs) => ({
-  queryKey: [path, 'get', 'addonsUpgrade'],
+  queryKey: [path, 'post', 'addonsUpgrade'],
   queryFn: () => getAddonsUpgrade({ path, config }),
 });

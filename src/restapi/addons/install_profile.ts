@@ -26,13 +26,13 @@ export const getAddonsInstallProfile = async ({
   };
   const addonsInstallProfilePath = `$@addons/${validatedArgs.path}/import/testing-workflows`;
 
-  return handleRequest('get', addonsInstallProfilePath, options);
+  return handleRequest('post', addonsInstallProfilePath, options);
 };
 
 export const getAddonsInstallProfileQuery = ({
   path,
   config,
 }: AddonsInstallProfileArgs) => ({
-  queryKey: [path, 'get', 'addonsInstallProfile'],
+  queryKey: [path, 'post', 'addonsInstallProfile'],
   queryFn: () => getAddonsInstallProfile({ path, config }),
 });

@@ -24,10 +24,10 @@ export const getAddonsInstall = async ({
   };
   const addonsInstallPath = `@addons/${validatedArgs.path}/install`;
 
-  return handleRequest('get', addonsInstallPath, options);
+  return handleRequest('post', addonsInstallPath, options);
 };
 
 export const getAddonsInstallQuery = ({ path, config }: AddonsInstallArgs) => ({
-  queryKey: [path, 'get', 'addonsInstall'],
+  queryKey: [path, 'post', 'addonsInstall'],
   queryFn: () => getAddonsInstall({ path, config }),
 });
