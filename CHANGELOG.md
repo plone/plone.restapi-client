@@ -8,6 +8,13 @@
 
 <!-- towncrier release notes start -->
 
+## 1.0.0-alpha.1 (2023-07-13)
+
+### Bugfix
+
+- Expose ploneClient in index @sneridagh [#17](https://github.com/plone/plone.restapi-client/pull/17)
+
+
 ## 1.0.0-alpha.0 (2023-07-12)
 
 ### Feature
