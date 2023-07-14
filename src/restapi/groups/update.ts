@@ -4,20 +4,23 @@ import {
   PloneClientConfig,
   PloneClientConfigSchema,
 } from '../../interfaces/config';
-import { createGroupDataSchema } from '../../interfaces/groups';
+import { updateGroupDataSchema } from '../../interfaces/groups';
 
 export const updateGroupArgsSchema = z.object({
-  data: createGroupDataSchema,
+  path: z.string(),
+  data: updateGroupDataSchema,
   config: PloneClientConfigSchema,
 });
 
 export type UpdateGroupArgs = z.infer<typeof updateGroupArgsSchema>;
 
 export const updateGroup = async ({
+  path,
   data,
   config,
 }: UpdateGroupArgs): Promise<undefined> => {
   const validatedArgs = updateGroupArgsSchema.parse({
+    path,
     data,
     config,
   });
@@ -27,7 +30,11 @@ export const updateGroup = async ({
     config: validatedArgs.config,
   };
 
-  return handleRequest('post', '/@groups', options);
+  const updateGroupPath = `/@groups/${validatedArgs.path}`;
+
+  console.log(updateGroupPath);
+
+  return handleRequest('patch', updateGroupPath, options);
 };
 
 export const updateGroupMutation = ({
@@ -35,7 +42,7 @@ export const updateGroupMutation = ({
 }: {
   config: PloneClientConfig;
 }) => ({
-  mutationKey: ['post', 'groups'],
-  mutationFn: ({ data }: Omit<UpdateGroupArgs, 'config'>) =>
-    updateGroup({ data, config }),
+  mutationKey: ['patch', 'groups'],
+  mutationFn: ({ path, data }: Omit<UpdateGroupArgs, 'config'>) =>
+    updateGroup({ path, data, config }),
 });

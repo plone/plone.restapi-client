@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-interface Group {
+export interface GetGroupResponse {
   '@id': string;
   description: string;
   email: string;
@@ -15,18 +15,26 @@ interface Group {
   title: string;
 }
 
-export interface GetGroupRootResponse extends Array<Group> {}
+export interface GetGroupRootResponse extends Array<GetGroupResponse> {}
 
 export const createGroupDataSchema = z.object({
-  description: z.string(),
-  email: z.string(),
+  description: z.string().optional(),
+  email: z.string().optional(),
   groupname: z.string(),
-  groups: z.array(z.string()),
-  roles: z.array(z.string()),
-  title: z.string(),
-  users: z.array(z.string()),
+  groups: z.array(z.string()).optional(),
+  roles: z.array(z.string()).optional(),
+  title: z.string().optional(),
+  users: z.array(z.string()).optional(),
 });
 
-export const updateGroupDataSchema = { ...createGroupDataSchema };
+export const updateGroupDataSchema = z.object({
+  description: z.string().optional(),
+  email: z.string().optional(),
+  groupname: z.string().optional(),
+  groups: z.array(z.string()).optional(),
+  roles: z.array(z.string()).optional(),
+  title: z.string().optional(),
+  users: z.array(z.string()).optional(),
+});
 
-export interface CreateGroupResponse extends Group {}
+export interface CreateGroupResponse extends GetGroupResponse {}

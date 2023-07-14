@@ -26,6 +26,14 @@ import { uninstallAddonsMutation as _uninstallAddonsMutation } from './restapi/a
 import { upgradeAddonsMutation as _upgradeAddonsMutation } from './restapi/addons/upgrade';
 import { createCopyMutation as _createCopyMutation } from './restapi/copy/get';
 import { getDatabaseQuery as _getDatabaseQuery } from './restapi/database/get';
+import { getGroupsRootQuery as _getGroupsRootQuery } from './restapi/groups/get_root';
+import { getGroupQuery as _getGroupsQuery } from './restapi/groups/get';
+import { createGroupMutation as _createGroupMutation } from './restapi/groups/add';
+import { updateGroupMutation as _updateGroupMutation } from './restapi/groups/update';
+import {
+  deleteGroupMutation,
+  deleteGroupMutation as _deleteGroupMutation,
+} from './restapi/groups/delete';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
@@ -155,4 +163,21 @@ export default class PloneClient {
     Database queries
   */
   getDatabaseQuery = queryWithConfig(_getDatabaseQuery, this.getConfig);
+  /*
+    Group queries
+  */
+  getGroupsRootQuery = queryWithConfig(_getGroupsRootQuery, this.getConfig);
+  getGroupQuery = queryWithConfig(_getGroupsQuery, this.getConfig);
+  createGroupMutation = mutationWithConfig(
+    _createGroupMutation,
+    this.getConfig,
+  );
+  updateGroupMutation = mutationWithConfig(
+    _updateGroupMutation,
+    this.getConfig,
+  );
+  deleteGroupMutation = mutationWithConfig(
+    _deleteGroupMutation,
+    this.getConfig,
+  );
 }

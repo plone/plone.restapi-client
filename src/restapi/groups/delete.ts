@@ -25,9 +25,9 @@ export const deleteGroup = async ({
     config: validatedArgs.config,
   };
 
-  const groupsPath = `${validatedArgs.path}/@groups`;
+  const deleteGroupPath = `/@groups/${validatedArgs.path}`;
 
-  return handleRequest('delete', groupsPath, options);
+  return handleRequest('delete', deleteGroupPath, options);
 };
 
 export const deleteGroupMutation = ({
