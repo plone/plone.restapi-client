@@ -30,10 +30,9 @@ import { getGroupsRootQuery as _getGroupsRootQuery } from './restapi/groups/get_
 import { getGroupQuery as _getGroupsQuery } from './restapi/groups/get';
 import { createGroupMutation as _createGroupMutation } from './restapi/groups/add';
 import { updateGroupMutation as _updateGroupMutation } from './restapi/groups/update';
-import {
-  deleteGroupMutation,
-  deleteGroupMutation as _deleteGroupMutation,
-} from './restapi/groups/delete';
+import { deleteGroupMutation as _deleteGroupMutation } from './restapi/groups/delete';
+import { getHistoryQuery as _getHistoryQuery } from './restapi/history/get';
+import { getHistoryVersionedQuery as _getHistoryVersionedQuery } from './restapi/history/get_versioned';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
@@ -178,6 +177,14 @@ export default class PloneClient {
   );
   deleteGroupMutation = mutationWithConfig(
     _deleteGroupMutation,
+    this.getConfig,
+  );
+  /*
+    History queries
+  */
+  getHistoryQuery = queryWithConfig(_getHistoryQuery, this.getConfig);
+  getHistoryVersionedQuery = queryWithConfig(
+    _getHistoryVersionedQuery,
     this.getConfig,
   );
 }
