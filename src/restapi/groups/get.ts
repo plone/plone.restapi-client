@@ -1,20 +1,21 @@
 import { handleRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { z } from 'zod';
+import { GetGroupResponse } from '../../interfaces/groups';
 
-const getGroupsSchema = z.object({
+const getGroupSchema = z.object({
   path: z.string(),
 });
 
-export type GroupsArgs = z.infer<typeof getGroupsSchema> & {
+export type GroupArgs = z.infer<typeof getGroupSchema> & {
   config: PloneClientConfig;
 };
 
-export const getGroups = async ({
+export const getGroup = async ({
   path,
   config,
-}: GroupsArgs): Promise<undefined> => {
-  const validatedArgs = getGroupsSchema.parse({
+}: GroupArgs): Promise<GetGroupResponse> => {
+  const validatedArgs = getGroupSchema.parse({
     path,
   });
 
@@ -22,12 +23,12 @@ export const getGroups = async ({
     config,
     params: {},
   };
-  const groupsPath = `@groups/${validatedArgs.path}`;
+  const groupPath = `@groups/${validatedArgs.path}`;
 
-  return handleRequest('get', groupsPath, options);
+  return handleRequest('get', groupPath, options);
 };
 
-export const getGroupsQuery = ({ path, config }: GroupsArgs) => ({
+export const getGroupQuery = ({ path, config }: GroupArgs) => ({
   queryKey: [path, 'get', 'groups'],
-  queryFn: () => getGroups({ path, config }),
+  queryFn: () => getGroup({ path, config }),
 });
