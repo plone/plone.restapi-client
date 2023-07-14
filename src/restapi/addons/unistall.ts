@@ -2,19 +2,19 @@ import { handleRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { z } from 'zod';
 
-const getAddonsUninstallSchema = z.object({
+const uninstallAddonsSchema = z.object({
   path: z.string(),
 });
 
-export type AddonsUninstallArgs = z.infer<typeof getAddonsUninstallSchema> & {
+export type UninstallAddonsArgs = z.infer<typeof uninstallAddonsSchema> & {
   config: PloneClientConfig;
 };
 
-export const getAddonsUninstall = async ({
+export const uninstallAddons = async ({
   path,
   config,
-}: AddonsUninstallArgs): Promise<undefined> => {
-  const validatedArgs = getAddonsUninstallSchema.parse({
+}: UninstallAddonsArgs): Promise<undefined> => {
+  const validatedArgs = uninstallAddonsSchema.parse({
     path,
   });
 
@@ -22,15 +22,17 @@ export const getAddonsUninstall = async ({
     config,
     params: {},
   };
-  const addonsUninstallPath = `@addons/${validatedArgs.path}/uninstall`;
+  const uninstallAddonsPath = `@addons/${validatedArgs.path}/uninstall`;
 
-  return handleRequest('post', addonsUninstallPath, options);
+  return handleRequest('post', uninstallAddonsPath, options);
 };
 
-export const getAddonsUninstallQuery = ({
-  path,
+export const uninstallAddonsMutation = ({
   config,
-}: AddonsUninstallArgs) => ({
-  queryKey: [path, 'post', 'addonsUninstall'],
-  queryFn: () => getAddonsUninstall({ path, config }),
+}: {
+  config: PloneClientConfig;
+}) => ({
+  mutationKey: ['post', 'addons'],
+  mutationFn: ({ path }: Omit<UninstallAddonsArgs, 'config'>) =>
+    uninstallAddons({ path, config }),
 });

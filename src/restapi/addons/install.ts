@@ -2,19 +2,19 @@ import { handleRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { z } from 'zod';
 
-const getAddonsInstallSchema = z.object({
+const installAddonsSchema = z.object({
   path: z.string(),
 });
 
-export type AddonsInstallArgs = z.infer<typeof getAddonsInstallSchema> & {
+export type InstallAddonsArgs = z.infer<typeof installAddonsSchema> & {
   config: PloneClientConfig;
 };
 
-export const getAddonsInstall = async ({
+export const installAddons = async ({
   path,
   config,
-}: AddonsInstallArgs): Promise<undefined> => {
-  const validatedArgs = getAddonsInstallSchema.parse({
+}: InstallAddonsArgs): Promise<undefined> => {
+  const validatedArgs = installAddonsSchema.parse({
     path,
   });
 
@@ -22,12 +22,17 @@ export const getAddonsInstall = async ({
     config,
     params: {},
   };
-  const addonsInstallPath = `@addons/${validatedArgs.path}/install`;
+  const installAddonsPath = `@addons/${validatedArgs.path}/install`;
 
-  return handleRequest('post', addonsInstallPath, options);
+  return handleRequest('post', installAddonsPath, options);
 };
 
-export const getAddonsInstallQuery = ({ path, config }: AddonsInstallArgs) => ({
-  queryKey: [path, 'post', 'addonsInstall'],
-  queryFn: () => getAddonsInstall({ path, config }),
+export const installAddonsMutation = ({
+  config,
+}: {
+  config: PloneClientConfig;
+}) => ({
+  mutationKey: ['post', 'addons'],
+  mutationFn: ({ path }: Omit<InstallAddonsArgs, 'config'>) =>
+    installAddons({ path, config }),
 });

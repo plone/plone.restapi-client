@@ -18,6 +18,12 @@ import { deleteAliasesMutation as _deleteAliasesMutation } from './restapi/alias
 import { getAliasesRootQuery as _getAliasesRootQuery } from './restapi/aliases/get_root';
 import { createAliasesRootMutation as _createAliasesRootMutation } from './restapi/aliases/add_root';
 import { deleteAliasesRootMutation as _deleteAliasesRootMutation } from './restapi/aliases/delete_root';
+import { getAddonsListQuery as _getAddonsListQuery } from './restapi/addons/get_list';
+import { getAddonsQuery as _getAddonsQuery } from './restapi/addons/get';
+import { installAddonsMutation as _installAddonsMutation } from './restapi/addons/install';
+import { installAddonsProfileMutation as _installAddonsProfileMutation } from './restapi/addons/install_profile';
+import { uninstallAddonsMutation as _uninstallAddonsMutation } from './restapi/addons/unistall';
+import { upgradeAddonsMutation as _upgradeAddonsMutation } from './restapi/addons/upgrade';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
@@ -117,6 +123,27 @@ export default class PloneClient {
   );
   deleteAliasesRootMutation = mutationWithConfig(
     _deleteAliasesRootMutation,
+    this.getConfig,
+  );
+  /*
+    Addons queries
+  */
+  getAddonsListQuery = queryWithConfig(_getAddonsListQuery, this.getConfig);
+  getAddonsQuery = queryWithConfig(_getAddonsQuery, this.getConfig);
+  installAddonsMutation = mutationWithConfig(
+    _installAddonsMutation,
+    this.getConfig,
+  );
+  installProfileAddonsMutation = mutationWithConfig(
+    _installAddonsProfileMutation,
+    this.getConfig,
+  );
+  uninstallAddonsMutation = mutationWithConfig(
+    _uninstallAddonsMutation,
+    this.getConfig,
+  );
+  upgradeAddonsMutation = mutationWithConfig(
+    _upgradeAddonsMutation,
     this.getConfig,
   );
 }
