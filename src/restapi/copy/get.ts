@@ -1,35 +1,42 @@
-import { handleRequest, ApiRequestParams } from '../../API';
-import { PloneClientConfig } from '../../interfaces/config';
-import { GetCopyResponse } from '../../interfaces/copy';
-
 import { z } from 'zod';
+import { ApiRequestParams, handleRequest } from '../../API';
+import {
+  PloneClientConfig,
+  PloneClientConfigSchema,
+} from '../../interfaces/config';
+import { copyDataSchema, GetCopyResponse } from '../../interfaces/copy';
 
-const getCopySchema = z.object({
-  path: z.string(),
+export const createCopyArgsSchema = z.object({
+  data: copyDataSchema,
+  config: PloneClientConfigSchema,
 });
 
-export type CopyArgs = z.infer<typeof getCopySchema> & {
-  config: PloneClientConfig;
-};
+export type CreateCopyArgs = z.infer<typeof createCopyArgsSchema>;
 
-export const getCopy = async ({
-  path,
+export const createCopy = async ({
+  data,
   config,
-}: CopyArgs): Promise<GetCopyResponse> => {
-  const validatedArgs = getCopySchema.parse({
-    path,
+}: CreateCopyArgs): Promise<GetCopyResponse> => {
+  const validatedArgs = createCopyArgsSchema.parse({
+    data,
+    config,
   });
 
-  const options: ApiRequestParams = {
-    config,
-    params: {},
-  };
-  const copyPath = `@copy/${validatedArgs.path}`;
+  const copyPath = `/@copy`;
 
-  return handleRequest('get', copyPath, options);
+  const options: ApiRequestParams = {
+    data: validatedArgs.data,
+    config: validatedArgs.config,
+  };
+  return handleRequest('post', copyPath, options);
 };
 
-export const getCopyQuery = ({ path, config }: CopyArgs) => ({
-  queryKey: [path, 'get', 'copy'],
-  queryFn: () => getCopy({ path, config }),
+export const createCopyMutation = ({
+  config,
+}: {
+  config: PloneClientConfig;
+}) => ({
+  mutationKey: ['post', 'copy'],
+  mutationFn: ({ data }: Omit<CreateCopyArgs, 'config'>) =>
+    createCopy({ data, config }),
 });
