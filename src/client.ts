@@ -8,6 +8,9 @@ import { getContentQuery as _getContentQuery } from './restapi/content/get';
 import { createContentMutation as _createContentMutation } from './restapi/content/add';
 import { updateContentMutation as _updateContentMutation } from './restapi/content/update';
 import { deleteContentMutation as _deleteContentMutation } from './restapi/content/delete';
+import { getBreadcrumbsQuery as _getBreadcrumbsQuery } from './restapi/breadcrumbs/get';
+import { getNavigationQuery as _getNavigationQuery } from './restapi/navigation/get';
+import { getContextNavigationQuery as _getContextNavigationQuery } from './restapi/contextnavigation/get';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
@@ -62,6 +65,23 @@ export default class PloneClient {
   );
   deleteContentMutation = mutationWithConfig(
     _deleteContentMutation,
+    this.getConfig,
+  );
+
+  /*
+    Breadcrumbs queries
+  */
+  getBreadcrumbsQuery = queryWithConfig(_getBreadcrumbsQuery, this.getConfig);
+
+  /*
+    Navigation queries
+  */
+  getNavigationQuery = queryWithConfig(_getNavigationQuery, this.getConfig);
+  /*
+    ContextNavigation queries
+  */
+  getContextNavigationQuery = queryWithConfig(
+    _getContextNavigationQuery,
     this.getConfig,
   );
 }
