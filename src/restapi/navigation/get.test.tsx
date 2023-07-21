@@ -37,5 +37,7 @@ describe('[GET] Navigation', () => {
     await waitFor(() => expect(result.current.isError).toBe(true));
 
     expect(result.current.error).toBeDefined();
+    // @ts-expect-error TODO: find a way to set the error type properly for error
+    expect(result.current.error.response?.status).toBe(404);
   });
 });

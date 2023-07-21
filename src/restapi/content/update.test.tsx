@@ -73,5 +73,7 @@ describe('[PATCH] Content', () => {
 
     expect(result.current.status).toBe('error');
     expect(result.current.error).toBeDefined();
+    // @ts-expect-error TODO: find a way to set the error type properly for error
+    expect(result.current.error.response?.status).toBe(404);
   });
 });
