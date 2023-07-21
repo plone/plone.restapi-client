@@ -37,9 +37,7 @@ describe('[DELETE] Content', () => {
       wrapper: createWrapper(),
     });
 
-    act(() => {
-      result.current.mutate({ path: pagePath });
-    });
+    await act(() => result.current.mutateAsync({ path: pagePath }));
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
   });
@@ -51,10 +49,18 @@ describe('[DELETE] Content', () => {
       wrapper: createWrapper(),
     });
 
-    act(() => {
-      result.current.mutate({ path });
+    await act(async () => {
+      try {
+        await result.current.mutateAsync({ path });
+      } catch (error) {
+        // We expect an error, so do nothing
+      }
     });
 
-    await waitFor(() => expect(result.current.isError).toBe(true));
+    expect(result.current.status).toBe('error');
+    expect(result.current.error).toBeDefined();
+
+    // @ts-ignore
+    expect(result.current.error?.response?.status).toBe(404);
   });
 });

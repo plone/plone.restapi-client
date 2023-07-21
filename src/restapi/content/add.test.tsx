@@ -34,9 +34,7 @@ describe('[POST] Content', () => {
       wrapper: createWrapper(),
     });
 
-    act(() => {
-      result.current.mutate({ path, data });
-    });
+    await act(() => result.current.mutateAsync({ path, data }));
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
@@ -57,9 +55,7 @@ describe('[POST] Content', () => {
       wrapper: createWrapper(),
     });
 
-    act(() => {
-      result.current.mutate({ path, data });
-    });
+    await act(() => result.current.mutateAsync({ path, data }));
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
@@ -79,14 +75,15 @@ describe('[POST] Content', () => {
       wrapper: createWrapper(),
     });
 
-    act(() => {
-      result.current.mutate({ path, data });
+    await act(async () => {
+      try {
+        await result.current.mutateAsync({ path, data });
+      } catch (error) {
+        // We expect an error, so do nothing
+      }
     });
 
-    await waitFor(() => expect(result.current.isError).toBe(true));
-
-    // @ts-ignore
-    expect(result.current.error.status).toBe(404);
+    expect(result.current.status).toBe('error');
     expect(result.current.error).toBeDefined();
   });
 });

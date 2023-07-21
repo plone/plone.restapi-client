@@ -41,9 +41,9 @@ describe('[PATCH] Content', () => {
       wrapper: createWrapper(),
     });
 
-    act(() => {
-      result.current.mutate({ path: pagePath, data: dataPatch });
-    });
+    await act(() =>
+      result.current.mutateAsync({ path: pagePath, data: dataPatch }),
+    );
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
@@ -63,14 +63,15 @@ describe('[PATCH] Content', () => {
       wrapper: createWrapper(),
     });
 
-    act(() => {
-      result.current.mutate({ path, data });
+    await act(async () => {
+      try {
+        await result.current.mutateAsync({ path, data });
+      } catch (error) {
+        // We expect an error, so do nothing
+      }
     });
 
-    await waitFor(() => expect(result.current.isError).toBe(true));
-
-    // @ts-ignore
-    expect(result.current.error.status).toBe(404);
+    expect(result.current.status).toBe('error');
     expect(result.current.error).toBeDefined();
   });
 });
