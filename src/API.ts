@@ -1,6 +1,5 @@
-import superagent from 'superagent';
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import Cookies from 'universal-cookie';
-import type request from 'superagent';
 import { PloneClientConfig } from './interfaces/config';
 
 const methods = ['get', 'post', 'put', 'patch', 'delete'];
@@ -19,7 +18,7 @@ function getBackendURL(apiPath: string, path: string) {
 
   if (path.startsWith('http://') || path.startsWith('https://')) return path;
 
-  const adjustedPath = path[0] !== '/' ? `/${path}` : path;
+  const adjustedPath = path[0] !== '/' ? `\/${path}` : path;
 
   return `${apiPath}${APISUFIX}${adjustedPath}`;
 }
@@ -32,17 +31,17 @@ export async function handleRequest(
   const fetcher = new API();
   const response = await fetcher[method](path, options);
 
-  if (!response.ok) {
+  if (!response || ![200, 201].includes(response.status)) {
     throw new Error('Network response was not ok');
   }
-  return response.body;
+  return response.data;
 }
 
 export default class API {
   [m: string]: (
     path: string,
     options: ApiRequestParams,
-  ) => Promise<request.Response>;
+  ) => Promise<AxiosResponse<any>>;
 
   constructor(req?: Request) {
     const cookies = new Cookies();
@@ -59,67 +58,36 @@ export default class API {
           checkUrl = false,
         }: ApiRequestParams,
       ) => {
-        let request: request.SuperAgentRequest;
-
-        // @ts-ignore
-        request = superagent[method](getBackendURL(config.apiPath, path));
-
-        if (params) {
-          request.query(params);
-        }
-        // let authToken;
-        // if (req) {
-        //   // @ts-ignore
-        //   // We are in SSR
-        //   authToken = req.universalCookies.get('auth_token');
-        //   request.use(addHeadersFactory(req));
-        // } else {
-        //   authToken = cookies.get('auth_token');
-        // }
+        const requestOptions: AxiosRequestConfig = {
+          url: getBackendURL(config.apiPath, path),
+          method,
+          params,
+          data,
+          headers: {
+            Accept: 'application/json',
+            ...headers,
+          },
+        };
 
         if (config.token) {
-          request.set('Authorization', `Bearer ${config.token}`);
+          if (requestOptions.headers) {
+            requestOptions.headers['Authorization'] = `Bearer ${config.token}`;
+          }
         }
-
-        request.set('Accept', 'application/json');
 
         if (type) {
-          request.type(type);
+          if (requestOptions.headers) {
+            requestOptions.headers['Content-Type'] = type;
+          }
         }
 
-        Object.keys(headers).forEach((key) => request.set(key, headers[key]));
-
-        if (data) {
-          request.send(data);
+        try {
+          const response = await axios(requestOptions);
+          // console.log(requestOptions);
+          return response;
+        } catch (error) {
+          throw error as Error;
         }
-
-        return request;
-
-        // request.end((err, response) => {
-        //   if (
-        //     checkUrl &&
-        //     request.url &&
-        //     request.xhr &&
-        //     stripQuerystring(request.url) !==
-        //       stripQuerystring(request.xhr.responseURL)
-        //   ) {
-        //     if (request.xhr.responseURL?.length === 0) {
-        //       return reject({
-        //         code: 408,
-        //         status: 408,
-        //         url: request.xhr.responseURL,
-        //       });
-        //     }
-        //     return reject({
-        //       code: 301,
-        //       url: request.xhr.responseURL,
-        //     });
-        //   }
-        //   return err ? reject(err) : resolve(response.body || response.text);
-        // });
-
-        // promise.request = request;
-        // return promise;
       };
     });
   }

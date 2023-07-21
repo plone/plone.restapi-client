@@ -32,8 +32,6 @@ export const updateUser = async ({
 
   const updateUserPath = `/@users/${validatedArgs.path}`;
 
-  console.log(updateUserPath);
-
   return handleRequest('patch', updateUserPath, options);
 };
 

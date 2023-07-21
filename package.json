@@ -88,6 +88,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "4.29.1",
+    "axios": "^1.4.0",
     "superagent": "8.0.9",
     "universal-cookie": "^4.0.4",
     "zod": "^3.21.4"

@@ -32,8 +32,6 @@ export const updateGroup = async ({
 
   const updateGroupPath = `/@groups/${validatedArgs.path}`;
 
-  console.log(updateGroupPath);
-
   return handleRequest('patch', updateGroupPath, options);
 };
 
