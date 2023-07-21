@@ -18,7 +18,7 @@ function getBackendURL(apiPath: string, path: string) {
 
   if (path.startsWith('http://') || path.startsWith('https://')) return path;
 
-  const adjustedPath = path[0] !== '/' ? `\/${path}` : path;
+  const adjustedPath = path[0] !== '/' ? `/${path}` : path;
 
   return `${apiPath}${APISUFIX}${adjustedPath}`;
 }
