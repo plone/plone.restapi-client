@@ -16,6 +16,7 @@ describe('[GET] Actions', () => {
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
+    expect(result.current.data?.user[0]['id']).toBe('login');
   });
 
   test('Hook - Failure', async () => {

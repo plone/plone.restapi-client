@@ -16,6 +16,9 @@ describe('[GET] Aliases', () => {
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
+    expect(result.current.data?.['@id']).toBe(
+      'http://localhost:55001/plone/@aliases',
+    );
   });
 
   test('Hook - Failure', async () => {
