@@ -5,7 +5,8 @@ interface CopyObject {
   target: string;
 }
 
-export interface GetCopyResponse extends Array<CopyObject> {}
+export interface createCopyResponse extends Array<CopyObject> {}
+export interface createCopyMultipleResponse extends Array<CopyObject> {}
 
 export const copyDataSchema = z.object({
   source: z.string(),

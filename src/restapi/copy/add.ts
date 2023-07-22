@@ -4,7 +4,7 @@ import {
   PloneClientConfig,
   PloneClientConfigSchema,
 } from '../../interfaces/config';
-import { copyDataSchema, GetCopyResponse } from '../../interfaces/copy';
+import { copyDataSchema, createCopyResponse } from '../../interfaces/copy';
 
 export const createCopyArgsSchema = z.object({
   data: copyDataSchema,
@@ -16,7 +16,7 @@ export type CreateCopyArgs = z.infer<typeof createCopyArgsSchema>;
 export const createCopy = async ({
   data,
   config,
-}: CreateCopyArgs): Promise<GetCopyResponse> => {
+}: CreateCopyArgs): Promise<createCopyResponse> => {
   const validatedArgs = createCopyArgsSchema.parse({
     data,
     config,

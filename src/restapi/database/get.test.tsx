@@ -16,7 +16,5 @@ describe('[GET] Database', () => {
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
-
-    console.log(result.current.data);
   });
 });

@@ -27,7 +27,6 @@ describe('[GET] Groups', () => {
     );
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    console.log(result.current.data);
   });
 
   test('Hook - Failure', async () => {

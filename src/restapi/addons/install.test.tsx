@@ -33,8 +33,6 @@ describe('[POST] InstallAddons', () => {
       result.current.mutate({ path });
     });
 
-    console.log(result.current.data);
-
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
   });
 });
