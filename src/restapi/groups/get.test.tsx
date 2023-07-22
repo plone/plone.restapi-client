@@ -17,6 +17,7 @@ describe('[GET] Groups', () => {
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
+    expect(result.current.data?.id).toBe('Administrators');
   });
 
   test('Hook - Failure', async () => {

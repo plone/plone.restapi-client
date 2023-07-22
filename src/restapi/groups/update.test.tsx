@@ -6,6 +6,7 @@ import { beforeEach } from 'vitest';
 import { expect, test } from 'vitest';
 import PloneClient from '../../client';
 import { createGroup } from './add';
+import { getGroup } from './get';
 
 const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
@@ -26,6 +27,7 @@ describe('[PATCH] Group', () => {
   test('Hook - Successful', async () => {
     const groupData = {
       groupname: 'new_group',
+      description: 'new description',
     };
 
     await createGroup({ data: groupData, config: cli.config });
@@ -35,23 +37,27 @@ describe('[PATCH] Group', () => {
     });
 
     const updateGroupData = {
-      groupname: 'changed_name',
+      description: 'changed description',
     };
 
     act(() => {
       result.current.mutate({
-        path: `/${groupData.groupname}`,
+        path: groupData.groupname,
         data: updateGroupData,
       });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
+
+    const group = await getGroup({ path: 'new_group', config: cli.config });
+
+    expect(group?.description).toBe('changed description');
   });
 
   test('Hook - Failure', async () => {
     const path = '/blah';
     const updateGroupData = {
-      groupname: 'changed_name',
+      description: 'asd',
     };
 
     const { result } = renderHook(() => useMutation(updateGroupMutation()), {

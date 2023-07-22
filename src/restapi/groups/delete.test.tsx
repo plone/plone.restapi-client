@@ -35,7 +35,7 @@ describe('[DELETE] Group', () => {
     });
 
     act(() => {
-      result.current.mutate({ path: `/${groupData.groupname}` });
+      result.current.mutate({ path: groupData.groupname });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));

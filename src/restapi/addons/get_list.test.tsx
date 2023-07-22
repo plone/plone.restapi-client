@@ -16,5 +16,8 @@ describe('[GET] AddonsList', () => {
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
+    expect(result.current.data?.items[0]['id']).toBe(
+      'Products.CMFPlacefulWorkflow',
+    );
   });
 });

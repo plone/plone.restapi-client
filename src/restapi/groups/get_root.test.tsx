@@ -16,5 +16,6 @@ describe('[GET] GroupsRoot', () => {
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
+    expect(result.current.data?.[0].id).toBe('Administrators');
   });
 });

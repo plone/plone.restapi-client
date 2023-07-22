@@ -70,7 +70,7 @@ describe('[POST] Copy', () => {
       result.current.mutate({ data: copyData });
     });
 
-    // TODO: Find correct implementation for failure test as currently API does not return an error status code
+    // TODO: Find correct implementation for failure test as currently API does not return an error status code when it is supposed to raise error
 
     // await waitFor(() => expect(result.current.isError).toBe(true));
 

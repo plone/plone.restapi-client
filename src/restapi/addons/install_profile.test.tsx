@@ -38,4 +38,6 @@ describe('[POST] InstallAddonsProfile', () => {
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
   });
+
+  // TODO: Find correct implementation for failure test as API returns status 204 when it is supposed to raise error
 });
