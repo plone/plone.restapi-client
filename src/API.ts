@@ -66,7 +66,7 @@ function axiosConfigAdapter(
       return status >= 200 && status < 300; // default
     },
   };
-  console.log(axiosConfig);
+
   if (config.token) {
     if (axiosConfig.headers) {
       axiosConfig.headers['Authorization'] = `Bearer ${config.token}`;
@@ -81,10 +81,13 @@ export async function apiRequest(
   path: string,
   options: ApiRequestParams,
 ): Promise<any> {
+  const instance = axios.create();
+
   if (options.raw) {
-    axios.interceptors.response.use(null, _handleError);
+    instance.interceptors.response.use(null, _handleError);
   } else {
-    axios.interceptors.response.use(_handleResponse, _handleError);
+    instance.interceptors.response.use(_handleResponse, _handleError);
   }
-  return axios(axiosConfigAdapter(method, path, options));
+
+  return instance(axiosConfigAdapter(method, path, options));
 }
