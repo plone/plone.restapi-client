@@ -1,5 +1,5 @@
 import { Login } from '../../interfaces/login';
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { z } from 'zod';
 import { PloneClientConfigSchema } from '../../interfaces/config';
 
@@ -26,7 +26,7 @@ export const login = ({
     data: { login: validatedArgs.username, password: validatedArgs.password },
     config: validatedArgs.config,
   };
-  return handleRequest('post', '/@login', options);
+  return apiRequest('post', '/@login', options);
 };
 
 export const loginQuery = ({ username, password, config }: LoginArgs) => ({
