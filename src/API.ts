@@ -1,9 +1,5 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
-import Cookies from 'universal-cookie';
-import type request from 'superagent';
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { PloneClientConfig } from './interfaces/config';
-
-const methods = ['get', 'post', 'put', 'patch', 'delete'];
 
 export type ApiRequestParams = {
   config: PloneClientConfig;
@@ -15,7 +11,7 @@ export type ApiRequestParams = {
   raw?: boolean;
 };
 
-function getBackendURL(apiPath: string, path: string) {
+export function getBackendURL(apiPath: string, path: string) {
   const APISUFIX = '/++api++';
 
   if (path.startsWith('http://') || path.startsWith('https://')) return path;
@@ -25,22 +21,26 @@ function getBackendURL(apiPath: string, path: string) {
   return `${apiPath}${APISUFIX}${adjustedPath}`;
 }
 
-// export async function handleRequest(
-//   method: string,
-//   path: string,
-//   options: ApiRequestParams,
-// ): Promise<any> {
-//   const fetcher = api;
-//   const response = await fetcher[method](path, options);
+/*
+Previous implementation
 
-//   return response;
-// }
+export async function handleRequest(
+  method: string,
+  path: string,
+  options: ApiRequestParams,
+): Promise<any> {
+  const fetcher = api;
+  const response = await fetcher[method](path, options);
+
+  return response;
+}
+*/
 
 const _handleResponse = ({ data }: AxiosResponse) => data;
 
 const _handleError = (error: any) => Promise.reject(error);
 
-function axiosConfigAdapter(
+export function axiosConfigAdapter(
   method: string,
   path: string,
   options: ApiRequestParams,
@@ -89,5 +89,5 @@ export async function apiRequest(
     instance.interceptors.response.use(_handleResponse, _handleError);
   }
 
-  return instance(axiosConfigAdapter(method, path, options));
+  return instance.request(axiosConfigAdapter(method, path, options));
 }
