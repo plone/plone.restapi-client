@@ -1,6 +1,8 @@
 // @ts-nocheck
 const HEADERS = ['range', 'if-range'];
 
+// TODO: migrate to using axios when SSR is implemented
+
 /**
  * Create a function that add X-Forwarded Headers to superagent requests
  * @function addHeadersFactory
