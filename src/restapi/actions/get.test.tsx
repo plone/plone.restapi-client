@@ -17,8 +17,6 @@ describe('[GET] Actions', () => {
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
-    console.log('test', result.current.data);
-
     expect(result.current.data).not.toBeUndefined();
     expect(result.current.data).toHaveProperty('user');
     expect(result.current.data).toHaveProperty('portal_tabs');

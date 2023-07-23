@@ -1,4 +1,4 @@
-import { test, describe, vi, Mock } from 'vitest';
+import { describe, vi, Mock } from 'vitest';
 import axios, { AxiosRequestConfig } from 'axios';
 import { apiRequest, axiosConfigAdapter, getBackendURL } from './API';
 
