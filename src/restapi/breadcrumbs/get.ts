@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { BreadcrumbsResponse } from '../../interfaces/breadcrumbs';
 import { z } from 'zod';
@@ -26,7 +26,7 @@ export const getBreadcrumbs = async ({
 
   const breadcrumbsPath = `${validatedArgs.path}/@breadcrumbs`;
 
-  return handleRequest('get', breadcrumbsPath, options);
+  return apiRequest('get', breadcrumbsPath, options);
 };
 
 export const getBreadcrumbsQuery = ({ path, config }: BreadcrumbsArgs) => ({

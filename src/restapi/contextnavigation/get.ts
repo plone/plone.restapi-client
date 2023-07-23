@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { ContextNavigationResponse } from '../../interfaces/contextnavigation';
 import { z } from 'zod';
@@ -28,7 +28,7 @@ export const getContextNavigation = async ({
 
   const contextnavigationPath = `${validatedArgs.path}/@contextnavigation`;
 
-  return handleRequest('get', contextnavigationPath, options);
+  return apiRequest('get', contextnavigationPath, options);
 };
 
 export const getContextNavigationQuery = ({

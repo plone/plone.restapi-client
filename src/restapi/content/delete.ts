@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { z } from 'zod';
 import {
   PloneClientConfig,
@@ -24,7 +24,7 @@ export const deleteContent = async ({
   const options: ApiRequestParams = {
     config: validatedArgs.config,
   };
-  return handleRequest('delete', validatedArgs.path, options);
+  return apiRequest('delete', validatedArgs.path, options);
 };
 
 export const deleteContentMutation = ({

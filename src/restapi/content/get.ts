@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { GetContentResponse } from '../../interfaces/content/get';
 import { z } from 'zod';
@@ -39,13 +39,13 @@ export const getContent = async ({
     },
   };
   if (validatedArgs.version) {
-    return handleRequest(
+    return apiRequest(
       'get',
       `${path}/@history/${validatedArgs.version}`,
       options,
     );
   }
-  return handleRequest('get', path, options);
+  return apiRequest('get', path, options);
 };
 
 export const getContentQuery = ({

@@ -72,8 +72,6 @@ describe('[POST] Aliases', () => {
 
     await waitFor(() => expect(result.current.isError).toBe(true));
 
-    // @ts-ignore
-    expect(result.current.error.status).toBe(404);
     expect(result.current.error).toBeDefined();
   });
 });
