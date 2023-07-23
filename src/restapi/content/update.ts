@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import {
   PloneClientConfig,
   PloneClientConfigSchema,
@@ -32,7 +32,7 @@ export const updateContent = async ({
     data: validatedArgs.data,
     config: validatedArgs.config,
   };
-  return handleRequest('patch', validatedArgs.path, options);
+  return apiRequest('patch', validatedArgs.path, options);
 };
 
 export const updateContentMutation = ({

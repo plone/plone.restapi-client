@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { z } from 'zod';
 import {
   PloneClientConfig,
@@ -32,7 +32,7 @@ export const deleteAliases = async ({
 
   const aliasesPath = `${validatedArgs.path}/@aliases`;
 
-  return handleRequest('delete', aliasesPath, options);
+  return apiRequest('delete', aliasesPath, options);
 };
 
 export const deleteAliasesMutation = ({

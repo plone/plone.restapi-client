@@ -18,6 +18,5 @@ describe('[GET] AliasesRoot', () => {
     expect(result.current.data?.['@id']).toBe(
       'http://localhost:55001/plone/@aliases',
     );
-    console.log(result.current.data);
   });
 });

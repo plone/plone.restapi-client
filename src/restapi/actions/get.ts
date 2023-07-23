@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { ActionsResponse } from '../../interfaces/actions';
 import { z } from 'zod';
@@ -26,7 +26,7 @@ export const getActions = async ({
 
   const actionsPath = `${validatedArgs.path}/@actions`;
 
-  return handleRequest('get', actionsPath, options);
+  return apiRequest('get', actionsPath, options);
 };
 
 export const getActionsQuery = ({ path, config }: ActionsArgs) => ({

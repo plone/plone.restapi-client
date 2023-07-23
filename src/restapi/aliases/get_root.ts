@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { GetAliasesRootResponse } from '../../interfaces/aliases';
 
@@ -14,7 +14,7 @@ export const getAliasesRoot = async ({
     params: {},
   };
 
-  return handleRequest('get', '/@aliases', options);
+  return apiRequest('get', '/@aliases', options);
 };
 
 export const getAliasesRootQuery = ({ config }: AliasesRootArgs) => ({

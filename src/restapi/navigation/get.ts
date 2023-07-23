@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { NavigationResponse } from '../../interfaces/navigation';
 import { z } from 'zod';
@@ -26,7 +26,7 @@ export const getNavigation = async ({
 
   const navigationPath = `${validatedArgs.path}/@navigation`;
 
-  return handleRequest('get', navigationPath, options);
+  return apiRequest('get', navigationPath, options);
 };
 
 export const getNavigationQuery = ({ path, config }: NavigationArgs) => ({

@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { GetAliasesResponse } from '../../interfaces/aliases';
 import { z } from 'zod';
@@ -25,7 +25,7 @@ export const getAliases = async ({
   };
   const aliasesPath = `${validatedArgs.path}/@aliases`;
 
-  return handleRequest('get', aliasesPath, options);
+  return apiRequest('get', aliasesPath, options);
 };
 
 export const getAliasesQuery = ({ path, config }: AliasesArgs) => ({

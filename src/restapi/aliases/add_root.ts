@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { ApiRequestParams, handleRequest } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import {
   PloneClientConfig,
   PloneClientConfigSchema,
@@ -27,7 +27,7 @@ export const createAliasesRoot = async ({
     config: validatedArgs.config,
   };
 
-  return handleRequest('post', '/@aliases', options);
+  return apiRequest('post', '/@aliases', options);
 };
 
 export const createAliasesRootMutation = ({
