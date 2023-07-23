@@ -8,6 +8,18 @@
 
 <!-- towncrier release notes start -->
 
+## 1.0.0-alpha.2 (2023-07-23)
+
+### Feature
+
+- Add more services to restapi, namely breadcrumbs, navigation and contextnavigation @hemant-hc [#15](https://github.com/plone/plone.restapi-client/pull/15)
+- Add actions for actions and aliases services [#16](https://github.com/plone/plone.restapi-client/pull/16)
+
+### Internal
+
+- Refactoring plone client to use axios replacing superagent @hemant-hc [#22](https://github.com/plone/plone.restapi-client/pull/22)
+
+
 ## 1.0.0-alpha.1 (2023-07-13)
 
 ### Bugfix
