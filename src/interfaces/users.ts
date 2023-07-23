@@ -24,32 +24,32 @@ export interface User {
 export type GetUsersRootResponse = Array<User>;
 
 export const createUserDataSchema = z.object({
-  description: z.string(),
+  description: z.string().optional(),
   email: z.string().email(),
-  fullname: z.string(),
-  home_page: z.string().url(),
-  location: z.string(),
+  fullname: z.string().optional(),
+  home_page: z.string().url().optional(),
+  location: z.string().optional(),
   sendPasswordReset: z.boolean(),
   username: z.string(),
 });
 
 export const updateUserDataSchema = z.object({
-  description: z.string(),
-  email: z.string().email(),
-  fullname: z.string(),
-  home_page: z.string().url(),
-  location: z.string(),
-  username: z.string(),
+  description: z.string().optional(),
+  email: z.string().email().optional(),
+  fullname: z.string().optional(),
+  home_page: z.string().url().optional(),
+  location: z.string().optional(),
+  username: z.string().optional(),
 });
 
 export const createdUserDataSchema = z.object({
-  description: z.string(),
+  description: z.string().optional(),
   email: z.string().email(),
-  fullname: z.string(),
-  home_page: z.string().url(),
-  location: z.string(),
+  fullname: z.string().optional(),
+  home_page: z.string().url().optional(),
+  location: z.string().optional(),
   password: z.string(),
-  roles: z.array(z.string()),
+  roles: z.array(z.string()).optional(),
   username: z.string(),
 });
 
