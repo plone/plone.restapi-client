@@ -30,6 +30,6 @@ export const getNavigation = async ({
 };
 
 export const getNavigationQuery = ({ path, config }: NavigationArgs) => ({
-  queryKey: [path, 'get', 'content'],
+  queryKey: [path, 'get', 'navitagtion'],
   queryFn: () => getNavigation({ path, config }),
 });

@@ -41,6 +41,9 @@ import { resetPasswordMutation as _resetPasswordMutation } from './restapi/users
 import { resetPasswordWithTokenMutation as _resetPasswordWithTokenMutation } from './restapi/users/reset_password_with_token';
 import { updatePasswordMutation as _updatePasswordMutation } from './restapi/users/update_password';
 import { updateUserMutation as _updateUserMutation } from './restapi/users/update';
+import { getWorkflowQuery as _getWorkflowQuery } from './restapi/workflow/get';
+import { createWorkflowMutation as _createWorkflowMutation } from './restapi/workflow/add';
+import { createWorkflowWithBodyMutation as _createWorkflowWithBodyMutation } from './restapi/workflow/add_with_body';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
@@ -221,4 +224,17 @@ export default class PloneClient {
     this.getConfig,
   );
   updateUserMutation = mutationWithConfig(_updateUserMutation, this.getConfig);
+
+  /*
+    Workflow queries
+  */
+  getWorkflowQuery = queryWithConfig(_getWorkflowQuery, this.getConfig);
+  createWorkflowMutation = mutationWithConfig(
+    _createWorkflowMutation,
+    this.getConfig,
+  );
+  createWorkflowWithBodyMutation = mutationWithConfig(
+    _createWorkflowWithBodyMutation,
+    this.getConfig,
+  );
 }
