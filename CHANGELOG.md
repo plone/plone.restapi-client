@@ -8,6 +8,13 @@
 
 <!-- towncrier release notes start -->
 
+## 1.0.0-alpha.3 (2023-07-24)
+
+### Feature
+
+- Expanders support in getContent requests @sneridagh [#23](https://github.com/plone/plone.restapi-client/pull/23)
+
+
 ## 1.0.0-alpha.2 (2023-07-23)
 
 ### Feature
