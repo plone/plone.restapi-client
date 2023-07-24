@@ -11,6 +11,13 @@ import { deleteContentMutation as _deleteContentMutation } from './restapi/conte
 import { getBreadcrumbsQuery as _getBreadcrumbsQuery } from './restapi/breadcrumbs/get';
 import { getNavigationQuery as _getNavigationQuery } from './restapi/navigation/get';
 import { getContextNavigationQuery as _getContextNavigationQuery } from './restapi/contextnavigation/get';
+import { getActionsQuery as _getActionsQuery } from './restapi/actions/get';
+import { getAliasesQuery as _getAliasesQuery } from './restapi/aliases/get';
+import { createAliasesMutation as _createAliasesMutation } from './restapi/aliases/add';
+import { deleteAliasesMutation as _deleteAliasesMutation } from './restapi/aliases/delete';
+import { getAliasesRootQuery as _getAliasesRootQuery } from './restapi/aliases/get_root';
+import { createAliasesRootMutation as _createAliasesRootMutation } from './restapi/aliases/add_root';
+import { deleteAliasesRootMutation as _deleteAliasesRootMutation } from './restapi/aliases/delete_root';
 import { getAddonsListQuery as _getAddonsListQuery } from './restapi/addons/get_list';
 import { getAddonsQuery as _getAddonsQuery } from './restapi/addons/get';
 import { installAddonsMutation as _installAddonsMutation } from './restapi/addons/install';
@@ -103,6 +110,33 @@ export default class PloneClient {
   );
 
   /*
+    Actions queries
+  */
+  getActionsQuery = queryWithConfig(_getActionsQuery, this.getConfig);
+
+  /*
+    Aliases queries
+  */
+  getAliasesQuery = queryWithConfig(_getAliasesQuery, this.getConfig);
+  createAliasesMutation = mutationWithConfig(
+    _createAliasesMutation,
+    this.getConfig,
+  );
+  deleteAliasesMutation = mutationWithConfig(
+    _deleteAliasesMutation,
+    this.getConfig,
+  );
+  getAliasesRootQuery = queryWithConfig(_getAliasesRootQuery, this.getConfig);
+  createAliasesRootMutation = mutationWithConfig(
+    _createAliasesRootMutation,
+    this.getConfig,
+  );
+  deleteAliasesRootMutation = mutationWithConfig(
+    _deleteAliasesRootMutation,
+    this.getConfig,
+  );
+
+  /*
     Addons queries
   */
   getAddonsListQuery = queryWithConfig(_getAddonsListQuery, this.getConfig);
@@ -123,6 +157,7 @@ export default class PloneClient {
     _upgradeAddonsMutation,
     this.getConfig,
   );
+
   /*
     Copy queries
   */
@@ -131,10 +166,12 @@ export default class PloneClient {
     _createCopyMultipleMutation,
     this.getConfig,
   );
+
   /*
     Database queries
   */
   getDatabaseQuery = queryWithConfig(_getDatabaseQuery, this.getConfig);
+
   /*
     Group queries
   */
@@ -152,6 +189,7 @@ export default class PloneClient {
     _deleteGroupMutation,
     this.getConfig,
   );
+
   /*
     History queries
   */
