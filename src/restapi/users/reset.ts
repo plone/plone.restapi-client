@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { ApiRequestParams, handleRequest } from '../../API';
+import { ApiRequestParams, apiRequest } from '../../API';
 import {
   PloneClientConfig,
   PloneClientConfigSchema,
@@ -32,7 +32,7 @@ export const resetUser = async ({
 
   const resetUserPath = `@users/${validatedArgs.path}/reset-password`;
 
-  return handleRequest('patch', resetUserPath, options);
+  return apiRequest('patch', resetUserPath, options);
 };
 
 export const resetUserMutation = ({

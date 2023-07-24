@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { z } from 'zod';
 import { User as GetUserResponse } from '../../interfaces/users';
@@ -25,7 +25,7 @@ export const getUser = async ({
   };
   const userPath = `@users/${validatedArgs.path}`;
 
-  return handleRequest('get', userPath, options);
+  return apiRequest('get', userPath, options);
 };
 
 export const getUserQuery = ({ path, config }: UserArgs) => ({

@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { z } from 'zod';
 import {
   PloneClientConfig,
@@ -27,7 +27,7 @@ export const deleteGroup = async ({
 
   const deleteGroupPath = `/@groups/${validatedArgs.path}`;
 
-  return handleRequest('delete', deleteGroupPath, options);
+  return apiRequest('delete', deleteGroupPath, options);
 };
 
 export const deleteGroupMutation = ({

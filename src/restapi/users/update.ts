@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { ApiRequestParams, handleRequest } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import {
   PloneClientConfig,
   PloneClientConfigSchema,
@@ -32,7 +32,7 @@ export const updateUser = async ({
 
   const updateUserPath = `/@users/${validatedArgs.path}`;
 
-  return handleRequest('patch', updateUserPath, options);
+  return apiRequest('patch', updateUserPath, options);
 };
 
 export const updateUserMutation = ({

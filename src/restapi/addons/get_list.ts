@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { GetAddonsListResponse } from '../../interfaces/addons';
 
@@ -14,7 +14,7 @@ export const getAddonsList = async ({
     params: {},
   };
 
-  return handleRequest('get', '/@addons', options);
+  return apiRequest('get', '/@addons', options);
 };
 
 export const getAddonsListQuery = ({ config }: AddonsListArgs) => ({

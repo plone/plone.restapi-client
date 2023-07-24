@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { GetGroupRootResponse } from '../../interfaces/groups';
 
@@ -14,7 +14,7 @@ export const getGroupsRoot = async ({
     params: {},
   };
 
-  return handleRequest('get', '/@groups', options);
+  return apiRequest('get', '/@groups', options);
 };
 
 export const getGroupsRootQuery = ({ config }: GroupsRootArgs) => ({

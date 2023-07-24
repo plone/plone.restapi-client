@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { z } from 'zod';
 import { GetGroupResponse } from '../../interfaces/groups';
@@ -25,7 +25,7 @@ export const getGroup = async ({
   };
   const groupPath = `@groups/${validatedArgs.path}`;
 
-  return handleRequest('get', groupPath, options);
+  return apiRequest('get', groupPath, options);
 };
 
 export const getGroupQuery = ({ path, config }: GroupArgs) => ({

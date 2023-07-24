@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { z } from 'zod';
 
@@ -24,7 +24,7 @@ export const uninstallAddons = async ({
   };
   const uninstallAddonsPath = `@addons/${validatedArgs.path}/uninstall`;
 
-  return handleRequest('post', uninstallAddonsPath, options);
+  return apiRequest('post', uninstallAddonsPath, options);
 };
 
 export const uninstallAddonsMutation = ({

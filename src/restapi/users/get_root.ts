@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { GetUsersRootResponse } from '../../interfaces/users';
 
@@ -14,7 +14,7 @@ export const getUsersRoot = async ({
     params: {},
   };
 
-  return handleRequest('get', '/@users', options);
+  return apiRequest('get', '/@users', options);
 };
 
 export const getUsersRootQuery = ({ config }: UsersRootArgs) => ({

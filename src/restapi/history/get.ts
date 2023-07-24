@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { z } from 'zod';
 import { GetHistoryResponse } from '../../interfaces/history';
@@ -25,7 +25,7 @@ export const getHistory = async ({
   };
   const historyPath = `/${validatedArgs.path}/@history`;
 
-  return handleRequest('get', historyPath, options);
+  return apiRequest('get', historyPath, options);
 };
 
 export const getHistoryQuery = ({ path, config }: HistoryArgs) => ({

@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { ApiRequestParams, handleRequest } from '../../API';
+import { ApiRequestParams, apiRequest } from '../../API';
 import {
   PloneClientConfig,
   PloneClientConfigSchema,
@@ -30,7 +30,7 @@ export const createUser = async ({
     config: validatedArgs.config,
   };
 
-  return handleRequest('post', '/@users', options);
+  return apiRequest('post', '/@users', options);
 };
 
 export const createUserMutation = ({

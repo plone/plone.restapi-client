@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { ApiRequestParams, handleRequest } from '../../API';
+import { ApiRequestParams, apiRequest } from '../../API';
 import {
   PloneClientConfig,
   PloneClientConfigSchema,
@@ -33,7 +33,7 @@ export const createCopyMultiple = async ({
     data: validatedArgs.data,
     config: validatedArgs.config,
   };
-  return handleRequest('post', copyMultiplePath, options);
+  return apiRequest('post', copyMultiplePath, options);
 };
 
 export const createCopyMultipleMutation = ({

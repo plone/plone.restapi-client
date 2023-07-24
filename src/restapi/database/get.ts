@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { DatabaseResponse } from '../../interfaces/database';
 
@@ -14,7 +14,7 @@ export const getDatabase = async ({
     params: {},
   };
 
-  return handleRequest('get', '/@database', options);
+  return apiRequest('get', '/@database', options);
 };
 
 export const getDatabaseQuery = ({ config }: DatabaseArgs) => ({

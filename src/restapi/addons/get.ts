@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { GetAddonsResponse } from '../../interfaces/addons';
 import { z } from 'zod';
@@ -25,7 +25,7 @@ export const getAddons = async ({
   };
   const addonsPath = `@addons/${validatedArgs.path}`;
 
-  return handleRequest('get', addonsPath, options);
+  return apiRequest('get', addonsPath, options);
 };
 
 export const getAddonsQuery = ({ path, config }: AddonsArgs) => ({

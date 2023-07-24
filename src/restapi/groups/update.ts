@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { ApiRequestParams, handleRequest } from '../../API';
+import { ApiRequestParams, apiRequest } from '../../API';
 import {
   PloneClientConfig,
   PloneClientConfigSchema,
@@ -32,7 +32,7 @@ export const updateGroup = async ({
 
   const updateGroupPath = `/@groups/${validatedArgs.path}`;
 
-  return handleRequest('patch', updateGroupPath, options);
+  return apiRequest('patch', updateGroupPath, options);
 };
 
 export const updateGroupMutation = ({

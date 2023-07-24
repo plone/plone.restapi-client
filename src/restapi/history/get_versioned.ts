@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { z } from 'zod';
 
@@ -27,7 +27,7 @@ export const getHistoryVersioned = async ({
   };
   const historyVersionedPath = `${validatedArgs.path}/@history/${validatedArgs.version}`;
 
-  return handleRequest('get', historyVersionedPath, options);
+  return apiRequest('get', historyVersionedPath, options);
 };
 
 export const getHistoryVersionedQuery = ({

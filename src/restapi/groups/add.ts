@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { ApiRequestParams, handleRequest } from '../../API';
+import { ApiRequestParams, apiRequest } from '../../API';
 import {
   PloneClientConfig,
   PloneClientConfigSchema,
@@ -30,7 +30,7 @@ export const createGroup = async ({
     config: validatedArgs.config,
   };
 
-  return handleRequest('post', '/@groups', options);
+  return apiRequest('post', '/@groups', options);
 };
 
 export const createGroupMutation = ({

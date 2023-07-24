@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { z } from 'zod';
 
@@ -26,7 +26,7 @@ export const installAddonsProfile = async ({
   };
   const installAddonsProfilePath = `@addons/${validatedArgs.path}/import/testing-workflows`;
 
-  return handleRequest('post', installAddonsProfilePath, options);
+  return apiRequest('post', installAddonsProfilePath, options);
 };
 
 export const installAddonsProfileMutation = ({

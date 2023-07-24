@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { ApiRequestParams, handleRequest } from '../../API';
+import { ApiRequestParams, apiRequest } from '../../API';
 import {
   PloneClientConfig,
   PloneClientConfigSchema,
@@ -28,7 +28,7 @@ export const createCopy = async ({
     data: validatedArgs.data,
     config: validatedArgs.config,
   };
-  return handleRequest('post', copyPath, options);
+  return apiRequest('post', copyPath, options);
 };
 
 export const createCopyMutation = ({

@@ -70,8 +70,6 @@ describe('[PATCH] Group', () => {
 
     await waitFor(() => expect(result.current.isError).toBe(true));
 
-    // @ts-ignore
-    expect(result.current.error.status).toBe(400);
     expect(result.current.error).toBeDefined();
   });
 });

@@ -1,4 +1,4 @@
-import { handleRequest, ApiRequestParams } from '../../API';
+import { apiRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { z } from 'zod';
 
@@ -24,7 +24,7 @@ export const upgradeAddons = async ({
   };
   const upgradeAddonsPath = `@addons/${validatedArgs.path}/upgrade`;
 
-  return handleRequest('post', upgradeAddonsPath, options);
+  return apiRequest('post', upgradeAddonsPath, options);
 };
 
 export const upgradeAddonsMutation = ({
