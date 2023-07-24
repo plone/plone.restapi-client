@@ -5,22 +5,22 @@ import {
   PloneClientConfigSchema,
 } from '../../interfaces/config';
 import {
-  User as CreatedUserResponse,
-  createUserDataSchema,
+  User as createdUserResponse,
+  createdUserDataSchema,
 } from '../../interfaces/users';
 
-export const createUserArgsSchema = z.object({
-  data: createUserDataSchema,
+export const createdUserArgsSchema = z.object({
+  data: createdUserDataSchema,
   config: PloneClientConfigSchema,
 });
 
-export type CreatedUserArgs = z.infer<typeof createUserArgsSchema>;
+export type createdUserArgs = z.infer<typeof createdUserArgsSchema>;
 
-export const createUser = async ({
+export const createdUser = async ({
   data,
   config,
-}: CreatedUserArgs): Promise<CreatedUserResponse> => {
-  const validatedArgs = createUserArgsSchema.parse({
+}: createdUserArgs): Promise<createdUserResponse> => {
+  const validatedArgs = createdUserArgsSchema.parse({
     data,
     config,
   });
@@ -33,12 +33,12 @@ export const createUser = async ({
   return apiRequest('post', '/@users', options);
 };
 
-export const createUserMutation = ({
+export const createdUserMutation = ({
   config,
 }: {
   config: PloneClientConfig;
 }) => ({
   mutationKey: ['post', 'users'],
-  mutationFn: ({ data }: Omit<CreatedUserArgs, 'config'>) =>
-    createUser({ data, config }),
+  mutationFn: ({ data }: Omit<createdUserArgs, 'config'>) =>
+    createdUser({ data, config }),
 });

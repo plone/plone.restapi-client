@@ -6,16 +6,17 @@ import ploneClient from '../../client';
 const cli = ploneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
-const { login, getAddonsListQuery } = cli;
+const { login, getUsersRootQuery } = cli;
 await login({ username: 'admin', password: 'secret' });
 
-describe('[GET] AddonsList', () => {
+describe('[GET] UsersRoot', () => {
   test('Hook - Successful', async () => {
-    const { result } = renderHook(() => useQuery(getAddonsListQuery({})), {
+    const { result } = renderHook(() => useQuery(getUsersRootQuery({})), {
       wrapper: createWrapper(),
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(result.current.data?.items[0]).toHaveProperty('id');
+
+    expect(result.current.data?.[0]).toHaveProperty('@id');
   });
 });

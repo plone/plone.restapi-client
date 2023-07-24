@@ -10,7 +10,7 @@ const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
 
-const { login, upgradeAddonsMutation } = cli;
+const { login, createUserMutation } = cli;
 await login({ username: 'admin', password: 'secret' });
 
 beforeEach(async () => {
@@ -21,20 +21,24 @@ afterEach(async () => {
   await teardown();
 });
 
-describe('[POST] UpgradeAddons', () => {
+describe('[POST] UserAdd', () => {
   test('Hook - Successful', async () => {
-    const path = '/plone.app.volto';
+    const userData = {
+      username: 'addTestUser',
+      email: 'addTestUser@example.com',
+      sendPasswordReset: true,
+    };
 
-    const { result } = renderHook(() => useMutation(upgradeAddonsMutation()), {
+    const { result } = renderHook(() => useMutation(createUserMutation()), {
       wrapper: createWrapper(),
     });
 
     act(() => {
-      result.current.mutate({ path });
+      result.current.mutate({ data: userData });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
-  });
 
-  // TODO: Find correct implementation for failure test as API returns status 204 when it is supposed to raise error
+    expect(result.current.data?.id).toBe('addTestUser');
+  });
 });

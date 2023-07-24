@@ -34,6 +34,16 @@ import { updateGroupMutation as _updateGroupMutation } from './restapi/groups/up
 import { deleteGroupMutation as _deleteGroupMutation } from './restapi/groups/delete';
 import { getHistoryQuery as _getHistoryQuery } from './restapi/history/get';
 import { getHistoryVersionedQuery as _getHistoryVersionedQuery } from './restapi/history/get_versioned';
+import { getUsersRootQuery as _getUsersRootQuery } from './restapi/users/get_root';
+import { getUserQuery as _getUserQuery } from './restapi/users/get';
+import { createUserMutation as _createUserMutation } from './restapi/users/add';
+import { createdUserMutation as _createdUserMutation } from './restapi/users/created';
+import { deleteUserMutation as _deleteUserMutation } from './restapi/users/delete';
+import { resetUserMutation as _resetUserMutation } from './restapi/users/reset';
+import { updateUserMutation as _updateUserMutation } from './restapi/users/update';
+import { updateUserPotraitMutation as _updateUserPotraitMutation } from './restapi/users/update_potrait';
+import { updateUserPotraitGetMutation as _updateUserPotraitGetMutation } from './restapi/users/update_potrait_get';
+import { updateUserPotraitScaleMutation as _updateUserPotraitScaleMutation } from './restapi/users/update_potrait_scale';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
@@ -196,6 +206,32 @@ export default class PloneClient {
   getHistoryQuery = queryWithConfig(_getHistoryQuery, this.getConfig);
   getHistoryVersionedQuery = queryWithConfig(
     _getHistoryVersionedQuery,
+    this.getConfig,
+  );
+
+  /*
+    User queries
+  */
+  getUsersRootQuery = queryWithConfig(_getUsersRootQuery, this.getConfig);
+  getUserQuery = queryWithConfig(_getUserQuery, this.getConfig);
+  createUserMutation = mutationWithConfig(_createUserMutation, this.getConfig);
+  createdUserMutation = mutationWithConfig(
+    _createdUserMutation,
+    this.getConfig,
+  );
+  deleteUserMutation = mutationWithConfig(_deleteUserMutation, this.getConfig);
+  resetUserMutation = mutationWithConfig(_resetUserMutation, this.getConfig);
+  updateUserMutation = mutationWithConfig(_updateUserMutation, this.getConfig);
+  updateUserPotraitMutation = mutationWithConfig(
+    _updateUserPotraitMutation,
+    this.getConfig,
+  );
+  updateUserPotraitGetMutation = mutationWithConfig(
+    _updateUserPotraitGetMutation,
+    this.getConfig,
+  );
+  updateUserPotraitScaleMutation = mutationWithConfig(
+    _updateUserPotraitScaleMutation,
     this.getConfig,
   );
 }

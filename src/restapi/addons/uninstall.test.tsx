@@ -23,7 +23,7 @@ afterEach(async () => {
 
 describe('[POST] UninstallAddons', () => {
   test('Hook - Successful', async () => {
-    const path = '/plone.app.iterate';
+    const path = '/plone.app.session';
 
     const { result } = renderHook(
       () => useMutation(uninstallAddonsMutation()),
