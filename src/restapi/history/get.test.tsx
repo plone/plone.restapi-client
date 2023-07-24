@@ -38,7 +38,6 @@ describe('[GET] Groups', () => {
     });
 
     await waitFor(() => expect(result.current.isError).toBe(true));
-    path;
 
     expect(result.current.error).toBeDefined();
   });

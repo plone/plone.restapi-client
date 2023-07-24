@@ -5,6 +5,7 @@ import { setup, teardown } from '../../resetFixture';
 import { beforeEach } from 'vitest';
 import { expect, test } from 'vitest';
 import PloneClient from '../../client';
+import { deleteUser } from './delete';
 
 const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
@@ -28,6 +29,12 @@ describe('[POST] UserAdd', () => {
       email: 'addTestUser@example.com',
       sendPasswordReset: true,
     };
+
+    try {
+      await deleteUser({ path: userData.username, config: cli.config });
+    } catch (e) {
+      // user does not exist yet
+    }
 
     const { result } = renderHook(() => useMutation(createUserMutation()), {
       wrapper: createWrapper(),

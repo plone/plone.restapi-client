@@ -41,9 +41,9 @@ import { createdUserMutation as _createdUserMutation } from './restapi/users/cre
 import { deleteUserMutation as _deleteUserMutation } from './restapi/users/delete';
 import { resetUserMutation as _resetUserMutation } from './restapi/users/reset';
 import { updateUserMutation as _updateUserMutation } from './restapi/users/update';
-import { updateUserPotraitMutation as _updateUserPotraitMutation } from './restapi/users/update_potrait';
-import { updateUserPotraitGetMutation as _updateUserPotraitGetMutation } from './restapi/users/update_potrait_get';
-import { updateUserPotraitScaleMutation as _updateUserPotraitScaleMutation } from './restapi/users/update_potrait_scale';
+import { updateUserPortraitMutation as _updateUserPortraitMutation } from './restapi/users/update_portrait';
+import { updateUserPortraitGetMutation as _updateUserPortraitGetMutation } from './restapi/users/update_portrait_get';
+import { updateUserPortraitScaleMutation as _updateUserPortraitScaleMutation } from './restapi/users/update_portrait_scale';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
@@ -222,16 +222,16 @@ export default class PloneClient {
   deleteUserMutation = mutationWithConfig(_deleteUserMutation, this.getConfig);
   resetUserMutation = mutationWithConfig(_resetUserMutation, this.getConfig);
   updateUserMutation = mutationWithConfig(_updateUserMutation, this.getConfig);
-  updateUserPotraitMutation = mutationWithConfig(
-    _updateUserPotraitMutation,
+  updateUserPortraitMutation = mutationWithConfig(
+    _updateUserPortraitMutation,
     this.getConfig,
   );
-  updateUserPotraitGetMutation = mutationWithConfig(
-    _updateUserPotraitGetMutation,
+  updateUserPortraitGetMutation = mutationWithConfig(
+    _updateUserPortraitGetMutation,
     this.getConfig,
   );
-  updateUserPotraitScaleMutation = mutationWithConfig(
-    _updateUserPotraitScaleMutation,
+  updateUserPortraitScaleMutation = mutationWithConfig(
+    _updateUserPortraitScaleMutation,
     this.getConfig,
   );
 }

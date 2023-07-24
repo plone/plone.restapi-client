@@ -58,17 +58,21 @@ export const resetUserDataSchema = z.object({
   new_password: z.string(),
 });
 
-export const updateUserPotraitDataSchema = z.object({
+const portraitSchema = z.object({
   'content-type': z.string(),
   data: z.string(),
   encoding: z.string(),
   filename: z.string(),
 });
 
-export const updateUserPotraitScaleDataSchema = z.object({
-  'content-type': z.string(),
-  data: z.string(),
-  encoding: z.string(),
-  filename: z.string(),
+const portraitScale = portraitSchema.extend({
   scale: z.boolean(),
+});
+
+export const updateUserPortraitDataSchema = z.object({
+  portrait: portraitSchema,
+});
+
+export const updateUserPortraitScaleDataSchema = z.object({
+  portrait: portraitScale,
 });
