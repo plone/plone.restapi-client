@@ -2,8 +2,9 @@ import { Components, Item, RelatedItem } from './common';
 
 export interface GetContentResponse {
   '@components': {
-    [key in Components]: {
-      '@id': string;
+    [key in Components]?: {
+      [key: string]: unknown;
+      items?: unknown[];
     };
   };
   '@id': string;

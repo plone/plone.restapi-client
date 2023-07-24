@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { PloneClientConfig } from './interfaces/config';
+import qs from 'query-string';
 
 export type ApiRequestParams = {
   config: PloneClientConfig;
@@ -64,6 +65,9 @@ export function axiosConfigAdapter(
     data,
     validateStatus: function (status) {
       return status >= 200 && status < 300; // default
+    },
+    paramsSerializer: function (params) {
+      return qs.stringify(params, { arrayFormat: 'colon-list-separator' });
     },
   };
 
