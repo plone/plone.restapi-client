@@ -8,6 +8,7 @@ const getContentArgsSchema = z.object({
   version: z.string().optional(),
   page: z.number().optional(),
   fullObjects: z.boolean().optional(),
+  expand: z.string().array().optional(),
 });
 
 export type ContentArgs = z.infer<typeof getContentArgsSchema> & {
@@ -19,6 +20,7 @@ export const getContent = async ({
   version,
   page,
   fullObjects,
+  expand,
   config,
 }: ContentArgs): Promise<GetContentResponse> => {
   const validatedArgs = getContentArgsSchema.parse({
@@ -26,6 +28,7 @@ export const getContent = async ({
     version,
     page,
     fullObjects,
+    expand,
   });
 
   const options: ApiRequestParams = {
@@ -45,6 +48,12 @@ export const getContent = async ({
       options,
     );
   }
+  if (validatedArgs.expand) {
+    options.params = {
+      ...options.params,
+      expand,
+    };
+  }
   return apiRequest('get', path, options);
 };
 
@@ -53,8 +62,10 @@ export const getContentQuery = ({
   version,
   page,
   fullObjects,
+  expand,
   config,
 }: ContentArgs) => ({
   queryKey: [path, 'get', 'content'],
-  queryFn: () => getContent({ path, version, page, fullObjects, config }),
+  queryFn: () =>
+    getContent({ path, expand, version, page, fullObjects, config }),
 });
