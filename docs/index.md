@@ -16,6 +16,7 @@ This is the documentation for the Plone REST API JavaScript client
 :maxdepth: 2
 :hidden: true
 
+quick-start
 
 ```
 
