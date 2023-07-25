@@ -11,7 +11,6 @@ export async function setup() {
         Accept: 'text/xml',
         'Content-Type': 'text/xml',
       },
-      timeout: 10000,
     });
 
     return response;
@@ -31,7 +30,6 @@ export async function teardown() {
         Accept: 'text/xml',
         'Content-Type': 'text/xml',
       },
-      timeout: 10000,
     });
 
     return response;
