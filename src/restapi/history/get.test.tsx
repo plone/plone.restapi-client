@@ -13,7 +13,7 @@ beforeAll(async () => {
   await login({ username: 'admin', password: 'secret' });
 });
 
-describe('[GET] Groups', () => {
+describe('[GET] History', () => {
   test('Hook - Successful', async () => {
     const path = '/';
     const contentData = {

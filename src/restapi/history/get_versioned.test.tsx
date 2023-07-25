@@ -24,7 +24,7 @@ afterEach(async () => {
   await teardown();
 });
 
-describe('[GET] Groups', () => {
+describe('[GET] HistoryVersioned', () => {
   test('Hook - Successful', async () => {
     const path = '/';
     const contentData = {
