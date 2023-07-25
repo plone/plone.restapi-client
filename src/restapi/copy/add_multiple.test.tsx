@@ -22,7 +22,7 @@ afterEach(async () => {
   await teardown();
 });
 
-describe('[POST] Copy', () => {
+describe('[POST] CopyMultiple', () => {
   test('Hook - Successful', async () => {
     const path = '/';
     const contentData1 = {
