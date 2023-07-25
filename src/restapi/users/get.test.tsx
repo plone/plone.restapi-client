@@ -1,11 +1,11 @@
-import { act, renderHook, waitFor } from '@testing-library/react';
+import { renderHook, waitFor } from '@testing-library/react';
 import { createWrapper } from '../../testUtils';
 import { useQuery } from '@tanstack/react-query';
 import { setup, teardown } from '../../resetFixture';
 import { beforeEach } from 'vitest';
 import { expect, test } from 'vitest';
 import PloneClient from '../../client';
-import { createdUser } from './created';
+import { createUser } from './add';
 
 const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
@@ -33,7 +33,7 @@ describe('[GET] User', () => {
       password: 'password',
     };
 
-    await createdUser({ data: userData, config: cli.config });
+    await createUser({ data: userData, config: cli.config });
 
     const { result } = renderHook(
       () => useQuery(getUserQuery({ path: userData.username })),

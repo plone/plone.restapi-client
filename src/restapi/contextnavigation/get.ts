@@ -35,6 +35,6 @@ export const getContextNavigationQuery = ({
   path,
   config,
 }: ContextNavigationArgs) => ({
-  queryKey: [path, 'get', 'content'],
+  queryKey: [path, 'get', 'contextnavigation'],
   queryFn: () => getContextNavigation({ path, config }),
 });

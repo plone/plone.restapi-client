@@ -5,7 +5,7 @@ import { setup, teardown } from '../../resetFixture';
 import { beforeEach } from 'vitest';
 import { expect, test } from 'vitest';
 import PloneClient from '../../client';
-import { createdUser } from './created';
+import { createUser } from './add';
 import { getUser } from './get';
 
 const cli = PloneClient.initialize({
@@ -38,7 +38,7 @@ describe('[PATCH] UserUpdate', () => {
       username: 'changedUsername',
     };
 
-    await createdUser({ data: userData, config: cli.config });
+    await createUser({ data: userData, config: cli.config });
 
     const { result } = renderHook(() => useMutation(updateUserMutation()), {
       wrapper: createWrapper(),

@@ -37,7 +37,6 @@ import { getHistoryVersionedQuery as _getHistoryVersionedQuery } from './restapi
 import { getUsersRootQuery as _getUsersRootQuery } from './restapi/users/get_root';
 import { getUserQuery as _getUserQuery } from './restapi/users/get';
 import { createUserMutation as _createUserMutation } from './restapi/users/add';
-import { createdUserMutation as _createdUserMutation } from './restapi/users/created';
 import { deleteUserMutation as _deleteUserMutation } from './restapi/users/delete';
 import { resetUserMutation as _resetUserMutation } from './restapi/users/reset';
 import { updateUserMutation as _updateUserMutation } from './restapi/users/update';
@@ -215,10 +214,6 @@ export default class PloneClient {
   getUsersRootQuery = queryWithConfig(_getUsersRootQuery, this.getConfig);
   getUserQuery = queryWithConfig(_getUserQuery, this.getConfig);
   createUserMutation = mutationWithConfig(_createUserMutation, this.getConfig);
-  createdUserMutation = mutationWithConfig(
-    _createdUserMutation,
-    this.getConfig,
-  );
   deleteUserMutation = mutationWithConfig(_deleteUserMutation, this.getConfig);
   resetUserMutation = mutationWithConfig(_resetUserMutation, this.getConfig);
   updateUserMutation = mutationWithConfig(_updateUserMutation, this.getConfig);

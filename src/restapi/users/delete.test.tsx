@@ -5,7 +5,7 @@ import { setup, teardown } from '../../resetFixture';
 import { beforeEach } from 'vitest';
 import { expect, test } from 'vitest';
 import PloneClient from '../../client';
-import { createdUser } from './created';
+import { createUser } from './add';
 
 const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
@@ -33,7 +33,7 @@ describe('[DELETE] UserDelete', () => {
       password: 'password',
     };
 
-    await createdUser({ data: userData, config: cli.config });
+    await createUser({ data: userData, config: cli.config });
 
     const { result } = renderHook(() => useMutation(deleteUserMutation()), {
       wrapper: createWrapper(),
@@ -53,7 +53,7 @@ describe('[DELETE] UserDelete', () => {
       password: 'password',
     };
 
-    await createdUser({ data: userData, config: cli.config });
+    await createUser({ data: userData, config: cli.config });
 
     const { result } = renderHook(() => useMutation(deleteUserMutation()), {
       wrapper: createWrapper(),

@@ -29,8 +29,10 @@ export const createUserDataSchema = z.object({
   fullname: z.string().optional(),
   home_page: z.string().url().optional(),
   location: z.string().optional(),
-  sendPasswordReset: z.boolean(),
+  sendPasswordReset: z.boolean().optional(),
   username: z.string(),
+  roles: z.array(z.string()).optional(),
+  password: z.string().optional(),
 });
 
 export const updateUserDataSchema = z.object({
@@ -40,17 +42,6 @@ export const updateUserDataSchema = z.object({
   home_page: z.string().url().optional(),
   location: z.string().optional(),
   username: z.string().optional(),
-});
-
-export const createdUserDataSchema = z.object({
-  description: z.string().optional(),
-  email: z.string().email(),
-  fullname: z.string().optional(),
-  home_page: z.string().url().optional(),
-  location: z.string().optional(),
-  password: z.string(),
-  roles: z.array(z.string()).optional(),
-  username: z.string(),
 });
 
 export const resetUserDataSchema = z.object({

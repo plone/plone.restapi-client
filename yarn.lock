@@ -1083,6 +1083,7 @@ __metadata:
     "@testing-library/react": 13.4.0
     "@types/react": 18.0.34
     "@types/react-dom": 18.0.11
+    "@types/uuid": ^9.0.2
     "@typescript-eslint/eslint-plugin": 5.57.1
     "@typescript-eslint/parser": 5.57.1
     "@vitejs/plugin-react": ^4.0.0
@@ -1518,6 +1519,13 @@ __metadata:
   dependencies:
     "@types/jest": "*"
   checksum: dcb05416758fe88c1f4f3aa97b4699fcb46a5ed8f53c6b81721e66155452a48caf12ecb97dfdfd4130678e65efd66b9fca0ac434b3d63affec84842a84a6bf38
+  languageName: node
+  linkType: hard
+
+"@types/uuid@npm:^9.0.2":
+  version: 9.0.2
+  resolution: "@types/uuid@npm:9.0.2"
+  checksum: 1754bcf3444e1e3aeadd6e774fc328eb53bc956665e2e8fb6ec127aa8e1f43d9a224c3d22a9a6233dca8dd81a12dc7fed4d84b8876dd5ec82d40f574f7ff8b68
   languageName: node
   linkType: hard
 

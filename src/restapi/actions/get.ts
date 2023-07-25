@@ -30,6 +30,6 @@ export const getActions = async ({
 };
 
 export const getActionsQuery = ({ path, config }: ActionsArgs) => ({
-  queryKey: [path, 'get', 'content'],
+  queryKey: [path, 'get', 'navigation'],
   queryFn: () => getActions({ path, config }),
 });

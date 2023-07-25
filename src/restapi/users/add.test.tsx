@@ -5,7 +5,7 @@ import { setup, teardown } from '../../resetFixture';
 import { beforeEach } from 'vitest';
 import { expect, test } from 'vitest';
 import PloneClient from '../../client';
-import { deleteUser } from './delete';
+import { v4 as uuid } from 'uuid';
 
 const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
@@ -26,18 +26,13 @@ afterEach(async () => {
 });
 
 describe('[POST] UserAdd', () => {
-  test('Hook - Successful', async () => {
+  test('Hook - Successful with resetPassword', async () => {
+    const randomId = uuid();
     const userData = {
-      username: 'addTestUser',
-      email: 'addTestUser@example.com',
-      sendPasswordReset: true,
+      username: `addTestUser${randomId}`,
+      email: `addTestUser${randomId}@example.com`,
+      password: 'password',
     };
-
-    try {
-      await deleteUser({ path: userData.username, config: cli.config });
-    } catch (e) {
-      // user does not exist yet
-    }
 
     const { result } = renderHook(() => useMutation(createUserMutation()), {
       wrapper: createWrapper(),
@@ -49,6 +44,27 @@ describe('[POST] UserAdd', () => {
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
-    expect(result.current.data?.id).toBe('addTestUser');
+    expect(result.current.data?.id).toBe(userData.username);
+  });
+
+  test('Hook - Successful with password', async () => {
+    const randomId = uuid();
+    const userData = {
+      username: `addTestUser${randomId}`,
+      email: `addTestUser${randomId}@example.com`,
+      password: 'password',
+    };
+
+    const { result } = renderHook(() => useMutation(createUserMutation()), {
+      wrapper: createWrapper(),
+    });
+
+    act(() => {
+      result.current.mutate({ data: userData });
+    });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+
+    expect(result.current.data?.id).toBe(userData.username);
   });
 });
