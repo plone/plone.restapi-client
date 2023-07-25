@@ -65,7 +65,6 @@ describe('[PATCH] UserPortraitGetUpdate', () => {
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
-    // console.log(result.current.data);
     const user = await getUser({ path: userData.username, config: cli.config });
 
     expect(user.portrait).toBe(

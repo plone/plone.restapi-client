@@ -7,6 +7,7 @@ import { expect, test } from 'vitest';
 import PloneClient from '../../client';
 import { createUser } from './add';
 import { getUser } from './get';
+import { v4 as uuid } from 'uuid';
 
 const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
@@ -28,6 +29,7 @@ afterEach(async () => {
 
 describe('[PATCH] UserUpdate', () => {
   test('Hook - Successful', async () => {
+    const randomId = uuid();
     const userData = {
       username: 'updateTestUser',
       email: 'updateTestUser@example.com',
