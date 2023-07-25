@@ -24,8 +24,6 @@ import { installAddonsMutation as _installAddonsMutation } from './restapi/addon
 import { installAddonsProfileMutation as _installAddonsProfileMutation } from './restapi/addons/install_profile';
 import { uninstallAddonsMutation as _uninstallAddonsMutation } from './restapi/addons/unistall';
 import { upgradeAddonsMutation as _upgradeAddonsMutation } from './restapi/addons/upgrade';
-import { createCopyMutation as _createCopyMutation } from './restapi/copy/add';
-import { createCopyMultipleMutation as _createCopyMultipleMutation } from './restapi/copy/add_multiple';
 import { getDatabaseQuery as _getDatabaseQuery } from './restapi/database/get';
 import { getGroupsRootQuery as _getGroupsRootQuery } from './restapi/groups/get_root';
 import { getGroupQuery as _getGroupsQuery } from './restapi/groups/get';
@@ -164,15 +162,6 @@ export default class PloneClient {
   );
   upgradeAddonsMutation = mutationWithConfig(
     _upgradeAddonsMutation,
-    this.getConfig,
-  );
-
-  /*
-    Copy queries
-  */
-  createCopyMutation = mutationWithConfig(_createCopyMutation, this.getConfig);
-  createCopyMultipleMutation = mutationWithConfig(
-    _createCopyMultipleMutation,
     this.getConfig,
   );
 
