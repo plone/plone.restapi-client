@@ -26,7 +26,7 @@ afterEach(async () => {
   await teardown();
 });
 
-describe('[PATCH] UserPortraitUpdate', () => {
+describe('[PATCH] UserPortraitScaleUpdate', () => {
   test('Hook - Successful', async () => {
     const userData = {
       username: 'updatePortraitScaleTestUser',
