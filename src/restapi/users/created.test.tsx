@@ -11,7 +11,10 @@ const cli = PloneClient.initialize({
 });
 
 const { login, createdUserMutation } = cli;
-await login({ username: 'admin', password: 'secret' });
+
+beforeAll(async () => {
+  await login({ username: 'admin', password: 'secret' });
+});
 
 beforeEach(async () => {
   await setup();
@@ -23,9 +26,10 @@ afterEach(async () => {
 
 describe('[POST] UserCreated', () => {
   test('Hook - Successful', async () => {
+    const randomId = Math.floor(Math.random() * 1000);
     const userData = {
-      username: 'createdTestUser',
-      email: 'createdTestUser@example.com',
+      username: `createdTestUser${randomId}`,
+      email: `createdTestUser${randomId}@example.com`,
       password: 'password',
     };
 
@@ -39,7 +43,7 @@ describe('[POST] UserCreated', () => {
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
-    expect(result.current.data?.id).toBe('createdTestUser');
+    expect(result.current.data?.id).toBe(`createdTestUser${randomId}`);
   });
 
   test('Hook - Failure', async () => {

@@ -13,7 +13,10 @@ const cli = PloneClient.initialize({
 });
 
 const { login, deleteAliasesMutation } = cli;
-await login({ username: 'admin', password: 'secret' });
+
+beforeAll(async () => {
+  await login({ username: 'admin', password: 'secret' });
+});
 
 beforeEach(async () => {
   await setup();

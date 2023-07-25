@@ -12,7 +12,10 @@ const cli = PloneClient.initialize({
 });
 
 const { login, getUserQuery } = cli;
-await login({ username: 'admin', password: 'secret' });
+
+beforeAll(async () => {
+  await login({ username: 'admin', password: 'secret' });
+});
 
 beforeEach(async () => {
   await setup();
@@ -51,8 +54,6 @@ describe('[GET] User', () => {
       password: 'password',
     };
 
-    await createdUser({ data: userData, config: cli.config });
-
     const { result } = renderHook(
       () => useQuery(getUserQuery({ path: userData.username })),
       {
@@ -60,6 +61,6 @@ describe('[GET] User', () => {
       },
     );
 
-    await waitFor(() => expect(result.current.data).toBe(undefined));
+    await waitFor(() => expect(result.current.isError).toBe(true));
   });
 });

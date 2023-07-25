@@ -3,21 +3,25 @@ import { createdUser } from '../restapi/users/created';
 
 export const loginWithCreate = async (
   cli: PloneClient,
-  userData: {
+  {
+    username,
+    password,
+    email,
+    roles,
+  }: {
     username: string;
     email?: string;
     password: string;
+    roles?: string[];
   },
 ) => {
-  const { username, password, email } = userData;
-
   if (!email) {
     return cli.login({ username, password });
   }
 
   try {
     await createdUser({
-      data: { username, password, email },
+      data: { username, password, email, roles },
       config: cli.config,
     });
   } catch (e) {
@@ -26,3 +30,6 @@ export const loginWithCreate = async (
 
   return cli.login({ username, password });
 };
+
+export const getUniqueEntityName = (baseName: string) =>
+  `${baseName}${Math.floor(Math.random() * 10000)}`;

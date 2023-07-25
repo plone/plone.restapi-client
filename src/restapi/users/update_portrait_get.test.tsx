@@ -13,7 +13,10 @@ const cli = PloneClient.initialize({
 });
 
 const { login, updateUserPortraitGetMutation } = cli;
-await login({ username: 'admin', password: 'secret' });
+
+beforeAll(async () => {
+  await login({ username: 'admin', password: 'secret' });
+});
 
 beforeEach(async () => {
   await setup();
@@ -23,7 +26,7 @@ afterEach(async () => {
   await teardown();
 });
 
-describe('[GET] UserPortraitGetUpdate', () => {
+describe('[PATCH] UserPortraitGetUpdate', () => {
   test('Hook - Successful', async () => {
     const userData = {
       username: 'updatePortraitGetTestUser',
@@ -89,7 +92,7 @@ describe('[GET] UserPortraitGetUpdate', () => {
 
     act(() => {
       result.current.mutate({
-        path: '/blah',
+        path: 'blah',
         data: updatePortraitGetFailData,
       });
     });

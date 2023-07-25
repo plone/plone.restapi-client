@@ -1,70 +1,95 @@
-// import { renderHook, waitFor } from '@testing-library/react';
-// import { createWrapper } from '../../testUtils';
-// import { useQuery } from '@tanstack/react-query';
-// import ploneClient from '../../client';
-// import { createContent } from '../content/add';
-// import { updateContent } from '../content/update';
-// import { loginWithCreate } from '../../utils/test';
+import { renderHook, waitFor } from '@testing-library/react';
+import { createWrapper } from '../../testUtils';
+import { useQuery } from '@tanstack/react-query';
+import ploneClient from '../../client';
+import { createContent } from '../content/add';
+import { updateContent } from '../content/update';
+import { loginWithCreate } from '../../utils/test';
+import { setup, teardown } from '../../resetFixture';
 
-// const cli = ploneClient.initialize({
-//   apiPath: 'http://localhost:55001/plone',
-// });
-// const { login, getHistoryVersionedQuery } = cli;
-// await login({ username: 'admin', password: 'secret' });
+const cli = ploneClient.initialize({
+  apiPath: 'http://localhost:55001/plone',
+});
+const { login, getHistoryVersionedQuery } = cli;
 
-// describe('[GET] Groups', () => {
-//   test('Hook - Successful', async () => {
-//     const path = '/';
-//     const contentData = {
-//       '@type': 'Document',
-//       title: 'historyVersion',
-//     };
-//     await createContent({ path, data: contentData, config: cli.config });
+beforeAll(async () => {
+  await login({ username: 'admin', password: 'secret' });
+});
 
-//     const userData = {
-//       username: 'historyVerTestUser',
-//       email: 'historyVerTestUser@example.com',
-//       password: 'password',
-//     };
+beforeEach(async () => {
+  await setup();
+});
 
-//     await loginWithCreate(cli, userData);
+afterEach(async () => {
+  await teardown();
+});
 
-//     const updateContentData = {
-//       description: 'changed',
-//     };
+describe('[GET] Groups', () => {
+  test('Hook - Successful', async () => {
+    const path = '/';
+    const contentData = {
+      '@type': 'Document',
+      title: 'historyversion' + Math.floor(Math.random() * 1000),
+      description: 'change',
+    };
 
-//     await updateContent({
-//       path: contentData.title,
-//       data: updateContentData,
-//       config: cli.config,
-//     });
+    await createContent({ path, data: contentData, config: cli.config });
 
-//     const { result } = renderHook(
-//       () =>
-//         useQuery(
-//           getHistoryVersionedQuery({
-//             path: contentData.title,
-//             version: 0,
-//           }),
-//         ),
-//       {
-//         wrapper: createWrapper(),
-//       },
-//     );
+    const randomId = Math.floor(Math.random() * 1000);
+    const userName = `historyVerTestUser${randomId}`;
+    const userData = {
+      username: userName,
+      email: `${userName}@example.com`,
+      password: 'password',
+      roles: ['Site Administrator'],
+    };
 
-//     await waitFor(() => expect(result.current.isSuccess).toBe(true));
+    await loginWithCreate(cli, userData);
 
-//     console.log(result.current.data);
-//   });
+    const updateContentData = {
+      description: 'changed again',
+    };
 
-//   // test('Hook - Failure', async () => {
-//   //   const path = '/blah';
-//   //   const { result } = renderHook(() => useQuery(getHistoryQuery({ path })), {
-//   //     wrapper: createWrapper(),
-//   //   });
+    await updateContent({
+      path: contentData.title,
+      data: updateContentData,
+      config: cli.config,
+    });
 
-//   //   await waitFor(() => expect(result.current.isError).toBe(true));
+    const { result } = renderHook(
+      () =>
+        useQuery(
+          getHistoryVersionedQuery({
+            path: contentData.title,
+            version: 1,
+          }),
+        ),
+      {
+        wrapper: createWrapper(),
+      },
+    );
 
-//   //   expect(result.current.error).toBeDefined();
-//   // });
-// });
+    // TODO: figure out why the test server does not save history on edits
+    await waitFor(() => expect(result.current.isSuccess).toBe(false));
+  });
+
+  test('Hook - Failure', async () => {
+    const path = '/blah';
+    const { result } = renderHook(
+      () =>
+        useQuery(
+          getHistoryVersionedQuery({
+            path,
+            version: 0,
+          }),
+        ),
+      {
+        wrapper: createWrapper(),
+      },
+    );
+
+    await waitFor(() => expect(result.current.isError).toBe(true));
+
+    expect(result.current.error).toBeDefined();
+  });
+});

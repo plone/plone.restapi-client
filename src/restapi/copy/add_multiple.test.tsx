@@ -9,7 +9,10 @@ const cli = ploneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
 const { login, createCopyMultipleMutation } = cli;
-await login({ username: 'admin', password: 'secret' });
+
+beforeAll(async () => {
+  await login({ username: 'admin', password: 'secret' });
+});
 
 beforeEach(async () => {
   await setup();

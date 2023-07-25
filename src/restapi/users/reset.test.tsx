@@ -5,12 +5,13 @@ import { setup, teardown } from '../../resetFixture';
 import { beforeEach } from 'vitest';
 import { expect, test } from 'vitest';
 import PloneClient from '../../client';
+import { getUniqueEntityName, loginWithCreate } from '../../utils/test';
 
 const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
 
-const { login, createGroupMutation } = cli;
+const { login, resetUserMutation } = cli;
 
 beforeAll(async () => {
   await login({ username: 'admin', password: 'secret' });
@@ -24,21 +25,26 @@ afterEach(async () => {
   await teardown();
 });
 
-describe('[POST] Group', () => {
+describe('[POST] UserReset', () => {
   test('Hook - Successful', async () => {
-    const { result } = renderHook(() => useMutation(createGroupMutation()), {
+    const username = getUniqueEntityName('resetTestUser');
+    const userData = {
+      username,
+      email: `${username}@example.com`,
+      password: 'password',
+      roles: ['Site Administrator'],
+    };
+
+    await loginWithCreate(cli, userData);
+
+    const { result } = renderHook(() => useMutation(resetUserMutation()), {
       wrapper: createWrapper(),
     });
 
-    const groupData = {
-      groupname: 'new_group',
-    };
-
     act(() => {
-      result.current.mutate({ data: groupData });
+      result.current.mutate({ path: userData.username, data: {} });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(result.current.data?.id).toBe('new_group');
   });
 });

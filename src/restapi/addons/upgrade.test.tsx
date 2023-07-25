@@ -11,7 +11,10 @@ const cli = PloneClient.initialize({
 });
 
 const { login, upgradeAddonsMutation } = cli;
-await login({ username: 'admin', password: 'secret' });
+
+beforeAll(async () => {
+  await login({ username: 'admin', password: 'secret' });
+});
 
 beforeEach(async () => {
   await setup();

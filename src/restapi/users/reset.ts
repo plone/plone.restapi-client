@@ -32,7 +32,7 @@ export const resetUser = async ({
 
   const resetUserPath = `@users/${validatedArgs.path}/reset-password`;
 
-  return apiRequest('patch', resetUserPath, options);
+  return apiRequest('post', resetUserPath, options);
 };
 
 export const resetUserMutation = ({
@@ -40,7 +40,7 @@ export const resetUserMutation = ({
 }: {
   config: PloneClientConfig;
 }) => ({
-  mutationKey: ['patch', 'user'],
+  mutationKey: ['post', 'user'],
   mutationFn: ({ path, data }: Omit<ResetUserArgs, 'config'>) =>
     resetUser({ path, data, config }),
 });

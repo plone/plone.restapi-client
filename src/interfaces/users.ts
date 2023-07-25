@@ -54,8 +54,9 @@ export const createdUserDataSchema = z.object({
 });
 
 export const resetUserDataSchema = z.object({
-  reset_token: z.string(),
-  new_password: z.string(),
+  reset_token: z.string().optional(),
+  new_password: z.string().optional(),
+  old_password: z.string().optional(),
 });
 
 const portraitSchema = z.object({
