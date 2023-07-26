@@ -10,10 +10,13 @@ const { getActionsQuery } = cli;
 
 describe('[GET] Actions', () => {
   test('Hook - Successful', async () => {
-    const path = '/';
-    const { result } = renderHook(() => useQuery(getActionsQuery({ path })), {
-      wrapper: createWrapper(),
-    });
+    const actionId = '/';
+    const { result } = renderHook(
+      () => useQuery(getActionsQuery({ actionId })),
+      {
+        wrapper: createWrapper(),
+      },
+    );
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
@@ -24,10 +27,13 @@ describe('[GET] Actions', () => {
   });
 
   test('Hook - Failure', async () => {
-    const path = '/blah';
-    const { result } = renderHook(() => useQuery(getActionsQuery({ path })), {
-      wrapper: createWrapper(),
-    });
+    const actionId = 'blah';
+    const { result } = renderHook(
+      () => useQuery(getActionsQuery({ actionId })),
+      {
+        wrapper: createWrapper(),
+      },
+    );
 
     await waitFor(() => expect(result.current.isError).toBe(true));
 

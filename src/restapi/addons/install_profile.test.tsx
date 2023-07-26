@@ -11,7 +11,6 @@ const cli = PloneClient.initialize({
 });
 
 const { login, installProfileAddonsMutation } = cli;
-
 await login({ username: 'admin', password: 'secret' });
 
 beforeEach(async () => {
@@ -24,7 +23,7 @@ afterEach(async () => {
 
 describe('[POST] InstallAddonsProfile', () => {
   test('Hook - Successful', async () => {
-    const path = '/plone.restapi';
+    const addonId = '/plone.restapi';
 
     const { result } = renderHook(
       () => useMutation(installProfileAddonsMutation()),
@@ -34,7 +33,7 @@ describe('[POST] InstallAddonsProfile', () => {
     );
 
     act(() => {
-      result.current.mutate({ path });
+      result.current.mutate({ addonId });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));

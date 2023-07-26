@@ -4,7 +4,7 @@ import { GetAddonsResponse } from '../../interfaces/addons';
 import { z } from 'zod';
 
 const getAddonsSchema = z.object({
-  path: z.string(),
+  addonId: z.string(),
 });
 
 export type AddonsArgs = z.infer<typeof getAddonsSchema> & {
@@ -12,23 +12,23 @@ export type AddonsArgs = z.infer<typeof getAddonsSchema> & {
 };
 
 export const getAddons = async ({
-  path,
+  addonId,
   config,
 }: AddonsArgs): Promise<GetAddonsResponse> => {
   const validatedArgs = getAddonsSchema.parse({
-    path,
+    addonId,
   });
 
   const options: ApiRequestParams = {
     config,
     params: {},
   };
-  const addonsPath = `@addons/${validatedArgs.path}`;
+  const addonsAddonId = `@addons/${validatedArgs.addonId}`;
 
-  return apiRequest('get', addonsPath, options);
+  return apiRequest('get', addonsAddonId, options);
 };
 
-export const getAddonsQuery = ({ path, config }: AddonsArgs) => ({
-  queryKey: [path, 'get', 'addons'],
-  queryFn: () => getAddons({ path, config }),
+export const getAddonsQuery = ({ addonId, config }: AddonsArgs) => ({
+  queryKey: [addonId, 'get', 'addons'],
+  queryFn: () => getAddons({ addonId, config }),
 });

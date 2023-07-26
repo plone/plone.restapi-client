@@ -7,13 +7,12 @@ const cli = ploneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
 const { login, getAddonsQuery } = cli;
-
 await login({ username: 'admin', password: 'secret' });
 
 describe('[GET] Addons', () => {
   test('Hook - Successful', async () => {
-    const path = '/plone.app.iterate';
-    const { result } = renderHook(() => useQuery(getAddonsQuery({ path })), {
+    const addonId = '/plone.app.iterate';
+    const { result } = renderHook(() => useQuery(getAddonsQuery({ addonId })), {
       wrapper: createWrapper(),
     });
 
@@ -21,11 +20,12 @@ describe('[GET] Addons', () => {
     expect(result.current.data?.['@id']).toBe(
       'http://localhost:55001/plone/@addons/plone.app.iterate',
     );
+    console.log(result.current.data);
   });
 
   test('Hook - Failure', async () => {
-    const path = '/blah';
-    const { result } = renderHook(() => useQuery(getAddonsQuery({ path })), {
+    const addonId = 'blah';
+    const { result } = renderHook(() => useQuery(getAddonsQuery({ addonId })), {
       wrapper: createWrapper(),
     });
 

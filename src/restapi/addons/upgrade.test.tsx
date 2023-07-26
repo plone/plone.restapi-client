@@ -11,7 +11,6 @@ const cli = PloneClient.initialize({
 });
 
 const { login, upgradeAddonsMutation } = cli;
-
 await login({ username: 'admin', password: 'secret' });
 
 beforeEach(async () => {
@@ -24,14 +23,14 @@ afterEach(async () => {
 
 describe('[POST] UpgradeAddons', () => {
   test('Hook - Successful', async () => {
-    const path = '/plone.app.volto';
+    const addonId = '/plone.app.volto';
 
     const { result } = renderHook(() => useMutation(upgradeAddonsMutation()), {
       wrapper: createWrapper(),
     });
 
     act(() => {
-      result.current.mutate({ path });
+      result.current.mutate({ addonId });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));

@@ -3,7 +3,7 @@ import { PloneClientConfig } from '../../interfaces/config';
 import { z } from 'zod';
 
 const uninstallAddonsSchema = z.object({
-  path: z.string(),
+  addonId: z.string(),
 });
 
 export type UninstallAddonsArgs = z.infer<typeof uninstallAddonsSchema> & {
@@ -11,20 +11,20 @@ export type UninstallAddonsArgs = z.infer<typeof uninstallAddonsSchema> & {
 };
 
 export const uninstallAddons = async ({
-  path,
+  addonId,
   config,
 }: UninstallAddonsArgs): Promise<undefined> => {
   const validatedArgs = uninstallAddonsSchema.parse({
-    path,
+    addonId,
   });
 
   const options: ApiRequestParams = {
     config,
     params: {},
   };
-  const uninstallAddonsPath = `@addons/${validatedArgs.path}/uninstall`;
+  const uninstallAddonsAddonId = `@addons/${validatedArgs.addonId}/uninstall`;
 
-  return apiRequest('post', uninstallAddonsPath, options);
+  return apiRequest('post', uninstallAddonsAddonId, options);
 };
 
 export const uninstallAddonsMutation = ({
@@ -33,6 +33,6 @@ export const uninstallAddonsMutation = ({
   config: PloneClientConfig;
 }) => ({
   mutationKey: ['post', 'addons'],
-  mutationFn: ({ path }: Omit<UninstallAddonsArgs, 'config'>) =>
-    uninstallAddons({ path, config }),
+  mutationFn: ({ addonId }: Omit<UninstallAddonsArgs, 'config'>) =>
+    uninstallAddons({ addonId, config }),
 });

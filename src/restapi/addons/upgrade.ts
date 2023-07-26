@@ -3,7 +3,7 @@ import { PloneClientConfig } from '../../interfaces/config';
 import { z } from 'zod';
 
 const upgradeAddonsSchema = z.object({
-  path: z.string(),
+  addonId: z.string(),
 });
 
 export type UpgradeAddonsArgs = z.infer<typeof upgradeAddonsSchema> & {
@@ -11,20 +11,20 @@ export type UpgradeAddonsArgs = z.infer<typeof upgradeAddonsSchema> & {
 };
 
 export const upgradeAddons = async ({
-  path,
+  addonId,
   config,
 }: UpgradeAddonsArgs): Promise<undefined> => {
   const validatedArgs = upgradeAddonsSchema.parse({
-    path,
+    addonId,
   });
 
   const options: ApiRequestParams = {
     config,
     params: {},
   };
-  const upgradeAddonsPath = `@addons/${validatedArgs.path}/upgrade`;
+  const upgradeAddonsAddonId = `@addons/${validatedArgs.addonId}/upgrade`;
 
-  return apiRequest('post', upgradeAddonsPath, options);
+  return apiRequest('post', upgradeAddonsAddonId, options);
 };
 
 export const upgradeAddonsMutation = ({
@@ -33,6 +33,6 @@ export const upgradeAddonsMutation = ({
   config: PloneClientConfig;
 }) => ({
   mutationKey: ['post', 'addons'],
-  mutationFn: ({ path }: Omit<UpgradeAddonsArgs, 'config'>) =>
-    upgradeAddons({ path, config }),
+  mutationFn: ({ addonId }: Omit<UpgradeAddonsArgs, 'config'>) =>
+    upgradeAddons({ addonId, config }),
 });

@@ -4,7 +4,7 @@ import { ActionsResponse } from '../../interfaces/actions';
 import { z } from 'zod';
 
 const getActionsSchema = z.object({
-  path: z.string(),
+  actionId: z.string(),
 });
 
 export type ActionsArgs = z.infer<typeof getActionsSchema> & {
@@ -12,11 +12,11 @@ export type ActionsArgs = z.infer<typeof getActionsSchema> & {
 };
 
 export const getActions = async ({
-  path,
+  actionId,
   config,
 }: ActionsArgs): Promise<ActionsResponse> => {
   const validatedArgs = getActionsSchema.parse({
-    path,
+    actionId,
   });
 
   const options: ApiRequestParams = {
@@ -24,12 +24,12 @@ export const getActions = async ({
     params: {},
   };
 
-  const actionsPath = `${validatedArgs.path}/@actions`;
+  const actionsActionId = `${validatedArgs.actionId}/@actions`;
 
-  return apiRequest('get', actionsPath, options);
+  return apiRequest('get', actionsActionId, options);
 };
 
-export const getActionsQuery = ({ path, config }: ActionsArgs) => ({
-  queryKey: [path, 'get', 'actions'],
-  queryFn: () => getActions({ path, config }),
+export const getActionsQuery = ({ actionId, config }: ActionsArgs) => ({
+  queryKey: [actionId, 'get', 'actions'],
+  queryFn: () => getActions({ actionId, config }),
 });

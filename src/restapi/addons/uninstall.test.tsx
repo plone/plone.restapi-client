@@ -11,7 +11,6 @@ const cli = PloneClient.initialize({
 });
 
 const { login, uninstallAddonsMutation } = cli;
-
 await login({ username: 'admin', password: 'secret' });
 
 beforeEach(async () => {
@@ -24,7 +23,7 @@ afterEach(async () => {
 
 describe('[POST] UninstallAddons', () => {
   test('Hook - Successful', async () => {
-    const path = '/plone.app.session';
+    const addonId = '/plone.app.session';
 
     const { result } = renderHook(
       () => useMutation(uninstallAddonsMutation()),
@@ -34,7 +33,7 @@ describe('[POST] UninstallAddons', () => {
     );
 
     act(() => {
-      result.current.mutate({ path });
+      result.current.mutate({ addonId });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
