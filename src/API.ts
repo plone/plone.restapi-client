@@ -1,6 +1,7 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { PloneClientConfig } from './interfaces/config';
 import qs from 'query-string';
+import { stripExtraSlash } from './utils/test';
 
 export type ApiRequestParams = {
   config: PloneClientConfig;
@@ -71,10 +72,8 @@ export function axiosConfigAdapter(
     },
   };
 
-  if (config.token) {
-    if (axiosConfig.headers) {
-      axiosConfig.headers['Authorization'] = `Bearer ${config.token}`;
-    }
+  if (config.token && axiosConfig.headers) {
+    axiosConfig.headers['Authorization'] = `Bearer ${config.token}`;
   }
 
   return axiosConfig;
@@ -93,5 +92,7 @@ export async function apiRequest(
     instance.interceptors.response.use(_handleResponse, _handleError);
   }
 
-  return instance.request(axiosConfigAdapter(method, path, options));
+  return instance.request(
+    axiosConfigAdapter(method, stripExtraSlash(path), options),
+  );
 }
