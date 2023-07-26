@@ -48,8 +48,8 @@ describe('[POST] UserAdd', () => {
   test('Hook - Successful with password', async () => {
     const randomId = uuid();
     const userData = {
-      username: `addTestUser${randomId}`,
-      email: `addTestUser${randomId}@example.com`,
+      username: `addTestPassUser${randomId}`,
+      email: `addTestPassUser${randomId}@example.com`,
       password: 'password',
     };
 
