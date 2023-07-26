@@ -25,22 +25,6 @@ import { installAddonsProfileMutation as _installAddonsProfileMutation } from '.
 import { uninstallAddonsMutation as _uninstallAddonsMutation } from './restapi/addons/unistall';
 import { upgradeAddonsMutation as _upgradeAddonsMutation } from './restapi/addons/upgrade';
 import { getDatabaseQuery as _getDatabaseQuery } from './restapi/database/get';
-import { getGroupsRootQuery as _getGroupsRootQuery } from './restapi/groups/get_root';
-import { getGroupQuery as _getGroupsQuery } from './restapi/groups/get';
-import { createGroupMutation as _createGroupMutation } from './restapi/groups/add';
-import { updateGroupMutation as _updateGroupMutation } from './restapi/groups/update';
-import { deleteGroupMutation as _deleteGroupMutation } from './restapi/groups/delete';
-import { getHistoryQuery as _getHistoryQuery } from './restapi/history/get';
-import { getHistoryVersionedQuery as _getHistoryVersionedQuery } from './restapi/history/get_versioned';
-import { getUsersRootQuery as _getUsersRootQuery } from './restapi/users/get_root';
-import { getUserQuery as _getUserQuery } from './restapi/users/get';
-import { createUserMutation as _createUserMutation } from './restapi/users/add';
-import { deleteUserMutation as _deleteUserMutation } from './restapi/users/delete';
-import { resetUserMutation as _resetUserMutation } from './restapi/users/reset';
-import { updateUserMutation as _updateUserMutation } from './restapi/users/update';
-import { updateUserPortraitMutation as _updateUserPortraitMutation } from './restapi/users/update_portrait';
-import { updateUserPortraitGetMutation as _updateUserPortraitGetMutation } from './restapi/users/update_portrait_get';
-import { updateUserPortraitScaleMutation as _updateUserPortraitScaleMutation } from './restapi/users/update_portrait_scale';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
@@ -169,53 +153,4 @@ export default class PloneClient {
     Database queries
   */
   getDatabaseQuery = queryWithConfig(_getDatabaseQuery, this.getConfig);
-
-  /*
-    Group queries
-  */
-  getGroupsRootQuery = queryWithConfig(_getGroupsRootQuery, this.getConfig);
-  getGroupQuery = queryWithConfig(_getGroupsQuery, this.getConfig);
-  createGroupMutation = mutationWithConfig(
-    _createGroupMutation,
-    this.getConfig,
-  );
-  updateGroupMutation = mutationWithConfig(
-    _updateGroupMutation,
-    this.getConfig,
-  );
-  deleteGroupMutation = mutationWithConfig(
-    _deleteGroupMutation,
-    this.getConfig,
-  );
-
-  /*
-    History queries
-  */
-  getHistoryQuery = queryWithConfig(_getHistoryQuery, this.getConfig);
-  getHistoryVersionedQuery = queryWithConfig(
-    _getHistoryVersionedQuery,
-    this.getConfig,
-  );
-
-  /*
-    User queries
-  */
-  getUsersRootQuery = queryWithConfig(_getUsersRootQuery, this.getConfig);
-  getUserQuery = queryWithConfig(_getUserQuery, this.getConfig);
-  createUserMutation = mutationWithConfig(_createUserMutation, this.getConfig);
-  deleteUserMutation = mutationWithConfig(_deleteUserMutation, this.getConfig);
-  resetUserMutation = mutationWithConfig(_resetUserMutation, this.getConfig);
-  updateUserMutation = mutationWithConfig(_updateUserMutation, this.getConfig);
-  updateUserPortraitMutation = mutationWithConfig(
-    _updateUserPortraitMutation,
-    this.getConfig,
-  );
-  updateUserPortraitGetMutation = mutationWithConfig(
-    _updateUserPortraitGetMutation,
-    this.getConfig,
-  );
-  updateUserPortraitScaleMutation = mutationWithConfig(
-    _updateUserPortraitScaleMutation,
-    this.getConfig,
-  );
 }

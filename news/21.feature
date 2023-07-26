@@ -1,1 +1,1 @@
-Add more services to restapi, namely addons, database, groups, history and users along with their tests and associated types @hemant-hc
+Add more services to restapi, namely addons and database along with their tests and associated types @hemant-hc
