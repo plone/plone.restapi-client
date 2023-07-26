@@ -12,9 +12,7 @@ const cli = PloneClient.initialize({
 
 const { login, createGroupMutation } = cli;
 
-beforeAll(async () => {
-  await login({ username: 'admin', password: 'secret' });
-});
+await login({ username: 'admin', password: 'secret' });
 
 beforeEach(async () => {
   await setup();

@@ -9,9 +9,7 @@ const cli = ploneClient.initialize({
 });
 const { login, getHistoryQuery } = cli;
 
-beforeAll(async () => {
-  await login({ username: 'admin', password: 'secret' });
-});
+await login({ username: 'admin', password: 'secret' });
 
 describe('[GET] History', () => {
   test('Hook - Successful', async () => {

@@ -8,9 +8,7 @@ const cli = ploneClient.initialize({
 });
 const { login, getUsersRootQuery } = cli;
 
-beforeAll(async () => {
-  await login({ username: 'admin', password: 'secret' });
-});
+await login({ username: 'admin', password: 'secret' });
 
 describe('[GET] UsersRoot', () => {
   test('Hook - Successful', async () => {
