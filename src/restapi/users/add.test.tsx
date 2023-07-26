@@ -51,6 +51,7 @@ describe('[POST] UserAdd', () => {
       username: `addTestPassUser${randomId}`,
       email: `addTestPassUser${randomId}@example.com`,
       password: 'password',
+      roles: ['Contributor'],
     };
 
     const { result } = renderHook(() => useMutation(createUserMutation()), {
