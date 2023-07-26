@@ -12,7 +12,6 @@ const cli = PloneClient.initialize({
 });
 
 const { login, createAliasesMutation } = cli;
-
 await login({ username: 'admin', password: 'secret' });
 
 beforeEach(async () => {

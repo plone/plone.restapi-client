@@ -1,7 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { PloneClientConfig } from './interfaces/config';
 import qs from 'query-string';
-import { stripExtraSlash } from './utils/test';
 
 export type ApiRequestParams = {
   config: PloneClientConfig;
@@ -92,7 +91,5 @@ export async function apiRequest(
     instance.interceptors.response.use(_handleResponse, _handleError);
   }
 
-  return instance.request(
-    axiosConfigAdapter(method, stripExtraSlash(path), options),
-  );
+  return instance.request(axiosConfigAdapter(method, path, options));
 }
