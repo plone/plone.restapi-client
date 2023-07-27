@@ -7,12 +7,12 @@ const cli = ploneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
 
-const { login, getAddonsListQuery } = cli;
+const { login, getAddonsQuery } = cli;
 await login({ username: 'admin', password: 'secret' });
 
 describe('[GET] AddonsList', () => {
   test('Hook - Successful', async () => {
-    const { result } = renderHook(() => useQuery(getAddonsListQuery({})), {
+    const { result } = renderHook(() => useQuery(getAddonsQuery({})), {
       wrapper: createWrapper(),
     });
 

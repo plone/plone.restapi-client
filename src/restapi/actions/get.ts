@@ -24,9 +24,9 @@ export const getActions = async ({
     params: {},
   };
 
-  const actionsActionId = `${validatedArgs.actionId}/@actions`;
+  const actionsPath = `${validatedArgs.actionId}/@actions`;
 
-  return apiRequest('get', actionsActionId, options);
+  return apiRequest('get', actionsPath, options);
 };
 
 export const getActionsQuery = ({ actionId, config }: ActionsArgs) => ({

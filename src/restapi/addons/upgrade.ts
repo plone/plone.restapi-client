@@ -2,19 +2,19 @@ import { apiRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { z } from 'zod';
 
-const upgradeAddonsSchema = z.object({
+const upgradeAddonSchema = z.object({
   addonId: z.string(),
 });
 
-export type UpgradeAddonsArgs = z.infer<typeof upgradeAddonsSchema> & {
+export type UpgradeAddonArgs = z.infer<typeof upgradeAddonSchema> & {
   config: PloneClientConfig;
 };
 
-export const upgradeAddons = async ({
+export const upgradeAddon = async ({
   addonId,
   config,
-}: UpgradeAddonsArgs): Promise<undefined> => {
-  const validatedArgs = upgradeAddonsSchema.parse({
+}: UpgradeAddonArgs): Promise<undefined> => {
+  const validatedArgs = upgradeAddonSchema.parse({
     addonId,
   });
 
@@ -22,17 +22,17 @@ export const upgradeAddons = async ({
     config,
     params: {},
   };
-  const upgradeAddonsAddonId = `@addons/${validatedArgs.addonId}/upgrade`;
+  const upgradeAddonPath = `@addons/${validatedArgs.addonId}/upgrade`;
 
-  return apiRequest('post', upgradeAddonsAddonId, options);
+  return apiRequest('post', upgradeAddonPath, options);
 };
 
-export const upgradeAddonsMutation = ({
+export const upgradeAddonMutation = ({
   config,
 }: {
   config: PloneClientConfig;
 }) => ({
   mutationKey: ['post', 'addons'],
-  mutationFn: ({ addonId }: Omit<UpgradeAddonsArgs, 'config'>) =>
-    upgradeAddons({ addonId, config }),
+  mutationFn: ({ addonId }: Omit<UpgradeAddonArgs, 'config'>) =>
+    upgradeAddon({ addonId, config }),
 });

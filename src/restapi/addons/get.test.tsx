@@ -6,13 +6,13 @@ import ploneClient from '../../client';
 const cli = ploneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
-const { login, getAddonsQuery } = cli;
+const { login, getAddonQuery } = cli;
 await login({ username: 'admin', password: 'secret' });
 
 describe('[GET] Addons', () => {
   test('Hook - Successful', async () => {
     const addonId = '/plone.app.iterate';
-    const { result } = renderHook(() => useQuery(getAddonsQuery({ addonId })), {
+    const { result } = renderHook(() => useQuery(getAddonQuery({ addonId })), {
       wrapper: createWrapper(),
     });
 
@@ -25,7 +25,7 @@ describe('[GET] Addons', () => {
 
   test('Hook - Failure', async () => {
     const addonId = 'blah';
-    const { result } = renderHook(() => useQuery(getAddonsQuery({ addonId })), {
+    const { result } = renderHook(() => useQuery(getAddonQuery({ addonId })), {
       wrapper: createWrapper(),
     });
 

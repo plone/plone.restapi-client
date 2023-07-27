@@ -2,21 +2,21 @@ import { apiRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
 import { z } from 'zod';
 
-const installAddonsProfileSchema = z.object({
+const installAddonProfileSchema = z.object({
   addonId: z.string(),
 });
 
-export type InstallAddonsProfileArgs = z.infer<
-  typeof installAddonsProfileSchema
+export type InstallAddonProfileArgs = z.infer<
+  typeof installAddonProfileSchema
 > & {
   config: PloneClientConfig;
 };
 
-export const installAddonsProfile = async ({
+export const installAddonProfile = async ({
   addonId,
   config,
-}: InstallAddonsProfileArgs): Promise<undefined> => {
-  const validatedArgs = installAddonsProfileSchema.parse({
+}: InstallAddonProfileArgs): Promise<undefined> => {
+  const validatedArgs = installAddonProfileSchema.parse({
     addonId,
   });
 
@@ -24,17 +24,17 @@ export const installAddonsProfile = async ({
     config,
     params: {},
   };
-  const installAddonsProfileAddonId = `@addons/${validatedArgs.addonId}/import/testing-workflows`;
+  const installAddonProfilePath = `@addons/${validatedArgs.addonId}/import/testing-workflows`;
 
-  return apiRequest('post', installAddonsProfileAddonId, options);
+  return apiRequest('post', installAddonProfilePath, options);
 };
 
-export const installAddonsProfileMutation = ({
+export const installAddonProfileMutation = ({
   config,
 }: {
   config: PloneClientConfig;
 }) => ({
   mutationKey: ['post', 'addons'],
-  mutationFn: ({ addonId }: Omit<InstallAddonsProfileArgs, 'config'>) =>
-    installAddonsProfile({ addonId, config }),
+  mutationFn: ({ addonId }: Omit<InstallAddonProfileArgs, 'config'>) =>
+    installAddonProfile({ addonId, config }),
 });

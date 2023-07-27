@@ -10,7 +10,7 @@ const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
 
-const { login, installProfileAddonsMutation } = cli;
+const { login, installProfileAddonMutation } = cli;
 await login({ username: 'admin', password: 'secret' });
 
 beforeEach(async () => {
@@ -21,12 +21,12 @@ afterEach(async () => {
   await teardown();
 });
 
-describe('[POST] InstallAddonsProfile', () => {
+describe('[POST] InstallAddonProfile', () => {
   test('Hook - Successful', async () => {
     const addonId = '/plone.restapi';
 
     const { result } = renderHook(
-      () => useMutation(installProfileAddonsMutation()),
+      () => useMutation(installProfileAddonMutation()),
       {
         wrapper: createWrapper(),
       },
