@@ -23,9 +23,9 @@ export const getAddon = async ({
     config,
     params: {},
   };
-  const addonPath = `@addons/${validatedArgs.addonId}`;
+  const addonName = `@addons/${validatedArgs.addonId}`;
 
-  return apiRequest('get', addonPath, options);
+  return apiRequest('get', addonName, options);
 };
 
 export const getAddonQuery = ({ addonId, config }: AddonArgs) => ({

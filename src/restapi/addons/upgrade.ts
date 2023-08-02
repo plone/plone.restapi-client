@@ -22,9 +22,9 @@ export const upgradeAddon = async ({
     config,
     params: {},
   };
-  const upgradeAddonPath = `@addons/${validatedArgs.addonId}/upgrade`;
+  const addonName = `@addons/${validatedArgs.addonId}/upgrade`;
 
-  return apiRequest('post', upgradeAddonPath, options);
+  return apiRequest('post', addonName, options);
 };
 
 export const upgradeAddonMutation = ({

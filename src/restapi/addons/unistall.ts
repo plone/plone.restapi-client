@@ -22,9 +22,9 @@ export const uninstallAddon = async ({
     config,
     params: {},
   };
-  const uninstallAddonPath = `@addons/${validatedArgs.addonId}/uninstall`;
+  const addonName = `@addons/${validatedArgs.addonId}/uninstall`;
 
-  return apiRequest('post', uninstallAddonPath, options);
+  return apiRequest('post', addonName, options);
 };
 
 export const uninstallAddonMutation = ({

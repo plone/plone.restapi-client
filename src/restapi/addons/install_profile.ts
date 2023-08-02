@@ -24,9 +24,9 @@ export const installAddonProfile = async ({
     config,
     params: {},
   };
-  const installAddonProfilePath = `@addons/${validatedArgs.addonId}/import/testing-workflows`;
+  const addonName = `@addons/${validatedArgs.addonId}/import/testing-workflows`;
 
-  return apiRequest('post', installAddonProfilePath, options);
+  return apiRequest('post', addonName, options);
 };
 
 export const installAddonProfileMutation = ({

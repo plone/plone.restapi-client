@@ -22,9 +22,9 @@ export const installAddon = async ({
     config,
     params: {},
   };
-  const installAddonPath = `@addons/${validatedArgs.addonId}/install`;
+  const addonName = `@addons/${validatedArgs.addonId}/install`;
 
-  return apiRequest('post', installAddonPath, options);
+  return apiRequest('post', addonName, options);
 };
 
 export const installAddonMutation = ({
