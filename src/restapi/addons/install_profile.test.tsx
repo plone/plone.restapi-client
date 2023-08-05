@@ -24,6 +24,7 @@ afterEach(async () => {
 describe('[POST] InstallAddonProfile', () => {
   test('Hook - Successful', async () => {
     const addonId = '/plone.restapi';
+    const profile = 'import/testing-workflows';
 
     const { result } = renderHook(
       () => useMutation(installProfileAddonMutation()),
@@ -33,7 +34,7 @@ describe('[POST] InstallAddonProfile', () => {
     );
 
     act(() => {
-      result.current.mutate({ addonId });
+      result.current.mutate({ addonId, profile });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
