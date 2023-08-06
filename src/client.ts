@@ -93,6 +93,12 @@ import { createTypeFieldMutation as _createTypeFieldMutation } from './restapi/t
 import { updateTypeFieldMutation as _updateTypeFieldMutation } from './restapi/types/update';
 import { getAliasesListQuery as _getAliasesListQuery } from './restapi/aliases/get_list';
 import { createAliasesMultipleMutation as _createAliasesMultipleMutation } from './restapi/aliases/add_multiple';
+import { getCommentsQuery as _getCommentsQuery } from './restapi/comments/get';
+import { createCommentMutation as _createCommentMutation } from './restapi/comments/add';
+import { updateCommentMutation as _updateCommentMutation } from './restapi/comments/update';
+import { deleteCommentMutation as _deleteCommentMutation } from './restapi/comments/delete';
+import { emailNotificationMutation as _emailNotificationMutation } from './restapi/email-notification/post';
+import { emailSendMutation as _emailSendMutation } from './restapi/email-send/post';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
@@ -484,4 +490,37 @@ export default class PloneClient {
     _updateTypeFieldMutation,
     this.getConfig,
   );
+
+  /* 
+    Comments queries
+  */
+
+  getCommentsQuery = queryWithConfig(_getCommentsQuery, this.getConfig);
+  createCommentMutation = mutationWithConfig(
+    _createCommentMutation,
+    this.getConfig,
+  );
+  updateCommentMutation = mutationWithConfig(
+    _updateCommentMutation,
+    this.getConfig,
+  );
+  deleteCommentMutation = mutationWithConfig(
+    _deleteCommentMutation,
+    this.getConfig,
+  );
+
+  /*
+    Email notrifcation queries
+  */
+
+  emailNotificationMutation = mutationWithConfig(
+    _emailNotificationMutation,
+    this.getConfig,
+  );
+
+  /* 
+    Email send queries
+  */
+
+  emailSendMutation = mutationWithConfig(_emailSendMutation, this.getConfig);
 }
