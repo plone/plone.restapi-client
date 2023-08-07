@@ -29,9 +29,9 @@ export interface CreateWorkflowResponse {
   title: string;
 }
 
-export const createWorkflowWithBodyDataSchema = z.object({
-  comment: z.string(),
-  effective: z.string(),
-  expires: z.string(),
-  include_children: z.boolean(),
+export const createWorkflowDataSchema = z.object({
+  comment: z.string().optional(),
+  effective: z.string().optional(),
+  expires: z.string().optional(),
+  include_children: z.boolean().optional(),
 });

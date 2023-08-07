@@ -23,7 +23,6 @@ export const getWorkflow = async ({
     config,
     params: {},
   };
-
   const workflowPath = `${validatedArgs.path}/@workflow`;
 
   return apiRequest('get', workflowPath, options);

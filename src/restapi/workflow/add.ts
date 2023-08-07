@@ -4,26 +4,38 @@ import {
   PloneClientConfig,
   PloneClientConfigSchema,
 } from '../../interfaces/config';
-import { CreateWorkflowResponse } from '../../interfaces/workflow';
+import {
+  createWorkflowDataSchema,
+  CreateWorkflowResponse,
+} from '../../interfaces/workflow';
 
 export const createWorkflowArgsSchema = z.object({
+  path: z.string(),
+  data: createWorkflowDataSchema.optional(),
   config: PloneClientConfigSchema,
 });
 
 export type CreateWorkflowArgs = z.infer<typeof createWorkflowArgsSchema>;
 
 export const createWorkflow = async ({
+  path,
+  data,
   config,
 }: CreateWorkflowArgs): Promise<CreateWorkflowResponse> => {
   const validatedArgs = createWorkflowArgsSchema.parse({
+    path,
+    data,
     config,
   });
 
   const options: ApiRequestParams = {
+    data: validatedArgs.data,
     config: validatedArgs.config,
   };
 
-  return apiRequest('post', '/@workflow/publish', options);
+  const workflowPath = `${validatedArgs.path}/@workflow/publish`;
+
+  return apiRequest('post', workflowPath, options);
 };
 
 export const createWorkflowMutation = ({
@@ -32,6 +44,6 @@ export const createWorkflowMutation = ({
   config: PloneClientConfig;
 }) => ({
   mutationKey: ['post', 'workflow'],
-  mutationFn: ({}: Omit<CreateWorkflowArgs, 'config'>) =>
-    createWorkflow({ config }),
+  mutationFn: ({ path, data }: Omit<CreateWorkflowArgs, 'config'>) =>
+    createWorkflow({ path, data, config }),
 });

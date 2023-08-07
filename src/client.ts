@@ -43,7 +43,15 @@ import { updatePasswordMutation as _updatePasswordMutation } from './restapi/use
 import { updateUserMutation as _updateUserMutation } from './restapi/users/update';
 import { getWorkflowQuery as _getWorkflowQuery } from './restapi/workflow/get';
 import { createWorkflowMutation as _createWorkflowMutation } from './restapi/workflow/add';
-import { createWorkflowWithBodyMutation as _createWorkflowWithBodyMutation } from './restapi/workflow/add_with_body';
+import { getVocabulariesListQuery as _getVocabulariesListQuery } from './restapi/vocabularies/get_list';
+import { getVocabulariesQuery as _getVocabulariesQuery } from './restapi/vocabularies/get';
+import { getQueryStringQuery as _getQueryStringQuery } from './restapi/querystring/get';
+import { getNavrootQuery as _getNavrootQuery } from './restapi/navroot/get';
+import { getTypesQuery as _getTypesQuery } from './restapi/types/get_list';
+import { getTypeQuery as _getTypeQuery } from './restapi/types/get';
+import { getTypeFieldQuery as _getTypeFieldQuery } from './restapi/types/get_type_field';
+import { createTypeFieldMutation as _createTypeFieldMutation } from './restapi/types/add';
+import { updateTypeMutation as _updateTypeMutation } from './restapi/types/update';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
@@ -233,8 +241,35 @@ export default class PloneClient {
     _createWorkflowMutation,
     this.getConfig,
   );
-  createWorkflowWithBodyMutation = mutationWithConfig(
-    _createWorkflowWithBodyMutation,
+
+  /*
+    Vocabularies queries
+  */
+  getVocabulariesListQuery = queryWithConfig(
+    _getVocabulariesListQuery,
     this.getConfig,
   );
+  getVocabulariesQuery = queryWithConfig(_getVocabulariesQuery, this.getConfig);
+
+  /*
+    Querystring queries
+  */
+  getQueryStringQuery = queryWithConfig(_getQueryStringQuery, this.getConfig);
+
+  /*
+    Navroot queries
+  */
+  getNavrootQuery = queryWithConfig(_getNavrootQuery, this.getConfig);
+
+  /*
+    Type queries
+  */
+  getTypesQuery = queryWithConfig(_getTypesQuery, this.getConfig);
+  getTypeQuery = queryWithConfig(_getTypeQuery, this.getConfig);
+  getTypeFieldQuery = queryWithConfig(_getTypeFieldQuery, this.getConfig);
+  createTypeFieldMutation = mutationWithConfig(
+    _createTypeFieldMutation,
+    this.getConfig,
+  );
+  updateTypeMutation = mutationWithConfig(_updateTypeMutation, this.getConfig);
 }
