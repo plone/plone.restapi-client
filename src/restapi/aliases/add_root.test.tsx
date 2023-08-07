@@ -61,7 +61,7 @@ describe('[POST] AliasesRoot', () => {
         {
           datetime: '2023-10-07',
           path: '/new-alias',
-          'redirect-to': '/front-page',
+          'redirect-to': '/alias-page',
         },
       ],
     };

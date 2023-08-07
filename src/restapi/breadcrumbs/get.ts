@@ -30,6 +30,6 @@ export const getBreadcrumbs = async ({
 };
 
 export const getBreadcrumbsQuery = ({ path, config }: BreadcrumbsArgs) => ({
-  queryKey: [path, 'get', 'content'],
+  queryKey: [path, 'get', 'breadcrumbs'],
   queryFn: () => getBreadcrumbs({ path, config }),
 });

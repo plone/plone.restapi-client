@@ -71,10 +71,8 @@ export function axiosConfigAdapter(
     },
   };
 
-  if (config.token) {
-    if (axiosConfig.headers) {
-      axiosConfig.headers['Authorization'] = `Bearer ${config.token}`;
-    }
+  if (config.token && axiosConfig.headers) {
+    axiosConfig.headers['Authorization'] = `Bearer ${config.token}`;
   }
 
   return axiosConfig;
