@@ -167,6 +167,7 @@ export default class PloneClient {
   /*
     Database queries
   */
+
   getDatabaseQuery = queryWithConfig(_getDatabaseQuery, this.getConfig);
   /*
     Group queries
