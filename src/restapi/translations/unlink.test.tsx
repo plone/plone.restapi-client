@@ -7,6 +7,7 @@ import { expect, test } from 'vitest';
 import PloneClient from '../../client';
 import { createContent } from '../content/add';
 import { linkTranslation } from './link';
+import { installAddons } from '../addons/install';
 
 const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
@@ -25,6 +26,12 @@ afterEach(async () => {
 
 describe('[POST] Content', () => {
   test.skip('Hook - Successful', async () => {
+    await installAddons({
+      path: '/plone.app.multilingual',
+      config: cli.config,
+    });
+    // We need to install 'plone.app.multilingual' in order to use translations endpoint
+
     const path = '/es/';
     const contentData = {
       '@type': 'Document',
