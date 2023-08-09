@@ -20,7 +20,6 @@ describe('[GET] Addons', () => {
     expect(result.current.data?.['@id']).toBe(
       'http://localhost:55001/plone/@addons/plone.app.iterate',
     );
-    console.log(result.current.data);
   });
 
   test('Hook - Failure', async () => {
