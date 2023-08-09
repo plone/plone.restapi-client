@@ -41,6 +41,23 @@ import { resetPasswordMutation as _resetPasswordMutation } from './restapi/users
 import { resetPasswordWithTokenMutation as _resetPasswordWithTokenMutation } from './restapi/users/reset_password_with_token';
 import { updatePasswordMutation as _updatePasswordMutation } from './restapi/users/update_password';
 import { updateUserMutation as _updateUserMutation } from './restapi/users/update';
+import { getRelationsListQuery as _getRelationsListQuery } from './restapi/relations/get_list';
+import { getRelationsQuery as _getRelationsQuery } from './restapi/relations/get';
+import { createRelationsMutation as _createRelationsMutation } from './restapi/relations/add';
+import { deleteRelationsMutation as _deleteRelationsMutation } from './restapi/relations/delete';
+import { fixRelationsMutation as _fixRelationsMutation } from './restapi/relations/fix';
+import { getQuerystringSearchQuery as _getQuerystringSearchQuery } from './restapi/querystring-search/get';
+import { postQuerystringSearchMutation as _postQuerystringSearchMutation } from './restapi/querystring-search/post';
+import { getRulesQuery as _getRulesQuery } from './restapi/rules/get';
+import { createRuleMutation as _createRuleMutation } from './restapi/rules/add';
+import { updateRulesMutation as _updateRulesMutation } from './restapi/rules/update';
+import { deleteRulesMutation as _deleteRulesMutation } from './restapi/rules/delete';
+import { getControlpanelsQuery as _getControlpanelsQuery } from './restapi/controlpanels/get_list';
+import { getControlpanelQuery as _getControlpanelQuery } from './restapi/controlpanels/get';
+import { createControlpanelMutation as _createControlpanelMutation } from './restapi/controlpanels/add';
+import { updateControlpanelMutation as _updateControlpanelMutation } from './restapi/controlpanels/update';
+import { deleteControlpanelMutation as _deleteControlpanelMutation } from './restapi/controlpanels/delete';
+import { getSearchQuery as _getSearchQuery } from './restapi/search/get';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
@@ -221,4 +238,77 @@ export default class PloneClient {
     this.getConfig,
   );
   updateUserMutation = mutationWithConfig(_updateUserMutation, this.getConfig);
+
+  /*
+    Relations queries
+ */
+  getRelationsListQuery = queryWithConfig(
+    _getRelationsListQuery,
+    this.getConfig,
+  );
+  getRelationsQuery = queryWithConfig(_getRelationsQuery, this.getConfig);
+  createRelationsMutation = mutationWithConfig(
+    _createRelationsMutation,
+    this.getConfig,
+  );
+  deleteRelationsMutation = mutationWithConfig(
+    _deleteRelationsMutation,
+    this.getConfig,
+  );
+  fixRelationsMutation = mutationWithConfig(
+    _fixRelationsMutation,
+    this.getConfig,
+  );
+
+  /*
+    Querystring search queries
+  */
+  getQuerystringSearchQuery = queryWithConfig(
+    _getQuerystringSearchQuery,
+    this.getConfig,
+  );
+  postQuerystringSearchMutation = mutationWithConfig(
+    _postQuerystringSearchMutation,
+    this.getConfig,
+  );
+
+  /* 
+    Rules queries
+  */
+  getRulesQuery = queryWithConfig(_getRulesQuery, this.getConfig);
+  createRuleMutation = mutationWithConfig(_createRuleMutation, this.getConfig);
+  updateRulesMutation = mutationWithConfig(
+    _updateRulesMutation,
+    this.getConfig,
+  );
+  deleteRulesMutation = mutationWithConfig(
+    _deleteRulesMutation,
+    this.getConfig,
+  );
+
+  /*
+    Controlpanels queries
+  */
+  getControlpanelsQuery = queryWithConfig(
+    _getControlpanelsQuery,
+    this.getConfig,
+  );
+  getControlpanelQuery = queryWithConfig(_getControlpanelQuery, this.getConfig);
+  createControlpanelMutation = mutationWithConfig(
+    _createControlpanelMutation,
+    this.getConfig,
+  );
+  updateControlpanelMutation = mutationWithConfig(
+    _updateControlpanelMutation,
+    this.getConfig,
+  );
+  deleteControlpanelMutation = mutationWithConfig(
+    _deleteControlpanelMutation,
+    this.getConfig,
+  );
+
+  /*
+    Search queries
+  */
+  getSearchQuery = queryWithConfig(_getSearchQuery, this.getConfig);
 }
