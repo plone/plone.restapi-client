@@ -62,7 +62,7 @@ export const RelatedItemPayloadSchema = z.object({
   hasPreviewImage: z.unknown(),
   head_title: z.unknown(),
   id: z.string(),
-  image_field: z.string(),
+  image_field: z.string().nullable(),
   image_scales: z.unknown(),
   in_response_to: z.unknown(),
   is_folderish: z.boolean(),

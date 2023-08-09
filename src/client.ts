@@ -41,6 +41,16 @@ import { resetPasswordMutation as _resetPasswordMutation } from './restapi/users
 import { resetPasswordWithTokenMutation as _resetPasswordWithTokenMutation } from './restapi/users/reset_password_with_token';
 import { updatePasswordMutation as _updatePasswordMutation } from './restapi/users/update_password';
 import { updateUserMutation as _updateUserMutation } from './restapi/users/update';
+import { getUserschemaQuery as _getUserschemaQuery } from './restapi/userschema/get';
+import { getRolesQuery as _getRolesQuery } from './restapi/roles/get';
+import { getSystemQuery as _getSystemQuery } from './restapi/system/get';
+import { getTilesQuery as _getTilesQuery } from './restapi/tiles/get_list';
+import { getTileQuery as _getTileQuery } from './restapi/tiles/get';
+import { getTransactionsQuery as _getTransactionsQuery } from './restapi/transactions/get';
+import { revertTransactionsMutation as _revertTransactionsMutation } from './restapi/transactions/revert';
+import { getUpgradeQuery as _getUpgradeQuery } from './restapi/upgrade/get';
+import { runUpgradeMutation as _runUpgradeMutation } from './restapi/upgrade/run';
+import { getLinkintegrityQuery as _getLinkintegrityQuery } from './restapi/linkintegrity/get';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
@@ -221,4 +231,48 @@ export default class PloneClient {
     this.getConfig,
   );
   updateUserMutation = mutationWithConfig(_updateUserMutation, this.getConfig);
+
+  /*
+    UserSchema queries
+  */
+  getUserschemaQuery = queryWithConfig(_getUserschemaQuery, this.getConfig);
+
+  /* 
+    Roles queries
+  */
+  getRolesQuery = queryWithConfig(_getRolesQuery, this.getConfig);
+
+  /*
+    System queries
+  */
+  getSystemQuery = queryWithConfig(_getSystemQuery, this.getConfig);
+
+  /*
+    Tiles queries
+  */
+  getTilesQuery = queryWithConfig(_getTilesQuery, this.getConfig);
+  getTileQuery = queryWithConfig(_getTileQuery, this.getConfig);
+
+  /*
+    Transactions queries
+  */
+  getTransactionsQuery = queryWithConfig(_getTransactionsQuery, this.getConfig);
+  revertTransactionsMutation = mutationWithConfig(
+    _revertTransactionsMutation,
+    this.getConfig,
+  );
+
+  /*
+    Upgrade queries
+  */
+  getUpgradeQuery = queryWithConfig(_getUpgradeQuery, this.getConfig);
+  runUpgradeMutation = mutationWithConfig(_runUpgradeMutation, this.getConfig);
+
+  /*
+    Linkintegrity queries
+  */
+  getLinkintegrityQuery = queryWithConfig(
+    _getLinkintegrityQuery,
+    this.getConfig,
+  );
 }
