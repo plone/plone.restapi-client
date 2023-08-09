@@ -41,6 +41,13 @@ import { resetPasswordMutation as _resetPasswordMutation } from './restapi/users
 import { resetPasswordWithTokenMutation as _resetPasswordWithTokenMutation } from './restapi/users/reset_password_with_token';
 import { updatePasswordMutation as _updatePasswordMutation } from './restapi/users/update_password';
 import { updateUserMutation as _updateUserMutation } from './restapi/users/update';
+import { getPrincipalsQuery as _getPrincipalsQuery } from './restapi/principals/get';
+import { getWorkingcopyQuery as _getWorkingcopyQuery } from './restapi/workingcopy/get';
+import { createWorkingcopyMutation as _createWorkingcopyMutation } from './restapi/workingcopy/add';
+import { updateWorkingcopyMutation as _updateWorkingcopyMutation } from './restapi/workingcopy/update';
+import { deleteWorkingcopyMutation as _deleteWorkingcopyMutation } from './restapi/workingcopy/delete';
+import { copyMutation as _copyMutation } from './restapi/copymove/copy';
+import { moveContentMutation as _moveContentMutation } from './restapi/copymove/move';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
@@ -221,4 +228,35 @@ export default class PloneClient {
     this.getConfig,
   );
   updateUserMutation = mutationWithConfig(_updateUserMutation, this.getConfig);
+
+  /*
+    Principals queries
+  */
+  getPrincipalsQuery = queryWithConfig(_getPrincipalsQuery, this.getConfig);
+
+  /*
+    Workingcopy queries
+  */
+  getWorkingcopyQuery = queryWithConfig(_getWorkingcopyQuery, this.getConfig);
+  createWorkingcopyMutation = mutationWithConfig(
+    _createWorkingcopyMutation,
+    this.getConfig,
+  );
+  updateWorkingcopyMutation = mutationWithConfig(
+    _updateWorkingcopyMutation,
+    this.getConfig,
+  );
+  deleteWorkingcopyMutation = mutationWithConfig(
+    _deleteWorkingcopyMutation,
+    this.getConfig,
+  );
+
+  /*
+    Copy and Move queries
+  */
+  copyMutation = mutationWithConfig(_copyMutation, this.getConfig);
+  moveContentMutation = mutationWithConfig(
+    _moveContentMutation,
+    this.getConfig,
+  );
 }
