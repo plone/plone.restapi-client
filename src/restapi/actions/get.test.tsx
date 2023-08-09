@@ -8,8 +8,6 @@ const cli = ploneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
 
-const { getActionsQuery } = cli;
-
 const { login, getActionsQuery } = cli;
 await login({ username: 'admin', password: 'secret' });
 
