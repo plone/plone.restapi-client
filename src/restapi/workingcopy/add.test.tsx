@@ -7,7 +7,7 @@ import { expect, test } from 'vitest';
 import PloneClient from '../../client';
 import { v4 as uuid } from 'uuid';
 import { createContent } from '../content/add';
-import { installAddons } from '../addons/install';
+import { installAddon } from '../addons/install';
 
 const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
@@ -26,7 +26,7 @@ afterEach(async () => {
 
 describe('[POST] Workingcopy', () => {
   test('Hook - Successful', async () => {
-    await installAddons({ path: '/plone.app.iterate', config: cli.config });
+    await installAddon({ addonId: '/plone.app.iterate', config: cli.config });
     // We need to install 'plone.app.iterate' in order to use workingcopy endpoint
 
     const randomId = uuid();
@@ -57,7 +57,7 @@ describe('[POST] Workingcopy', () => {
   });
 
   test('Hook - Failure', async () => {
-    await installAddons({ path: '/plone.app.iterate', config: cli.config });
+    await installAddon({ addonId: '/plone.app.iterate', config: cli.config });
 
     const path = 'blah';
 
