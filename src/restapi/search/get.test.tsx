@@ -48,7 +48,6 @@ describe('[GET] Search', () => {
     expect(result.current.data?.items[0].description).toBe(
       contentData.description,
     );
-    console.log(result.current.data);
   });
 
   test('Hook - Successful - metadata', async () => {

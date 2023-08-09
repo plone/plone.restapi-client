@@ -47,8 +47,6 @@ describe('[POST] Controlpanel', () => {
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
-
-    console.log(result.current.data);
   });
 
   test('Hook - Successful - dexterity-types', async () => {
@@ -74,7 +72,5 @@ describe('[POST] Controlpanel', () => {
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
-
-    console.log(result.current.data);
   });
 });
