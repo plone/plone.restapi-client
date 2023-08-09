@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import ploneClient from '../../client';
 import { createContent } from '../content/add';
 import { linkTranslation } from './link';
-import { installAddons } from '../addons/install';
+import { installAddon } from '../addons/install';
 
 const cli = ploneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
@@ -15,8 +15,8 @@ await login({ username: 'admin', password: 'secret' });
 
 describe('[GET] Translations', () => {
   test.skip('Hook - Successful', async () => {
-    await installAddons({
-      path: '/plone.app.multilingual',
+    await installAddon({
+      addonId: '/plone.app.multilingual',
       config: cli.config,
     });
     // We need to install 'plone.app.multilingual' in order to use translations endpoint
@@ -55,6 +55,12 @@ describe('[GET] Translations', () => {
   });
 
   test.skip('Hook - Failure', async () => {
+    await installAddon({
+      addonId: '/plone.app.multilingual',
+      config: cli.config,
+    });
+    // We need to install 'plone.app.multilingual' in order to use translations endpoint
+
     const path = '/en/blah';
     const { result } = renderHook(
       () => useQuery(getTranslationQuery({ path })),

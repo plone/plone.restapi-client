@@ -7,7 +7,7 @@ import { expect, test } from 'vitest';
 import PloneClient from '../../client';
 import { createContent } from '../content/add';
 import { linkTranslation } from './link';
-import { installAddons } from '../addons/install';
+import { installAddon } from '../addons/install';
 
 const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
@@ -26,8 +26,8 @@ afterEach(async () => {
 
 describe('[POST] Content', () => {
   test.skip('Hook - Successful', async () => {
-    await installAddons({
-      path: '/plone.app.multilingual',
+    await installAddon({
+      addonId: '/plone.app.multilingual',
       config: cli.config,
     });
     // We need to install 'plone.app.multilingual' in order to use translations endpoint
@@ -70,16 +70,22 @@ describe('[POST] Content', () => {
   });
 
   test.skip('Hook - Failure', async () => {
+    await installAddon({
+      addonId: '/plone.app.multilingual',
+      config: cli.config,
+    });
+    // We need to install 'plone.app.multilingual' in order to use translations endpoint
+
+    const unlinkData = {
+      language: 'es',
+    };
+
     const { result } = renderHook(
       () => useMutation(unlinkTranslationMutation()),
       {
         wrapper: createWrapper(),
       },
     );
-
-    const unlinkData = {
-      language: 'es',
-    };
 
     act(() => {
       result.current.mutate({ path: '/en/blah', data: unlinkData });
