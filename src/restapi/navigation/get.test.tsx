@@ -6,6 +6,7 @@ import ploneClient from '../../client';
 const cli = ploneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
+
 const { getNavigationQuery } = cli;
 
 describe('[GET] Navigation', () => {

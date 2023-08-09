@@ -28,16 +28,16 @@ describe('[DELETE] Aliases', () => {
     const path = '/';
     const contentData = {
       '@type': 'Document',
-      title: 'front-page',
+      title: 'delete-alias-page',
     };
     await createContent({ path, data: contentData, config: cli.config });
 
-    const pagePath = 'front-page';
+    const pagePath = 'delete-alias-page';
 
     const aliasesData = {
       items: [
         {
-          path: '/new-alias',
+          path: '/delete-alias',
         },
       ],
     };
@@ -64,7 +64,7 @@ describe('[DELETE] Aliases', () => {
     const aliasesData = {
       items: [
         {
-          path: '/new-alias',
+          path: '/delete-fail-alias',
         },
       ],
     };

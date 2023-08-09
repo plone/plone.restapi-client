@@ -27,11 +27,11 @@ describe('[POST] Aliases', () => {
     const path = '/';
     const contentData = {
       '@type': 'Document',
-      title: 'front-page',
+      title: 'add-alias-page',
     };
     await createContent({ path, data: contentData, config: cli.config });
 
-    const pagePath = 'front-page/';
+    const pagePath = 'add-alias-page';
 
     const { result } = renderHook(() => useMutation(createAliasesMutation()), {
       wrapper: createWrapper(),
@@ -40,7 +40,10 @@ describe('[POST] Aliases', () => {
     const aliasesData = {
       items: [
         {
-          path: '/new-alias',
+          path: '/add-alias',
+        },
+        {
+          path: '/add-alias-2',
         },
       ],
     };
@@ -57,7 +60,7 @@ describe('[POST] Aliases', () => {
     const aliasesData = {
       items: [
         {
-          path: '/new-alias',
+          path: '/add-fail-alias',
         },
       ],
     };

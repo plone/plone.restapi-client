@@ -6,11 +6,12 @@ import ploneClient from '../../client';
 const cli = ploneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
-const { getAliasesRootQuery } = cli;
 
-describe('[GET] AliasesRoot', () => {
+const { getAliasesListQuery } = cli;
+
+describe('[GET] AliasesList', () => {
   test('Hook - Successful', async () => {
-    const { result } = renderHook(() => useQuery(getAliasesRootQuery({})), {
+    const { result } = renderHook(() => useQuery(getAliasesListQuery({})), {
       wrapper: createWrapper(),
     });
 

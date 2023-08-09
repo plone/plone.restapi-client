@@ -7,6 +7,7 @@ import { apiRequest } from '../../API';
 const cli = ploneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
+
 const { getContentQuery } = cli;
 
 describe('[GET] Content', () => {

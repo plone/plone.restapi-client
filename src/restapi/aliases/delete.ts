@@ -30,9 +30,9 @@ export const deleteAliases = async ({
     config: validatedArgs.config,
   };
 
-  const aliasesPath = `${validatedArgs.path}/@aliases`;
+  const deleteAliasesPath = `${validatedArgs.path}/@aliases`;
 
-  return apiRequest('delete', aliasesPath, options);
+  return apiRequest('delete', deleteAliasesPath, options);
 };
 
 export const deleteAliasesMutation = ({
