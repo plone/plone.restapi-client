@@ -7,8 +7,7 @@ import { apiRequest } from '../../API';
 const cli = ploneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
-
-const { getContentQuery } = cli;
+const { getContentQuery, useGetContent } = cli;
 
 describe('[GET] Content', () => {
   test('Hook - Successful', async () => {
@@ -36,12 +35,9 @@ describe('[GET] Content', () => {
   test('Hook - fullobjects', async () => {
     const path = '/';
     const fullObjects = true;
-    const { result } = renderHook(
-      () => useQuery(getContentQuery({ path, fullObjects })),
-      {
-        wrapper: createWrapper(),
-      },
-    );
+    const { result } = renderHook(() => useGetContent({ path, fullObjects }), {
+      wrapper: createWrapper(),
+    });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 

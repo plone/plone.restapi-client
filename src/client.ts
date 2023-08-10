@@ -103,7 +103,12 @@ import { getTranslationQuery as _getTranslationQuery } from './restapi/translati
 import { linkTranslationMutation as _linkTranslationMutation } from './restapi/translations/link';
 import { unlinkTranslationMutation as _unlinkTranslationMutation } from './restapi/translations/unlink';
 
-import { mutationWithConfig, queryWithConfig } from './utils/misc';
+import {
+  queryHookFromQuery,
+  mutationWithConfig,
+  queryWithConfig,
+  mutationHookFromMutation,
+} from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
 
 const PLONECLIENT_DEFAULT_CONFIG = { apiPath: 'http://localhost:8080/Plone' };
@@ -536,4 +541,96 @@ export default class PloneClient {
     _unlinkTranslationMutation,
     this.getConfig,
   );
+
+  /*
+    Actions hooks
+  */
+
+  /*
+    Content hooks
+  */
+  useGetContent = queryHookFromQuery(this.getContentQuery);
+  useCreateContent = mutationHookFromMutation(this.createContentMutation);
+  useUpdateContent = mutationHookFromMutation(this.updateContentMutation);
+  useDeleteContent = mutationHookFromMutation(this.deleteContentMutation);
+
+  /*
+    Breadcrumbs hooks
+  */
+  useGetBreadcrumbs = queryHookFromQuery(this.getBreadcrumbsQuery);
+
+  /*
+    Navigation hooks
+  */
+  useGetNavigation = queryHookFromQuery(this.getNavigationQuery);
+
+  /*
+    ContextNavigation hooks
+  */
+  useGetContextNavigation = queryHookFromQuery(this.getContextNavigationQuery);
+
+  /*
+    Actions hooks
+  */
+  useGetActions = queryHookFromQuery(this.getActionsQuery);
+
+  /*
+    Aliases hooks
+  */
+  useGetAliases = queryHookFromQuery(this.getAliasesQuery);
+  useCreateAliases = mutationHookFromMutation(this.createAliasesMutation);
+  useDeleteAliases = mutationHookFromMutation(this.deleteAliasesMutation);
+  useGetAliasesRoot = queryHookFromQuery(this.getAliasesRootQuery);
+  useCreateAliasesRoot = mutationHookFromMutation(
+    this.createAliasesRootMutation,
+  );
+  useDeleteAliasesRoot = mutationHookFromMutation(
+    this.deleteAliasesRootMutation,
+  );
+
+  /*
+    Addons hooks
+  */
+  useGetAddons = queryHookFromQuery(this.getAddonsQuery);
+  useGetAddon = queryHookFromQuery(this.getAddonQuery);
+  useInstallAddon = mutationHookFromMutation(this.installAddonMutation);
+  useInstallProfileAddon = mutationHookFromMutation(
+    this.installProfileAddonMutation,
+  );
+  useUninstallAddon = mutationHookFromMutation(this.uninstallAddonMutation);
+  useUpgradeAddon = mutationHookFromMutation(this.upgradeAddonMutation);
+
+  /*
+    Database hooks
+  */
+  useGetDatabase = queryHookFromQuery(this.getDatabaseQuery);
+
+  /*
+    Group hooks
+  */
+  useGetGroups = queryHookFromQuery(this.getGroupsQuery);
+  useGetGroup = queryHookFromQuery(this.getGroupQuery);
+  useCreateGroup = mutationHookFromMutation(this.createGroupMutation);
+  useUpdateGroup = mutationHookFromMutation(this.updateGroupMutation);
+  useDeleteGroup = mutationHookFromMutation(this.deleteGroupMutation);
+
+  /*
+    History hooks
+  */
+  useGetHistory = queryHookFromQuery(this.getHistoryQuery);
+  useGetHistoryVersioned = queryHookFromQuery(this.getHistoryVersionedQuery);
+
+  /*
+    User hooks
+  */
+  useGetUsers = queryHookFromQuery(this.getUsersQuery);
+  useGetUser = queryHookFromQuery(this.getUserQuery);
+  useCreateUser = mutationHookFromMutation(this.createUserMutation);
+  useDeleteUser = mutationHookFromMutation(this.deleteUserMutation);
+  useResetPassword = mutationHookFromMutation(this.resetPasswordMutation);
+  useResetPasswordWithToken = mutationHookFromMutation(
+    this.resetPasswordWithTokenMutation,
+  );
+  useUpdatePassword = mutationHookFromMutation(this.updatePasswordMutation);
+  useUpdateUser = mutationHookFromMutation(this.updateUserMutation);
 }
