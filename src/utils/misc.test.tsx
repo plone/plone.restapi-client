@@ -3,50 +3,52 @@ import { mutationHookFromMutation, queryHookFromQuery } from './misc';
 import { act, renderHook, waitFor } from '@testing-library/react';
 import { createWrapper } from '../testUtils';
 
-test('queryHookFromQuery should return expected result', async () => {
-  const mockQueryFn = vi.fn(() => Promise.resolve('mockData'));
+describe('hook creator functions', () => {
+  test('queryHookFromQuery should return expected result', async () => {
+    const mockQueryFn = vi.fn(() => Promise.resolve('mockData'));
 
-  const mockQueryFnCreator = vi.fn(() => ({
-    queryKey: ['mockQuery'],
-    queryFn: mockQueryFn,
-  }));
+    const mockQueryFnCreator = vi.fn(() => ({
+      queryKey: ['mockQuery'],
+      queryFn: mockQueryFn,
+    }));
 
-  const queryHook = queryHookFromQuery(mockQueryFnCreator);
+    const queryHook = queryHookFromQuery(mockQueryFnCreator);
 
-  const { result } = renderHook(() => queryHook({}), {
-    wrapper: createWrapper(),
+    const { result } = renderHook(() => queryHook({}), {
+      wrapper: createWrapper(),
+    });
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+
+    expect(mockQueryFnCreator).toHaveBeenCalled();
+    expect(mockQueryFn).toHaveBeenCalledOnce();
+
+    expect(result.current?.data).toBe('mockData');
   });
 
-  await waitFor(() => expect(result.current.isSuccess).toBe(true));
+  test('mutationHookFromMutation should return expected result', async () => {
+    const mockMutationFn = vi.fn(() => Promise.resolve('mockData'));
 
-  expect(mockQueryFnCreator).toHaveBeenCalled();
-  expect(mockQueryFn).toHaveBeenCalledOnce();
+    const mockMutationFnCreator = vi.fn(() => ({
+      mutationKey: ['mockMutation'],
+      mutationFn: mockMutationFn,
+    }));
 
-  expect(result.current?.data).toBe('mockData');
-});
+    const mutationHook = mutationHookFromMutation(mockMutationFnCreator);
 
-test('mutationHookFromMutation should return expected result', async () => {
-  const mockMutationFn = vi.fn(() => Promise.resolve('mockData'));
+    const { result } = renderHook(mutationHook, {
+      wrapper: createWrapper(),
+    });
 
-  const mockMutationFnCreator = vi.fn(() => ({
-    mutationKey: ['mockMutation'],
-    mutationFn: mockMutationFn,
-  }));
+    act(() => {
+      result.current.mutate({});
+    });
 
-  const mutationHook = mutationHookFromMutation(mockMutationFnCreator);
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
-  const { result } = renderHook(mutationHook, {
-    wrapper: createWrapper(),
+    expect(mockMutationFnCreator).toHaveBeenCalled();
+    expect(mockMutationFn).toHaveBeenCalledOnce();
+
+    expect(result.current?.data).toBe('mockData');
   });
-
-  act(() => {
-    result.current.mutate({});
-  });
-
-  await waitFor(() => expect(result.current.isSuccess).toBe(true));
-
-  expect(mockMutationFnCreator).toHaveBeenCalled();
-  expect(mockMutationFn).toHaveBeenCalledOnce();
-
-  expect(result.current?.data).toBe('mockData');
 });
