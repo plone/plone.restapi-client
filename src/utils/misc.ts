@@ -58,6 +58,10 @@ type TReturnType<T> = T extends (args: any) => infer U ? U : never;
   `useMutation` directly.
 */
 
+type TArguments<T> = T extends (args: infer U) => any ? U : never;
+
+type TReturnType<T> = T extends (args: any) => infer U ? U : never;
+
 type TQueryFnReturnType<T> = T extends { queryFn: () => Promise<infer U> }
   ? U
   : never;
