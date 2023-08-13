@@ -18,3 +18,23 @@ export const mutationWithConfig = <K>(
 ) => {
   return () => method({ config: configGetter() });
 };
+
+export const flattenToDottedNotation = (
+  obj: Record<string, any>,
+  prefix = '',
+): Record<string, any> => {
+  const result: Record<string, any> = {};
+
+  for (const key of Object.keys(obj)) {
+    const value = obj[key];
+    const newKey = prefix ? `${prefix}.${key}` : key;
+
+    if (typeof value === 'object' && !Array.isArray(value) && value !== null) {
+      Object.assign(result, flattenToDottedNotation(value, newKey));
+    } else {
+      result[newKey] = value;
+    }
+  }
+
+  return result;
+};

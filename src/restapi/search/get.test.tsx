@@ -34,14 +34,13 @@ describe('[GET] Search', () => {
 
     await createContent({ path: '/', data: contentData, config: cli.config });
 
-    const searchQuery = contentData.description;
+    const query = {
+      SearchableText: contentData.description,
+    };
 
-    const { result } = renderHook(
-      () => useQuery(getSearchQuery({ SearchableText: searchQuery })),
-      {
-        wrapper: createWrapper(),
-      },
-    );
+    const { result } = renderHook(() => useQuery(getSearchQuery({ query })), {
+      wrapper: createWrapper(),
+    });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
@@ -60,24 +59,18 @@ describe('[GET] Search', () => {
 
     await createContent({ path: '/', data: contentData, config: cli.config });
 
-    const searchText = contentData.description;
-    const metadataFields = 'created';
+    const query = {
+      SearchableText: contentData.description,
+      metadata_fields: ['created', 'modified'],
+    };
 
-    const { result } = renderHook(
-      () =>
-        useQuery(
-          getSearchQuery({
-            SearchableText: searchText,
-            metadata_fields: metadataFields,
-          }),
-        ),
-      {
-        wrapper: createWrapper(),
-      },
-    );
+    const { result } = renderHook(() => useQuery(getSearchQuery({ query })), {
+      wrapper: createWrapper(),
+    });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
     expect(result.current.data?.items[0]).toHaveProperty('created');
+    expect(result.current.data?.items[0]).toHaveProperty('modified');
   });
 });
