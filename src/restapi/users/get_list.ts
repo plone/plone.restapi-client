@@ -7,6 +7,7 @@ const getUsersSchema = z.object({
   query: z.string().optional(),
   groupsFilter: z.array(z.string()).optional(),
   search: z.string().optional(),
+  limit: z.number().optional(),
 });
 
 export type GetUsersArgs = z.infer<typeof getUsersSchema> & {
@@ -17,12 +18,14 @@ export const getUsers = async ({
   query,
   groupsFilter,
   search,
+  limit,
   config,
 }: GetUsersArgs): Promise<GetUsersResponse> => {
   const validatedArgs = getUsersSchema.parse({
     query,
     groupsFilter,
     search,
+    limit,
   });
 
   const options: ApiRequestParams = {
@@ -32,6 +35,7 @@ export const getUsers = async ({
       ...(validatedArgs.groupsFilter && {
         'groups-filter': validatedArgs.groupsFilter,
       }),
+      ...(validatedArgs.limit && { limit: validatedArgs.limit }),
       ...(validatedArgs.search && { search: validatedArgs.search }),
     },
   };
@@ -43,8 +47,9 @@ export const getUsersQuery = ({
   query,
   groupsFilter,
   search,
+  limit,
   config,
 }: GetUsersArgs) => ({
-  queryKey: [query, groupsFilter, search, 'get', 'users'],
-  queryFn: () => getUsers({ query, groupsFilter, search, config }),
+  queryKey: [query, groupsFilter, search, limit, 'get', 'users'],
+  queryFn: () => getUsers({ query, groupsFilter, search, limit, config }),
 });
