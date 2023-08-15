@@ -20,4 +20,30 @@ describe('[GET] UsersList', () => {
 
     expect(result.current.data?.[0]).toHaveProperty('@id');
   });
+
+  test('Hook - Successful - groupsFilter', async () => {
+    const { result } = renderHook(
+      () => useQuery(getUsersQuery({ groupsFilter: ['AuthenticatedUsers'] })),
+      {
+        wrapper: createWrapper(),
+      },
+    );
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+
+    expect(result.current.data?.[0]).toHaveProperty('@id');
+  });
+
+  test('Hook - Successful - query', async () => {
+    const { result } = renderHook(
+      () => useQuery(getUsersQuery({ query: 'test_user_1_' })),
+      {
+        wrapper: createWrapper(),
+      },
+    );
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+
+    expect(result.current.data?.[0]).toHaveProperty('@id');
+  });
 });
