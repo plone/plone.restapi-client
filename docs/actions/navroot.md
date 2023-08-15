@@ -7,14 +7,14 @@ This feature is useful when working with subsites or multilingual sites, because
 
 This function returns the navigation root for the given path.
 
--   Function name: getNavigationRootQuery
+- Function name: getNavigationRootQuery
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
--   **language**: string
+- **language**: string
 
-    -   **Required:** No
+  - **Required:** No

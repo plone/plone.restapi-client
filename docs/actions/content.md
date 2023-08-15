@@ -6,257 +6,257 @@ Get all standard Plone content representations.
 
 This function returns the content at the given path.
 
--   Function name: getContentQuery
+- Function name: getContentQuery
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
--   **version:** string
+- **version:** string
 
-    -   **Required:** No
+  - **Required:** No
 
--   **page:** number
+- **page:** number
 
-    -   **Required:** No
+  - **Required:** No
 
--   **fullObjects:** boolean
+- **fullObjects:** boolean
 
-    -   **Required:** No
+  - **Required:** No
 
--   **expand:** string[]
+- **expand:** string[]
 
-    -   **Required:** No
+  - **Required:** No
 
 ## Add Content
 
 This function can be used for adding content to a site.
 
--   Function name: createContentQuery
+- Function name: createContentQuery
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
--   **data**: object
+- **data**: object
 
-    -   **Required:** Yes
-    -   It can have the following fields:
+  - **Required:** Yes
+  - It can have the following fields:
 
-        `@id: string`
+    `@id: string`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `@static_behaviors: unknown`
+    `@static_behaviors: unknown`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `@type: string`
+    `@type: string`
 
-        -   **Required:** Yes
+    - **Required:** Yes
 
-        `allow_discussion: boolean`
+    `allow_discussion: boolean`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `blocks: unknown`
+    `blocks: unknown`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `blocks_layout: string[]`
+    `blocks_layout: string[]`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `contributors: string[]`
+    `contributors: string[]`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `creators: string[]`
+    `creators: string[]`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `description: string`
+    `description: string`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `effective: string`
+    `effective: string`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `exclude_from_nav: boolean`
+    `exclude_from_nav: boolean`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `expires: string`
+    `expires: string`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `id: string`
+    `id: string`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `language: string`
+    `language: string`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `preview_caption: string`
+    `preview_caption: string`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `preview_image: object`
+    `preview_image: object`
 
-        -   **Required**: No
-        -   It has the following fields:
+    - **Required**: No
+    - It has the following fields:
 
-            -   `content-type: string`
+      - `content-type: string`
 
-                -   **Required**: Yes
+        - **Required**: Yes
 
-            -   `data: string`
+      - `data: string`
 
-                -   **Required**: Yes
+        - **Required**: Yes
 
-            -   `encoding: string`
+      - `encoding: string`
 
-                -   **Required**: Yes
+        - **Required**: Yes
 
-            -   `filename: string`
+      - `filename: string`
 
-                -   **Required**: Yes
+        - **Required**: Yes
 
-        `relatedItems: array`([RelatedObject](#relatedobject))
+    `relatedItems: array`([RelatedObject](#relatedobject))
 
-        -   **Required**: No
+    - **Required**: No
 
-        `rights: string`
+    `rights: string`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `title: string`
+    `title: string`
 
-        -   **Required:** Yes
+    - **Required:** Yes
 
-        `versioning_enabled: boolean`
+    `versioning_enabled: boolean`
 
-        -   **Required:** No
+    - **Required:** No
 
 ## Update Content
 
 This function can be used to update content at the given path.
 
--   Function name: updateContentQuery
+- Function name: updateContentQuery
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
--   **data**: object
+- **data**: object
 
-    -   **Required:** Yes
-    -   It can have the following fields:
+  - **Required:** Yes
+  - It can have the following fields:
 
-        `allow_discussion: boolean`
+    `allow_discussion: boolean`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `blocks: unknown`
+    `blocks: unknown`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `blocks_layout: string[]`
+    `blocks_layout: string[]`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `contributors: string[]`
+    `contributors: string[]`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `creators: string[]`
+    `creators: string[]`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `description: string`
+    `description: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `effective: string`
+    `effective: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `exclude_from_nav: boolean`
+    `exclude_from_nav: boolean`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `expires: string`
+    `expires: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `id: string`
+    `id: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `preview_caption: string`
+    `preview_caption: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `preview_image: object`
+    `preview_image: object`
 
-        -   **Required**: No
-        -   It has the following fields:
+    - **Required**: No
+    - It has the following fields:
 
-            -   `content-type: string`
+      - `content-type: string`
 
-                -   **Required**: Yes
+        - **Required**: Yes
 
-            -   `data: string`
+      - `data: string`
 
-                -   **Required**: Yes
+        - **Required**: Yes
 
-            -   `encoding: string`
+      - `encoding: string`
 
-                -   **Required**: Yes
+        - **Required**: Yes
 
-            -   `filename: string`
+      - `filename: string`
 
-                -   **Required**: Yes
+        - **Required**: Yes
 
-        `relatedItems: array`([RelatedObject](#relatedobject))
+    `relatedItems: array`([RelatedObject](#relatedobject))
 
-        -   **Required**: No
+    - **Required**: No
 
-        `rights: string`
+    `rights: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `table_of_contents: boolean`
+    `table_of_contents: boolean`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `title: string`
+    `title: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `versioning_enabled: boolean`
+    `versioning_enabled: boolean`
 
-        -   **Required**: No
+    - **Required**: No
 
 ## Delete Content
 
 This function can be used to delete content at the given path.
 
--   Function name: deleteContentQuery
+- Function name: deleteContentQuery
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
 ---
 
@@ -268,188 +268,188 @@ This function can be used to delete content at the given path.
 
 `@id: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `@type: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `CreationDate: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `Creator: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `Date: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `Description: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `EffectiveDate: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `ExpirationDate: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `ModificationDate: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `Subject: unknown[]`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `Title: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `Type: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `UID: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `author_name: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `cmf_uid: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `commentators: unknown[]`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `created: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `description: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `effective: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `end: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `exclude_from_nav: boolean`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `expires: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `getIcon: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `getId: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `getObjSize: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `getPath: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `getRemoteUrl: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `getURL: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `hasPreviewImage: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `head_title: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `id: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `image_field: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `image_scales: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `in_response_to: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `is_folderish: boolean`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `last_comment_date: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `listCreators: string[]`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `location: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `mime_type: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `modified: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `nav_title: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `portal_type: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `review_state: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `start: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `sync_uid: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `title: string`
 
--   **Required**: Yes
+- **Required**: Yes
 
 `total_comments: number`
 
--   **Required**: Yes
+- **Required**: Yes

@@ -7,4 +7,4 @@ It uses the `zope2.View` permission, which requires appropriate authorization.
 
 This function returns the information about the site.
 
--   Function name: getSiteQuery
+- Function name: getSiteQuery

@@ -11,12 +11,12 @@ If there are none, it will return an empty list (`[]`).
 
 ## Get Link Integrity
 
--   This function is returns the list of possible reference breaches for given content object.
+- This function is returns the list of possible reference breaches for given content object.
 
--   Function name: getLinkintegrityQuery
+- Function name: getLinkintegrityQuery
 
 ### Parameters
 
--   **uids**: string
+- **uids**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes

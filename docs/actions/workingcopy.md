@@ -11,46 +11,46 @@ It allows the users to create a working copy of a published or live content obje
 
 This function returns the working copy of a content object.
 
--   Function name: getWorkingcopyQuery
+- Function name: getWorkingcopyQuery
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
 ## Add Working Copy
 
 This function can be used to add a working copy of a content object.
 
--   Function name: createWorkingcopyMutation
+- Function name: createWorkingcopyMutation
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
 ## Check In Working Copy
 
 This function can be used to check in a working copy to update the original content object.
 
--   Function name: checkinWorkingcopyMutation
+- Function name: checkinWorkingcopyMutation
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
 ## Delete Working Copy
 
 This function can be used to delete a working copy.
 
--   Function name: deleteWorkingcopyMutation
+- Function name: deleteWorkingcopyMutation
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes

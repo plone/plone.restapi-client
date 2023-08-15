@@ -10,79 +10,79 @@ When commenting is enabled on your content object, you can retrieve a list of al
 
 This function returns the list of all comments for the given path.
 
--   Function name: getCommentsQuery
+- Function name: getCommentsQuery
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
 ## Add Comment
 
 This function can be used to add a comment to the given path.
 
--   Function name: createCommentMutation
+- Function name: createCommentMutation
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
--   **reply_id**: string
+- **reply_id**: string
 
-    -   **Required:** No
-    -   The id of the comment to which you want to reply
+  - **Required:** No
+  - The id of the comment to which you want to reply
 
--   **data**: object
+- **data**: object
 
-    -   **Required:** Yes
-    -   It can have the following fields:
+  - **Required:** Yes
+  - It can have the following fields:
 
-        `text: string`
+    `text: string`
 
-        -   **Required:** Yes
-        -   The content of the comment.
+    - **Required:** Yes
+    - The content of the comment.
 
 ## Update Comment
 
 This function can be used to update a comment for the given id and path.
 
--   Function name: updateCommentMutation
+- Function name: updateCommentMutation
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
--   **comment_id**: string
+- **comment_id**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
--   **data**: object
+- **data**: object
 
-    -   **Required:** Yes
-    -   It can have the following fields:
+  - **Required:** Yes
+  - It can have the following fields:
 
-        `text: string`
+    `text: string`
 
-        -   **Required:** Yes
-        -   The content of the comment.
+    - **Required:** Yes
+    - The content of the comment.
 
 ## Delete Comment
 
 This function can be used to delete a comment for the given id and path.
 
--   Function name: deleteCommentMutation
+- Function name: deleteCommentMutation
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
--   **comment_id**: string
+- **comment_id**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes

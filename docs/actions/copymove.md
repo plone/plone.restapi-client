@@ -14,36 +14,36 @@ The source object can be specified either by URL, path, UID or `intid`:
 
 This function can be used to create a copy of content object.
 
--   Function name: copyMutation
+- Function name: copyMutation
 
 ### Parameters
 
--   **data**: object
+- **data**: object
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
-        -   It can have the following fields:
+    - It can have the following fields:
 
-        -   `source: string`
+    - `source: string`
 
-            -   **Required:** Yes
-            -   The source object to copy. It can be specified either by URL, path, UID or `intid`.
+      - **Required:** Yes
+      - The source object to copy. It can be specified either by URL, path, UID or `intid`.
 
 ## Move Content
 
 This function can be used to move a content object.
 
--   Function name: moveMutation
+- Function name: moveMutation
 
 ### Parameters
 
--   **data**: object
+- **data**: object
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
-        -   It can have the following fields:
+    - It can have the following fields:
 
-        -   `source: string`
+    - `source: string`
 
-            -   **Required:** Yes
-            -   The source object to move. It can be specified either by URL, path, UID or `intid`.
+      - **Required:** Yes
+      - The source object to move. It can be specified either by URL, path, UID or `intid`.

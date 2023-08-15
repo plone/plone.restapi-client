@@ -11,75 +11,75 @@ The API consumer can create, read, update, and delete a content-type lock.
 
 This function returns the information about the lock for the given path.
 
--   Function name: getLockQuery
+- Function name: getLockQuery
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
 ## Add Lock
 
 This function can be used to add a lock on the content of the given path.
 
--   Function name: createLockMutation
+- Function name: createLockMutation
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
--   **data**: object
+- **data**: object
 
-    -   **Required:** Yes
-    -   It can have the following fields:
+  - **Required:** Yes
+  - It can have the following fields:
 
-        `stealable: boolean`
+    `stealable: boolean`
 
-        -   **Required:** No
-        -   If `true`, the another user can unlock the lock.
+    - **Required:** No
+    - If `true`, the another user can unlock the lock.
 
-        `timeout: integer`
+    `timeout: integer`
 
-        -   **Required:** No
-        -   The timeout of the lock in seconds. If not given, the default timeout is used.
+    - **Required:** No
+    - The timeout of the lock in seconds. If not given, the default timeout is used.
 
 ## Update Lock
 
 This function can be used to update the lock on the content of the given path.
 
--   Function name: updateLockMutation
+- Function name: updateLockMutation
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
--   **locktoken**: string
+- **locktoken**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
 ## Delete Lock
 
 This function can be used to delete the lock on the content of the given path.
 
--   Function name: deleteLockMutation
+- Function name: deleteLockMutation
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
--   **data**: object
+- **data**: object
 
-    -   **Required:** No
-    -   It can have the following fields:
+  - **Required:** No
+  - It can have the following fields:
 
-        `force: boolean`
+    `force: boolean`
 
-        -   **Required:** No
-        -   Set force `true` to unlock an object locked by another user.
+    - **Required:** No
+    - Set force `true` to unlock an object locked by another user.

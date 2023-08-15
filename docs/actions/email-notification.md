@@ -10,32 +10,32 @@ At the same time, it allows the users to reach out to the site owners.
 
 This function sends an email notification to the site owner or the specified user.
 
--   Function name: emailNotificationMutation
+- Function name: emailNotificationMutation
 
 ### Parameters
 
--   **user**: string
+- **user**: string
 
-    -   **Required:** No
-    -   The user who is receiving the email notification. If not specified the site owner will receive the email notification.
+  - **Required:** No
+  - The user who is receiving the email notification. If not specified the site owner will receive the email notification.
 
--   **data**: object
+- **data**: object
 
-    -   **Required:** Yes
-    -   It can have the following fields:
+  - **Required:** Yes
+  - It can have the following fields:
 
-        `name: string`
+    `name: string`
 
-        -   **Required:** Yes
+    - **Required:** Yes
 
-        `from: string`
+    `from: string`
 
-        -   **Required:** Yes
+    - **Required:** Yes
 
-        `subject: string`
+    `subject: string`
 
-        -   **Required:** Yes
+    - **Required:** Yes
 
-        `message: string`
+    `message: string`
 
-        -   **Required:** Yes
+    - **Required:** Yes

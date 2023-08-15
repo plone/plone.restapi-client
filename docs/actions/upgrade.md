@@ -7,22 +7,22 @@ The `@upgrade` endpoint exposes upgrade information about the Plone backend, and
 
 This function returns the upgrade information about the Plone backend.
 
--   Function name: getUpgradeQuery
+- Function name: getUpgradeQuery
 
 ## Run Upgrade
 
 This function can be used to run upgrade of the Plone backend.
 
--   Function name: runUpgradeQuery
+- Function name: runUpgradeQuery
 
 ### Parameters
 
--   **data**: object
+- **data**: object
 
-    -   **Required**: true
-    -   It can have the following fields:
+  - **Required**: Yes
+  - It can have the following fields:
 
-        -   `dry_run: boolean`
+    - `dry_run: boolean`
 
-        -   **Required**: true
-        -   If true, the upgrade will be run in dry-run mode.
+    - **Required**: Yes
+    - If true, the upgrade will be run in dry-run mode.

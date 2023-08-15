@@ -6,16 +6,16 @@ A tile in Plone is an HTML snippet that can contain arbitrary content, such as t
 
 This function returns the list of all tiles in the portal.
 
--   Function name: getTilesQuery
+- Function name: getTilesQuery
 
 ## Get Tiles
 
 This function returns the information about an individual tile for the given tileId.
 
--   Function name: getTileQuery
+- Function name: getTileQuery
 
 ### Parameters
 
--   **tileId**: string
+- **tileId**: string
 
-    -   **Required**: true
+  - **Required**: Yes

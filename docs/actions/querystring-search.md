@@ -6,113 +6,113 @@ The `@querystring-search` endpoint returns search results that can be filtered o
 
 This function is used to search for the given criteria.
 
--   Function name: `getQuerystringSearchQuery`
+- Function name: `getQuerystringSearchQuery`
 
 ### Parameters
 
--   **query**: object[]
+- **query**: object[]
 
-    -   **Required**: Yes
-    -   An array of objects with the following fields:
+  - **Required**: Yes
+  - An array of objects with the following fields:
 
-        -   **i**: string
+    - **i**: string
 
-            -   **Required**: Yes
-            -   The index of the filter (the name of the field to which this filter is applied).
+      - **Required**: Yes
+      - The index of the filter (the name of the field to which this filter is applied).
 
-        -   **o**: string
+    - **o**: string
 
-            -   **Required**: Yes
-            -   The operator of the filter.
+      - **Required**: Yes
+      - The operator of the filter.
 
-        -   **v**: string[]
+    - **v**: string[]
 
-            -   **Required**: Yes
-            -   The value of the filter.
+      - **Required**: Yes
+      - The value of the filter.
 
--   **b_start**: string
+- **b_start**: string
 
-    -   **Required**: No
+  - **Required**: No
 
--   **b_size**: string
+- **b_size**: string
 
-    -   **Required**: No
+  - **Required**: No
 
--   **limit**: string
+- **limit**: string
 
-    -   **Required**: No
+  - **Required**: No
 
--   **sort_on**: string
+- **sort_on**: string
 
-    -   **Required**: No
+  - **Required**: No
 
--   **sort_order**: string
+- **sort_order**: string
 
-    -   **Required**: No
+  - **Required**: No
 
--   **fullobjects**: boolean
+- **fullobjects**: boolean
 
-    -   **Required**: No
+  - **Required**: No
 
 ## Get Querystring Search Using POST request
 
 This function is used to search for the given criteria.
 
--   Function name: `postQuerystringSearchMutation`
+- Function name: `postQuerystringSearchMutation`
 
 ### Parameters
 
--   **data**: object
+- **data**: object
 
-    -   **Required**: Yes
-    -   It can have the following fields:
+  - **Required**: Yes
+  - It can have the following fields:
 
-        -   `query: object[]`
+    - `query: object[]`
 
-        -   **Required**: Yes
-        -   An array of objects with the following fields:
+    - **Required**: Yes
+    - An array of objects with the following fields:
 
-            -   `i: string`
+      - `i: string`
 
-                -   **Required**: Yes
-                -   The index of the filter (the name of the field to which this filter is applied).
+        - **Required**: Yes
+        - The index of the filter (the name of the field to which this filter is applied).
 
-            -   `o: string`
+      - `o: string`
 
-                -   **Required**: Yes
-                -   The operator of the filter.
+        - **Required**: Yes
+        - The operator of the filter.
 
-            -   `v: array`
+      - `v: array`
 
-                -   **Required**: Yes
-                -   The value of the filter.
+        - **Required**: Yes
+        - The value of the filter.
 
-        -   `b_start: string`
+    - `b_start: string`
 
-            -   **Required**: No
-            -   The start index of the search results.
+      - **Required**: No
+      - The start index of the search results.
 
-        -   `b_size: string`
+    - `b_size: string`
 
-            -   **Required**: No
-            -   The size of the search results.
+      - **Required**: No
+      - The size of the search results.
 
-        -   `limit: string`
+    - `limit: string`
 
-            -   **Required**: No
-            -   The limit of the search results.
+      - **Required**: No
+      - The limit of the search results.
 
-        -   `sort_on: string`
+    - `sort_on: string`
 
-            -   **Required**: No
-            -   The field to sort on.
+      - **Required**: No
+      - The field to sort on.
 
-        -   `sort_order: string`
+    - `sort_order: string`
 
-            -   **Required**: No
-            -   The order to sort on.
+      - **Required**: No
+      - The order to sort on.
 
-        -   `fullobjects: boolean`
+    - `fullobjects: boolean`
 
-            -   **Required**: No
-            -   Whether to return the full objects or not.
+      - **Required**: No
+      - Whether to return the full objects or not.

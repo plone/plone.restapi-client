@@ -6,110 +6,110 @@ Available content types in a Plone site can be listed and queried by accessing t
 
 This function returns the list of all available types.
 
--   Function name: getTypesQuery
+- Function name: getTypesQuery
 
 ## Get Type
 
 This function returns the information about the content type provided.
 
--   Function name: getTypeQuery
+- Function name: getTypeQuery
 
 ### Parameters
 
--   **contentPath**: string
+- **contentPath**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
 ## Get Type Field
 
 This function returns the information about the fieldset of the type provided.
 
--   Function name: getTypeFieldQuery
+- Function name: getTypeFieldQuery
 
 ### Parameters
 
--   **contentFieldPath**: string
+- **contentFieldPath**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
 ## Add Type Field/Fieldset
 
 This function can be used to add a fieldset to the type provided.
 
--   Function name: createTypeFieldMutation
+- Function name: createTypeFieldMutation
 
 ### Parameters
 
--   **contentPath**: string
+- **contentPath**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
--   **data**: object
+- **data**: object
 
-    -   **Required:** Yes
-    -   It can have the following fields:
+  - **Required:** Yes
+  - It can have the following fields:
 
-        `description: string`
+    `description: string`
 
-        -   **Required:** Yes
+    - **Required:** Yes
 
-        `factory: string`
+    `factory: string`
 
-        -   **Required:** Yes
+    - **Required:** Yes
 
-        `required: boolean`
+    `required: boolean`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `title: string`
+    `title: string`
 
-        -   **Required:** Yes
+    - **Required:** Yes
 
 ## Update Type Field/Fieldset
 
 This function can be used to update a field/fieldset of the type provided.
 
--   Function name: updateTypeFieldMutation
+- Function name: updateTypeFieldMutation
 
 ### Parameters
 
--   **contentPath**: string
+- **contentPath**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
--   **data**: object
+- **data**: object
 
-    -   **Required:** Yes
-    -   It can have the following fields:
+  - **Required:** Yes
+  - It can have the following fields:
 
-        `description: string`
+    `description: string`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `maxLength: integer`
+    `maxLength: integer`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `minLength: integer`
+    `minLength: integer`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `fields: string[]`
+    `fields: string[]`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `required: boolean`
+    `required: boolean`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `title: string`
+    `title: string`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `properties: any`
+    `properties: any`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `fieldsets: any[]`
+    `fieldsets: any[]`
 
-        -   **Required:** No
+    - **Required:** No

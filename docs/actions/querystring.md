@@ -6,4 +6,4 @@ The `@querystring` endpoint returns the `querystring` configuration of `plone.ap
 
 This function returns the response from the querystring endpoint.
 
--   Function name: getQuerystringQuery
+- Function name: getQuerystringQuery

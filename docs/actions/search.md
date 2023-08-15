@@ -14,46 +14,46 @@ All searches use the same pattern.
 
 This function is used to search for the given context.
 
--   Function name: getSearchQuery
+- Function name: getSearchQuery
 
 ### Parameters
 
--   **query**: object
+- **query**: object
 
-    -   **Required:** Yes
-    -   It can have the following fields:
+  - **Required:** Yes
+  - It can have the following fields:
 
-        `path: object`
+    `path: object`
 
-        -   **Required:** No
-        -   It can have the following fields:
+    - **Required:** No
+    - It can have the following fields:
 
-            `query: string | string[]`
+      `query: string | string[]`
 
-            -   **Required:** Yes
+      - **Required:** Yes
 
-            `depth: number`
+      `depth: number`
 
-            -   **Required:** No
+      - **Required:** No
 
-        `sort_on: string | string[]`
+    `sort_on: string | string[]`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `SearchableText: string`
+    `SearchableText: string`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `metadata_fields: string | string[]`
+    `metadata_fields: string | string[]`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `fullobjects: number`
+    `fullobjects: number`
 
-        -   **Required:** No
-        -   Set to 1 to return full objects.
+    - **Required:** No
+    - Set to 1 to return full objects.
 
-        `records: any`
+    `records: any`
 
-        -   **Required:** No
-        -   Any other search parameters
+    - **Required:** No
+    - Any other search parameters

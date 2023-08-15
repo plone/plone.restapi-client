@@ -4,76 +4,76 @@
 
 This function returns the content-rules for the given path.
 
--   Function name: getRulesQuery
+- Function name: getRulesQuery
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
 ## Add Rule
 
 This function can be used to add a content-rule to a page.
 
--   Function name: createRuleMutation
+- Function name: createRuleMutation
 
 ### Parameters
 
--   **ruleId**: string
+- **ruleId**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
 ## Update Rule
 
 This function can be used to update a content-rule for the given rule ids.
 
--   Function name: updateRuleMutation
+- Function name: updateRuleMutation
 
 ### Parameters
 
--   **data**: object
+- **data**: object
 
-    -   **Required:** Yes
-    -   It can have the following fields:
+  - **Required:** Yes
+  - It can have the following fields:
 
-        `form.button.Bubble: boolean`
+    `form.button.Bubble: boolean`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `form.button.NoBubble: boolean`
+    `form.button.NoBubble: boolean`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `form.button.Enable: boolean`
+    `form.button.Enable: boolean`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `form.button.Disable: boolean`
+    `form.button.Disable: boolean`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `rules_ids: string[]`
+    `rules_ids: string[]`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `operation: string`
+    `operation: string`
 
-        -   **Required:** No
+    - **Required:** No
 
 ## Delete Rule
 
 This function can be used to delete a content-rule for the given rule ids.
 
--   Function name: deleteRuleMutation
+- Function name: deleteRuleMutation
 
 ### Parameters
 
--   **data**: object
+- **data**: object
 
-    -   **Required:** Yes
-    -   It can have the following fields:
+  - **Required:** Yes
+  - It can have the following fields:
 
-        `rules_ids: string[]`
+    `rules_ids: string[]`
 
-        -   **Required:** Yes
+    - **Required:** Yes

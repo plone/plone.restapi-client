@@ -6,10 +6,10 @@ The `@contextnavigation` endpoint uses the same semantics as the classic Plone n
 
 This function returns the contextnavigation for the given path.
 
--   Function name: getContextNavigationQuery
+- Function name: getContextNavigationQuery
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes

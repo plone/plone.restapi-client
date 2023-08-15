@@ -7,16 +7,28 @@ They contain so-called _terms_ which represent those allowed choices.
 
 This function returns the list of all available vocabularies.
 
--   Function name: getVocabulariesListQuery
+- Function name: getVocabulariesListQuery
 
 ## Get Vocabularies
 
 This function returns the vocabularies for the given path.
 
--   Function name: getVocabulariesQuery
+- Function name: getVocabulariesQuery
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
+
+- **title**: string
+
+  - **Required:** No
+
+- **token**: string
+
+  - **Required:** No
+
+- **tokens**: string[]
+
+  - **Required:** No

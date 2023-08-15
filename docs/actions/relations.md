@@ -6,116 +6,116 @@ A single relation is defined by source, target, and relation name.
 
 You can define relations either with content type schema fields `RelationChoice` or `RelationList`, or with types `isReferencing` or `iterate-working-copy`.
 
--   Relations based on fields of a content type schema are editable by users.
--   The relations `isReferencing` (block text links to a Plone content object) and `iterate-working-copy` (working copy is enabled and the content object is a working copy) are not editable.
-    They are created and deleted with links in text, respectively creating and deleting working copies.
+- Relations based on fields of a content type schema are editable by users.
+- The relations `isReferencing` (block text links to a Plone content object) and `iterate-working-copy` (working copy is enabled and the content object is a working copy) are not editable.
+  They are created and deleted with links in text, respectively creating and deleting working copies.
 
 ## Get Relations List
 
 This function returns the list of all existing relations user has access to.
 
--   Function name: `getRelationsListQuery`
+- Function name: `getRelationsListQuery`
 
 ## Get Relations
 
 This function returns the relations for the given parameters.
 
--   Function name: `getRelationsQuery`
+- Function name: `getRelationsQuery`
 
 ### Parameters
 
--   **source**: string
+- **source**: string
 
-    -   **Required**: No
+  - **Required**: No
 
--   **relation**: string
+- **relation**: string
 
-    -   **Required**: No
+  - **Required**: No
 
--   **onlyBroken**: boolean
+- **onlyBroken**: boolean
 
-    -   **Required**: No
+  - **Required**: No
 
 ## Add Relation
 
 This function is used to add a relation for the given parameters.
 
--   Function name: `createRelationMutation`
+- Function name: `createRelationMutation`
 
 ### Parameters
 
--   **data**: object[]
+- **data**: object[]
 
-    -   **Required**: Yes
-    -   An array of objects with the following fields:
+  - **Required**: Yes
+  - An array of objects with the following fields:
 
-        `source: string`
+    `source: string`
 
-        -   **Required**: Yes
+    - **Required**: Yes
 
-        `target: string`
+    `target: string`
 
-        -   **Required**: Yes
+    - **Required**: Yes
 
-        `relation: string`
+    `relation: string`
 
-        -   **Required**: Yes
+    - **Required**: Yes
 
 ## Fix Relation
 
 This function is used to fix broken relations. Broken relations can be fixed by releasing and re-indexing them.
 
--   Function name: `fixRelationMutation`
+- Function name: `fixRelationMutation`
 
 ### Parameters
 
--   **data**: object
+- **data**: object
 
-    -   **Required**: No
-    -   It can have the following fields:
+  - **Required**: No
+  - It can have the following fields:
 
-        `flush: boolean`
+    `flush: boolean`
 
-        -   **Required**: No
+    - **Required**: No
 
 ## Delete Relation
 
 This function is used to delete a relation for the given parameters.
 
--   Function name: `deleteRelationMutation`
+- Function name: `deleteRelationMutation`
 
 ### Parameters
 
--   **data**: object[]
+- **data**: object[]
 
-    -   **Required**: Yes
-    -   An array of objects with the following fields:
+  - **Required**: Yes
+  - An array of objects with the following fields:
 
-        `items: object[]`
+    `items: object[]`
 
-        -   **Required**: No
-        -   An array of objects with the following fields:
+    - **Required**: No
+    - An array of objects with the following fields:
 
-            `source: string`
+      `source: string`
 
-            -   **Required**: Yes
+      - **Required**: Yes
 
-            `target: string`
+      `target: string`
 
-            -   **Required**: Yes
+      - **Required**: Yes
 
-            `relation: string`
+      `relation: string`
 
-            -   **Required**: Yes
+      - **Required**: Yes
 
-        `source: string`
+    `source: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `target: string`
+    `target: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `relation: string`
+    `relation: string`
 
-        -   **Required**: No
+    - **Required**: No

@@ -7,184 +7,202 @@ This action requires an authenticated user:
 
 This function returns the retrieve list of all users in the portal.
 
--   Function name: getUsersQuery
+- Function name: getUsersQuery
+
+### Parameters
+
+- **query**: string
+
+  - **Required**: No
+
+- **groupsFilter**: string[]
+
+  - **Required**: No
+
+- **search**: string
+
+  - **Required**: No
+
+- **limit**: number
+
+  - **Required**: No
 
 ## Get User
 
 This function returns the information about an individual user at the given path.
 
--   Function name: getUserQuery
+- Function name: getUserQuery
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required**: true
+  - **Required**: Yes
 
 ## Add User
 
 This function can be used to add a new user at the given path.
 
--   Function name: createUserMutation
+- Function name: createUserMutation
 
 ### Parameters
 
--   **data**: object
+- **data**: object
 
-    -   **Required**: Yes
-    -   It can have the following fields:
+  - **Required**: Yes
+  - It can have the following fields:
 
-        `description: string`
+    `description: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `email: string`
+    `email: string`
 
-        -   **Required**: Yes
+    - **Required**: Yes
 
-        `fullname: string`
+    `fullname: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `home_page: string`
+    `home_page: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `location: string`
+    `location: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `sendPasswordReset: boolean`
+    `sendPasswordReset: boolean`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `password: string`
+    `password: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `roles: string[]`
+    `roles: string[]`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `username: string`
+    `username: string`
 
-        -   **Required**: Yes
+    - **Required**: Yes
 
 ## Update User
 
 This function can be used to update an existing user at the given path.
 
--   Function name: updateUserMutation
+- Function name: updateUserMutation
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required**: true
+  - **Required**: Yes
 
--   **data**: object
+- **data**: object
 
-    -   **Required**: Yes
-    -   It can have the following fields:
+  - **Required**: Yes
+  - It can have the following fields:
 
-        `description: string`
+    `description: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `email: string`
+    `email: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `fullname: string`
+    `fullname: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `home_page: string`
+    `home_page: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `location: string`
+    `location: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `username: string`
+    `username: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `portrait: object`
+    `portrait: object`
 
-        -   **Required**: No
+    - **Required**: No
 
 ## Delete User
 
 This function can be used to delete an existing user at the given path.
 
--   Function name: deleteUserMutation
+- Function name: deleteUserMutation
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required**: true
+  - **Required**: Yes
 
 ## Update User Password
 
 This function can be used to update an existing user password at the given path.
 
--   Function name: updateUserPasswordMutation
+- Function name: updateUserPasswordMutation
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required**: true
+  - **Required**: Yes
 
--   **data**: object
+- **data**: object
 
-    -   **Required**: Yes
-    -   The data object can contain the following fields:
+  - **Required**: Yes
+  - The data object can contain the following fields:
 
-        `old-password: string`
+    `old-password: string`
 
-        -   **Required**: Yes
+    - **Required**: Yes
 
-        `new-password: string`
+    `new-password: string`
 
-        -   **Required**: Yes
+    - **Required**: Yes
 
 ## Reset User Password
 
 This function can be used to reset an existing user password at the given path.
 
--   Function name: resetUserPasswordMutation
+- Function name: resetUserPasswordMutation
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required**: true
+  - **Required**: Yes
 
 ## Reset User Password with Token
 
 This function can be used to reset an existing user password at the given path.
 
--   Function name: resetUserPasswordWithTokenMutation
+- Function name: resetUserPasswordWithTokenMutation
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required**: true
+  - **Required**: Yes
 
--   **data**: object
+- **data**: object
 
-    -   **Required**: Yes
-    -   It can have the following fields:
+  - **Required**: Yes
+  - It can have the following fields:
 
-        `reset_token: string`
+    `reset_token: string`
 
-        -   **Required**: Yes
+    - **Required**: Yes
 
-        `new_password: string`
+    `new_password: string`
 
-        -   **Required**: Yes
+    - **Required**: Yes

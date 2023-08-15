@@ -9,68 +9,68 @@ Reading or writing add-ons metadata requires the `cmf.ManagePortal` permission.
 
 This function returns the list of all add-ons in the portal.
 
--   Function name: getAddonsQuery
+- Function name: getAddonsQuery
 
 ## Get Addon
 
 This function returns the information about an individual add-on at the given path.
 
--   Function name: getAddonQuery
+- Function name: getAddonQuery
 
 ### Parameters
 
--   **addonId**: string
+- **addonId**: string
 
-    -   **Required**: true
+  - **Required**: Yes
 
 ## Install Addons
 
 This function can be used to install an add-on on a the given path.
 
--   Function name: installAddonMutation
+- Function name: installAddonMutation
 
 ### Parameters
 
--   **addonId**: string
+- **addonId**: string
 
-    -   **Required**: true
+  - **Required**: Yes
 
 ## Uninstall Addons
 
 This function can be used to uninstall an add-on on a the given path.
 
--   Function name: uninstallAddonMutation
+- Function name: uninstallAddonMutation
 
 ### Parameters
 
--   **addonId**: string
+- **addonId**: string
 
-    -   **Required**: true
+  - **Required**: Yes
 
 ## Install Addons profile
 
 This function can be used to install an add-on profile at the given path.
 
--   Function name: installAddonProfileMutation
+- Function name: installAddonProfileMutation
 
 ### Parameters
 
--   **addonId**: string
+- **addonId**: string
 
-    -   **Required**: true
+  - **Required**: Yes
 
--   **profile**: string
+- **profile**: string
 
-    -   **Required**: true
+  - **Required**: Yes
 
 ## Upgrade Addons
 
 This function can be used to upgrade an add-on on a the given path.
 
--   Function name: upgradeAddonMutation
+- Function name: upgradeAddonMutation
 
 ### Parameters
 
--   **addonId**: string
+- **addonId**: string
 
-    -   **Required**: true
+  - **Required**: Yes

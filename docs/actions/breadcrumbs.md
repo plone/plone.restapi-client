@@ -4,10 +4,10 @@
 
 This function returns the breadcrumbs for the given path.
 
--   Function name: getBreadcrumbsQuery
+- Function name: getBreadcrumbsQuery
 
 ### Parameters:
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes

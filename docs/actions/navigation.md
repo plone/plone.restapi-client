@@ -6,10 +6,10 @@ Get the top-level navigation items or navigation item tree with the navigation e
 
 This function returns the navigation for the given path.
 
--   Function name: getNavigationQuery
+- Function name: getNavigationQuery
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes

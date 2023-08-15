@@ -7,102 +7,102 @@ This requires an authenticated user.
 
 This function returns the list of all groups in the portal.
 
--   Function name: getGroupsQuery
+- Function name: getGroupsQuery
 
 ## Get Group
 
 This function returns the information about an individual group at the given path.
 
--   Function name: getGroupQuery
+- Function name: getGroupQuery
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required**: true
+  - **Required**: Yes
 
 ## Add Group
 
 This function can be used to add a new group at the given path.
 
--   Function name: createGroupMutation
+- Function name: createGroupMutation
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required**: true
+  - **Required**: Yes
 
--   **data**: object
+- **data**: object
 
-    -   Required: Yes
-    -   It can have the following fields:
+  - Required: Yes
+  - It can have the following fields:
 
-        `description: string`
+    `description: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `email: string`
+    `email: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `groupname: string`
+    `groupname: string`
 
-        -   **Required**: Yes
+    - **Required**: Yes
 
-        `groups: string[]`
+    `groups: string[]`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `roles: string[]`
+    `roles: string[]`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `title: string`
+    `title: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `users: string[]`
+    `users: string[]`
 
-        -   **Required**: No
+    - **Required**: No
 
 ## Update Group
 
 This function can be used to update an existing group at the given path.
 
--   Function name: updateGroupMutation
+- Function name: updateGroupMutation
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required**: true
+  - **Required**: Yes
 
--   **data**: object
+- **data**: object
 
-    -   **Required**: Yes
-    -   It can have the following fields:
+  - **Required**: Yes
+  - It can have the following fields:
 
-        `description: string`
+    `description: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `email: string`
+    `email: string`
 
-        -   **Required**: No
+    - **Required**: No
 
-        `groupname: string`
+    `groupname: string`
 
-        -   **Required**: No
+    - **Required**: No
 
 ## Delete Group
 
 This function can be used to delete an existing group at the given path.
 
--   Function name: deleteGroupMutation
+- Function name: deleteGroupMutation
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required**: Yes
+  - **Required**: Yes

@@ -8,98 +8,98 @@ When an object is moved (renamed or cut/pasted into a different location), the r
 
 This function returns the list of all available aliases.
 
--   Function name: getAliasesListQuery
+- Function name: getAliasesListQuery
 
 ## Get Aliases
 
 This function returns the aliases for the given path.
 
--   Function name: getAliasesQuery
+- Function name: getAliasesQuery
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
 ## Add Aliases for Multiple Pages
 
 This function can be used to add aliases for multiple pages at once.
 
--   Function name: createAliasesMultipleMutation
+- Function name: createAliasesMultipleMutation
 
 ### Parameters
 
--   **data**: object
+- **data**: object
 
-    -   **Required:** Yes
-    -   It can have the following fields:
+  - **Required:** Yes
+  - It can have the following fields:
 
-        `items: object[]`:
+    `items: object[]`:
 
-        -   **Required:** Yes
-        -   An array of objects with the following fields:
+    - **Required:** Yes
+    - An array of objects with the following fields:
 
-            `path: string`
+      `path: string`
 
-            -   **Required:** Yes
+      - **Required:** Yes
 
-            `datetime: string`
+      `datetime: string`
 
-            -   **Required:** No
+      - **Required:** No
 
-            `redirect_to: string`
+      `redirect_to: string`
 
-            -   **Required:** Yes
+      - **Required:** Yes
 
 ## Add Aliases for a Page
 
 This function can be used to add aliases for a page.
 
--   Function name: createAliasesMutation
+- Function name: createAliasesMutation
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
--   **data**: object
+- **data**: object
 
-    -   **Required:** Yes
-    -   It can have the following fields:
+  - **Required:** Yes
+  - It can have the following fields:
 
-        `items: object[]`:
+    `items: object[]`:
 
-        -   **Required:** Yes
-        -   An array of objects with the following fields:
+    - **Required:** Yes
+    - An array of objects with the following fields:
 
-            `path: string`
+      `path: string`
 
-            -   **Required:** Yes
+      - **Required:** Yes
 
 ## Delete Aliases
 
 This function is used for deleting aliases for a page.
 
--   Function name: deleteAliasesMutation
+- Function name: deleteAliasesMutation
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
--   **data**: object
+- **data**: object
 
-    -   **Required:** Yes
-    -   It can have the following fields:
+  - **Required:** Yes
+  - It can have the following fields:
 
-        `items: object[]`:
+    `items: object[]`:
 
-        -   **Required:** Yes
-        -   An array of objects with the following fields:
+    - **Required:** Yes
+    - An array of objects with the following fields:
 
-            `path: string`
+      `path: string`
 
-            -   **Required:** Yes
+      - **Required:** Yes

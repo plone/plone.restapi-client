@@ -11,43 +11,43 @@ We can get the current state and history of an object by issuing a `GET` request
 
 This function returns the workflow for the given path.
 
--   Function name: getWorkflowQuery
+- Function name: getWorkflowQuery
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
 ## Add Workflow
 
 This function can be used to add a workflow to the given path.
 
--   Function name: createWorkflowMutation
+- Function name: createWorkflowMutation
 
 ### Parameters
 
--   **path**: string
+- **path**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
--   **data**: object
+- **data**: object
 
-    -   **Required:** Yes
-    -   It can have the following fields:
+  - **Required:** Yes
+  - It can have the following fields:
 
-        `comment: string`
+    `comment: string`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `effective: string`
+    `effective: string`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `expires: string`
+    `expires: string`
 
-        -   **Required:** No
+    - **Required:** No
 
-        `include_children: boolean`
+    `include_children: boolean`
 
-        -   **Required:** No
+    - **Required:** No

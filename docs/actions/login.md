@@ -2,14 +2,14 @@
 
 This function is used for logging in a user.
 
--   Function name: loginQuery
+- Function name: loginQuery
 
 ### Parameters
 
--   **username**: string
+- **username**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
 
--   **password**: string
+- **password**: string
 
-    -   **Required:** Yes
+  - **Required:** Yes
