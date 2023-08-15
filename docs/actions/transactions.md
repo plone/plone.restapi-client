@@ -14,7 +14,7 @@ This function returns the list of all transactions in the portal.
 
 This function can be used to revert transactions for the given transaction ids in the portal.
 
-- Function name: revertTransactionsQuery
+- Function name: revertTransactionsMutation
 
 ### Parameters
 

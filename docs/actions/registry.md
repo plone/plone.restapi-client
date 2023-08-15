@@ -27,7 +27,7 @@ This function returns the registry record at the given path.
 
 This function updates the registry record at the given path.
 
-- Function name: updateRegistryQuery
+- Function name: updateRegistryMutation
 
 ### Parameters
 

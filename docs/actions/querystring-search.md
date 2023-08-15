@@ -6,7 +6,7 @@ The `@querystring-search` endpoint returns search results that can be filtered o
 
 This function is used to search for the given criteria.
 
-- Function name: `getQuerystringSearchQuery`
+- Function name: getQuerystringSearchQuery
 
 ### Parameters
 
@@ -58,7 +58,7 @@ This function is used to search for the given criteria.
 
 This function is used to search for the given criteria.
 
-- Function name: `postQuerystringSearchMutation`
+- Function name: postQuerystringSearchMutation
 
 ### Parameters
 

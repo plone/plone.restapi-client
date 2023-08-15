@@ -28,7 +28,7 @@ This function can be used to add a content-rule to a page.
 
 This function can be used to update a content-rule for the given rule ids.
 
-- Function name: updateRuleMutation
+- Function name: updateRulesMutation
 
 ### Parameters
 
@@ -65,7 +65,7 @@ This function can be used to update a content-rule for the given rule ids.
 
 This function can be used to delete a content-rule for the given rule ids.
 
-- Function name: deleteRuleMutation
+- Function name: deleteRulesMutation
 
 ### Parameters
 

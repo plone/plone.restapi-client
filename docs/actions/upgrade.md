@@ -13,7 +13,7 @@ This function returns the upgrade information about the Plone backend.
 
 This function can be used to run upgrade of the Plone backend.
 
-- Function name: runUpgradeQuery
+- Function name: runUpgradeMutation
 
 ### Parameters
 

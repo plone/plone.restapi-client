@@ -149,7 +149,7 @@ This function can be used to delete an existing user at the given path.
 
 This function can be used to update an existing user password at the given path.
 
-- Function name: updateUserPasswordMutation
+- Function name: updatePasswordMutation
 
 ### Parameters
 
@@ -174,7 +174,7 @@ This function can be used to update an existing user password at the given path.
 
 This function can be used to reset an existing user password at the given path.
 
-- Function name: resetUserPasswordMutation
+- Function name: resetPasswordMutation
 
 ### Parameters
 
@@ -186,7 +186,7 @@ This function can be used to reset an existing user password at the given path.
 
 This function can be used to reset an existing user password at the given path.
 
-- Function name: resetUserPasswordWithTokenMutation
+- Function name: resetPasswordWithTokenMutation
 
 ### Parameters
 
