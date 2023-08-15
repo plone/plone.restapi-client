@@ -9,7 +9,7 @@ import { v4 as uuid } from 'uuid';
 const cli = ploneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
-const { login, moveContentMutation } = cli;
+const { login, moveMutation } = cli;
 
 beforeAll(async () => {
   await login({ username: 'admin', password: 'secret' });
@@ -53,7 +53,7 @@ describe('[POST] MoveContent', () => {
       source: `http://localhost:55001/plone/${moveContentData.title}`,
     };
 
-    const { result } = renderHook(() => useMutation(moveContentMutation()), {
+    const { result } = renderHook(() => useMutation(moveMutation()), {
       wrapper: createWrapper(),
     });
 
@@ -109,7 +109,7 @@ describe('[POST] MoveContent', () => {
       ],
     };
 
-    const { result } = renderHook(() => useMutation(moveContentMutation()), {
+    const { result } = renderHook(() => useMutation(moveMutation()), {
       wrapper: createWrapper(),
     });
 

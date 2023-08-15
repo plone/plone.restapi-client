@@ -47,7 +47,7 @@ import { createWorkingcopyMutation as _createWorkingcopyMutation } from './resta
 import { updateWorkingcopyMutation as _updateWorkingcopyMutation } from './restapi/workingcopy/update';
 import { deleteWorkingcopyMutation as _deleteWorkingcopyMutation } from './restapi/workingcopy/delete';
 import { copyMutation as _copyMutation } from './restapi/copymove/copy';
-import { moveContentMutation as _moveContentMutation } from './restapi/copymove/move';
+import { moveMutation as _moveMutation } from './restapi/copymove/move';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
@@ -255,8 +255,5 @@ export default class PloneClient {
     Copy and Move queries
   */
   copyMutation = mutationWithConfig(_copyMutation, this.getConfig);
-  moveContentMutation = mutationWithConfig(
-    _moveContentMutation,
-    this.getConfig,
-  );
+  moveMutation = mutationWithConfig(_moveMutation, this.getConfig);
 }

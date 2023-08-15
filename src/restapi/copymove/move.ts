@@ -5,24 +5,24 @@ import {
   PloneClientConfigSchema,
 } from '../../interfaces/config';
 import {
-  copyMoveDataSchema as moveContentDataSchema,
-  CopyMoveResponse as MoveContentResponse,
+  copyMoveDataSchema as moveDataSchema,
+  CopyMoveResponse as MoveResponse,
 } from '../../interfaces/copymove';
 
-export const MoveContentArgsSchema = z.object({
+export const MoveArgsSchema = z.object({
   path: z.string(),
-  data: moveContentDataSchema,
+  data: moveDataSchema,
   config: PloneClientConfigSchema,
 });
 
-export type MoveContentArgs = z.infer<typeof MoveContentArgsSchema>;
+export type MoveArgs = z.infer<typeof MoveArgsSchema>;
 
-export const moveContent = async ({
+export const move = async ({
   path,
   data,
   config,
-}: MoveContentArgs): Promise<MoveContentResponse> => {
-  const validatedArgs = MoveContentArgsSchema.parse({
+}: MoveArgs): Promise<MoveResponse> => {
+  const validatedArgs = MoveArgsSchema.parse({
     path,
     data,
     config,
@@ -33,17 +33,13 @@ export const moveContent = async ({
     config: validatedArgs.config,
   };
 
-  const moveContentPath = `/${validatedArgs.path}/@move`;
+  const movePath = `/${validatedArgs.path}/@move`;
 
-  return apiRequest('post', moveContentPath, options);
+  return apiRequest('post', movePath, options);
 };
 
-export const moveContentMutation = ({
-  config,
-}: {
-  config: PloneClientConfig;
-}) => ({
-  mutationKey: ['post', 'moveContent'],
-  mutationFn: ({ path, data }: Omit<MoveContentArgs, 'config'>) =>
-    moveContent({ path, data, config }),
+export const moveMutation = ({ config }: { config: PloneClientConfig }) => ({
+  mutationKey: ['post', 'move'],
+  mutationFn: ({ path, data }: Omit<MoveArgs, 'config'>) =>
+    move({ path, data, config }),
 });
