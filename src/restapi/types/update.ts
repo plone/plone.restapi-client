@@ -4,22 +4,22 @@ import {
   PloneClientConfig,
   PloneClientConfigSchema,
 } from '../../interfaces/config';
-import { updateTypeDataSchema } from '../../interfaces/types';
+import { updateTypeFieldDataSchema } from '../../interfaces/types';
 
-export const updateTypeArgsSchema = z.object({
+export const updateTypeFieldArgsSchema = z.object({
   contentPath: z.string(),
-  data: updateTypeDataSchema,
+  data: updateTypeFieldDataSchema,
   config: PloneClientConfigSchema,
 });
 
-export type UpdateTypeArgs = z.infer<typeof updateTypeArgsSchema>;
+export type UpdateTypeFieldArgs = z.infer<typeof updateTypeFieldArgsSchema>;
 
-export const updateType = async ({
+export const updateTypeField = async ({
   contentPath,
   data,
   config,
-}: UpdateTypeArgs): Promise<undefined> => {
-  const validatedArgs = updateTypeArgsSchema.parse({
+}: UpdateTypeFieldArgs): Promise<undefined> => {
+  const validatedArgs = updateTypeFieldArgsSchema.parse({
     contentPath,
     data,
     config,
@@ -30,17 +30,17 @@ export const updateType = async ({
     config: validatedArgs.config,
   };
 
-  const updateTypePath = `/@types/${validatedArgs.contentPath}`;
+  const updateTypeFieldPath = `/@types/${validatedArgs.contentPath}`;
 
-  return apiRequest('patch', updateTypePath, options);
+  return apiRequest('patch', updateTypeFieldPath, options);
 };
 
-export const updateTypeMutation = ({
+export const updateTypeFieldMutation = ({
   config,
 }: {
   config: PloneClientConfig;
 }) => ({
   mutationKey: ['patch', 'types'],
-  mutationFn: ({ contentPath, data }: Omit<UpdateTypeArgs, 'config'>) =>
-    updateType({ contentPath, data, config }),
+  mutationFn: ({ contentPath, data }: Omit<UpdateTypeFieldArgs, 'config'>) =>
+    updateTypeField({ contentPath, data, config }),
 });

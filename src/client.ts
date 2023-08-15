@@ -51,7 +51,7 @@ import { getTypesQuery as _getTypesQuery } from './restapi/types/get_list';
 import { getTypeQuery as _getTypeQuery } from './restapi/types/get';
 import { getTypeFieldQuery as _getTypeFieldQuery } from './restapi/types/get_type_field';
 import { createTypeFieldMutation as _createTypeFieldMutation } from './restapi/types/add';
-import { updateTypeMutation as _updateTypeMutation } from './restapi/types/update';
+import { updateTypeFieldMutation as _updateTypeFieldMutation } from './restapi/types/update';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
@@ -271,5 +271,8 @@ export default class PloneClient {
     _createTypeFieldMutation,
     this.getConfig,
   );
-  updateTypeMutation = mutationWithConfig(_updateTypeMutation, this.getConfig);
+  updateTypeFieldMutation = mutationWithConfig(
+    _updateTypeFieldMutation,
+    this.getConfig,
+  );
 }

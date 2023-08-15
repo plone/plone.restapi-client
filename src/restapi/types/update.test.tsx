@@ -14,7 +14,7 @@ const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
 
-const { login, updateTypeMutation } = cli;
+const { login, updateTypeFieldMutation } = cli;
 await login({ username: 'admin', password: 'secret' });
 
 beforeEach(async () => {
@@ -30,7 +30,7 @@ describe('[PATCH] TypeUpdate', () => {
     const randomId = uuid().replace(/-/g, '');
     // We need to remove hyphens because they are replaced by underscores in title
 
-    const typeFieldData = {
+    const createTypeFieldData = {
       description: 'Contact information',
       factory: 'fieldset',
       title: `contact_info${randomId}`,
@@ -38,20 +38,23 @@ describe('[PATCH] TypeUpdate', () => {
 
     await createTypeField({
       contentPath: 'Document',
-      data: typeFieldData,
+      data: createTypeFieldData,
       config: cli.config,
     });
 
-    const contentPath = `Document/${typeFieldData.title}`;
+    const contentPath = `Document/${createTypeFieldData.title}`;
 
     const updateTypeFieldData = {
       fields: ['author_email'],
       title: `Sample info${randomId}`,
     };
 
-    const { result } = renderHook(() => useMutation(updateTypeMutation()), {
-      wrapper: createWrapper(),
-    });
+    const { result } = renderHook(
+      () => useMutation(updateTypeFieldMutation()),
+      {
+        wrapper: createWrapper(),
+      },
+    );
 
     act(() => {
       result.current.mutate({
@@ -83,9 +86,12 @@ describe('[PATCH] TypeUpdate', () => {
       ],
     };
 
-    const { result } = renderHook(() => useMutation(updateTypeMutation()), {
-      wrapper: createWrapper(),
-    });
+    const { result } = renderHook(
+      () => useMutation(updateTypeFieldMutation()),
+      {
+        wrapper: createWrapper(),
+      },
+    );
 
     act(() => {
       result.current.mutate({

@@ -67,7 +67,7 @@ export interface CreateTypeFieldResponse extends Fieldset {
   widget: string;
 }
 
-export const updateTypeDataSchema = z.object({
+export const updateTypeFieldDataSchema = z.object({
   description: z.string().optional(),
   maxLength: z.number().optional(),
   minLength: z.number().optional(),
