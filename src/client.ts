@@ -58,8 +58,8 @@ import { createControlpanelMutation as _createControlpanelMutation } from './res
 import { updateControlpanelMutation as _updateControlpanelMutation } from './restapi/controlpanels/update';
 import { deleteControlpanelMutation as _deleteControlpanelMutation } from './restapi/controlpanels/delete';
 import { getSearchQuery as _getSearchQuery } from './restapi/search/get';
-import { getQuerysourcesQuery as _getQuerysourcesQuery } from './restapi/querysources/get';
-import { getSourcesQuery as _getSourcesQuery } from './restapi/sources/get';
+import { getQuerysourceQuery as _getQuerysourceQuery } from './restapi/querysources/get';
+import { getSourceQuery as _getSourceQuery } from './restapi/sources/get';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
@@ -317,10 +317,10 @@ export default class PloneClient {
   /* 
     Querysources queries
   */
-  getQuerysourcesQuery = queryWithConfig(_getQuerysourcesQuery, this.getConfig);
+  getQuerysourceQuery = queryWithConfig(_getQuerysourceQuery, this.getConfig);
 
   /*
     Soruces queries
   */
-  getSourcesQuery = queryWithConfig(_getSourcesQuery, this.getConfig);
+  getSourceQuery = queryWithConfig(_getSourceQuery, this.getConfig);
 }
