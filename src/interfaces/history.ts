@@ -1,3 +1,5 @@
+import { z } from 'zod';
+
 interface Actor {
   '@id': string;
   fullname: string;
@@ -29,3 +31,11 @@ interface ActionCreate {
 }
 
 export type GetHistoryResponse = (ActionCreate | ActionEdited)[];
+
+export const revertHistoryDataSchema = z.object({
+  version: z.number(),
+});
+
+export interface revertHistoryResponse {
+  message: string;
+}
