@@ -4,7 +4,7 @@
 
 This function returns the querysource for the given path, field and query.
 
-- Function name: getSourceQuery
+- Function name: getQuerysourceQuery
 
 ### Parameters
 
