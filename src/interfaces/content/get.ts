@@ -1,4 +1,4 @@
-import { Components, Item, PreviewImage, RelatedItem } from './common';
+import { Components, Item, RelatedItem } from './common';
 
 export interface GetContentResponse {
   '@components': {
@@ -29,42 +29,19 @@ export interface GetContentResponse {
   is_folderish: boolean;
   items: Item[];
   items_total: number;
-  language: unknown;
-  layout: string | null;
+  language: {
+    title: string;
+    token: string;
+  };
   lock: {
     locked: boolean;
     stealable: boolean;
   };
-  modified: string;
-  next_item: {
-    '@id': string;
-    '@type': string;
-    description: string;
-    title: string;
-  };
-  parent: {
-    '@id': string;
-    '@type': string;
-    description: string;
-    title: string;
-  };
-  preview_caption: string | null;
-  preview_image: PreviewImage;
-  previous_item: {
-    '@id': string;
-    '@type': string;
-    description: string;
-    title: string;
-  };
+  parent: {};
   relatedItems: RelatedItem[];
   review_state: string | null;
   rights: string;
   subjects: [];
   table_of_contents: boolean | null;
   title: string;
-  type_tile: string | null;
-  version: number | null;
-  versioning_enabled: boolean | null;
-  working_copy: unknown;
-  working_copy_of: unknown;
 }

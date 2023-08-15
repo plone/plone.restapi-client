@@ -31,7 +31,6 @@ export const updateContentDataSchema = z.object({
   rights: z.string().optional(),
   table_of_contents: z.boolean().nullable().optional(),
   title: z.string().optional(),
-  versioning_enabled: z.boolean().optional(),
 });
 
 export interface UpdateContentResponse {

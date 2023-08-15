@@ -34,7 +34,6 @@ export const createContentDataSchema = z.object({
   relatedItems: z.array(RelatedItemPayloadSchema).optional(),
   rights: z.string().nullable().optional(),
   title: z.string(),
-  versioning_enabled: z.boolean().optional(),
 });
 
 export interface CreateContentResponse {
@@ -99,7 +98,6 @@ export interface CreateContentResponse {
   subjects: [];
   title: string;
   version: string;
-  versioning_enabled: boolean | null;
   working_copy: unknown;
   working_copy_of: unknown;
 }
