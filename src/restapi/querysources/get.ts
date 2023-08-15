@@ -32,7 +32,7 @@ export const getQuerysources = async ({
     },
   };
 
-  const querysourcesPath = `/${validatedArgs.path}/@querysouces/${field}`;
+  const querysourcesPath = `/${validatedArgs.path}/@querysoruces/${field}`;
 
   return apiRequest('get', querysourcesPath, options);
 };
