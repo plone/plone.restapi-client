@@ -5,18 +5,20 @@ import {
   PloneClientConfigSchema,
 } from '../../interfaces/config';
 
-export const updateWorkingcopyArgsSchema = z.object({
+export const checkInWorkingcopyArgsSchema = z.object({
   path: z.string(),
   config: PloneClientConfigSchema,
 });
 
-export type UpdateWorkingcopyArgs = z.infer<typeof updateWorkingcopyArgsSchema>;
+export type CheckInWorkingcopyArgs = z.infer<
+  typeof checkInWorkingcopyArgsSchema
+>;
 
-export const updateWorkingcopy = async ({
+export const checkInWorkingcopy = async ({
   path,
   config,
-}: UpdateWorkingcopyArgs): Promise<undefined> => {
-  const validatedArgs = updateWorkingcopyArgsSchema.parse({
+}: CheckInWorkingcopyArgs): Promise<undefined> => {
+  const validatedArgs = checkInWorkingcopyArgsSchema.parse({
     path,
     config,
   });
@@ -30,12 +32,12 @@ export const updateWorkingcopy = async ({
   return apiRequest('patch', checkInWorkingcopyPath, options);
 };
 
-export const updateWorkingcopyMutation = ({
+export const checkInWorkingcopyMutation = ({
   config,
 }: {
   config: PloneClientConfig;
 }) => ({
   mutationKey: ['patch', 'workingcopy'],
-  mutationFn: ({ path }: Omit<UpdateWorkingcopyArgs, 'config'>) =>
-    updateWorkingcopy({ path, config }),
+  mutationFn: ({ path }: Omit<CheckInWorkingcopyArgs, 'config'>) =>
+    checkInWorkingcopy({ path, config }),
 });

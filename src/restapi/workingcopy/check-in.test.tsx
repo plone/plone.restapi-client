@@ -16,7 +16,7 @@ const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
 
-const { login, updateWorkingcopyMutation } = cli;
+const { login, checkInWorkingcopyMutation } = cli;
 await login({ username: 'admin', password: 'secret' });
 
 beforeEach(async () => {
@@ -55,7 +55,7 @@ describe('[POST] WorkingCopy', () => {
     });
 
     const { result } = renderHook(
-      () => useMutation(updateWorkingcopyMutation()),
+      () => useMutation(checkInWorkingcopyMutation()),
       {
         wrapper: createWrapper(),
       },
@@ -81,7 +81,7 @@ describe('[POST] WorkingCopy', () => {
     const path = 'blah';
 
     const { result } = renderHook(
-      () => useMutation(updateWorkingcopyMutation()),
+      () => useMutation(checkInWorkingcopyMutation()),
       {
         wrapper: createWrapper(),
       },

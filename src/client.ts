@@ -44,7 +44,7 @@ import { updateUserMutation as _updateUserMutation } from './restapi/users/updat
 import { getPrincipalsQuery as _getPrincipalsQuery } from './restapi/principals/get';
 import { getWorkingcopyQuery as _getWorkingcopyQuery } from './restapi/workingcopy/get';
 import { createWorkingcopyMutation as _createWorkingcopyMutation } from './restapi/workingcopy/add';
-import { updateWorkingcopyMutation as _updateWorkingcopyMutation } from './restapi/workingcopy/update';
+import { checkInWorkingcopyMutation as _checkInWorkingcopyMutation } from './restapi/workingcopy/check-in';
 import { deleteWorkingcopyMutation as _deleteWorkingcopyMutation } from './restapi/workingcopy/delete';
 import { copyMutation as _copyMutation } from './restapi/copymove/copy';
 import { moveMutation as _moveMutation } from './restapi/copymove/move';
@@ -242,8 +242,8 @@ export default class PloneClient {
     _createWorkingcopyMutation,
     this.getConfig,
   );
-  updateWorkingcopyMutation = mutationWithConfig(
-    _updateWorkingcopyMutation,
+  checkInWorkingcopyMutation = mutationWithConfig(
+    _checkInWorkingcopyMutation,
     this.getConfig,
   );
   deleteWorkingcopyMutation = mutationWithConfig(
