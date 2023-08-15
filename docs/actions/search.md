@@ -53,7 +53,6 @@ This function is used to search for the given context.
     - **Required:** No
     - Set to 1 to return full objects.
 
-    `records: any`
+    `Any other search parameters`
 
     - **Required:** No
-    - Any other search parameters
