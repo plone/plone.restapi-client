@@ -14,7 +14,7 @@ All searches use the same pattern.
 
 This function is used to search for the given context.
 
-- Function name: getSearchQuery
+- Function name: `getSearchQuery`
 
 ### Parameters
 

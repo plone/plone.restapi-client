@@ -14,7 +14,7 @@ The source object can be specified either by URL, path, UID or `intid`:
 
 This function can be used to create a copy of content object.
 
-- Function name: copyMutation
+- Function name: `copyMutation`
 
 ### Parameters
 
@@ -33,7 +33,7 @@ This function can be used to create a copy of content object.
 
 This function can be used to move a content object.
 
-- Function name: moveMutation
+- Function name: `moveMutation`
 
 ### Parameters
 

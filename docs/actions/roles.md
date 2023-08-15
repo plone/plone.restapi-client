@@ -7,4 +7,4 @@ This action requires an authenticated user.
 
 This function returns the list of all roles in the portal.
 
-- Function name: getRolesQuery
+- Function name: `getRolesQuery`

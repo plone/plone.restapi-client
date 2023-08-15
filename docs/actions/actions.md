@@ -14,7 +14,7 @@ This also works for unauthenticated users.
 
 This function returns the list of all the actions at the given path.
 
-- Function name: getActionsQuery
+- Function name: `getActionsQuery`
 
 ### Parameters
 

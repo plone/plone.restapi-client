@@ -7,13 +7,13 @@ This requires an authenticated user.
 
 This function returns the list of all groups in the portal.
 
-- Function name: getGroupsQuery
+- Function name: `getGroupsQuery`
 
 ## Get Group
 
 This function returns the information about an individual group at the given path.
 
-- Function name: getGroupQuery
+- Function name: `getGroupQuery`
 
 ### Parameters
 
@@ -25,7 +25,7 @@ This function returns the information about an individual group at the given pat
 
 This function can be used to add a new group at the given path.
 
-- Function name: createGroupMutation
+- Function name: `createGroupMutation`
 
 ### Parameters
 
@@ -70,7 +70,7 @@ This function can be used to add a new group at the given path.
 
 This function can be used to update an existing group at the given path.
 
-- Function name: updateGroupMutation
+- Function name: `updateGroupMutation`
 
 ### Parameters
 
@@ -99,7 +99,7 @@ This function can be used to update an existing group at the given path.
 
 This function can be used to delete an existing group at the given path.
 
-- Function name: deleteGroupMutation
+- Function name: `deleteGroupMutation`
 
 ### Parameters
 

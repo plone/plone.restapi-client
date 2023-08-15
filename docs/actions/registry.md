@@ -9,13 +9,13 @@ Reading or writing registry records require the `cmf.ManagePortal` permission.
 
 This function returns the list of all available registry records.
 
-- Function name: getRegistriesQuery
+- Function name: `getRegistriesQuery`
 
 ## Get Registry
 
 This function returns the registry record at the given path.
 
-- Function name: getRegistryQuery
+- Function name: `getRegistryQuery`
 
 ### Parameters
 
@@ -27,7 +27,7 @@ This function returns the registry record at the given path.
 
 This function updates the registry record at the given path.
 
-- Function name: updateRegistryMutation
+- Function name: `updateRegistryMutation`
 
 ### Parameters
 

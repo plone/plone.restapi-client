@@ -14,13 +14,13 @@ You can define relations either with content type schema fields `RelationChoice`
 
 This function returns the list of all existing relations user has access to.
 
-- Function name: getRelationsListQuery
+- Function name: `getRelationsListQuery`
 
 ## Get Relations
 
 This function returns the relations for the given parameters.
 
-- Function name: getRelationsQuery
+- Function name: `getRelationsQuery`
 
 ### Parameters
 
@@ -40,7 +40,7 @@ This function returns the relations for the given parameters.
 
 This function is used to add a relation for the given parameters.
 
-- Function name: createRelationsMutation
+- Function name: `createRelationsMutation`
 
 ### Parameters
 
@@ -65,7 +65,7 @@ This function is used to add a relation for the given parameters.
 
 This function is used to fix broken relations. Broken relations can be fixed by releasing and re-indexing them.
 
-- Function name: fixRelationsMutation
+- Function name: `fixRelationsMutation`
 
 ### Parameters
 
@@ -82,7 +82,7 @@ This function is used to fix broken relations. Broken relations can be fixed by 
 
 This function is used to delete a relation for the given parameters.
 
-- Function name: deleteRelationsMutation
+- Function name: `deleteRelationsMutation`
 
 ### Parameters
 

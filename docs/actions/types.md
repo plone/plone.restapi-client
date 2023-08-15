@@ -6,13 +6,13 @@ Available content types in a Plone site can be listed and queried by accessing t
 
 This function returns the list of all available types.
 
-- Function name: getTypesQuery
+- Function name: `getTypesQuery`
 
 ## Get Type
 
 This function returns the information about the content type provided.
 
-- Function name: getTypeQuery
+- Function name: `getTypeQuery`
 
 ### Parameters
 
@@ -24,7 +24,7 @@ This function returns the information about the content type provided.
 
 This function returns the information about the fieldset of the type provided.
 
-- Function name: getTypeFieldQuery
+- Function name: `getTypeFieldQuery`
 
 ### Parameters
 
@@ -36,7 +36,7 @@ This function returns the information about the fieldset of the type provided.
 
 This function can be used to add a fieldset to the type provided.
 
-- Function name: createTypeFieldMutation
+- Function name: `createTypeFieldMutation`
 
 ### Parameters
 
@@ -69,7 +69,7 @@ This function can be used to add a fieldset to the type provided.
 
 This function can be used to update a field/fieldset of the type provided.
 
-- Function name: updateTypeFieldMutation
+- Function name: `updateTypeFieldMutation`
 
 ### Parameters
 

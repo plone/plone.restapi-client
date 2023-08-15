@@ -6,7 +6,7 @@ To send an email to an arbitrary email address use the /@email-send endpoint.
 
 This function sends an email to an arbitrary email address.
 
-- Function name: emailSendMutation
+- Function name: `emailSendMutation`
 
 ### Parameters
 

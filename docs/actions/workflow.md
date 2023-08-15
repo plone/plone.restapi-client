@@ -11,7 +11,7 @@ We can get the current state and history of an object by issuing a `GET` request
 
 This function returns the workflow for the given path.
 
-- Function name: getWorkflowQuery
+- Function name: `getWorkflowQuery`
 
 ### Parameters
 
@@ -23,7 +23,7 @@ This function returns the workflow for the given path.
 
 This function can be used to add a workflow to the given path.
 
-- Function name: createWorkflowMutation
+- Function name: `createWorkflowMutation`
 
 ### Parameters
 

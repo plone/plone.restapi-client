@@ -6,7 +6,7 @@ Get all standard Plone content representations.
 
 This function returns the content at the given path.
 
-- Function name: getContentQuery
+- Function name: `getContentQuery`
 
 ### Parameters
 
@@ -34,7 +34,7 @@ This function returns the content at the given path.
 
 This function can be used for adding content to a site.
 
-- Function name: createContentMutation
+- Function name: `createContentMutation`
 
 ### Parameters
 
@@ -148,7 +148,7 @@ This function can be used for adding content to a site.
 
 This function can be used to update content at the given path.
 
-- Function name: updateContentMutation
+- Function name: `updateContentMutation`
 
 ### Parameters
 
@@ -250,7 +250,7 @@ This function can be used to update content at the given path.
 
 This function can be used to delete content at the given path.
 
-- Function name: deleteContentMutation
+- Function name: `deleteContentMutation`
 
 ### Parameters
 

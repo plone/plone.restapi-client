@@ -6,7 +6,7 @@ Translations endpoint is used to handle the translation information of the conte
 
 This function returns the translation information of the given path.
 
-- Function name: getTranslationQuery
+- Function name: `getTranslationQuery`
 
 ### Parameters
 
@@ -18,7 +18,7 @@ This function returns the translation information of the given path.
 
 This function can be used to link a translation to the given path.
 
-- Function name: linkTranslationMutation
+- Function name: `linkTranslationMutation`
 
 ### Parameters
 
@@ -39,7 +39,7 @@ This function can be used to link a translation to the given path.
 
 This function can be used to unlink a translation from the given path.
 
-- Function name: unlinkTranslationMutation
+- Function name: `unlinkTranslationMutation`
 
 ### Parameters
 

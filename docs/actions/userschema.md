@@ -10,4 +10,4 @@ This dynamic schema is exposed by this endpoint in order to build the user's pro
 
 This function returns the schema of the current user.
 
-- Function name: getUserSchemaQuery
+- Function name: `getUserSchemaQuery`

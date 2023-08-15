@@ -4,7 +4,7 @@
 
 This function returns the source for the given path and field.
 
-- Function name: getSourceQuery
+- Function name: `getSourceQuery`
 
 ### Parameters
 

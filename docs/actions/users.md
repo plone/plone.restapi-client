@@ -7,7 +7,7 @@ This action requires an authenticated user:
 
 This function returns the retrieve list of all users in the portal.
 
-- Function name: getUsersQuery
+- Function name: `getUsersQuery`
 
 ### Parameters
 
@@ -31,7 +31,7 @@ This function returns the retrieve list of all users in the portal.
 
 This function returns the information about an individual user at the given path.
 
-- Function name: getUserQuery
+- Function name: `getUserQuery`
 
 ### Parameters
 
@@ -43,7 +43,7 @@ This function returns the information about an individual user at the given path
 
 This function can be used to add a new user at the given path.
 
-- Function name: createUserMutation
+- Function name: `createUserMutation`
 
 ### Parameters
 
@@ -92,7 +92,7 @@ This function can be used to add a new user at the given path.
 
 This function can be used to update an existing user at the given path.
 
-- Function name: updateUserMutation
+- Function name: `updateUserMutation`
 
 ### Parameters
 
@@ -137,7 +137,7 @@ This function can be used to update an existing user at the given path.
 
 This function can be used to delete an existing user at the given path.
 
-- Function name: deleteUserMutation
+- Function name: `deleteUserMutation`
 
 ### Parameters
 
@@ -149,7 +149,7 @@ This function can be used to delete an existing user at the given path.
 
 This function can be used to update an existing user password at the given path.
 
-- Function name: updatePasswordMutation
+- Function name: `updatePasswordMutation`
 
 ### Parameters
 
@@ -174,7 +174,7 @@ This function can be used to update an existing user password at the given path.
 
 This function can be used to reset an existing user password at the given path.
 
-- Function name: resetPasswordMutation
+- Function name: `resetPasswordMutation`
 
 ### Parameters
 
@@ -186,7 +186,7 @@ This function can be used to reset an existing user password at the given path.
 
 This function can be used to reset an existing user password at the given path.
 
-- Function name: resetPasswordWithTokenMutation
+- Function name: `resetPasswordWithTokenMutation`
 
 ### Parameters
 

@@ -8,7 +8,7 @@ This endpoint requires an authenticated user.
 
 This function is used for a search of principals for the given query string.
 
-- Function name: getPrincipalsQuery
+- Function name: `getPrincipalsQuery`
 
 ### Parameters
 

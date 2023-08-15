@@ -8,7 +8,7 @@ It also allows to revert to a previous version of the file.
 
 This function returns the history for the content at the given path.
 
-- Function name: getHistoryQuery
+- Function name: `getHistoryQuery`
 
 ### Parameters
 
@@ -20,7 +20,7 @@ This function returns the history for the content at the given path.
 
 This function returns the content for the specified path and version.
 
-- Function name: getHistoryVersionedQuery
+- Function name: `getHistoryVersionedQuery`
 
 ### Parameters
 
@@ -36,7 +36,7 @@ This function returns the content for the specified path and version.
 
 This function reverts the content at the given path to the given version.
 
-- Function name: revertToVersionQuery
+- Function name: `revertHistoryMutation`
 
 ### Parameters
 
@@ -44,6 +44,11 @@ This function reverts the content at the given path to the given version.
 
   - **Required**: Yes
 
-- **version**: string
+- **data**: object
 
   - **Required**: Yes
+  - It can have the following fields:
+
+    `version: number`
+
+    - **Required**: Yes

@@ -7,7 +7,7 @@ This feature is useful when working with subsites or multilingual sites, because
 
 This function returns the navigation root for the given path.
 
-- Function name: getNavrootQuery
+- Function name: `getNavrootQuery`
 
 ### Parameters
 

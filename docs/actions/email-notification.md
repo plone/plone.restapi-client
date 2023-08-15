@@ -10,7 +10,7 @@ At the same time, it allows the users to reach out to the site owners.
 
 This function sends an email notification to the site owner or the specified user.
 
-- Function name: emailNotificationMutation
+- Function name: `emailNotificationMutation`
 
 ### Parameters
 

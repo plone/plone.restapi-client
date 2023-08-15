@@ -4,7 +4,7 @@
 
 This function returns the content-rules for the given path.
 
-- Function name: getRulesQuery
+- Function name: `getRulesQuery`
 
 ### Parameters
 
@@ -16,7 +16,7 @@ This function returns the content-rules for the given path.
 
 This function can be used to add a content-rule to a page.
 
-- Function name: createRuleMutation
+- Function name: `createRuleMutation`
 
 ### Parameters
 
@@ -28,7 +28,7 @@ This function can be used to add a content-rule to a page.
 
 This function can be used to update a content-rule for the given rule ids.
 
-- Function name: updateRulesMutation
+- Function name: `updateRulesMutation`
 
 ### Parameters
 
@@ -65,7 +65,7 @@ This function can be used to update a content-rule for the given rule ids.
 
 This function can be used to delete a content-rule for the given rule ids.
 
-- Function name: deleteRulesMutation
+- Function name: `deleteRulesMutation`
 
 ### Parameters
 

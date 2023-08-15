@@ -11,7 +11,7 @@ The API consumer can create, read, update, and delete a content-type lock.
 
 This function returns the information about the lock for the given path.
 
-- Function name: getLockQuery
+- Function name: `getLockQuery`
 
 ### Parameters
 
@@ -23,7 +23,7 @@ This function returns the information about the lock for the given path.
 
 This function can be used to add a lock on the content of the given path.
 
-- Function name: createLockMutation
+- Function name: `createLockMutation`
 
 ### Parameters
 
@@ -50,7 +50,7 @@ This function can be used to add a lock on the content of the given path.
 
 This function can be used to update the lock on the content of the given path.
 
-- Function name: updateLockMutation
+- Function name: `updateLockMutation`
 
 ### Parameters
 
@@ -66,7 +66,7 @@ This function can be used to update the lock on the content of the given path.
 
 This function can be used to delete the lock on the content of the given path.
 
-- Function name: deleteLockMutation
+- Function name: `deleteLockMutation`
 
 ### Parameters
 

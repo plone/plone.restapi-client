@@ -8,13 +8,13 @@ It also allows to revert transactions so that the Plone website can be reverted 
 
 This function returns the list of all transactions in the portal.
 
-- Function name: getTransactionsQuery
+- Function name: `getTransactionsQuery`
 
 ## Revert Transactions
 
 This function can be used to revert transactions for the given transaction ids in the portal.
 
-- Function name: revertTransactionsMutation
+- Function name: `revertTransactionsMutation`
 
 ### Parameters
 

@@ -7,13 +7,13 @@ The `@controlpanels` endpoint in `plone.restapi` allows you to list all existing
 
 This function returns the list of all control panels in the portal.
 
-- Function name: getControlpanelsQuery
+- Function name: `getControlpanelsQuery`
 
 ## Get Control Panel
 
 This function returns the information about an individual control panel at the given path.
 
-- Function name: getControlpanelQuery
+- Function name: `getControlpanelQuery`
 
 ### Parameters
 
@@ -25,7 +25,7 @@ This function returns the information about an individual control panel at the g
 
 This function can be used to add a custom element in the control panel.
 
-- Function name: createControlpanelMutation
+- Function name: `createControlpanelMutation`
 
 ### Parameters
 
@@ -37,7 +37,7 @@ This function can be used to add a custom element in the control panel.
 
 This function can be used to update a custom element in the control panel at the given path.
 
-- Function name: updateControlpanelMutation
+- Function name: `updateControlpanelMutation`
 
 ### Parameters
 
@@ -49,7 +49,7 @@ This function can be used to update a custom element in the control panel at the
 
 This function can be used to delete a custom element in the control panel at the given path.
 
-- Function name: deleteControlpanelMutation
+- Function name: `deleteControlpanelMutation`
 
 ### Parameters
 

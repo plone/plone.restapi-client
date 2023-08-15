@@ -2,7 +2,7 @@
 
 This function is used for logging in a user.
 
-- Function name: loginQuery
+- Function name: `loginQuery`
 
 ### Parameters
 

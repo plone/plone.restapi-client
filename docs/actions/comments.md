@@ -10,7 +10,7 @@ When commenting is enabled on your content object, you can retrieve a list of al
 
 This function returns the list of all comments for the given path.
 
-- Function name: getCommentsQuery
+- Function name: `getCommentsQuery`
 
 ### Parameters
 
@@ -22,7 +22,7 @@ This function returns the list of all comments for the given path.
 
 This function can be used to add a comment to the given path.
 
-- Function name: createCommentMutation
+- Function name: `createCommentMutation`
 
 ### Parameters
 
@@ -49,7 +49,7 @@ This function can be used to add a comment to the given path.
 
 This function can be used to update a comment for the given id and path.
 
-- Function name: updateCommentMutation
+- Function name: `updateCommentMutation`
 
 ### Parameters
 
@@ -75,7 +75,7 @@ This function can be used to update a comment for the given id and path.
 
 This function can be used to delete a comment for the given id and path.
 
-- Function name: deleteCommentMutation
+- Function name: `deleteCommentMutation`
 
 ### Parameters
 
