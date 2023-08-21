@@ -25,6 +25,22 @@ import { installAddonProfileMutation as _installAddonProfileMutation } from './r
 import { uninstallAddonMutation as _uninstallAddonMutation } from './restapi/addons/unistall';
 import { upgradeAddonMutation as _upgradeAddonMutation } from './restapi/addons/upgrade';
 import { getDatabaseQuery as _getDatabaseQuery } from './restapi/database/get';
+import { getGroupQuery as _getGroupQuery } from './restapi/groups/get';
+import { createGroupMutation as _createGroupMutation } from './restapi/groups/add';
+import { getGroupsQuery as _getGroupsQuery } from './restapi/groups/get_list';
+import { updateGroupMutation as _updateGroupMutation } from './restapi/groups/update';
+import { deleteGroupMutation as _deleteGroupMutation } from './restapi/groups/delete';
+import { getHistoryQuery as _getHistoryQuery } from './restapi/history/get';
+import { getHistoryVersionedQuery as _getHistoryVersionedQuery } from './restapi/history/get_versioned';
+import { revertHistoryMutation as _revertHistoryMutation } from './restapi/history/revert';
+import { getUsersQuery as _getUsersQuery } from './restapi/users/get_list';
+import { getUserQuery as _getUserQuery } from './restapi/users/get';
+import { createUserMutation as _createUserMutation } from './restapi/users/add';
+import { deleteUserMutation as _deleteUserMutation } from './restapi/users/delete';
+import { resetPasswordMutation as _resetPasswordMutation } from './restapi/users/reset_password';
+import { resetPasswordWithTokenMutation as _resetPasswordWithTokenMutation } from './restapi/users/reset_password_with_token';
+import { updatePasswordMutation as _updatePasswordMutation } from './restapi/users/update_password';
+import { updateUserMutation as _updateUserMutation } from './restapi/users/update';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
@@ -152,5 +168,57 @@ export default class PloneClient {
   /*
     Database queries
   */
+
   getDatabaseQuery = queryWithConfig(_getDatabaseQuery, this.getConfig);
+  /*
+    Group queries
+  */
+  getGroupsQuery = queryWithConfig(_getGroupsQuery, this.getConfig);
+  getGroupQuery = queryWithConfig(_getGroupQuery, this.getConfig);
+  createGroupMutation = mutationWithConfig(
+    _createGroupMutation,
+    this.getConfig,
+  );
+  updateGroupMutation = mutationWithConfig(
+    _updateGroupMutation,
+    this.getConfig,
+  );
+  deleteGroupMutation = mutationWithConfig(
+    _deleteGroupMutation,
+    this.getConfig,
+  );
+
+  /*
+    History queries
+  */
+  getHistoryQuery = queryWithConfig(_getHistoryQuery, this.getConfig);
+  getHistoryVersionedQuery = queryWithConfig(
+    _getHistoryVersionedQuery,
+    this.getConfig,
+  );
+  revertHistoryMutation = mutationWithConfig(
+    _revertHistoryMutation,
+    this.getConfig,
+  );
+
+  /*
+    User queries
+  */
+  getUsersQuery = queryWithConfig(_getUsersQuery, this.getConfig);
+  getUserQuery = queryWithConfig(_getUserQuery, this.getConfig);
+  createUserMutation = mutationWithConfig(_createUserMutation, this.getConfig);
+  deleteUserMutation = mutationWithConfig(_deleteUserMutation, this.getConfig);
+  resetPasswordMutation = mutationWithConfig(
+    _resetPasswordMutation,
+    this.getConfig,
+  );
+  resetPasswordWithTokenMutation = mutationWithConfig(
+    _resetPasswordWithTokenMutation,
+    this.getConfig,
+  );
+  updatePasswordMutation = mutationWithConfig(
+    _updatePasswordMutation,
+    this.getConfig,
+  );
+  updateUserMutation = mutationWithConfig(_updateUserMutation, this.getConfig);
 }
