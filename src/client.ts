@@ -512,14 +512,14 @@ export default class PloneClient {
   );
 
   /*
-    Email notrifcation queries
+    Email notifcation queries
   */
   emailNotificationMutation = mutationWithConfig(
     _emailNotificationMutation,
     this.getConfig,
   );
 
-  /* 
+  /*
     Email send queries
   */
   emailSendMutation = mutationWithConfig(_emailSendMutation, this.getConfig);
