@@ -33,7 +33,9 @@ export const createComment = async ({
     config: validatedArgs.config,
   };
 
-  const commentsPath = `/${validatedArgs.path}/@comments/${validatedArgs.reply_id}`;
+  const commentsPath = reply_id
+    ? `/${validatedArgs.path}/@comments/${validatedArgs.reply_id}`
+    : `/${validatedArgs.path}/@comments`;
 
   return apiRequest('post', commentsPath, options);
 };

@@ -6,6 +6,7 @@ import { beforeEach } from 'vitest';
 import { expect, test } from 'vitest';
 import PloneClient from '../../client';
 import { v4 as uuid } from 'uuid';
+import { createContent } from '../content/add';
 
 const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
@@ -23,7 +24,7 @@ afterEach(async () => {
 });
 
 describe('[POST] Comment', () => {
-  test.skip('Hook - Successful', async () => {
+  test('Hook - Successful', async () => {
     const randomId = uuid();
 
     const contentData = {
@@ -31,8 +32,10 @@ describe('[POST] Comment', () => {
       title: 'add-comments-page-1',
     };
 
+    await createContent({ path: '/', data: contentData, config: cli.config });
+
     const addCommentData = {
-      text: `This is a comment ${randomId}`,
+      text: `This is a comment`,
     };
 
     const { result } = renderHook(() => useMutation(createCommentMutation()), {
@@ -46,7 +49,7 @@ describe('[POST] Comment', () => {
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
   });
 
-  test.skip('Hook - Failure', async () => {
+  test('Hook - Failure', async () => {
     const path = 'blah';
 
     const addCommentData = {
