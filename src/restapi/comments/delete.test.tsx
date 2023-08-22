@@ -8,6 +8,8 @@ import PloneClient from '../../client';
 import { v4 as uuid } from 'uuid';
 import { createComment } from './add';
 import { getComments } from './get';
+import { createContent } from '../content/add';
+import { updateRegistry } from '../registry/update';
 
 const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
@@ -25,13 +27,25 @@ afterEach(async () => {
 });
 
 describe('[DELETE] Comment', () => {
-  test.skip('Hook - Successful', async () => {
+  test('Hook - Successful', async () => {
     const randomId = uuid();
 
     const contentData = {
       '@type': 'Document',
-      title: 'delete-comments-page',
+      title: `delete-comments-page${randomId}`,
+      allow_discussion: true,
     };
+    await createContent({ path: '/', data: contentData, config: cli.config });
+
+    const registryData = {
+      'plone.app.discussion.interfaces.IDiscussionSettings.globally_enabled':
+        true,
+      'plone.app.discussion.interfaces.IDiscussionSettings.edit_comment_enabled':
+        true,
+      'plone.app.discussion.interfaces.IDiscussionSettings.delete_own_comment_enabled':
+        true,
+    };
+    await updateRegistry({ data: registryData, config: cli.config });
 
     const addCommentData = {
       text: `This is a comment ${randomId}`,
@@ -71,7 +85,17 @@ describe('[DELETE] Comment', () => {
     expect(finalCommentData?.items_total).toBe(0);
   });
 
-  test.skip('Hook - Failure', async () => {
+  test('Hook - Failure', async () => {
+    const registryData = {
+      'plone.app.discussion.interfaces.IDiscussionSettings.globally_enabled':
+        true,
+      'plone.app.discussion.interfaces.IDiscussionSettings.edit_comment_enabled':
+        true,
+      'plone.app.discussion.interfaces.IDiscussionSettings.delete_own_comment_enabled':
+        true,
+    };
+    await updateRegistry({ data: registryData, config: cli.config });
+
     const path = 'blah';
     const comment_id = 'blah';
 

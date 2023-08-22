@@ -8,6 +8,7 @@ import PloneClient from '../../client';
 import { createContent } from '../content/add';
 import { linkTranslation } from './link';
 import { installAddon } from '../addons/install';
+import { updateRegistry } from '../registry/update';
 
 const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
@@ -25,26 +26,39 @@ afterEach(async () => {
 });
 
 describe('[POST] Content', () => {
-  test.skip('Hook - Successful', async () => {
+  test('Hook - Successful', async () => {
+    const registryData = { 'plone.available_languages': ['en', 'es'] };
+    updateRegistry({ data: registryData, config: cli.config });
+
     await installAddon({
-      addonId: '/plone.app.multilingual',
+      addonId: 'plone.app.multilingual',
       config: cli.config,
     });
     // We need to install 'plone.app.multilingual' in order to use translations endpoint
 
-    const path = '/es/';
-    const contentData = {
+    const contentDataES = {
       '@type': 'Document',
       title: 'unlink-translation-es',
     };
-
-    await createContent({ path, data: contentData, config: cli.config });
+    const contentDataEN = {
+      '@type': 'Document',
+      title: 'unlink-translation-en',
+    };
+    await createContent({
+      path: '/es/',
+      data: contentDataES,
+      config: cli.config,
+    });
+    await createContent({
+      path: '/en/',
+      data: contentDataEN,
+      config: cli.config,
+    });
 
     const linkData = {
-      id: `/es/${contentData.title}`,
+      id: `/es/${contentDataES.title}`,
     };
-    const linkPath = `/en/${contentData.title}`;
-
+    const linkPath = `/en/${contentDataEN.title}`;
     await linkTranslation({
       path: linkPath,
       data: linkData,
@@ -69,9 +83,12 @@ describe('[POST] Content', () => {
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
   });
 
-  test.skip('Hook - Failure', async () => {
+  test('Hook - Failure', async () => {
+    const registryData = { 'plone.available_languages': ['en', 'es'] };
+    updateRegistry({ data: registryData, config: cli.config });
+
     await installAddon({
-      addonId: '/plone.app.multilingual',
+      addonId: 'plone.app.multilingual',
       config: cli.config,
     });
     // We need to install 'plone.app.multilingual' in order to use translations endpoint

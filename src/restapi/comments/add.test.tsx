@@ -31,8 +31,8 @@ describe('[POST] Comment', () => {
     const contentData = {
       '@type': 'Document',
       title: 'add-comments-page-1',
+      allow_discussion: true,
     };
-
     await createContent({ path: '/', data: contentData, config: cli.config });
 
     const registryData = {
@@ -43,7 +43,6 @@ describe('[POST] Comment', () => {
       'plone.app.discussion.interfaces.IDiscussionSettings.delete_own_comment_enabled':
         true,
     };
-
     await updateRegistry({ data: registryData, config: cli.config });
 
     const addCommentData = {
@@ -62,6 +61,16 @@ describe('[POST] Comment', () => {
   });
 
   test('Hook - Failure', async () => {
+    const registryData = {
+      'plone.app.discussion.interfaces.IDiscussionSettings.globally_enabled':
+        true,
+      'plone.app.discussion.interfaces.IDiscussionSettings.edit_comment_enabled':
+        true,
+      'plone.app.discussion.interfaces.IDiscussionSettings.delete_own_comment_enabled':
+        true,
+    };
+    await updateRegistry({ data: registryData, config: cli.config });
+
     const path = 'blah';
 
     const addCommentData = {

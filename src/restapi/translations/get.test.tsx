@@ -5,6 +5,8 @@ import ploneClient from '../../client';
 import { createContent } from '../content/add';
 import { linkTranslation } from './link';
 import { installAddon } from '../addons/install';
+import { updateRegistry } from '../registry/update';
+import { v4 as uuid } from 'uuid';
 
 const cli = ploneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
@@ -14,26 +16,41 @@ const { login, getTranslationQuery } = cli;
 await login({ username: 'admin', password: 'secret' });
 
 describe('[GET] Translations', () => {
-  test.skip('Hook - Successful', async () => {
+  test('Hook - Successful', async () => {
+    const randomId = uuid();
+
+    const registryData = { 'plone.available_languages': ['en', 'es'] };
+    updateRegistry({ data: registryData, config: cli.config });
+
     await installAddon({
-      addonId: '/plone.app.multilingual',
+      addonId: 'plone.app.multilingual',
       config: cli.config,
     });
     // We need to install 'plone.app.multilingual' in order to use translations endpoint
 
-    const path = '/es/';
-    const contentData = {
+    const contentDataES = {
       '@type': 'Document',
-      title: 'get-translation-es',
+      title: `get-translation-es${randomId}`,
     };
-
-    await createContent({ path, data: contentData, config: cli.config });
+    const contentDataEN = {
+      '@type': 'Document',
+      title: `get-translation-en${randomId}`,
+    };
+    await createContent({
+      path: '/es/',
+      data: contentDataES,
+      config: cli.config,
+    });
+    await createContent({
+      path: '/en/',
+      data: contentDataEN,
+      config: cli.config,
+    });
 
     const linkData = {
-      id: `/es/${contentData.title}`,
+      id: `/es/${contentDataES.title}`,
     };
-    const linkPath = `/en/${contentData.title}`;
-
+    const linkPath = `/en/${contentDataEN.title}`;
     await linkTranslation({
       path: linkPath,
       data: linkData,
@@ -54,9 +71,12 @@ describe('[GET] Translations', () => {
     );
   });
 
-  test.skip('Hook - Failure', async () => {
+  test('Hook - Failure', async () => {
+    const registryData = { 'plone.available_languages': ['en', 'es'] };
+    updateRegistry({ data: registryData, config: cli.config });
+
     await installAddon({
-      addonId: '/plone.app.multilingual',
+      addonId: 'plone.app.multilingual',
       config: cli.config,
     });
     // We need to install 'plone.app.multilingual' in order to use translations endpoint
