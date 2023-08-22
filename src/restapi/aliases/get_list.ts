@@ -1,14 +1,14 @@
 import { apiRequest, ApiRequestParams } from '../../API';
 import { PloneClientConfig } from '../../interfaces/config';
-import { GetAliasesRootResponse } from '../../interfaces/aliases';
+import { GetAliasesListResponse } from '../../interfaces/aliases';
 
-export type AliasesRootArgs = {
+export type AliasesListArgs = {
   config: PloneClientConfig;
 };
 
-export const getAliasesRoot = async ({
+export const getAliasesList = async ({
   config,
-}: AliasesRootArgs): Promise<GetAliasesRootResponse> => {
+}: AliasesListArgs): Promise<GetAliasesListResponse> => {
   const options: ApiRequestParams = {
     config,
     params: {},
@@ -17,7 +17,7 @@ export const getAliasesRoot = async ({
   return apiRequest('get', '/@aliases', options);
 };
 
-export const getAliasesRootQuery = ({ config }: AliasesRootArgs) => ({
+export const getAliasesListQuery = ({ config }: AliasesListArgs) => ({
   queryKey: ['get', 'aliases'],
-  queryFn: () => getAliasesRoot({ config }),
+  queryFn: () => getAliasesList({ config }),
 });

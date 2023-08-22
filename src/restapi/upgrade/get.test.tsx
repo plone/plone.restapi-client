@@ -6,17 +6,20 @@ import ploneClient from '../../client';
 const cli = ploneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
-const { getAliasesRootQuery } = cli;
 
-describe('[GET] AliasesRoot', () => {
+const { login, getUpgradeQuery } = cli;
+await login({ username: 'admin', password: 'secret' });
+
+describe('[GET] Upgrade', () => {
   test('Hook - Successful', async () => {
-    const { result } = renderHook(() => useQuery(getAliasesRootQuery({})), {
+    const { result } = renderHook(() => useQuery(getUpgradeQuery({})), {
       wrapper: createWrapper(),
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
+
     expect(result.current.data?.['@id']).toBe(
-      'http://localhost:55001/plone/@aliases',
+      'http://localhost:55001/plone/@upgrade',
     );
   });
 });

@@ -1,18 +1,21 @@
 import { act, renderHook, waitFor } from '@testing-library/react';
 import { createWrapper } from '../../testUtils';
-import { createContent } from '../content/add';
-import { createAliases } from './add';
 import { useMutation } from '@tanstack/react-query';
 import { setup, teardown } from '../../resetFixture';
 import { beforeEach } from 'vitest';
 import { expect, test } from 'vitest';
 import PloneClient from '../../client';
+import { v4 as uuid } from 'uuid';
+import { createContent } from '../content/add';
+import { installAddon } from '../addons/install';
+import { createWorkingcopy } from './add';
+import { getWorkingcopy } from './get';
 
 const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
 
-const { login, deleteAliasesRootMutation } = cli;
+const { login, deleteWorkingcopyMutation } = cli;
 await login({ username: 'admin', password: 'secret' });
 
 beforeEach(async () => {
@@ -23,64 +26,56 @@ afterEach(async () => {
   await teardown();
 });
 
-describe('[DELETE] AliasesRoot', () => {
+describe('[DELETE] Workingcopy', () => {
   test('Hook - Successful', async () => {
+    await installAddon({ addonId: '/plone.app.iterate', config: cli.config });
+    // We need to install 'plone.app.iterate' in order to use workingcopy endpoint
+
+    const randomId = uuid();
     const path = '/';
     const contentData = {
       '@type': 'Document',
-      title: 'front-page',
+      title: `delete-workingcopy${randomId}`,
     };
+
     await createContent({ path, data: contentData, config: cli.config });
-
-    const pagePath = 'front-page';
-
-    const aliasesData = {
-      items: [
-        {
-          path: '/new-alias',
-        },
-      ],
-    };
-
-    await createAliases({
-      path: pagePath,
-      data: aliasesData,
-      config: cli.config,
-    });
+    await createWorkingcopy({ path: contentData.title, config: cli.config });
 
     const { result } = renderHook(
-      () => useMutation(deleteAliasesRootMutation()),
+      () => useMutation(deleteWorkingcopyMutation()),
       {
         wrapper: createWrapper(),
       },
     );
 
     act(() => {
-      result.current.mutate({ path: pagePath, data: aliasesData });
+      result.current.mutate({ path: contentData.title });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
+
+    const workingcopy = await getWorkingcopy({
+      path: contentData.title,
+      config: cli.config,
+    });
+
+    expect(workingcopy?.working_copy).toBeNull();
   });
 
   test('Hook - Failure', async () => {
-    const path = '/blah';
-    const aliasesData = {
-      items: [
-        {
-          path: '/new-alias',
-        },
-      ],
-    };
+    await installAddon({ addonId: '/plone.app.iterate', config: cli.config });
+
+    const path = 'blah';
 
     const { result } = renderHook(
-      () => useMutation(deleteAliasesRootMutation()),
+      () => useMutation(deleteWorkingcopyMutation()),
       {
         wrapper: createWrapper(),
       },
     );
 
     act(() => {
-      result.current.mutate({ path, data: aliasesData });
+      result.current.mutate({ path });
     });
 
     await waitFor(() => expect(result.current.isError).toBe(true));
