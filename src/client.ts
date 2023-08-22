@@ -15,9 +15,6 @@ import { getActionsQuery as _getActionsQuery } from './restapi/actions/get';
 import { getAliasesQuery as _getAliasesQuery } from './restapi/aliases/get';
 import { createAliasesMutation as _createAliasesMutation } from './restapi/aliases/add';
 import { deleteAliasesMutation as _deleteAliasesMutation } from './restapi/aliases/delete';
-import { getAliasesRootQuery as _getAliasesRootQuery } from './restapi/aliases/get_root';
-import { createAliasesRootMutation as _createAliasesRootMutation } from './restapi/aliases/add_root';
-import { deleteAliasesRootMutation as _deleteAliasesRootMutation } from './restapi/aliases/delete_root';
 import { getAddonsQuery as _getAddonsQuery } from './restapi/addons/get_list';
 import { getAddonQuery as _getAddonQuery } from './restapi/addons/get';
 import { installAddonMutation as _installAddonMutation } from './restapi/addons/install';
@@ -51,6 +48,34 @@ import { revertTransactionsMutation as _revertTransactionsMutation } from './res
 import { getUpgradeQuery as _getUpgradeQuery } from './restapi/upgrade/get';
 import { runUpgradeMutation as _runUpgradeMutation } from './restapi/upgrade/run';
 import { getLinkintegrityQuery as _getLinkintegrityQuery } from './restapi/linkintegrity/get';
+import { getPrincipalsQuery as _getPrincipalsQuery } from './restapi/principals/get';
+import { getWorkingcopyQuery as _getWorkingcopyQuery } from './restapi/workingcopy/get';
+import { createWorkingcopyMutation as _createWorkingcopyMutation } from './restapi/workingcopy/add';
+import { checkInWorkingcopyMutation as _checkInWorkingcopyMutation } from './restapi/workingcopy/check-in';
+import { deleteWorkingcopyMutation as _deleteWorkingcopyMutation } from './restapi/workingcopy/delete';
+import { copyMutation as _copyMutation } from './restapi/copymove/copy';
+import { moveMutation as _moveMutation } from './restapi/copymove/move';
+import { getSiteQuery as _getSiteQuery } from './restapi/site/get';
+import { getRegistriesQuery as _getRegistriesQuery } from './restapi/registry/get_list';
+import { getRegistryQuery as _getRegistryQuery } from './restapi/registry/get';
+import { updateRegistryMutation as _updateRegistryMutation } from './restapi/registry/update';
+import { getLockQuery as _getLockQuery } from './restapi/lock/get';
+import { createLockMutation as _createLockMutation } from './restapi/lock/add';
+import { updateLockMutation as _updateLockMutation } from './restapi/lock/update';
+import { deleteLockMutation as _deleteLockMutation } from './restapi/lock/delete';
+import { getWorkflowQuery as _getWorkflowQuery } from './restapi/workflow/get';
+import { createWorkflowMutation as _createWorkflowMutation } from './restapi/workflow/add';
+import { getVocabulariesListQuery as _getVocabulariesListQuery } from './restapi/vocabularies/get_list';
+import { getVocabulariesQuery as _getVocabulariesQuery } from './restapi/vocabularies/get';
+import { getQueryStringQuery as _getQueryStringQuery } from './restapi/querystring/get';
+import { getNavrootQuery as _getNavrootQuery } from './restapi/navroot/get';
+import { getTypesQuery as _getTypesQuery } from './restapi/types/get_list';
+import { getTypeQuery as _getTypeQuery } from './restapi/types/get';
+import { getTypeFieldQuery as _getTypeFieldQuery } from './restapi/types/get_type_field';
+import { createTypeFieldMutation as _createTypeFieldMutation } from './restapi/types/add';
+import { updateTypeFieldMutation as _updateTypeFieldMutation } from './restapi/types/update';
+import { getAliasesListQuery as _getAliasesListQuery } from './restapi/aliases/get_list';
+import { createAliasesMultipleMutation as _createAliasesMultipleMutation } from './restapi/aliases/add_multiple';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
@@ -143,13 +168,9 @@ export default class PloneClient {
     _deleteAliasesMutation,
     this.getConfig,
   );
-  getAliasesRootQuery = queryWithConfig(_getAliasesRootQuery, this.getConfig);
-  createAliasesRootMutation = mutationWithConfig(
-    _createAliasesRootMutation,
-    this.getConfig,
-  );
-  deleteAliasesRootMutation = mutationWithConfig(
-    _deleteAliasesRootMutation,
+  getAliasesListQuery = queryWithConfig(_getAliasesListQuery, this.getConfig);
+  createAliasesMultipleMutation = mutationWithConfig(
+    _createAliasesMultipleMutation,
     this.getConfig,
   );
 
@@ -259,6 +280,47 @@ export default class PloneClient {
   getTransactionsQuery = queryWithConfig(_getTransactionsQuery, this.getConfig);
   revertTransactionsMutation = mutationWithConfig(
     _revertTransactionsMutation,
+    
+  /*
+    Principals queries
+  */
+  getPrincipalsQuery = queryWithConfig(_getPrincipalsQuery, this.getConfig);
+
+  /*
+    Workingcopy queries
+  */
+  getWorkingcopyQuery = queryWithConfig(_getWorkingcopyQuery, this.getConfig);
+  createWorkingcopyMutation = mutationWithConfig(
+    _createWorkingcopyMutation,
+    this.getConfig,
+  );
+  checkInWorkingcopyMutation = mutationWithConfig(
+    _checkInWorkingcopyMutation,
+    this.getConfig,
+  );
+  deleteWorkingcopyMutation = mutationWithConfig(
+    _deleteWorkingcopyMutation,
+    this.getConfig,
+  );
+
+  /*
+    Copy and Move queries
+  */
+  copyMutation = mutationWithConfig(_copyMutation, this.getConfig);
+  moveMutation = mutationWithConfig(_moveMutation, this.getConfig);
+
+  /*
+    Site queries
+  */
+  getSiteQuery = queryWithConfig(_getSiteQuery, this.getConfig);
+
+  /*
+    Registries queries
+  */
+  getRegistriesQuery = queryWithConfig(_getRegistriesQuery, this.getConfig);
+  getRegistryQuery = queryWithConfig(_getRegistryQuery, this.getConfig);
+  updateRegistryMutation = mutationWithConfig(
+    _updateRegistryMutation,
     this.getConfig,
   );
 
@@ -273,6 +335,57 @@ export default class PloneClient {
   */
   getLinkintegrityQuery = queryWithConfig(
     _getLinkintegrityQuery,
+    this.getConfig,
+  );
+
+  /*
+    Lock queries
+  */
+  getLockQuery = queryWithConfig(_getLockQuery, this.getConfig);
+  createLockMutation = mutationWithConfig(_createLockMutation, this.getConfig);
+  updateLockMutation = mutationWithConfig(_updateLockMutation, this.getConfig);
+  deleteLockMutation = mutationWithConfig(_deleteLockMutation, this.getConfig);
+
+  /*
+    Workflow queries
+  */
+  getWorkflowQuery = queryWithConfig(_getWorkflowQuery, this.getConfig);
+  createWorkflowMutation = mutationWithConfig(
+    _createWorkflowMutation,
+    this.getConfig,
+  );
+
+  /*
+    Vocabularies queries
+  */
+  getVocabulariesListQuery = queryWithConfig(
+    _getVocabulariesListQuery,
+    this.getConfig,
+  );
+  getVocabulariesQuery = queryWithConfig(_getVocabulariesQuery, this.getConfig);
+
+  /*
+    Querystring queries
+  */
+  getQueryStringQuery = queryWithConfig(_getQueryStringQuery, this.getConfig);
+
+  /*
+    Navroot queries
+  */
+  getNavrootQuery = queryWithConfig(_getNavrootQuery, this.getConfig);
+
+  /*
+    Type queries
+  */
+  getTypesQuery = queryWithConfig(_getTypesQuery, this.getConfig);
+  getTypeQuery = queryWithConfig(_getTypeQuery, this.getConfig);
+  getTypeFieldQuery = queryWithConfig(_getTypeFieldQuery, this.getConfig);
+  createTypeFieldMutation = mutationWithConfig(
+    _createTypeFieldMutation,
+    this.getConfig,
+  );
+  updateTypeFieldMutation = mutationWithConfig(
+    _updateTypeFieldMutation,
     this.getConfig,
   );
 }
