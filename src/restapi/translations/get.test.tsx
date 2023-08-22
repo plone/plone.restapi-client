@@ -20,7 +20,7 @@ describe('[GET] Translations', () => {
     const randomId = uuid();
 
     const registryData = { 'plone.available_languages': ['en', 'es'] };
-    updateRegistry({ data: registryData, config: cli.config });
+    await updateRegistry({ data: registryData, config: cli.config });
 
     await installAddon({
       addonId: 'plone.app.multilingual',
@@ -73,7 +73,7 @@ describe('[GET] Translations', () => {
 
   test('Hook - Failure', async () => {
     const registryData = { 'plone.available_languages': ['en', 'es'] };
-    updateRegistry({ data: registryData, config: cli.config });
+    await updateRegistry({ data: registryData, config: cli.config });
 
     await installAddon({
       addonId: 'plone.app.multilingual',

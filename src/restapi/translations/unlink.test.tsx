@@ -9,6 +9,7 @@ import { createContent } from '../content/add';
 import { linkTranslation } from './link';
 import { installAddon } from '../addons/install';
 import { updateRegistry } from '../registry/update';
+import { v4 as uuid } from 'uuid';
 
 const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
@@ -27,8 +28,10 @@ afterEach(async () => {
 
 describe('[POST] Content', () => {
   test('Hook - Successful', async () => {
+    const randomId = uuid();
+
     const registryData = { 'plone.available_languages': ['en', 'es'] };
-    updateRegistry({ data: registryData, config: cli.config });
+    await updateRegistry({ data: registryData, config: cli.config });
 
     await installAddon({
       addonId: 'plone.app.multilingual',
@@ -85,7 +88,7 @@ describe('[POST] Content', () => {
 
   test('Hook - Failure', async () => {
     const registryData = { 'plone.available_languages': ['en', 'es'] };
-    updateRegistry({ data: registryData, config: cli.config });
+    await updateRegistry({ data: registryData, config: cli.config });
 
     await installAddon({
       addonId: 'plone.app.multilingual',
