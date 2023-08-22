@@ -15,9 +15,6 @@ import { getActionsQuery as _getActionsQuery } from './restapi/actions/get';
 import { getAliasesQuery as _getAliasesQuery } from './restapi/aliases/get';
 import { createAliasesMutation as _createAliasesMutation } from './restapi/aliases/add';
 import { deleteAliasesMutation as _deleteAliasesMutation } from './restapi/aliases/delete';
-import { getAliasesRootQuery as _getAliasesRootQuery } from './restapi/aliases/get_root';
-import { createAliasesRootMutation as _createAliasesRootMutation } from './restapi/aliases/add_root';
-import { deleteAliasesRootMutation as _deleteAliasesRootMutation } from './restapi/aliases/delete_root';
 import { getAddonsQuery as _getAddonsQuery } from './restapi/addons/get_list';
 import { getAddonQuery as _getAddonQuery } from './restapi/addons/get';
 import { installAddonMutation as _installAddonMutation } from './restapi/addons/install';
@@ -41,6 +38,8 @@ import { resetPasswordMutation as _resetPasswordMutation } from './restapi/users
 import { resetPasswordWithTokenMutation as _resetPasswordWithTokenMutation } from './restapi/users/reset_password_with_token';
 import { updatePasswordMutation as _updatePasswordMutation } from './restapi/users/update_password';
 import { updateUserMutation as _updateUserMutation } from './restapi/users/update';
+import { getAliasesListQuery as _getAliasesListQuery } from './restapi/aliases/get_list';
+import { createAliasesMultipleMutation as _createAliasesMultipleMutation } from './restapi/aliases/add_multiple';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
@@ -133,13 +132,9 @@ export default class PloneClient {
     _deleteAliasesMutation,
     this.getConfig,
   );
-  getAliasesRootQuery = queryWithConfig(_getAliasesRootQuery, this.getConfig);
-  createAliasesRootMutation = mutationWithConfig(
-    _createAliasesRootMutation,
-    this.getConfig,
-  );
-  deleteAliasesRootMutation = mutationWithConfig(
-    _deleteAliasesRootMutation,
+  getAliasesListQuery = queryWithConfig(_getAliasesListQuery, this.getConfig);
+  createAliasesMultipleMutation = mutationWithConfig(
+    _createAliasesMultipleMutation,
     this.getConfig,
   );
 
