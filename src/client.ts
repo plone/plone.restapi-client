@@ -41,8 +41,6 @@ import { updateUserMutation as _updateUserMutation } from './restapi/users/updat
 import { getUserschemaQuery as _getUserschemaQuery } from './restapi/userschema/get';
 import { getRolesQuery as _getRolesQuery } from './restapi/roles/get';
 import { getSystemQuery as _getSystemQuery } from './restapi/system/get';
-import { getTilesQuery as _getTilesQuery } from './restapi/tiles/get_list';
-import { getTileQuery as _getTileQuery } from './restapi/tiles/get';
 import { getTransactionsQuery as _getTransactionsQuery } from './restapi/transactions/get';
 import { revertTransactionsMutation as _revertTransactionsMutation } from './restapi/transactions/revert';
 import { getUpgradeQuery as _getUpgradeQuery } from './restapi/upgrade/get';
@@ -258,7 +256,7 @@ export default class PloneClient {
   */
   getUserschemaQuery = queryWithConfig(_getUserschemaQuery, this.getConfig);
 
-  /* 
+  /*
     Roles queries
   */
   getRolesQuery = queryWithConfig(_getRolesQuery, this.getConfig);
@@ -269,18 +267,14 @@ export default class PloneClient {
   getSystemQuery = queryWithConfig(_getSystemQuery, this.getConfig);
 
   /*
-    Tiles queries
-  */
-  getTilesQuery = queryWithConfig(_getTilesQuery, this.getConfig);
-  getTileQuery = queryWithConfig(_getTileQuery, this.getConfig);
-
-  /*
     Transactions queries
   */
   getTransactionsQuery = queryWithConfig(_getTransactionsQuery, this.getConfig);
   revertTransactionsMutation = mutationWithConfig(
     _revertTransactionsMutation,
-    
+    this.getConfig,
+  );
+
   /*
     Principals queries
   */
