@@ -358,7 +358,7 @@ export default class PloneClient {
     this.getConfig,
   );
 
-  /* 
+  /*
     Rules queries
   */
   getRulesQuery = queryWithConfig(_getRulesQuery, this.getConfig);
@@ -398,7 +398,7 @@ export default class PloneClient {
   */
   getSearchQuery = queryWithConfig(_getSearchQuery, this.getConfig);
 
-  /* 
+  /*
     Querysources queries
   */
   getQuerysourceQuery = queryWithConfig(_getQuerysourceQuery, this.getConfig);
@@ -494,7 +494,7 @@ export default class PloneClient {
     this.getConfig,
   );
 
-  /* 
+  /*
     Comments queries
   */
   getCommentsQuery = queryWithConfig(_getCommentsQuery, this.getConfig);
