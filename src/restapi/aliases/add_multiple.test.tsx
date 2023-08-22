@@ -11,7 +11,7 @@ const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
 
-const { login, createAliasesRootMutation } = cli;
+const { login, createAliasesMultipleMutation } = cli;
 await login({ username: 'admin', password: 'secret' });
 
 beforeEach(async () => {
@@ -22,17 +22,17 @@ afterEach(async () => {
   await teardown();
 });
 
-describe('[POST] AliasesRoot', () => {
+describe('[POST] AliasesMultiple', () => {
   test('Hook - Successful', async () => {
     const path = '/';
     const contentData = {
       '@type': 'Document',
-      title: 'Sample page',
+      title: 'add-multi-alias-page',
     };
     await createContent({ path, data: contentData, config: cli.config });
 
     const { result } = renderHook(
-      () => useMutation(createAliasesRootMutation()),
+      () => useMutation(createAliasesMultipleMutation()),
       {
         wrapper: createWrapper(),
       },
@@ -42,8 +42,14 @@ describe('[POST] AliasesRoot', () => {
       items: [
         {
           datetime: '2022-10-07',
-          path: '/new-alias',
-          'redirect-to': '/sample-page',
+          path: '/add-multi-alias-1',
+          'redirect-to': '/add-multi-alias-page',
+        },
+
+        {
+          datetime: '2022-10-07',
+          path: '/add-multi-alias-2',
+          'redirect-to': '/add-multi-alias-page',
         },
       ],
     };
@@ -61,13 +67,13 @@ describe('[POST] AliasesRoot', () => {
         {
           datetime: '2023-10-07',
           path: '/new-alias',
-          'redirect-to': '/alias-page',
+          'redirect-to': '/add-multi-fail-page',
         },
       ],
     };
 
     const { result } = renderHook(
-      () => useMutation(createAliasesRootMutation()),
+      () => useMutation(createAliasesMultipleMutation()),
       {
         wrapper: createWrapper(),
       },

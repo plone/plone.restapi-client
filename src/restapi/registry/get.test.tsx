@@ -7,13 +7,14 @@ const cli = ploneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
 
-const { getContextNavigationQuery } = cli;
+const { login, getRegistryQuery } = cli;
+await login({ username: 'admin', password: 'secret' });
 
-describe('[GET] ContextNavigation', () => {
+describe('[GET] Registry', () => {
   test('Hook - Successful', async () => {
-    const path = '/';
+    const registryName = 'plone.app.querystring.field.path.title';
     const { result } = renderHook(
-      () => useQuery(getContextNavigationQuery({ path })),
+      () => useQuery(getRegistryQuery({ registryName })),
       {
         wrapper: createWrapper(),
       },
@@ -21,15 +22,13 @@ describe('[GET] ContextNavigation', () => {
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
-    expect(result.current.data?.['@id']).toBe(
-      'http://localhost:55001/plone/@contextnavigation',
-    );
+    expect(result.current.data).toBe('Location');
   });
 
   test('Hook - Failure', async () => {
-    const path = '/blah';
+    const registryName = '/blah';
     const { result } = renderHook(
-      () => useQuery(getContextNavigationQuery({ path })),
+      () => useQuery(getRegistryQuery({ registryName })),
       {
         wrapper: createWrapper(),
       },

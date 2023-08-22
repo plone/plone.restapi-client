@@ -1,17 +1,17 @@
 import { act, renderHook, waitFor } from '@testing-library/react';
 import { createWrapper } from '../../testUtils';
-import { createContent } from '../content/add';
 import { useMutation } from '@tanstack/react-query';
 import { setup, teardown } from '../../resetFixture';
 import { beforeEach } from 'vitest';
 import { expect, test } from 'vitest';
 import PloneClient from '../../client';
+import { getRegistry } from './get';
 
 const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
 
-const { login, createAliasesMutation } = cli;
+const { login, updateRegistryMutation } = cli;
 await login({ username: 'admin', password: 'secret' });
 
 beforeEach(async () => {
@@ -22,55 +22,43 @@ afterEach(async () => {
   await teardown();
 });
 
-describe('[POST] Aliases', () => {
+describe('[PATCH] Registry', () => {
   test('Hook - Successful', async () => {
-    const path = '/';
-    const contentData = {
-      '@type': 'Document',
-      title: 'add-alias-page',
-    };
-    await createContent({ path, data: contentData, config: cli.config });
-
-    const pagePath = 'add-alias-page';
-
-    const { result } = renderHook(() => useMutation(createAliasesMutation()), {
+    const { result } = renderHook(() => useMutation(updateRegistryMutation()), {
       wrapper: createWrapper(),
     });
 
-    const aliasesData = {
-      items: [
-        {
-          path: '/add-alias',
-        },
-        {
-          path: '/add-alias-2',
-        },
-      ],
+    const updateRegistryData = {
+      'plone.app.querystring.field.path.title': 'Value',
     };
 
     act(() => {
-      result.current.mutate({ path: pagePath, data: aliasesData });
+      result.current.mutate({
+        data: updateRegistryData,
+      });
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
+
+    const registery = await getRegistry({
+      registryName: 'plone.app.querystring.field.path.title',
+      config: cli.config,
+    });
+
+    expect(registery).toBe('Value');
   });
 
   test('Hook - Failure', async () => {
-    const path = '/blah';
-    const aliasesData = {
-      items: [
-        {
-          path: '/add-fail-alias',
-        },
-      ],
+    const updateRegistryData = {
+      blah: 'Value',
     };
 
-    const { result } = renderHook(() => useMutation(createAliasesMutation()), {
+    const { result } = renderHook(() => useMutation(updateRegistryMutation()), {
       wrapper: createWrapper(),
     });
 
     act(() => {
-      result.current.mutate({ path, data: aliasesData });
+      result.current.mutate({ data: updateRegistryData });
     });
 
     await waitFor(() => expect(result.current.isError).toBe(true));

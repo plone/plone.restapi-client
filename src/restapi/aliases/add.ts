@@ -25,13 +25,13 @@ export const createAliases = async ({
     config,
   });
 
-  const aliasesPath = `${validatedArgs.path}/@aliases`;
+  const addAliasesPath = `${validatedArgs.path}/@aliases`;
 
   const options: ApiRequestParams = {
     data: validatedArgs.data,
     config: validatedArgs.config,
   };
-  return apiRequest('post', aliasesPath, options);
+  return apiRequest('post', addAliasesPath, options);
 };
 
 export const createAliasesMutation = ({
