@@ -38,6 +38,14 @@ import { resetPasswordMutation as _resetPasswordMutation } from './restapi/users
 import { resetPasswordWithTokenMutation as _resetPasswordWithTokenMutation } from './restapi/users/reset_password_with_token';
 import { updatePasswordMutation as _updatePasswordMutation } from './restapi/users/update_password';
 import { updateUserMutation as _updateUserMutation } from './restapi/users/update';
+import { getUserschemaQuery as _getUserschemaQuery } from './restapi/userschema/get';
+import { getRolesQuery as _getRolesQuery } from './restapi/roles/get';
+import { getSystemQuery as _getSystemQuery } from './restapi/system/get';
+import { getTransactionsQuery as _getTransactionsQuery } from './restapi/transactions/get';
+import { revertTransactionsMutation as _revertTransactionsMutation } from './restapi/transactions/revert';
+import { getUpgradeQuery as _getUpgradeQuery } from './restapi/upgrade/get';
+import { runUpgradeMutation as _runUpgradeMutation } from './restapi/upgrade/run';
+import { getLinkintegrityQuery as _getLinkintegrityQuery } from './restapi/linkintegrity/get';
 import { getPrincipalsQuery as _getPrincipalsQuery } from './restapi/principals/get';
 import { getWorkingcopyQuery as _getWorkingcopyQuery } from './restapi/workingcopy/get';
 import { createWorkingcopyMutation as _createWorkingcopyMutation } from './restapi/workingcopy/add';
@@ -244,6 +252,30 @@ export default class PloneClient {
   updateUserMutation = mutationWithConfig(_updateUserMutation, this.getConfig);
 
   /*
+    UserSchema queries
+  */
+  getUserschemaQuery = queryWithConfig(_getUserschemaQuery, this.getConfig);
+
+  /*
+    Roles queries
+  */
+  getRolesQuery = queryWithConfig(_getRolesQuery, this.getConfig);
+
+  /*
+    System queries
+  */
+  getSystemQuery = queryWithConfig(_getSystemQuery, this.getConfig);
+
+  /*
+    Transactions queries
+  */
+  getTransactionsQuery = queryWithConfig(_getTransactionsQuery, this.getConfig);
+  revertTransactionsMutation = mutationWithConfig(
+    _revertTransactionsMutation,
+    this.getConfig,
+  );
+
+  /*
     Principals queries
   */
   getPrincipalsQuery = queryWithConfig(_getPrincipalsQuery, this.getConfig);
@@ -283,6 +315,20 @@ export default class PloneClient {
   getRegistryQuery = queryWithConfig(_getRegistryQuery, this.getConfig);
   updateRegistryMutation = mutationWithConfig(
     _updateRegistryMutation,
+    this.getConfig,
+  );
+
+  /*
+    Upgrade queries
+  */
+  getUpgradeQuery = queryWithConfig(_getUpgradeQuery, this.getConfig);
+  runUpgradeMutation = mutationWithConfig(_runUpgradeMutation, this.getConfig);
+
+  /*
+    Linkintegrity queries
+  */
+  getLinkintegrityQuery = queryWithConfig(
+    _getLinkintegrityQuery,
     this.getConfig,
   );
 
