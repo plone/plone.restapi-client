@@ -22,11 +22,11 @@ describe('[GET] Translations', () => {
     const registryData = { 'plone.available_languages': ['en', 'es'] };
     await updateRegistry({ data: registryData, config: cli.config });
 
+    // We need to install 'plone.app.multilingual' in order to use translations endpoint
     await installAddon({
       addonId: 'plone.app.multilingual',
       config: cli.config,
     });
-    // We need to install 'plone.app.multilingual' in order to use translations endpoint
 
     const contentDataES = {
       '@type': 'Document',
@@ -75,11 +75,11 @@ describe('[GET] Translations', () => {
     const registryData = { 'plone.available_languages': ['en', 'es'] };
     await updateRegistry({ data: registryData, config: cli.config });
 
+    // We need to install 'plone.app.multilingual' in order to use translations endpoint
     await installAddon({
       addonId: 'plone.app.multilingual',
       config: cli.config,
     });
-    // We need to install 'plone.app.multilingual' in order to use translations endpoint
 
     const path = '/en/blah';
     const { result } = renderHook(
