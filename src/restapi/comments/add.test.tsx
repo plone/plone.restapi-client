@@ -7,6 +7,7 @@ import { expect, test } from 'vitest';
 import PloneClient from '../../client';
 import { v4 as uuid } from 'uuid';
 import { createContent } from '../content/add';
+import { updateRegistry } from '../registry/update';
 
 const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
@@ -34,8 +35,19 @@ describe('[POST] Comment', () => {
 
     await createContent({ path: '/', data: contentData, config: cli.config });
 
+    const registryData = {
+      'plone.app.discussion.interfaces.IDiscussionSettings.globally_enabled':
+        true,
+      'plone.app.discussion.interfaces.IDiscussionSettings.edit_comment_enabled':
+        true,
+      'plone.app.discussion.interfaces.IDiscussionSettings.delete_own_comment_enabled':
+        true,
+    };
+
+    await updateRegistry({ data: registryData, config: cli.config });
+
     const addCommentData = {
-      text: `This is a comment`,
+      text: `This is a comment ${randomId}`,
     };
 
     const { result } = renderHook(() => useMutation(createCommentMutation()), {

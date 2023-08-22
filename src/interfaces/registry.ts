@@ -29,4 +29,4 @@ export interface GetRegistriesResponse {
   items_total: number;
 }
 
-export const updateRegistryDataSchema = z.record(z.string());
+export const updateRegistryDataSchema = z.record(z.any());
