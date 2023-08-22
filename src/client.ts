@@ -38,6 +38,14 @@ import { resetPasswordMutation as _resetPasswordMutation } from './restapi/users
 import { resetPasswordWithTokenMutation as _resetPasswordWithTokenMutation } from './restapi/users/reset_password_with_token';
 import { updatePasswordMutation as _updatePasswordMutation } from './restapi/users/update_password';
 import { updateUserMutation as _updateUserMutation } from './restapi/users/update';
+import { getSiteQuery as _getSiteQuery } from './restapi/site/get';
+import { getRegistriesQuery as _getRegistriesQuery } from './restapi/registry/get_list';
+import { getRegistryQuery as _getRegistryQuery } from './restapi/registry/get';
+import { updateRegistryMutation as _updateRegistryMutation } from './restapi/registry/update';
+import { getLockQuery as _getLockQuery } from './restapi/lock/get';
+import { createLockMutation as _createLockMutation } from './restapi/lock/add';
+import { updateLockMutation as _updateLockMutation } from './restapi/lock/update';
+import { deleteLockMutation as _deleteLockMutation } from './restapi/lock/delete';
 import { getWorkflowQuery as _getWorkflowQuery } from './restapi/workflow/get';
 import { createWorkflowMutation as _createWorkflowMutation } from './restapi/workflow/add';
 import { getVocabulariesListQuery as _getVocabulariesListQuery } from './restapi/vocabularies/get_list';
@@ -227,6 +235,29 @@ export default class PloneClient {
     this.getConfig,
   );
   updateUserMutation = mutationWithConfig(_updateUserMutation, this.getConfig);
+
+  /*
+    Site queries
+  */
+  getSiteQuery = queryWithConfig(_getSiteQuery, this.getConfig);
+
+  /*
+    Registries queries
+  */
+  getRegistriesQuery = queryWithConfig(_getRegistriesQuery, this.getConfig);
+  getRegistryQuery = queryWithConfig(_getRegistryQuery, this.getConfig);
+  updateRegistryMutation = mutationWithConfig(
+    _updateRegistryMutation,
+    this.getConfig,
+  );
+
+  /*
+    Lock queries
+  */
+  getLockQuery = queryWithConfig(_getLockQuery, this.getConfig);
+  createLockMutation = mutationWithConfig(_createLockMutation, this.getConfig);
+  updateLockMutation = mutationWithConfig(_updateLockMutation, this.getConfig);
+  deleteLockMutation = mutationWithConfig(_deleteLockMutation, this.getConfig);
 
   /*
     Workflow queries
