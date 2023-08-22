@@ -38,6 +38,13 @@ import { resetPasswordMutation as _resetPasswordMutation } from './restapi/users
 import { resetPasswordWithTokenMutation as _resetPasswordWithTokenMutation } from './restapi/users/reset_password_with_token';
 import { updatePasswordMutation as _updatePasswordMutation } from './restapi/users/update_password';
 import { updateUserMutation as _updateUserMutation } from './restapi/users/update';
+import { getPrincipalsQuery as _getPrincipalsQuery } from './restapi/principals/get';
+import { getWorkingcopyQuery as _getWorkingcopyQuery } from './restapi/workingcopy/get';
+import { createWorkingcopyMutation as _createWorkingcopyMutation } from './restapi/workingcopy/add';
+import { checkInWorkingcopyMutation as _checkInWorkingcopyMutation } from './restapi/workingcopy/check-in';
+import { deleteWorkingcopyMutation as _deleteWorkingcopyMutation } from './restapi/workingcopy/delete';
+import { copyMutation as _copyMutation } from './restapi/copymove/copy';
+import { moveMutation as _moveMutation } from './restapi/copymove/move';
 import { getSiteQuery as _getSiteQuery } from './restapi/site/get';
 import { getRegistriesQuery as _getRegistriesQuery } from './restapi/registry/get_list';
 import { getRegistryQuery as _getRegistryQuery } from './restapi/registry/get';
@@ -235,6 +242,34 @@ export default class PloneClient {
     this.getConfig,
   );
   updateUserMutation = mutationWithConfig(_updateUserMutation, this.getConfig);
+
+  /*
+    Principals queries
+  */
+  getPrincipalsQuery = queryWithConfig(_getPrincipalsQuery, this.getConfig);
+
+  /*
+    Workingcopy queries
+  */
+  getWorkingcopyQuery = queryWithConfig(_getWorkingcopyQuery, this.getConfig);
+  createWorkingcopyMutation = mutationWithConfig(
+    _createWorkingcopyMutation,
+    this.getConfig,
+  );
+  checkInWorkingcopyMutation = mutationWithConfig(
+    _checkInWorkingcopyMutation,
+    this.getConfig,
+  );
+  deleteWorkingcopyMutation = mutationWithConfig(
+    _deleteWorkingcopyMutation,
+    this.getConfig,
+  );
+
+  /*
+    Copy and Move queries
+  */
+  copyMutation = mutationWithConfig(_copyMutation, this.getConfig);
+  moveMutation = mutationWithConfig(_moveMutation, this.getConfig);
 
   /*
     Site queries
