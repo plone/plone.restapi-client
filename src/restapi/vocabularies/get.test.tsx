@@ -7,13 +7,14 @@ const cli = ploneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
 
-const { getContextNavigationQuery } = cli;
+const { getVocabulariesQuery } = cli;
 
-describe('[GET] ContextNavigation', () => {
+describe('[GET] Vocabularies', () => {
   test('Hook - Successful', async () => {
-    const path = '/';
+    const path = 'plone.app.vocabularies.ReallyUserFriendlyTypes';
+
     const { result } = renderHook(
-      () => useQuery(getContextNavigationQuery({ path })),
+      () => useQuery(getVocabulariesQuery({ path })),
       {
         wrapper: createWrapper(),
       },
@@ -22,14 +23,31 @@ describe('[GET] ContextNavigation', () => {
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
     expect(result.current.data?.['@id']).toBe(
-      'http://localhost:55001/plone/@contextnavigation',
+      `http://localhost:55001/plone/++api++/@vocabularies/${path}`,
+    );
+  });
+
+  test('Hook - Successful', async () => {
+    const path = 'Fields';
+
+    const { result } = renderHook(
+      () => useQuery(getVocabulariesQuery({ path })),
+      {
+        wrapper: createWrapper(),
+      },
+    );
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+
+    expect(result.current.data?.['@id']).toBe(
+      `http://localhost:55001/plone/++api++/@vocabularies/${path}`,
     );
   });
 
   test('Hook - Failure', async () => {
     const path = '/blah';
     const { result } = renderHook(
-      () => useQuery(getContextNavigationQuery({ path })),
+      () => useQuery(getVocabulariesQuery({ path })),
       {
         wrapper: createWrapper(),
       },

@@ -7,12 +7,11 @@ const cli = ploneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
 
-const { getAliasesQuery } = cli;
+const { getAliasesListQuery } = cli;
 
-describe('[GET] Aliases', () => {
+describe('[GET] AliasesList', () => {
   test('Hook - Successful', async () => {
-    const path = '/';
-    const { result } = renderHook(() => useQuery(getAliasesQuery({ path })), {
+    const { result } = renderHook(() => useQuery(getAliasesListQuery({})), {
       wrapper: createWrapper(),
     });
 
@@ -20,16 +19,5 @@ describe('[GET] Aliases', () => {
     expect(result.current.data?.['@id']).toBe(
       'http://localhost:55001/plone/@aliases',
     );
-  });
-
-  test('Hook - Failure', async () => {
-    const path = '/blah';
-    const { result } = renderHook(() => useQuery(getAliasesQuery({ path })), {
-      wrapper: createWrapper(),
-    });
-
-    await waitFor(() => expect(result.current.isError).toBe(true));
-
-    expect(result.current.error).toBeDefined();
   });
 });

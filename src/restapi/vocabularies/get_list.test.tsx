@@ -6,17 +6,20 @@ import ploneClient from '../../client';
 const cli = ploneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
-const { getAliasesRootQuery } = cli;
 
-describe('[GET] AliasesRoot', () => {
+const { getVocabulariesListQuery } = cli;
+
+describe('[GET] VocabulariesList', () => {
   test('Hook - Successful', async () => {
-    const { result } = renderHook(() => useQuery(getAliasesRootQuery({})), {
-      wrapper: createWrapper(),
-    });
+    const { result } = renderHook(
+      () => useQuery(getVocabulariesListQuery({})),
+      {
+        wrapper: createWrapper(),
+      },
+    );
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
-    expect(result.current.data?.['@id']).toBe(
-      'http://localhost:55001/plone/@aliases',
-    );
+
+    expect(result.current.data?.[0]).toHaveProperty('@id');
   });
 });

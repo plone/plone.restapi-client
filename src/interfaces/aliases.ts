@@ -8,7 +8,7 @@ export interface GetAliasesResponse {
   items_total: number;
 }
 
-export interface GetAliasesRootResponse {
+export interface GetAliasesListResponse {
   '@id': string;
   items: Array<{
     datetime: string;
@@ -32,11 +32,11 @@ export const deleteAliasesDataSchema = z.object({
 });
 
 const rootItemSchema = z.object({
-  datetime: z.string(),
+  datetime: z.string().optional(),
   path: z.string(),
   'redirect-to': z.string(),
 });
 
-export const createAliasesRootDataSchema = z.object({
+export const createAliasesMultipleDataSchema = z.object({
   items: z.array(rootItemSchema),
 });
