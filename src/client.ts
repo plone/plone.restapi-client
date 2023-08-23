@@ -93,6 +93,15 @@ import { createTypeFieldMutation as _createTypeFieldMutation } from './restapi/t
 import { updateTypeFieldMutation as _updateTypeFieldMutation } from './restapi/types/update';
 import { getAliasesListQuery as _getAliasesListQuery } from './restapi/aliases/get_list';
 import { createAliasesMultipleMutation as _createAliasesMultipleMutation } from './restapi/aliases/add_multiple';
+import { getCommentsQuery as _getCommentsQuery } from './restapi/comments/get';
+import { createCommentMutation as _createCommentMutation } from './restapi/comments/add';
+import { updateCommentMutation as _updateCommentMutation } from './restapi/comments/update';
+import { deleteCommentMutation as _deleteCommentMutation } from './restapi/comments/delete';
+import { emailNotificationMutation as _emailNotificationMutation } from './restapi/email-notification/post';
+import { emailSendMutation as _emailSendMutation } from './restapi/email-send/post';
+import { getTranslationQuery as _getTranslationQuery } from './restapi/translations/get';
+import { linkTranslationMutation as _linkTranslationMutation } from './restapi/translations/link';
+import { unlinkTranslationMutation as _unlinkTranslationMutation } from './restapi/translations/unlink';
 
 import { mutationWithConfig, queryWithConfig } from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
@@ -349,7 +358,7 @@ export default class PloneClient {
     this.getConfig,
   );
 
-  /* 
+  /*
     Rules queries
   */
   getRulesQuery = queryWithConfig(_getRulesQuery, this.getConfig);
@@ -389,7 +398,7 @@ export default class PloneClient {
   */
   getSearchQuery = queryWithConfig(_getSearchQuery, this.getConfig);
 
-  /* 
+  /*
     Querysources queries
   */
   getQuerysourceQuery = queryWithConfig(_getQuerysourceQuery, this.getConfig);
@@ -482,6 +491,49 @@ export default class PloneClient {
   );
   updateTypeFieldMutation = mutationWithConfig(
     _updateTypeFieldMutation,
+    this.getConfig,
+  );
+
+  /*
+    Comments queries
+  */
+  getCommentsQuery = queryWithConfig(_getCommentsQuery, this.getConfig);
+  createCommentMutation = mutationWithConfig(
+    _createCommentMutation,
+    this.getConfig,
+  );
+  updateCommentMutation = mutationWithConfig(
+    _updateCommentMutation,
+    this.getConfig,
+  );
+  deleteCommentMutation = mutationWithConfig(
+    _deleteCommentMutation,
+    this.getConfig,
+  );
+
+  /*
+    Email notifcation queries
+  */
+  emailNotificationMutation = mutationWithConfig(
+    _emailNotificationMutation,
+    this.getConfig,
+  );
+
+  /*
+    Email send queries
+  */
+  emailSendMutation = mutationWithConfig(_emailSendMutation, this.getConfig);
+
+  /*
+    Translation queries
+  */
+  getTranslationQuery = queryWithConfig(_getTranslationQuery, this.getConfig);
+  linkTranslationMutation = mutationWithConfig(
+    _linkTranslationMutation,
+    this.getConfig,
+  );
+  unlinkTranslationMutation = mutationWithConfig(
+    _unlinkTranslationMutation,
     this.getConfig,
   );
 }

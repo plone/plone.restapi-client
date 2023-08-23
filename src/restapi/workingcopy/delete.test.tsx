@@ -28,8 +28,8 @@ afterEach(async () => {
 
 describe('[DELETE] Workingcopy', () => {
   test('Hook - Successful', async () => {
-    await installAddon({ addonId: '/plone.app.iterate', config: cli.config });
     // We need to install 'plone.app.iterate' in order to use workingcopy endpoint
+    await installAddon({ addonId: '/plone.app.iterate', config: cli.config });
 
     const randomId = uuid();
     const path = '/';
@@ -63,6 +63,7 @@ describe('[DELETE] Workingcopy', () => {
   });
 
   test('Hook - Failure', async () => {
+    // We need to install 'plone.app.iterate' in order to use workingcopy endpoint
     await installAddon({ addonId: '/plone.app.iterate', config: cli.config });
 
     const path = 'blah';
