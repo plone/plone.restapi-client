@@ -795,4 +795,33 @@ export default class PloneClient {
   useGetTypeField = queryHookFromQuery(this.getTypeFieldQuery);
   useCreateTypeField = mutationHookFromMutation(this.createTypeFieldMutation);
   useUpdateTypeField = mutationHookFromMutation(this.updateTypeFieldMutation);
+
+  /*
+    Comments hooks
+  */
+  useGetComments = queryHookFromQuery(this.getCommentsQuery);
+  useCreateComment = mutationHookFromMutation(this.createCommentMutation);
+  useUpdateComment = mutationHookFromMutation(this.updateCommentMutation);
+  useDeleteComment = mutationHookFromMutation(this.deleteCommentMutation);
+
+  /*
+    Email notifcation hooks
+  */
+  useEmailNotification = mutationHookFromMutation(
+    this.emailNotificationMutation,
+  );
+
+  /*
+    Email send hooks
+  */
+  useEmailSend = mutationHookFromMutation(this.emailSendMutation);
+
+  /*
+    Translation hooks
+  */
+  useGetTranslation = queryHookFromQuery(this.getTranslationQuery);
+  useLinkTranslation = mutationHookFromMutation(this.linkTranslationMutation);
+  useUnlinkTranslation = mutationHookFromMutation(
+    this.unlinkTranslationMutation,
+  );
 }
