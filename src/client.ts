@@ -103,7 +103,12 @@ import { getTranslationQuery as _getTranslationQuery } from './restapi/translati
 import { linkTranslationMutation as _linkTranslationMutation } from './restapi/translations/link';
 import { unlinkTranslationMutation as _unlinkTranslationMutation } from './restapi/translations/unlink';
 
-import { mutationWithConfig, queryWithConfig } from './utils/misc';
+import {
+  queryHookFromQuery,
+  mutationWithConfig,
+  queryWithConfig,
+  mutationHookFromMutation,
+} from './utils/misc';
 import { PloneClientConfig } from './interfaces/config';
 
 const PLONECLIENT_DEFAULT_CONFIG = { apiPath: 'http://localhost:8080/Plone' };
@@ -535,5 +540,288 @@ export default class PloneClient {
   unlinkTranslationMutation = mutationWithConfig(
     _unlinkTranslationMutation,
     this.getConfig,
+  );
+
+  /*
+    Actions hooks
+  */
+
+  /*
+    Content hooks
+  */
+  useGetContent = queryHookFromQuery(this.getContentQuery);
+  useCreateContent = mutationHookFromMutation(this.createContentMutation);
+  useUpdateContent = mutationHookFromMutation(this.updateContentMutation);
+  useDeleteContent = mutationHookFromMutation(this.deleteContentMutation);
+
+  /*
+    Breadcrumbs hooks
+  */
+  useGetBreadcrumbs = queryHookFromQuery(this.getBreadcrumbsQuery);
+
+  /*
+    Navigation hooks
+  */
+  useGetNavigation = queryHookFromQuery(this.getNavigationQuery);
+
+  /*
+    ContextNavigation hooks
+  */
+  useGetContextNavigation = queryHookFromQuery(this.getContextNavigationQuery);
+
+  /*
+    Actions hooks
+  */
+  useGetActions = queryHookFromQuery(this.getActionsQuery);
+
+  /*
+    Aliases hooks
+  */
+  useGetAliases = queryHookFromQuery(this.getAliasesQuery);
+  useCreateAliases = mutationHookFromMutation(this.createAliasesMutation);
+  useDeleteAliases = mutationHookFromMutation(this.deleteAliasesMutation);
+  useGetAliasesList = queryHookFromQuery(this.getAliasesListQuery);
+  useCreateAliasesMultiple = mutationHookFromMutation(
+    this.createAliasesMultipleMutation,
+  );
+
+  /*
+    Addons hooks
+  */
+  useGetAddons = queryHookFromQuery(this.getAddonsQuery);
+  useGetAddon = queryHookFromQuery(this.getAddonQuery);
+  useInstallAddon = mutationHookFromMutation(this.installAddonMutation);
+  useInstallProfileAddon = mutationHookFromMutation(
+    this.installProfileAddonMutation,
+  );
+  useUninstallAddon = mutationHookFromMutation(this.uninstallAddonMutation);
+  useUpgradeAddon = mutationHookFromMutation(this.upgradeAddonMutation);
+
+  /*
+    Database hooks
+  */
+  useGetDatabase = queryHookFromQuery(this.getDatabaseQuery);
+
+  /*
+    Group hooks
+  */
+  useGetGroups = queryHookFromQuery(this.getGroupsQuery);
+  useGetGroup = queryHookFromQuery(this.getGroupQuery);
+  useCreateGroup = mutationHookFromMutation(this.createGroupMutation);
+  useUpdateGroup = mutationHookFromMutation(this.updateGroupMutation);
+  useDeleteGroup = mutationHookFromMutation(this.deleteGroupMutation);
+
+  /*
+    History hooks
+  */
+  useGetHistory = queryHookFromQuery(this.getHistoryQuery);
+  useGetHistoryVersioned = queryHookFromQuery(this.getHistoryVersionedQuery);
+
+  /*
+    User hooks
+  */
+  useGetUsers = queryHookFromQuery(this.getUsersQuery);
+  useGetUser = queryHookFromQuery(this.getUserQuery);
+  useCreateUser = mutationHookFromMutation(this.createUserMutation);
+  useDeleteUser = mutationHookFromMutation(this.deleteUserMutation);
+  useResetPassword = mutationHookFromMutation(this.resetPasswordMutation);
+  useResetPasswordWithToken = mutationHookFromMutation(
+    this.resetPasswordWithTokenMutation,
+  );
+  useUpdatePassword = mutationHookFromMutation(this.updatePasswordMutation);
+  useUpdateUser = mutationHookFromMutation(this.updateUserMutation);
+
+  /*
+    Relations hooks
+  */
+  useGetRelationsList = queryHookFromQuery(this.getRelationsListQuery);
+  useGetRelations = queryHookFromQuery(this.getRelationsQuery);
+  useCreateRelations = mutationHookFromMutation(this.createRelationsMutation);
+  useDeleteRelations = mutationHookFromMutation(this.deleteRelationsMutation);
+  useFixRelations = mutationHookFromMutation(this.fixRelationsMutation);
+
+  /*
+    UserSchema hooks
+  */
+  useGetUserschema = queryHookFromQuery(this.getUserschemaQuery);
+
+  /*
+    Roles hooks
+  */
+  useGetRoles = queryHookFromQuery(this.getRolesQuery);
+
+  /*
+    System hooks
+  */
+  useGetSystem = queryHookFromQuery(this.getSystemQuery);
+
+  /*
+    Transactions hooks
+  */
+  useGetTransactions = queryHookFromQuery(this.getTransactionsQuery);
+  useRevertTransactions = mutationHookFromMutation(
+    this.revertTransactionsMutation,
+  );
+
+  /*
+    Principals hooks
+  */
+  useGetPrincipals = queryHookFromQuery(this.getPrincipalsQuery);
+
+  /*
+    Workingcopy hooks
+  */
+  useGetWorkingcopy = queryHookFromQuery(this.getWorkingcopyQuery);
+  useCreateWorkingcopy = mutationHookFromMutation(
+    this.createWorkingcopyMutation,
+  );
+  useCheckInWorkingcopy = mutationHookFromMutation(
+    this.checkInWorkingcopyMutation,
+  );
+  useDeleteWorkingcopy = mutationHookFromMutation(
+    this.deleteWorkingcopyMutation,
+  );
+
+  /*
+    Querystring search hooks
+  */
+  useGetQuerystringSearch = queryHookFromQuery(this.getQuerystringSearchQuery);
+  usePostQuerystringSearch = mutationHookFromMutation(
+    this.postQuerystringSearchMutation,
+  );
+
+  /*
+    Rules hooks
+  */
+  useGetRules = queryHookFromQuery(this.getRulesQuery);
+  useCreateRule = mutationHookFromMutation(this.createRuleMutation);
+  useUpdateRules = mutationHookFromMutation(this.updateRulesMutation);
+  useDeleteRules = mutationHookFromMutation(this.deleteRulesMutation);
+
+  /*
+    Controlpanels hooks
+  */
+  useGetControlpanels = queryHookFromQuery(this.getControlpanelsQuery);
+  useGetControlpanel = queryHookFromQuery(this.getControlpanelQuery);
+  useCreateControlpanel = mutationHookFromMutation(
+    this.createControlpanelMutation,
+  );
+  useUpdateControlpanel = mutationHookFromMutation(
+    this.updateControlpanelMutation,
+  );
+  useDeleteControlpanel = mutationHookFromMutation(
+    this.deleteControlpanelMutation,
+  );
+
+  /*
+    Search hooks
+  */
+  useGetSearch = queryHookFromQuery(this.getSearchQuery);
+
+  /*
+    Querysources hooks
+  */
+  useGetQuerysource = queryHookFromQuery(this.getQuerysourceQuery);
+
+  /*
+    Sources hooks
+  */
+  useGetSource = queryHookFromQuery(this.getSourceQuery);
+
+  /*
+    Copy and Move hooks
+  */
+  useCopy = mutationHookFromMutation(this.copyMutation);
+  useMove = mutationHookFromMutation(this.moveMutation);
+
+  /*
+    Site hooks
+  */
+  useGetSite = queryHookFromQuery(this.getSiteQuery);
+
+  /*
+    Registries hooks
+  */
+  useGetRegistries = queryHookFromQuery(this.getRegistriesQuery);
+  useGetRegistry = queryHookFromQuery(this.getRegistryQuery);
+  useUpdateRegistry = mutationHookFromMutation(this.updateRegistryMutation);
+
+  /*
+    Upgrade hooks
+  */
+  useGetUpgrade = queryHookFromQuery(this.getUpgradeQuery);
+  useRunUpgrade = mutationHookFromMutation(this.runUpgradeMutation);
+
+  /*
+    Linkintegrity hooks
+  */
+  useGetLinkintegrity = queryHookFromQuery(this.getLinkintegrityQuery);
+
+  /*
+    Lock hooks
+  */
+  useGetLock = queryHookFromQuery(this.getLockQuery);
+  useCreateLock = mutationHookFromMutation(this.createLockMutation);
+  useUpdateLock = mutationHookFromMutation(this.updateLockMutation);
+  useDeleteLock = mutationHookFromMutation(this.deleteLockMutation);
+
+  /*
+    Workflow hooks
+  */
+  useGetWorkflow = queryHookFromQuery(this.getWorkflowQuery);
+  useCreateWorkflow = mutationHookFromMutation(this.createWorkflowMutation);
+
+  /*
+    Vocabularies hooks
+  */
+  useGetVocabulariesList = queryHookFromQuery(this.getVocabulariesListQuery);
+  useGetVocabularies = queryHookFromQuery(this.getVocabulariesQuery);
+
+  /*
+    Querystring hooks
+  */
+  useGetQueryString = queryHookFromQuery(this.getQueryStringQuery);
+
+  /*
+    Navroot hooks
+  */
+  useGetNavroot = queryHookFromQuery(this.getNavrootQuery);
+
+  /*
+    Type hooks
+  */
+  useGetTypes = queryHookFromQuery(this.getTypesQuery);
+  useGetType = queryHookFromQuery(this.getTypeQuery);
+  useGetTypeField = queryHookFromQuery(this.getTypeFieldQuery);
+  useCreateTypeField = mutationHookFromMutation(this.createTypeFieldMutation);
+  useUpdateTypeField = mutationHookFromMutation(this.updateTypeFieldMutation);
+
+  /*
+    Comments hooks
+  */
+  useGetComments = queryHookFromQuery(this.getCommentsQuery);
+  useCreateComment = mutationHookFromMutation(this.createCommentMutation);
+  useUpdateComment = mutationHookFromMutation(this.updateCommentMutation);
+  useDeleteComment = mutationHookFromMutation(this.deleteCommentMutation);
+
+  /*
+    Email notifcation hooks
+  */
+  useEmailNotification = mutationHookFromMutation(
+    this.emailNotificationMutation,
+  );
+
+  /*
+    Email send hooks
+  */
+  useEmailSend = mutationHookFromMutation(this.emailSendMutation);
+
+  /*
+    Translation hooks
+  */
+  useGetTranslation = queryHookFromQuery(this.getTranslationQuery);
+  useLinkTranslation = mutationHookFromMutation(this.linkTranslationMutation);
+  useUnlinkTranslation = mutationHookFromMutation(
+    this.unlinkTranslationMutation,
   );
 }

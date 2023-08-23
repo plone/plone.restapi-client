@@ -11,13 +11,11 @@ Once imported, you should call `initialize` to setup its basic parameters.
 
 After initialization, you can import all the pre-made query factories.
 
-
-
 ```ts
-import ploneClient from "@plone/client";
+import ploneClient from '@plone/client';
 
 const client = ploneClient.initialize({
-  apiPath: "http://localhost:8080/Plone",
+  apiPath: 'http://localhost:8080/Plone',
 });
 ```
 
@@ -36,12 +34,12 @@ The query factories take an object as configuration. These object has some commo
 These is the complete example of the usage of the client in a React client component:
 
 ```jsx
-import { useQuery } from "@tanstack/react-query";
-import ploneClient from "@plone/client";
-import { usePathname } from "next/navigation";
+import { useQuery } from '@tanstack/react-query';
+import ploneClient from '@plone/client';
+import { usePathname } from 'next/navigation';
 
 const client = ploneClient.initialize({
-  apiPath: "http://localhost:8080/Plone",
+  apiPath: 'http://localhost:8080/Plone',
 });
 
 export default function Title() {
@@ -50,7 +48,7 @@ export default function Title() {
   const { data, isLoading } = useQuery(getContentQuery({ path: pathname }));
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
   if (data) {
@@ -61,6 +59,16 @@ export default function Title() {
     );
   }
 
-  return "";
+  return '';
 }
+```
+
+## Hooks
+
+We have provided custom hooks for actions that can be used directly in functional React components.
+
+```ts
+const { useGetContent } = client;
+
+const { data, isLoading } = useGetContent({ path: pathname });
 ```

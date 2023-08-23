@@ -11,7 +11,7 @@ const cli = PloneClient.initialize({
   apiPath: 'http://localhost:55001/plone',
 });
 
-const { login, createContentMutation } = cli;
+const { login, createContentMutation, useCreateContent } = cli;
 await login({ username: 'admin', password: 'secret' });
 
 beforeEach(async () => {
@@ -53,7 +53,7 @@ describe('[POST] Content', () => {
       title: 'My Page',
     };
 
-    const { result } = renderHook(() => useMutation(createContentMutation()), {
+    const { result } = renderHook(useCreateContent, {
       wrapper: createWrapper(),
     });
 
