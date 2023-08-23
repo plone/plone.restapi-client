@@ -8,9 +8,13 @@ When commenting is enabled on your content object, you can retrieve a list of al
 
 ## Get Comments List
 
-This function returns the list of all comments for the given path.
+### Query function
 
-- Function name: `getCommentsQuery`
+Use the `getCommentsListQuery` function to get the query for fetching the comments list for a page.
+
+### Hook
+
+Use the `useGetCommentsList` hook to get the comments list for a page.
 
 ### Parameters
 
@@ -20,9 +24,13 @@ This function returns the list of all comments for the given path.
 
 ## Add Comment
 
-This function can be used to add a comment to the given path.
+### Mutation function
 
-- Function name: `createCommentMutation`
+Use the `createCommentMutation` function to get the mutation for adding a comment for a page.
+
+### Hook
+
+Use the `useCreateComment` hook to add a comment for a page.
 
 ### Parameters
 
@@ -47,9 +55,13 @@ This function can be used to add a comment to the given path.
 
 ## Update Comment
 
-This function can be used to update a comment for the given id and path.
+### Mutation function
 
-- Function name: `updateCommentMutation`
+Use the `updateCommentMutation` function to get the mutation for updating a comment for the given id and path.
+
+### Hook
+
+Use the `useUpdateComment` hook to update a comment for the given id and path.
 
 ### Parameters
 
@@ -73,9 +85,13 @@ This function can be used to update a comment for the given id and path.
 
 ## Delete Comment
 
-This function can be used to delete a comment for the given id and path.
+### Mutation function
 
-- Function name: `deleteCommentMutation`
+Use the `deleteCommentMutation` function to get the mutation for deleting a comment for the given id and path.
+
+### Hook
+
+Use the `useDeleteComment` hook to delete a comment for the given id and path.
 
 ### Parameters
 

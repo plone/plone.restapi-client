@@ -4,9 +4,13 @@ The `@contextnavigation` endpoint uses the same semantics as the classic Plone n
 
 ## Get Context Navigation
 
-This function returns the contextnavigation for the given path.
+### Query function
 
-- Function name: `getContextNavigationQuery`
+Use the `getContextNavigationQuery` function to get the query for fetching the context navigation for a page.
+
+### Hook
+
+Use the `useGetContextNavigation` hook to get the context navigation for a page.
 
 ### Parameters
 

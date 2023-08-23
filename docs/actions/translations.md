@@ -4,9 +4,13 @@ Translations endpoint is used to handle the translation information of the conte
 
 ## Get Translation
 
-This function returns the translation information of the given path.
+### Query function
 
-- Function name: `getTranslationQuery`
+Use the `getTranslationQuery` function to get the query for fetching the translation information of the given path.
+
+### Hook
+
+Use the `useGetTranslation` hook to get the translation information of the given path.
 
 ### Parameters
 
@@ -16,9 +20,13 @@ This function returns the translation information of the given path.
 
 ## Link Translation
 
-This function can be used to link a translation to the given path.
+### Mutation function
 
-- Function name: `linkTranslationMutation`
+Use the `linkTranslationMutation` function to get the mutation for linking a translation to the given path.
+
+### Hook
+
+Use the `useLinkTranslation` hook to link a translation to the given path.
 
 ### Parameters
 
@@ -37,9 +45,13 @@ This function can be used to link a translation to the given path.
 
 ## Unlink Translation
 
-This function can be used to unlink a translation from the given path.
+### Mutation function
 
-- Function name: `unlinkTranslationMutation`
+Use the `unlinkTranslationMutation` function to get the mutation for unlinking a translation from the given path.
+
+### Hook
+
+Use the `useUnlinkTranslation` hook to unlink a translation from the given path.
 
 ### Parameters
 

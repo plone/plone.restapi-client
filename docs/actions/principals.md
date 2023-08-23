@@ -6,9 +6,13 @@ This endpoint requires an authenticated user.
 
 ## Principals Search
 
-This function is used for a search of principals for the given query string.
+### Query function
 
-- Function name: `getPrincipalsQuery`
+Use the `getPrincipalsQuery` function to get the query for fetching the principals for the given query string.
+
+### Hook
+
+Use the `useGetPrincipals` hook to get the principals for the given query string.
 
 ### Parameters
 

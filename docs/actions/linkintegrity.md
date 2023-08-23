@@ -11,9 +11,13 @@ If there are none, it will return an empty list (`[]`).
 
 ## Get Link Integrity
 
-- This function is returns the list of possible reference breaches for given content object.
+### Query function
 
-- Function name: `getLinkintegrityQuery`
+Use the `getLinkIntegrityQuery` function to get the query for fetching the link integrity for a page.
+
+### Hook
+
+Use the `useGetLinkIntegrity` hook to get the link integrity for a page.
 
 ### Parameters
 

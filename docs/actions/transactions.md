@@ -6,15 +6,23 @@ It also allows to revert transactions so that the Plone website can be reverted 
 
 ## Get Transactions
 
-This function returns the list of all transactions in the portal.
+### Query function
 
-- Function name: `getTransactionsQuery`
+Use the `getTransactionsQuery` function to get the query for fetching the list of all transactions in the portal.
+
+### Hook
+
+Use the `useGetTransactions` hook to get the list of all transactions in the portal.
 
 ## Revert Transactions
 
-This function can be used to revert transactions for the given transaction ids in the portal.
+### Mutation function
 
-- Function name: `revertTransactionsMutation`
+Use the `revertTransactionsMutation` function to get the mutation for reverting transactions in the portal.
+
+### Hook
+
+Use the `useRevertTransactions` hook to revert transactions in the portal.
 
 ### Parameters
 

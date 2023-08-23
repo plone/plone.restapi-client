@@ -6,9 +6,13 @@ It also allows to revert to a previous version of the file.
 
 ## Get History
 
-This function returns the history for the content at the given path.
+### Query function
 
-- Function name: `getHistoryQuery`
+Use the `getHistoryQuery` function to get the query for fetching the history for a page.
+
+### Hook
+
+Use the `useGetHistory` hook to get the history for a page.
 
 ### Parameters
 
@@ -18,9 +22,13 @@ This function returns the history for the content at the given path.
 
 ## Get Versioned History
 
-This function returns the content for the specified path and version.
+### Query function
 
-- Function name: `getHistoryVersionedQuery`
+Use the `getHistoryVersionedQuery` function to get the query for fetching the versioned history for a page.
+
+### Hook
+
+Use the `useGetHistoryVersioned` hook to get the versioned history for a page.
 
 ### Parameters
 
@@ -34,9 +42,13 @@ This function returns the content for the specified path and version.
 
 ## Revert to Version
 
-This function reverts the content at the given path to the given version.
+### Mutation function
 
-- Function name: `revertHistoryMutation`
+Use the `revertHistoryMutation` function to get the mutation for reverting to a previous version of a page.
+
+### Hook
+
+Use the `useRevertHistory` hook to revert to a previous version of a page.
 
 ### Parameters
 

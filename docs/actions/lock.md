@@ -9,9 +9,13 @@ The API consumer can create, read, update, and delete a content-type lock.
 
 ## Get Lock Info
 
-This function returns the information about the lock for the given path.
+### Query function
 
-- Function name: `getLockQuery`
+Use the `getLockQuery` function to get the query for fetching the lock info for a page.
+
+### Hook
+
+Use the `useGetLock` hook to get the lock info for a page.
 
 ### Parameters
 
@@ -21,9 +25,13 @@ This function returns the information about the lock for the given path.
 
 ## Add Lock
 
-This function can be used to add a lock on the content of the given path.
+### Mutation function
 
-- Function name: `createLockMutation`
+Use the `createLockMutation` function to get the mutation for adding a lock for a page.
+
+### Hook
+
+Use the `useCreateLock` hook to add a lock for a page.
 
 ### Parameters
 
@@ -48,9 +56,13 @@ This function can be used to add a lock on the content of the given path.
 
 ## Update Lock
 
-This function can be used to update the lock on the content of the given path.
+### Mutation function
 
-- Function name: `updateLockMutation`
+Use the `updateLockMutation` function to get the mutation for updating a lock for a page.
+
+### Hook
+
+Use the `useUpdateLock` hook to update a lock for a page.
 
 ### Parameters
 
@@ -64,9 +76,13 @@ This function can be used to update the lock on the content of the given path.
 
 ## Delete Lock
 
-This function can be used to delete the lock on the content of the given path.
+### Mutation function
 
-- Function name: `deleteLockMutation`
+Use the `deleteLockMutation` function to get the mutation for deleting a lock for a page.
+
+### Hook
+
+Use the `useDeleteLock` hook to delete a lock for a page.
 
 ### Parameters
 

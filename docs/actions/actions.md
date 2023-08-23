@@ -12,9 +12,13 @@ This also works for unauthenticated users.
 
 ## Get Actions
 
-This function returns the list of all the actions at the given path.
+### Query function
 
-- Function name: `getActionsQuery`
+Use the `getActionsQuery` function to get the query for fetching the actions at a given path.
+
+### Hook
+
+Use the `useGetActions` hook to get the actions at a given path.
 
 ### Parameters
 

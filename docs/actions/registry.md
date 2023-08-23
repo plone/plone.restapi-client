@@ -7,15 +7,23 @@ Reading or writing registry records require the `cmf.ManagePortal` permission.
 
 ## Get Registry List
 
-This function returns the list of all available registry records.
+### Query function
 
-- Function name: `getRegistriesQuery`
+Use the `getRegistriesQuery` function to get the query for fetching the list of all available registry records.
+
+### Hook
+
+Use the `useGetRegistries` hook to get the list of all available registry records.
 
 ## Get Registry
 
-This function returns the registry record at the given path.
+### Query function
 
-- Function name: `getRegistryQuery`
+Use the `getRegistryQuery` function to get the query for fetching a registry record at a given path.
+
+### Hook
+
+Use the `useGetRegistry` hook to get a registry record at a given path.
 
 ### Parameters
 
@@ -25,9 +33,13 @@ This function returns the registry record at the given path.
 
 ## Update Registry
 
-This function updates the registry record at the given path.
+### Mutation function
 
-- Function name: `updateRegistryMutation`
+Use the `updateRegistryMutation` function to get the mutation for updating a registry record at a given path.
+
+### Hook
+
+Use the `useUpdateRegistry` hook to update a registry record at a given path.
 
 ### Parameters
 

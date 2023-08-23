@@ -5,6 +5,10 @@ This action requires an authenticated user.
 
 ### Get Roles
 
-This function returns the list of all roles in the portal.
+### Query function
 
-- Function name: `getRolesQuery`
+Use the `getRolesQuery` function to get the query for fetching the list of all roles in the portal.
+
+### Hook
+
+Use the `useGetRoles` hook to get the list of all roles in the portal.

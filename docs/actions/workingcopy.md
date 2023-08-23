@@ -9,9 +9,13 @@ It allows the users to create a working copy of a published or live content obje
 
 ## Get Working Copy
 
-This function returns the working copy of a content object.
+### Query function
 
-- Function name: `getWorkingcopyQuery`
+Use the `getWorkingcopyQuery` function to get the query for fetching the working copy of a content object.
+
+### Hook
+
+Use the `useGetWorkingcopy` hook to get the working copy of a content object.
 
 ### Parameters
 
@@ -21,9 +25,13 @@ This function returns the working copy of a content object.
 
 ## Add Working Copy
 
-This function can be used to add a working copy of a content object.
+### Mutation function
 
-- Function name: `createWorkingcopyMutation`
+Use the `createWorkingcopyMutation` function to get the mutation for adding a working copy of a content object.
+
+### Hook
+
+Use the `useCreateWorkingcopy` hook to add a working copy of a content object.
 
 ### Parameters
 
@@ -33,9 +41,13 @@ This function can be used to add a working copy of a content object.
 
 ## Check In Working Copy
 
-This function can be used to check in a working copy to update the original content object.
+### Mutation function
 
-- Function name: `checkinWorkingcopyMutation`
+Use the `checkinWorkingcopyMutation` function to get the mutation for checking in a working copy to update the original content object.
+
+### Hook
+
+Use the `useCheckinWorkingcopy` hook to check in a working copy to update the original content object.
 
 ### Parameters
 
@@ -45,9 +57,13 @@ This function can be used to check in a working copy to update the original cont
 
 ## Delete Working Copy
 
-This function can be used to delete a working copy.
+### Mutation function
 
-- Function name: `deleteWorkingcopyMutation`
+Use the `deleteWorkingcopyMutation` function to get the mutation for deleting a working copy.
+
+### Hook
+
+Use the `useDeleteWorkingcopy` hook to delete a working copy.
 
 ### Parameters
 

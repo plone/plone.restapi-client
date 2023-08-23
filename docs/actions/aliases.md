@@ -6,15 +6,23 @@ When an object is moved (renamed or cut/pasted into a different location), the r
 
 ## Get Aliases List
 
-This function returns the list of all available aliases.
+### Query function
 
-- Function name: `getAliasesListQuery`
+Use the `getAliasesListQuery` function to get the query for fetching the aliases list.
+
+### Hook
+
+Use the `useGetAliasesList` hook to get the aliases list.
 
 ## Get Aliases
 
-This function returns the aliases for the given path.
+### Query function
 
-- Function name: `getAliasesQuery`
+Use the `getAliasesQuery` function to get the query for fetching the aliases for a page.
+
+### Hook
+
+Use the `useGetAliases` hook to get the aliases for a page.
 
 ### Parameters
 
@@ -24,9 +32,13 @@ This function returns the aliases for the given path.
 
 ## Add Aliases for Multiple Pages
 
-This function can be used to add aliases for multiple pages at once.
+### Mutation function
 
-- Function name: `createAliasesMultipleMutation`
+Use the `createAliasesMutation` function to get the mutation for adding aliases for multiple pages.
+
+### Hook
+
+Use the `useCreateAliases` hook to add aliases for multiple pages.
 
 ### Parameters
 
@@ -54,9 +66,13 @@ This function can be used to add aliases for multiple pages at once.
 
 ## Add Aliases for a Page
 
-This function can be used to add aliases for a page.
+### Mutation function
 
-- Function name: `createAliasesMutation`
+Use the `createAliasesMutation` function to get the mutation for adding aliases for a page.
+
+### Hook
+
+Use the `useCreateAliases` hook to add aliases for a page.
 
 ### Parameters
 
@@ -80,9 +96,13 @@ This function can be used to add aliases for a page.
 
 ## Delete Aliases
 
-This function is used for deleting aliases for a page.
+### Mutation function
 
-- Function name: `deleteAliasesMutation`
+Use the `deleteAliasesMutation` function to get the mutation for deleting aliases for a page.
+
+### Hook
+
+Use the `useDeleteAliases` hook to delete aliases for a page.
 
 ### Parameters
 

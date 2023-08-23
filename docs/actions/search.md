@@ -12,9 +12,13 @@ All searches use the same pattern.
 
 ## Get Search
 
-This function is used to search for the given context.
+### Query function
 
-- Function name: `getSearchQuery`
+Use the `getSearchQuery` function to get the query for fetching the search results for the given query.
+
+### Hook
+
+Use the `useGetSearch` hook to get the search results for the given query.
 
 ### Parameters
 

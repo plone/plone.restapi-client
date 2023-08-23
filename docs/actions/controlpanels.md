@@ -5,15 +5,23 @@ The `@controlpanels` endpoint in `plone.restapi` allows you to list all existing
 
 ## Get Control Panels List
 
-This function returns the list of all control panels in the portal.
+### Query function
 
-- Function name: `getControlpanelsQuery`
+Use the `getControlpanelsQuery` function to get the query for fetching the control panels list.
+
+### Hook
+
+Use the `useGetControlpanels` hook to get the control panels list.
 
 ## Get Control Panel
 
-This function returns the information about an individual control panel at the given path.
+### Query function
 
-- Function name: `getControlpanelQuery`
+Use the `getControlpanelQuery` function to get the query for fetching a control panel at a given path.
+
+### Hook
+
+Use the `useGetControlpanel` hook to get a control panel at a given path.
 
 ### Parameters
 
@@ -23,9 +31,13 @@ This function returns the information about an individual control panel at the g
 
 ## Add Custom Elements in Control Panel
 
-This function can be used to add a custom element in the control panel.
+### Mutation function
 
-- Function name: `createControlpanelMutation`
+Use the `createControlpanelMutation` function to get the mutation for adding a custom element in the control panel at a given path.
+
+### Hook
+
+Use the `useCreateControlpanel` hook to add a custom element in the control panel at a given path.
 
 ### Parameters
 
@@ -35,9 +47,13 @@ This function can be used to add a custom element in the control panel.
 
 ## Update Custom Elements in Control Panel
 
-This function can be used to update a custom element in the control panel at the given path.
+### Mutation function
 
-- Function name: `updateControlpanelMutation`
+Use the `updateControlpanelMutation` function to get the mutation for updating a custom element in the control panel at a given path.
+
+### Hook
+
+Use the `useUpdateControlpanel` hook to update a custom element in the control panel at a given path.
 
 ### Parameters
 
@@ -47,9 +63,13 @@ This function can be used to update a custom element in the control panel at the
 
 ## Delete Custom Elements in Control Panel
 
-This function can be used to delete a custom element in the control panel at the given path.
+### Mutation function
 
-- Function name: `deleteControlpanelMutation`
+Use the `deleteControlpanelMutation` function to get the mutation for deleting a custom element in the control panel at a given path.
+
+### Hook
+
+Use the `useDeleteControlpanel` hook to delete a custom element in the control panel at a given path.
 
 ### Parameters
 

@@ -4,9 +4,13 @@ The `@querystring-search` endpoint returns search results that can be filtered o
 
 ## Get Querystring Search
 
-This function is used to search for the given criteria.
+### Query function
 
-- Function name: `getQuerystringSearchQuery`
+Use the `getQuerystringSearchQuery` function to get the query for fetching the search results for a page.
+
+### Hook
+
+Use the `useGetQuerystringSearch` hook to get the search results for a page.
 
 ### Parameters
 
@@ -56,9 +60,13 @@ This function is used to search for the given criteria.
 
 ## Get Querystring Search Using POST request
 
-This function is used to search for the given criteria.
+### Mutation function
 
-- Function name: `postQuerystringSearchMutation`
+Use the `postQuerystringSearchMutation` function to get the mutation for fetching the search results for a page.
+
+### Hook
+
+Use the `usePostQuerystringSearch` hook to get the search results for a page.
 
 ### Parameters
 

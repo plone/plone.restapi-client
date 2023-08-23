@@ -4,6 +4,10 @@ The `@querystring` endpoint returns the `querystring` configuration of `plone.ap
 
 ## Get Querystring
 
-This function returns the response from the querystring endpoint.
+### Query function
 
-- Function name: `getQuerystringQuery`
+Use the `getQuerystringQuery` function to get the query for fetching the `querystring` configuration for a page.
+
+### Hook
+
+Use the `useGetQuerystring` hook to get the `querystring` configuration for a page.

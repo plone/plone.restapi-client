@@ -4,6 +4,10 @@ The `@system` endpoint exposes system information about the Plone backend.
 
 ## Get System Information
 
-This function returns the system information about the Plone backend.
+### Query function
 
-- Function name: `getSystemQuery`
+Use the `getSystemQuery` function to get the query for fetching the system information about the Plone backend.
+
+### Hook
+
+Use the `useGetSystem` hook to get the system information about the Plone backend.

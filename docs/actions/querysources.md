@@ -2,9 +2,13 @@
 
 ## Get querysource
 
-This function returns the querysource for the given path, field and query.
+### Query function
 
-- Function name: `getQuerysourceQuery`
+Use the `getQuerysourceQuery` function to get the query for fetching the querysource for a given path, field and query.
+
+### Hook
+
+Use the `useGetQuerysource` hook to get the querysource for a given path, field and query.
 
 ### Parameters
 

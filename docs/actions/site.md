@@ -5,6 +5,10 @@ It uses the `zope2.View` permission, which requires appropriate authorization.
 
 ## Get Site
 
-This function returns the information about the site.
+### Query function
 
-- Function name: `getSiteQuery`
+Use the `getSiteQuery` function to get the query for fetching the site information.
+
+### Hook
+
+Use the `useGetSite` hook to get the site information.

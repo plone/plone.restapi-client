@@ -5,15 +5,23 @@ They contain so-called _terms_ which represent those allowed choices.
 
 ## Get Vocabularies List
 
-This function returns the list of all available vocabularies.
+### Query function
 
-- Function name: `getVocabulariesListQuery`
+Use the `getVocabulariesListQuery` function to get the query for fetching the list of all available vocabularies.
+
+### Hook
+
+Use the `useGetVocabulariesList` hook to get the list of all available vocabularies.
 
 ## Get Vocabularies
 
-This function returns the vocabularies for the given path.
+### Query function
 
-- Function name: `getVocabulariesQuery`
+Use the `getVocabulariesQuery` function to get the query for fetching the vocabularies for the given path.
+
+### Hook
+
+Use the `useGetVocabularies` hook to get the vocabularies for the given path.
 
 ### Parameters
 

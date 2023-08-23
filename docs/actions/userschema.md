@@ -8,6 +8,10 @@ This dynamic schema is exposed by this endpoint in order to build the user's pro
 
 ## Get User Schema
 
-This function returns the schema of the current user.
+### Query function
 
-- Function name: `getUserSchemaQuery`
+Use the `getUserSchemaQuery` function to get the query for fetching the schema of the current user.
+
+### Hook
+
+Use the `useGetUserSchema` hook to get the schema of the current user.

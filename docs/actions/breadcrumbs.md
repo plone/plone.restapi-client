@@ -2,9 +2,13 @@
 
 ## Get Breadcrumbs
 
-This function returns the breadcrumbs for the given path.
+### Query function
 
-- Function name: `getBreadcrumbsQuery`
+Use the `getBreadcrumbsQuery` function to get the query for fetching the breadcrumbs for a page.
+
+### Hook
+
+Use the `useGetBreadcrumbs` hook to get the breadcrumbs for a page.
 
 ### Parameters:
 

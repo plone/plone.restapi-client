@@ -5,9 +5,13 @@ This action requires an authenticated user:
 
 ## Get Users list
 
-This function returns the retrieve list of all users in the portal.
+### Query function
 
-- Function name: `getUsersQuery`
+Use the `getUsersQuery` function to get the query for fetching the list of all users in the portal.
+
+### Hook
+
+Use the `useGetUsers` hook to get the list of all users in the portal.
 
 ### Parameters
 
@@ -29,9 +33,13 @@ This function returns the retrieve list of all users in the portal.
 
 ## Get User
 
-This function returns the information about an individual user at the given path.
+### Query function
 
-- Function name: `getUserQuery`
+Use the `getUserQuery` function to get the query for fetching the information about an individual user at the given path.
+
+### Hook
+
+Use the `useGetUser` hook to get the information about an individual user at the given path.
 
 ### Parameters
 
@@ -41,9 +49,13 @@ This function returns the information about an individual user at the given path
 
 ## Add User
 
-This function can be used to add a new user at the given path.
+### Mutation function
 
-- Function name: `createUserMutation`
+Use the `createUserMutation` function to get the mutation for adding a new user at the given path.
+
+### Hook
+
+Use the `useCreateUser` hook to add a new user at the given path.
 
 ### Parameters
 
@@ -90,9 +102,13 @@ This function can be used to add a new user at the given path.
 
 ## Update User
 
-This function can be used to update an existing user at the given path.
+### Mutation function
 
-- Function name: `updateUserMutation`
+Use the `updateUserMutation` function to get the mutation for updating an existing user at the given path.
+
+### Hook
+
+Use the `useUpdateUser` hook to update an existing user at the given path.
 
 ### Parameters
 
@@ -135,9 +151,13 @@ This function can be used to update an existing user at the given path.
 
 ## Delete User
 
-This function can be used to delete an existing user at the given path.
+### Mutation function
 
-- Function name: `deleteUserMutation`
+Use the `deleteUserMutation` function to get the mutation for deleting an existing user at the given path.
+
+### Hook
+
+Use the `useDeleteUser` hook to delete an existing user at the given path.
 
 ### Parameters
 
@@ -147,9 +167,13 @@ This function can be used to delete an existing user at the given path.
 
 ## Update User Password
 
-This function can be used to update an existing user password at the given path.
+### Mutation function
 
-- Function name: `updatePasswordMutation`
+Use the `updatePasswordMutation` function to get the mutation for updating an existing user password at the given path.
+
+### Hook
+
+Use the `useUpdatePassword` hook to update an existing user password at the given path.
 
 ### Parameters
 
@@ -172,9 +196,13 @@ This function can be used to update an existing user password at the given path.
 
 ## Reset User Password
 
-This function can be used to reset an existing user password at the given path.
+### Mutation function
 
-- Function name: `resetPasswordMutation`
+Use the `resetPasswordMutation` function to get the mutation for resetting an existing user password at the given path.
+
+### Hook
+
+Use the `useResetPassword` hook to reset an existing user password at the given path.
 
 ### Parameters
 
@@ -184,9 +212,13 @@ This function can be used to reset an existing user password at the given path.
 
 ## Reset User Password with Token
 
-This function can be used to reset an existing user password at the given path.
+### Mutation function
 
-- Function name: `resetPasswordWithTokenMutation`
+Use the `resetPasswordWithTokenMutation` function to get the mutation for resetting an existing user password at the given path.
+
+### Hook
+
+Use the `useResetPasswordWithToken` hook to reset an existing user password at the given path.
 
 ### Parameters
 

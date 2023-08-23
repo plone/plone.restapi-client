@@ -4,9 +4,13 @@ Get all standard Plone content representations.
 
 ## Get Content
 
-This function returns the content at the given path.
+### Query function
 
-- Function name: `getContentQuery`
+Use the `getContentQuery` function to get the query for fetching the content at a given path.
+
+### Hook
+
+Use the `useGetContent` hook to get the content at a given path.
 
 ### Parameters
 
@@ -32,9 +36,13 @@ This function returns the content at the given path.
 
 ## Add Content
 
-This function can be used for adding content to a site.
+### Mutation function
 
-- Function name: `createContentMutation`
+Use the `createContentMutation` function to get the mutation for adding content at a given path.
+
+### Hook
+
+Use the `useCreateContent` hook to add content at a given path.
 
 ### Parameters
 
@@ -146,9 +154,13 @@ This function can be used for adding content to a site.
 
 ## Update Content
 
-This function can be used to update content at the given path.
+### Mutation function
 
-- Function name: `updateContentMutation`
+Use the `updateContentMutation` function to get the mutation for updating content at a given path.
+
+### Hook
+
+Use the `useUpdateContent` hook to update content at a given path.
 
 ### Parameters
 
@@ -248,9 +260,13 @@ This function can be used to update content at the given path.
 
 ## Delete Content
 
-This function can be used to delete content at the given path.
+### Mutation function
 
-- Function name: `deleteContentMutation`
+Use the `deleteContentMutation` function to get the mutation for deleting content at a given path.
+
+### Hook
+
+Use the `useDeleteContent` hook to delete content at a given path.
 
 ### Parameters
 

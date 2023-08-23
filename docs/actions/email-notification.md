@@ -8,9 +8,13 @@ At the same time, it allows the users to reach out to the site owners.
 
 ## Send Email Notification
 
-This function sends an email notification to the site owner or the specified user.
+### Mutation function
 
-- Function name: `emailNotificationMutation`
+Use the `emailNotificationQuery` function to get the mutation for sending an email notification to the site owner or the specified user.
+
+### Hook
+
+Use the `useEmailNotification` hook to send an email notification to the site owner or the specified user.
 
 ### Parameters
 

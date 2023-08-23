@@ -4,15 +4,23 @@ Available content types in a Plone site can be listed and queried by accessing t
 
 ## Get Types List
 
-This function returns the list of all available types.
+### Query function
 
-- Function name: `getTypesQuery`
+Use the `getTypesQuery` function to get the query for fetching the list of all available types.
+
+### Hook
+
+Use the `useGetTypes` hook to get the list of all available types.
 
 ## Get Type
 
-This function returns the information about the content type provided.
+### Query function
 
-- Function name: `getTypeQuery`
+Use the `getTypeQuery` function to get the query for fetching the information about the content type provided.
+
+### Hook
+
+Use the `useGetType` hook to get the information about the content type provided.
 
 ### Parameters
 
@@ -22,9 +30,13 @@ This function returns the information about the content type provided.
 
 ## Get Type Field
 
-This function returns the information about the fieldset of the type provided.
+### Query function
 
-- Function name: `getTypeFieldQuery`
+Use the `getTypeFieldQuery` function to get the query for fetching the information about the field of the type provided.
+
+### Hook
+
+Use the `useGetTypeField` hook to get the information about the field of the type provided.
 
 ### Parameters
 
@@ -34,9 +46,13 @@ This function returns the information about the fieldset of the type provided.
 
 ## Add Type Field/Fieldset
 
-This function can be used to add a fieldset to the type provided.
+### Mutation function
 
-- Function name: `createTypeFieldMutation`
+Use the `createTypeFieldMutation` function to get the mutation for adding a field/fieldset to the type provided.
+
+### Hook
+
+Use the `useCreateTypeField` hook to add a field/fieldset to the type provided.
 
 ### Parameters
 
@@ -67,9 +83,13 @@ This function can be used to add a fieldset to the type provided.
 
 ## Update Type Field/Fieldset
 
-This function can be used to update a field/fieldset of the type provided.
+### Mutation function
 
-- Function name: `updateTypeFieldMutation`
+Use the `updateTypeFieldMutation` function to get the mutation for updating a field/fieldset of the type provided.
+
+### Hook
+
+Use the `useUpdateTypeField` hook to update a field/fieldset of the type provided.
 
 ### Parameters
 

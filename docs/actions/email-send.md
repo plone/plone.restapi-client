@@ -4,9 +4,13 @@ To send an email to an arbitrary email address use the /@email-send endpoint.
 
 ## Send Email
 
-This function sends an email to an arbitrary email address.
+### Mutation function
 
-- Function name: `emailSendMutation`
+Use the `emailSendMutation` function to get the mutation for sending an email to an arbitrary email address.
+
+### Hook
+
+Use the `useEmailSend` hook to send an email to an arbitrary email address.
 
 ### Parameters
 

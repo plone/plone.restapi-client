@@ -5,15 +5,23 @@ The `@upgrade` endpoint exposes upgrade information about the Plone backend, and
 
 ## Get Upgrade Information
 
-This function returns the upgrade information about the Plone backend.
+### Query function
 
-- Function name: `getUpgradeQuery`
+Use the `getUpgradeQuery` function to get the query for fetching the upgrade information about the Plone backend.
+
+### Hook
+
+Use the `useGetUpgrade` hook to get the upgrade information about the Plone backend.
 
 ## Run Upgrade
 
-This function can be used to run upgrade of the Plone backend.
+### Mutation function
 
-- Function name: `runUpgradeMutation`
+Use the `runUpgradeMutation` function to get the mutation for running the upgrade of the Plone backend.
+
+### Hook
+
+Use the `useRunUpgrade` hook to run the upgrade of the Plone backend.
 
 ### Parameters
 

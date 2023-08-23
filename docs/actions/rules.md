@@ -2,9 +2,13 @@
 
 ## Get Rules
 
-This function returns the content-rules for the given path.
+### Query function
 
-- Function name: `getRulesQuery`
+Use the `getRulesQuery` function to get the query for fetching the content-rules for a page.
+
+### Hook
+
+Use the `useGetRules` hook to get the content-rules for a page.
 
 ### Parameters
 
@@ -14,9 +18,13 @@ This function returns the content-rules for the given path.
 
 ## Add Rule
 
-This function can be used to add a content-rule to a page.
+### Mutation function
 
-- Function name: `createRuleMutation`
+Use the `createRuleMutation` function to get the mutation for adding a content-rule to a page.
+
+### Hook
+
+Use the `useCreateRule` hook to add a content-rule to a page.
 
 ### Parameters
 
@@ -24,11 +32,15 @@ This function can be used to add a content-rule to a page.
 
   - **Required:** Yes
 
-## Update Rule
+## Update Rules
 
-This function can be used to update a content-rule for the given rule ids.
+### Mutation function
 
-- Function name: `updateRulesMutation`
+Use the `updateRulesMutation` function to get the mutation for updating content-rules for the given rule ids.
+
+### Hook
+
+Use the `useUpdateRules` hook to update content-rules for the given rule ids.
 
 ### Parameters
 
@@ -63,9 +75,13 @@ This function can be used to update a content-rule for the given rule ids.
 
 ## Delete Rule
 
-This function can be used to delete a content-rule for the given rule ids.
+### Mutation function
 
-- Function name: `deleteRulesMutation`
+Use the `deleteRulesMutation` function to get the mutation for deleting a content-rule for the given rule ids.
+
+### Hook
+
+Use the `useDeleteRules` hook to delete a content-rule for the given rule ids.
 
 ### Parameters
 

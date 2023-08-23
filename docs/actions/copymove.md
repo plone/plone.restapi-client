@@ -12,9 +12,13 @@ The source object can be specified either by URL, path, UID or `intid`:
 
 ## Copy Content
 
-This function can be used to create a copy of content object.
+### Mutation function
 
-- Function name: `copyMutation`
+Use the `copyMutation` function to get the mutation for copying a content object.
+
+### Hook
+
+Use the `useCopy` hook to copy a content object.
 
 ### Parameters
 
@@ -31,9 +35,13 @@ This function can be used to create a copy of content object.
 
 ## Move Content
 
-This function can be used to move a content object.
+### Mutation function
 
-- Function name: `moveMutation`
+Use the `moveMutation` function to get the mutation for moving a content object.
+
+### Hook
+
+Use the `useMove` hook to move a content object.
 
 ### Parameters
 

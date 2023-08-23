@@ -5,15 +5,23 @@ This requires an authenticated user.
 
 ## Get Groups list
 
-This function returns the list of all groups in the portal.
+### Query function
 
-- Function name: `getGroupsQuery`
+Use the `getGroupsQuery` function to get the query for fetching the groups list.
+
+### Hook
+
+Use the `useGetGroups` hook to get the groups list.
 
 ## Get Group
 
-This function returns the information about an individual group at the given path.
+### Query function
 
-- Function name: `getGroupQuery`
+Use the `getGroupQuery` function to get the query for fetching a group at a given path.
+
+### Hook
+
+Use the `useGetGroup` hook to get a group at a given path.
 
 ### Parameters
 
@@ -23,9 +31,13 @@ This function returns the information about an individual group at the given pat
 
 ## Add Group
 
-This function can be used to add a new group at the given path.
+### Mutation function
 
-- Function name: `createGroupMutation`
+Use the `createGroupMutation` function to get the mutation for adding a group at a given path.
+
+### Hook
+
+Use the `useCreateGroup` hook to add a group at a given path.
 
 ### Parameters
 
@@ -68,9 +80,13 @@ This function can be used to add a new group at the given path.
 
 ## Update Group
 
-This function can be used to update an existing group at the given path.
+### Mutation function
 
-- Function name: `updateGroupMutation`
+Use the `updateGroupMutation` function to get the mutation for updating an existing group at the given path.
+
+### Hook
+
+Use the `useUpdateGroup` hook to update an existing group at the given path.
 
 ### Parameters
 
@@ -97,9 +113,13 @@ This function can be used to update an existing group at the given path.
 
 ## Delete Group
 
-This function can be used to delete an existing group at the given path.
+### Mutation function
 
-- Function name: `deleteGroupMutation`
+Use the `deleteGroupMutation` function to get the mutation for deleting a group at the given path.
+
+### Hook
+
+Use the `useDeleteGroup` hook to delete a group at the given path.
 
 ### Parameters
 

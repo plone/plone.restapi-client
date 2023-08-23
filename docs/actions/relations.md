@@ -12,15 +12,23 @@ You can define relations either with content type schema fields `RelationChoice`
 
 ## Get Relations List
 
-This function returns the list of all existing relations user has access to.
+### Query function
 
-- Function name: `getRelationsListQuery`
+Use the `getRelationsListQuery` function to get the query for fetching the list of all existing relations user has access to.
+
+### Hook
+
+Use the `useGetRelationsList` hook to get the list of all existing relations user has access to.
 
 ## Get Relations
 
-This function returns the relations for the given parameters.
+### Query function
 
-- Function name: `getRelationsQuery`
+Use the `getRelationsQuery` function to get the query for fetching the relations for the given parameters.
+
+### Hook
+
+Use the `useGetRelations` hook to get the relations for the given parameters.
 
 ### Parameters
 
@@ -38,9 +46,13 @@ This function returns the relations for the given parameters.
 
 ## Add Relation
 
-This function is used to add a relation for the given parameters.
+### Mutation function
 
-- Function name: `createRelationsMutation`
+Use the `createRelationsMutation` function to get the mutation for adding a relation for the given parameters.
+
+### Hook
+
+Use the `useCreateRelations` hook to add a relation for the given parameters.
 
 ### Parameters
 
@@ -63,9 +75,13 @@ This function is used to add a relation for the given parameters.
 
 ## Fix Relation
 
-This function is used to fix broken relations. Broken relations can be fixed by releasing and re-indexing them.
+### Mutation function
 
-- Function name: `fixRelationsMutation`
+Use the `fixRelationsMutation` function to get the mutation for fixing broken relations.
+
+### Hook
+
+Use the `useFixRelations` hook to fix broken relations.
 
 ### Parameters
 
@@ -80,9 +96,13 @@ This function is used to fix broken relations. Broken relations can be fixed by 
 
 ## Delete Relation
 
-This function is used to delete a relation for the given parameters.
+### Mutation function
 
-- Function name: `deleteRelationsMutation`
+Use the `deleteRelationsMutation` function to get the mutation for deleting a relation for the given parameters.
+
+### Hook
+
+Use the `useDeleteRelations` hook to delete a relation for the given parameters.
 
 ### Parameters
 

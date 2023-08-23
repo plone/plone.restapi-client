@@ -1,8 +1,12 @@
 # Login
 
-This function is used for logging in a user.
+### Query function
 
-- Function name: `loginQuery`
+Use the `loginQuery` function to get the query for logging in a user.
+
+### Hook
+
+Use the `useLogin` hook to log in a user.
 
 ### Parameters
 
