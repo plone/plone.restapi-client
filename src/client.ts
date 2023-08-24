@@ -543,6 +543,12 @@ export default class PloneClient {
   );
 
   /*
+    Initialization hooks
+  */
+
+  useLogin = queryHookFromQuery(this.loginQuery);
+
+  /*
     Actions hooks
   */
 
@@ -616,6 +622,7 @@ export default class PloneClient {
   */
   useGetHistory = queryHookFromQuery(this.getHistoryQuery);
   useGetHistoryVersioned = queryHookFromQuery(this.getHistoryVersionedQuery);
+  useRevertHistory = mutationHookFromMutation(this.revertHistoryMutation);
 
   /*
     User hooks
