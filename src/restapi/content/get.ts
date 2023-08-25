@@ -57,6 +57,16 @@ export const getContent = async ({
   return apiRequest('get', path, options);
 };
 
+/**
+ * Use the getContentQuery function to get the query for fetching the content at a given path.
+ *
+ * @param path
+ * @param version
+ * @param page
+ * @param fullObjects
+ * @param expand
+ * @returns details about the content at the given path
+ */
 export const getContentQuery = ({
   path,
   version,

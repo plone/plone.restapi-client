@@ -63,7 +63,16 @@ extensions = [
     "sphinx_design",
     "sphinx_sitemap",
     "sphinxext.opengraph",
+    "sphinx_js"
 ]
+
+primary_domain = 'js'
+
+js_language = 'typescript'
+
+js_source_path = '../src/restapi'
+
+jsdoc_config_path = '../typedoc.conf.json'
 
 # For more information see:
 # https://myst-parser.readthedocs.io/en/latest/syntax/optional.html

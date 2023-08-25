@@ -72,3 +72,8 @@ const { useGetContent } = client;
 
 const { data, isLoading } = useGetContent({ path: pathname });
 ```
+
+.. autofunction:: getContentQuery
+.. autofunction:: createContentMutation
+.. autofunction:: updateContentMutation
+.. autofunction:: deleteContentMutation

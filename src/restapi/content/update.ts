@@ -35,6 +35,13 @@ export const updateContent = async ({
   return apiRequest('patch', validatedArgs.path, options);
 };
 
+/**
+ * Use the updateContentMutation function to get the mutation for updating content at a given path.
+ *
+ * @param path
+ * @param data
+ * @returns details about the updated content
+ */
 export const updateContentMutation = ({
   config,
 }: {

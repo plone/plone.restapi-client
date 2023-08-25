@@ -27,6 +27,12 @@ export const deleteContent = async ({
   return apiRequest('delete', validatedArgs.path, options);
 };
 
+/**
+ * Use the deleteContentMutation function to get the mutation for deleting content at a given path.
+ *
+ * @param path
+ * @returns undefined
+ */
 export const deleteContentMutation = ({
   config,
 }: {
