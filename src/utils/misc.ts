@@ -45,10 +45,6 @@ export const flattenToDottedNotation = (
   return result;
 };
 
-type TArguments<T> = T extends (args: infer U) => any ? U : never;
-
-type TReturnType<T> = T extends (args: any) => infer U ? U : never;
-
 /*
   `queryHookFromQuery` and `mutationHookFromMutation` functions can be used to 
   create hooks from the query functions and mutation functions respectively. It 
@@ -57,7 +53,6 @@ type TReturnType<T> = T extends (args: any) => infer U ? U : never;
   useMutation internally so that the user doesn't have to use `useQuery` or 
   `useMutation` directly.
 */
-
 type TArguments<T> = T extends (args: infer U) => any ? U : never;
 
 type TReturnType<T> = T extends (args: any) => infer U ? U : never;
