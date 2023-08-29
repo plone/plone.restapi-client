@@ -16,6 +16,14 @@ It has the potential to also be able to send requests to other APIs (provided th
 The Javascript Plone client is conceived to work with TanStack Query, the query or mutation functions can be used to call any Plone REST API endpoint without using it.
 These functions can be used in other use cases like command line helpers, scripts or programatic tests.
 
+## Installation​
+
+To install the Javascript Plone client run the following command:
+
+```shell
+yarn add @plone/client
+```
+
 ## `ploneClient` entry point
 
 The main artifact that the client provides is the `ploneClient` entry point.
