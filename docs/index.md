@@ -17,6 +17,8 @@ This is the documentation for the Plone REST API JavaScript client
 :hidden: true
 
 quick-start
-
+actions/index
+misc
+further-improvements
 ```
 
