@@ -1,3 +1,5 @@
+# Miscelaneous considerations
+
 ## `queryWithConfig` and `mutationWithConfig` functions
 
 The `queryWithConfig` and `mutationWithConfig` functions are utility functions that accept two parameters: `method`, representing the original function, and `configGetter`, a function returning the required configuration object. Using `configGetter` instead of the direct config ensures the latest value is used, preventing closures. These functions return another function, taking the same parameters as the original but excluding the config property. They then invoke the original function with the configuration fetched from configGetter. Utilizing these functions reduces import clutter in client files by obviating the need to import argument types for each query or mutation function.

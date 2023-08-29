@@ -14,9 +14,10 @@ This is the documentation for the Plone REST API JavaScript client
 ```{toctree}
 :caption: Overview
 :maxdepth: 2
-:hidden: true
 
 quick-start
-
+actions/index
+misc
+future-improvements
 ```
 
