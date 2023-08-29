@@ -19,6 +19,6 @@ This is the documentation for the Plone REST API JavaScript client
 quick-start
 actions/index
 misc
-further-improvements
+future-improvements
 ```
 

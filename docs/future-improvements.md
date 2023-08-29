@@ -1,4 +1,6 @@
-The following enhancements need to be considered:
+# Future improvements
+
+The following enhancements need to be considered for next iterations:
 
 ## Separate out the `react-query` part from `@plone/client` into a separate package
 
@@ -6,20 +8,23 @@ This would make the integration cleaner.
 
 We could create wrapper over `@tanstack/react-query` that provides our enhanced `ploneClient` (just like `queryClient` in `@tanstack/react-query`) to the entire package via react-context.
 
+```jsx
 import { PloneClient, PloneClientProvider } from `@plone/client`;
 
 const ploneClient = new PloneClient({
-baseURL: '...'
+  baseURL: '...'
 })
+
 ploneClient.login(username, password);
 
 const App = () => {
-return (
-<PloneClientProvider ploneClient={ploneClient}>
-<MainApp />
-</PloneClientProvider>
-)
+  return (
+    <PloneClientProvider ploneClient={ploneClient}>
+      <MainApp />
+    </PloneClientProvider>
+  )
 }
+```
 
 Then we can import action hooks directly from the package like: `import { useGetBreadcrumbs } from @plone/react-client/actions` and it can work out of the box.
 
