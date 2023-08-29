@@ -8,6 +8,33 @@
 
 <!-- towncrier release notes start -->
 
+## 1.0.0-alpha.4 (2023-08-29)
+
+### Feature
+
+- Add more services to restapi, namely addons and database along with their tests and associated types @hemant-hc [#21](https://github.com/plone/plone.restapi-client/pull/21)
+- Add more services to restapi, namely groups, history and users along with their tests and associated types @hemant-hc [#25](https://github.com/plone/plone.restapi-client/pull/25)
+- Add more services to restapi, namely navroot, querystring, types, vocabularies and workflow along with their tests and associated types @hemant-hc [#27](https://github.com/plone/plone.restapi-client/pull/27)
+- Add more services to restapi, namely lock, registry and site along with their tests and associated types @hemant-hc [#28](https://github.com/plone/plone.restapi-client/pull/28)
+- Add more services to restapi, namely workingcopy, principals and copymove along with their tests and associated types @hemant-hc [#29](https://github.com/plone/plone.restapi-client/pull/29)
+- Add more services to restapi, namely linkintegrity, roles, system, transactions, upgrade and userschema along with their tests and associated types @hemant-hc [#30](https://github.com/plone/plone.restapi-client/pull/30)
+- Add more services to restapi, namely controlpanel, querysources, sources, querystring-search, search, roles and relations along with their tests and associated types @hemant-hc [#31](https://github.com/plone/plone.restapi-client/pull/31)
+- Add more services to restapi, namely comments, email notification, email send and translations along with their tests and associated types @hemant-hc [#32](https://github.com/plone/plone.restapi-client/pull/32)
+- Add custom hooks for all the actions @hemant-hc [#33](https://github.com/plone/plone.restapi-client/pull/33)
+- Add documentation for all the actions and misc functions @hemant-hc [#34](https://github.com/plone/plone.restapi-client/pull/34)
+- Add custom hooks for login and revertHistoryMutation actions @hemant-hc [#35](https://github.com/plone/plone.restapi-client/pull/35)
+- Add documentation for future improvements in @plone/client @hemant-hc [#38](https://github.com/plone/plone.restapi-client/pull/38)
+
+### Bugfix
+
+- Fixed naming convetions for actions and minor formatting changes @hemant-hc [#26](https://github.com/plone/plone.restapi-client/pull/26)
+- Remove duplicate lines of code @hemant-hc [#36](https://github.com/plone/plone.restapi-client/pull/36)
+
+### Documentation
+
+- Amend documentation - Add deployment to RTD @sneridagh [#39](https://github.com/plone/plone.restapi-client/pull/39)
+
+
 ## 1.0.0-alpha.3 (2023-07-24)
 
 ### Feature

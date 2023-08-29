@@ -1,1 +1,0 @@
-Add more services to restapi, namely controlpanel, querysources, sources, querystring-search, search, roles and relations along with their tests and associated types @hemant-hc

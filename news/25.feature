@@ -1,1 +1,0 @@
-Add more services to restapi, namely groups, history and users along with their tests and associated types @hemant-hc

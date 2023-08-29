@@ -1,1 +1,0 @@
-Add documentation for future improvements in @plone/client @hemant-hc
