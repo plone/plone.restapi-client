@@ -1,12 +1,12 @@
-# Content Types
+# Content
 
-Get all standard Plone content representations.
+Get the data for a specific content given its path.
 
 ## Get Content
 
-### Query function
+### Query options function
 
-Use the `getContentQuery` function to get the query for fetching the content at a given path.
+Use the `getContentQuery` function to get the query options object for fetching the content at a given path.
 
 ### Hook
 
@@ -36,7 +36,7 @@ Use the `useGetContent` hook to get the content at a given path.
 
 ## Add Content
 
-### Mutation function
+### Mutation options function
 
 Use the `createContentMutation` function to get the mutation for adding content at a given path.
 

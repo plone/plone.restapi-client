@@ -9,9 +9,9 @@ myst:
 
 (plone-client-actions)=
 
-# Endpoints
+# Endpoint actions
 
-This part of the documentation explains the endpoints of Plone REST API.
+This part of the documentation explains the client actions related to each endpoint of Plone REST API.
 
 ```{toctree}
 :caption: Table of Contents
