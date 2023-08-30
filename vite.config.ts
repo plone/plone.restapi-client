@@ -13,11 +13,14 @@ export default defineConfig({
       fileName: (format) => `plone-client.${format}.js`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'axios'],
+      external: ['react', 'react-dom', '@tanstack/react-query', 'axios', 'zod'],
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
+          '@tanstack/react-query': 'reactQuery',
+          axios: 'axios',
+          zod: 'zod',
         },
       },
     },
