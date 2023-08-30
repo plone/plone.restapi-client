@@ -8,6 +8,13 @@
 
 <!-- towncrier release notes start -->
 
+## 1.0.0-alpha.5 (2023-08-30)
+
+### Bugfix
+
+- Fix build, add new externals, fix imports in index.ts @sneridagh [#40](https://github.com/plone/plone.restapi-client/pull/40)
+
+
 ## 1.0.0-alpha.4 (2023-08-29)
 
 ### Feature
