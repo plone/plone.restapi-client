@@ -12,10 +12,10 @@
   "version": "1.0.0-alpha.5",
   "repository": {
     "type": "git",
-    "url": "git@github.com:plone/restapi-js-client.git"
+    "url": "git@github.com:plone/plone.restapi-client.git"
   },
   "bugs": {
-    "url": "https://github.com/plone/restapi-js-client/issues",
+    "url": "https://github.com/plone/plone.restapi-client/issues",
     "email": "plone-developers@lists.sourceforge.net"
   },
   "type": "module",
