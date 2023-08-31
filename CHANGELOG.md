@@ -8,6 +8,13 @@
 
 <!-- towncrier release notes start -->
 
+## 1.0.0-alpha.6 (2023-08-31)
+
+### Bugfix
+
+- Fix library extensions, remove custom lib name @sneridagh [#41](https://github.com/plone/plone.restapi-client/pull/41)
+
+
 ## 1.0.0-alpha.5 (2023-08-30)
 
 ### Bugfix
