@@ -10,7 +10,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'PloneRESTAPIClient',
-      fileName: (format) => `plone-client.${format}.js`,
+      fileName: 'index',
     },
     rollupOptions: {
       external: ['react', 'react-dom', '@tanstack/react-query', 'axios', 'zod'],
