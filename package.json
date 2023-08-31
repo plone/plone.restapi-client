@@ -23,14 +23,14 @@
     "dist",
     "README.md"
   ],
-  "main": "./dist/plone-client.umd.js",
-  "module": "./dist/plone-client.es.js",
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/plone-client.es.d.ts",
   "exports": {
     ".": {
       "types": "./dist/plone-client.es.d.ts",
-      "import": "./dist/plone-client.es.js",
-      "require": "./dist/plone-client.umd.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
     }
   },
   "homepage": "https://plone.org",
