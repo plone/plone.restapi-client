@@ -32,14 +32,14 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./clientProvider": {
-      "import": "./dist/clientProvider.js"
+    "./provider": {
+      "import": "./dist/provider.js"
     }
   },
   "typesVersions": {
     "*": {
-      "clientProvider": [
-        "dist/clientProvider.d.ts"
+      "provider": [
+        "dist/provider.d.ts"
       ]
     }
   },

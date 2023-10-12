@@ -10,7 +10,7 @@ export default defineConfig({
     lib: {
       entry: [
         path.resolve(__dirname, 'src/index.ts'),
-        path.resolve(__dirname, 'src/clientProvider.tsx'),
+        path.resolve(__dirname, 'src/provider.tsx'),
       ],
       name: 'PloneRESTAPIClient',
     },
