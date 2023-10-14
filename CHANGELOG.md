@@ -8,6 +8,13 @@
 
 <!-- towncrier release notes start -->
 
+## 1.0.0-alpha.7 (2023-10-14)
+
+### Feature
+
+- Added React Provider and related hook. Fix build. @sneridagh [#43](https://github.com/plone/plone.restapi-client/pull/43)
+
+
 ## 1.0.0-alpha.6 (2023-08-31)
 
 ### Bugfix
