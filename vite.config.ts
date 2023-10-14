@@ -8,9 +8,11 @@ export default defineConfig({
   plugins: [dts({ rollupTypes: true }), react()],
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
+      entry: [
+        path.resolve(__dirname, 'src/index.ts'),
+        path.resolve(__dirname, 'src/provider.tsx'),
+      ],
       name: 'PloneRESTAPIClient',
-      fileName: 'index',
     },
     rollupOptions: {
       external: ['react', 'react-dom', '@tanstack/react-query', 'axios', 'zod'],
