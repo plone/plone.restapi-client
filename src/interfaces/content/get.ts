@@ -1,10 +1,16 @@
-import { Components, Item, PreviewImage, RelatedItem } from './common';
+import {
+  Components,
+  ExpanderItem,
+  Item,
+  PreviewImage,
+  RelatedItem,
+} from './common';
 
 export interface GetContentResponse {
   '@components': {
     [key in Components]?: {
       [key: string]: unknown;
-      items?: unknown[];
+      items?: ExpanderItem[];
     };
   };
   '@id': string;
