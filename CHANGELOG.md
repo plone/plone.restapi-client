@@ -8,6 +8,13 @@
 
 <!-- towncrier release notes start -->
 
+## 1.0.0-alpha.8 (2023-10-23)
+
+### Feature
+
+- Add error handling and debug to APIRequest. Enhance expanders type. @sneridagh [#44](https://github.com/plone/plone.restapi-client/pull/44)
+
+
 ## 1.0.0-alpha.7 (2023-10-14)
 
 ### Feature
