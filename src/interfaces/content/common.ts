@@ -9,6 +9,12 @@ export type Components =
   | 'types'
   | 'workflow';
 
+export type ExpanderItem = {
+  [key: string]: unknown;
+  '@id': string;
+  title: string;
+};
+
 export type Item = {
   '@id': string;
   '@type': string;
