@@ -21,6 +21,7 @@
   "type": "module",
   "files": [
     "dist",
+    "src",
     "README.md"
   ],
   "main": "./dist/index.cjs",
@@ -34,7 +35,8 @@
     },
     "./provider": {
       "import": "./dist/provider.js"
-    }
+    },
+    "./src/*": "./src/*"
   },
   "typesVersions": {
     "*": {
@@ -98,8 +100,8 @@
     "wait-on": "^7.0.1"
   },
   "dependencies": {
-    "@tanstack/react-query": "4.29.1",
-    "axios": "^1.4.0",
+    "@tanstack/react-query": "5.0.5",
+    "axios": "^1.5.1",
     "query-string": "^8.1.0",
     "zod": "^3.21.4"
   },
