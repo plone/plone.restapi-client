@@ -8,6 +8,13 @@
 
 <!-- towncrier release notes start -->
 
+## 1.0.0-alpha.9 (2023-10-24)
+
+### Bugfix
+
+- Fix React `@types` dependencies @sneridagh [#45](https://github.com/plone/plone.restapi-client/pull/45)
+
+
 ## 1.0.0-alpha.8 (2023-10-23)
 
 ### Feature
