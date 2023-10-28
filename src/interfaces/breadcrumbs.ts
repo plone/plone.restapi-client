@@ -5,6 +5,6 @@ interface Item {
 
 export interface BreadcrumbsResponse {
   '@id': string;
-  items: Item;
+  items: Item[];
   root: string;
 }

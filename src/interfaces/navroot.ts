@@ -1,3 +1,5 @@
+import { Expanders } from './content/common';
+
 interface Item {
   '@id': string;
   '@type': string;
@@ -7,37 +9,10 @@ interface Item {
   type_title: string;
 }
 
-interface Components {
-  actions: {
-    '@id': string;
-  };
-  aliases: {
-    '@id': string;
-  };
-  breadcrumbs: {
-    '@id': string;
-  };
-  contextnavigation: {
-    '@id': string;
-  };
-  navigation: {
-    '@id': string;
-  };
-  navroot: {
-    '@id': string;
-  };
-  types: {
-    '@id': string;
-  };
-  workflow: {
-    '@id': string;
-  };
-}
-
 export interface GetNavrootResponse {
   '@id': string;
   navroot: {
-    '@components': Components;
+    '@components': Expanders;
     '@id'?: string;
     '@type': string;
     UID: string;
