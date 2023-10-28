@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import {
-  Components,
+  Expanders,
   Item,
   PreviewImage,
   RelatedItem,
@@ -35,11 +35,7 @@ export const updateContentDataSchema = z.object({
 });
 
 export interface UpdateContentResponse {
-  '@components': {
-    [key in Components]: {
-      '@id': string;
-    };
-  };
+  '@components': Expanders;
   '@id': string;
   '@type': string;
   UID: string;

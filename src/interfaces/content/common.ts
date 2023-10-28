@@ -1,19 +1,22 @@
 import { z } from 'zod';
+import { BreadcrumbsResponse } from '../breadcrumbs';
+import { NavigationResponse } from '../navigation';
+import { ActionsResponse } from '../actions';
+import { GetAliasesResponse } from '../aliases';
+import { ContextNavigationResponse } from '../contextnavigation';
+import { GetTypesResponse } from '../types';
+import { WorkflowResponse } from '../workflow';
 
-export type Components =
-  | 'actions'
-  | 'aliases'
-  | 'breadcrumbs'
-  | 'contextnavigation'
-  | 'navigation'
-  | 'types'
-  | 'workflow';
-
-export type ExpanderItem = {
+export interface Expanders {
   [key: string]: unknown;
-  '@id': string;
-  title: string;
-};
+  actions: ActionsResponse;
+  aliases: GetAliasesResponse;
+  breadcrumbs: BreadcrumbsResponse;
+  contextnavigation: ContextNavigationResponse;
+  navigation: NavigationResponse;
+  types: GetTypesResponse;
+  workflow: WorkflowResponse;
+}
 
 export type Item = {
   '@id': string;

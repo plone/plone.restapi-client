@@ -1,18 +1,7 @@
-import {
-  Components,
-  ExpanderItem,
-  Item,
-  PreviewImage,
-  RelatedItem,
-} from './common';
+import { Expanders, Item, PreviewImage, RelatedItem } from './common';
 
 export interface GetContentResponse {
-  '@components': {
-    [key in Components]?: {
-      [key: string]: unknown;
-      items?: ExpanderItem[];
-    };
-  };
+  '@components': Expanders;
   '@id': string;
   '@type': string;
   UID: string;
