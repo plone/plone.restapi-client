@@ -8,6 +8,12 @@
 
 <!-- towncrier release notes start -->
 
+## 1.0.0-alpha.10 (2023-10-28)
+
+### Bugfix
+
+- Better interfaces for content expanders @sneridagh [#46](https://github.com/plone/plone.restapi-client/pull/46)
+
 ## 1.0.0-alpha.9 (2023-10-24)
 
 ### Bugfix
