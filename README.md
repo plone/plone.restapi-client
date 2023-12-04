@@ -1,3 +1,9 @@
+# Important Notice
+
+This library was moved to be part of the Volto monorepo on 2023-12-04. This repository is archived and read-only. 
+
+See: https://github.com/plone/volto/tree/main/packages/client
+
 # @plone/client
 
 [![NPM](https://img.shields.io/npm/v/@plone/client.svg)](https://www.npmjs.com/package/@plone/client)
