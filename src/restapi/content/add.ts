@@ -35,6 +35,13 @@ export const createContent = async ({
   return apiRequest('post', validatedArgs.path, options);
 };
 
+/**
+ * Use the createContentMutation function to get the mutation for adding content at a given path.
+ *
+ * @param path
+ * @param data
+ * @returns details about the created content
+ */
 export const createContentMutation = ({
   config,
 }: {
